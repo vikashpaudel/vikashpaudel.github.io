@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awards - Dr. Vikash Paudel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #1a6aa2;
+      --primary-foreground: #ffffff;
+      --accent: #4db6ac;
+      --background: #ffffff;
+      --foreground: #333333;
+      --muted-foreground: #666666;
+      --border: #e0e0e0;
+      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
+      --transition-smooth: all 0.3s ease;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background-color: var(--background);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), #2c8ac9);
+      color: var(--primary-foreground);
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Navigation Styles */
+    .navbar {
+      background-color: var(--background);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .navbar li {
+      margin: 0;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: var(--foreground);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .navbar a:hover {
+      color: var(--primary);
+      background-color: #f5f5f5;
+    }
+
+    .navbar a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+    }
+
+    /* Main Content Styles */
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-section {
+      background: var(--hero-gradient);
+      color: var(--primary-foreground);
+      padding: 4rem 0;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    .content-section {
+      padding: 4rem 0;
+      background-color: var(--background);
+    }
+
+    .max-w-4xl {
+      max-width: 56rem;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .space-y-12 > * + * {
+      margin-top: 3rem;
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+    }
+
+    .text-muted-foreground {
+      color: var(--muted-foreground);
+    }
+
+    .leading-relaxed {
+      line-height: 1.625;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-medical);
+      transform: translateY(-5px);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .space-x-3 > * + * {
+      margin-left: 0.75rem;
+    }
+
+    .space-x-4 > * + * {
+      margin-left: 1rem;
+    }
+
+    .w-14 {
+      width: 3.5rem;
+    }
+
+    .h-14 {
+      height: 3.5rem;
+    }
+
+    .w-7 {
+      width: 1.75rem;
+    }
+
+    .h-7 {
+      height: 1.75rem;
+    }
+
+    .bg-primary\/10 {
+      background-color: rgba(26, 106, 162, 0.1);
+    }
+
+    .bg-accent\/10 {
+      background-color: rgba(77, 182, 172, 0.1);
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .space-y-6 > * + * {
+      margin-top: 1.5rem;
+    }
+
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    .space-y-3 > * + * {
+      margin-top: 0.75rem;
+    }
+
+    /* Award Year Badge */
+    .year-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(77, 182, 172, 0.1);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .shrink-0 {
+      flex-shrink: 0;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    /* Flex Layout for Award Title and Year */
+    .award-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .award-header {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    /* Recognition List */
+    .recognition-list {
+      list-style: none;
+    }
+
+    .recognition-list li {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .w-2 {
+      width: 0.5rem;
+    }
+
+    .h-2 {
+      height: 0.5rem;
+    }
+
+    .rounded-full {
+      border-radius: 9999px;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-12 {
+      margin-top: 3rem;
+    }
+
+    /* Community Impact */
+    .community-impact {
+      background-color: #f8f9fa;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        padding: 0;
+      }
+      
+      .navbar a {
+        padding: 0.8rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .navbar a.active {
+        border-bottom: 3px solid var(--accent);
+      }
+
+      .flex.space-x-4 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .flex.space-x-4 > * + * {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+      
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      
+      .card-content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="biography.html">Biography</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="awards.html" class="active">Awards</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>Awards & Recognition</h1>
+        <p>Honored for excellence in dermatological care and research</p>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="content-section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto space-y-12">
+          <!-- Introduction -->
+          <div>
+            <h2>Professional Achievements</h2>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              Dr. Vikash Paudel's commitment to excellence in dermatology has been recognized through numerous awards and 
+              accolades from national and international organizations.
+            </p>
+          </div>
+
+          <!-- Awards Grid -->
+          <div class="space-y-6">
+            <!-- Award 1 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-trophy text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Excellence in Dermatology Award</h3>
+                      <span class="year-badge">2023</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Dermatological Society of Nepal</p>
+                    <p class="text-muted-foreground">Recognized for outstanding contributions to dermatological care and patient outcomes in Nepal.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Award 2 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-award text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Best Research Paper</h3>
+                      <span class="year-badge">2023</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Annual Dermatology Conference</p>
+                    <p class="text-muted-foreground">Awarded for research on advances in treatment of acne vulgaris in the Nepali population.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Award 3 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-star text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Young Dermatologist Award</h3>
+                      <span class="year-badge">2022</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">South Asian Dermatology Association</p>
+                    <p class="text-muted-foreground">Recognition for significant contributions to dermatology at an early career stage.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Award 4 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-trophy text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Clinical Excellence Award</h3>
+                      <span class="year-badge">2022</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Patan Hospital</p>
+                    <p class="text-muted-foreground">Honored for exceptional patient care and clinical outcomes in the dermatology department.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Award 5 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-award text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Academic Achievement Award</h3>
+                      <span class="year-badge">2021</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Nepal Medical Council</p>
+                    <p class="text-muted-foreground">Recognition for academic excellence in dermatology specialization.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Recognition -->
+          <div class="card mt-12">
+            <div class="card-content">
+              <h2 class="text-2xl font-bold text-foreground mb-6">Additional Recognition</h2>
+              <ul class="recognition-list space-y-4">
+                <li class="flex items-start space-x-3">
+                  <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                  <span class="text-muted-foreground">Featured in 'Top Dermatologists in Kathmandu' by Nepal Health Magazine (2023)</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                  <span class="text-muted-foreground">Invited speaker at International Dermatology Summit (2023)</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                  <span class="text-muted-foreground">Editorial board member of Journal of Dermatology Nepal</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                  <span class="text-muted-foreground">Reviewer for Asian Journal of Dermatological Science</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                  <span class="text-muted-foreground">Certificate of Appreciation for community health initiatives</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Community Impact -->
+          <div class="card community-impact">
+            <div class="card-content">
+              <h2 class="text-2xl font-bold text-foreground mb-6">Community Impact</h2>
+              <div class="space-y-4">
+                <p class="text-muted-foreground">
+                  Beyond professional achievements, Dr. Paudel is committed to giving back to the community through:
+                </p>
+                <ul class="recognition-list space-y-3">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Free skin cancer screening camps in rural areas
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Health awareness programs on skin diseases
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Training and mentorship for medical students and residents
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Collaborative research initiatives with international institutions
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dr. Vikash Paudel</p>
+  </footer>
+</body>
+</html>
