@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Dr. Vikash Paudel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #1a6aa2;
+      --primary-foreground: #ffffff;
+      --accent: #4db6ac;
+      --background: #ffffff;
+      --foreground: #333333;
+      --muted-foreground: #666666;
+      --border: #e0e0e0;
+      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background-color: var(--background);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), #2c8ac9);
+      color: var(--primary-foreground);
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Navigation Styles */
+    .navbar {
+      background-color: var(--background);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .navbar li {
+      margin: 0;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: var(--foreground);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .navbar a:hover {
+      color: var(--primary);
+      background-color: #f5f5f5;
+    }
+
+    .navbar a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+    }
+
+    /* Main Content Styles */
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-section {
+      background: var(--hero-gradient);
+      color: var(--primary-foreground);
+      padding: 4rem 0;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    .content-section {
+      padding: 4rem 0;
+      background-color: var(--background);
+    }
+
+    .max-w-4xl {
+      max-width: 56rem;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .space-y-12 > * + * {
+      margin-top: 3rem;
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+    }
+
+    .text-muted-foreground {
+      color: var(--muted-foreground);
+    }
+
+    .leading-relaxed {
+      line-height: 1.625;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .space-x-3 > * + * {
+      margin-left: 0.75rem;
+    }
+
+    .w-12 {
+      width: 3rem;
+    }
+
+    .h-12 {
+      height: 3rem;
+    }
+
+    .bg-primary\/10 {
+      background-color: rgba(26, 106, 162, 0.1);
+    }
+
+    .bg-accent\/10 {
+      background-color: rgba(77, 182, 172, 0.1);
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .w-6 {
+      width: 1.5rem;
+    }
+
+    .h-6 {
+      height: 1.5rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    /* List Styles */
+    ul {
+      list-style-position: inside;
+    }
+
+    .list-disc li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Grid Styles */
+    .grid {
+      display: grid;
+    }
+
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gap-6 {
+      gap: 1.5rem;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        padding: 0;
+      }
+      
+      .navbar a {
+        padding: 0.8rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .navbar a.active {
+        border-bottom: 3px solid var(--accent);
+      }
+      
+      .md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+      
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      
+      .card-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="biography.html" class="active">Biography</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>About Dr. Vikash Paudel</h1>
+        <p>Leading dermatologist in Kathmandu, dedicated to providing exceptional skin care services</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto space-y-12">
+          <!-- Introduction -->
+          <div>
+            <h2>Professional Overview</h2>
+            <div>
+              <p class="text-lg text-muted-foreground leading-relaxed">
+                Dr. Vikash Paudel is a highly qualified and experienced consultant dermatologist practicing in Kathmandu, Nepal. 
+                With extensive training in both medical and aesthetic dermatology, Dr. Paudel brings a comprehensive approach to skin care, 
+                combining clinical expertise with the latest advancements in dermatological treatments.
+              </p>
+              <p class="text-lg text-muted-foreground leading-relaxed">
+                Currently serving as a consultant dermatologist at three prestigious healthcare facilities - Patan Hospital, 
+                Elite Health Clinic, and Shankhamul Healthcare - Dr. Paudel is committed to providing accessible, 
+                high-quality dermatological care to patients across the Kathmandu valley.
+              </p>
+            </div>
+          </div>
+
+          <!-- Education & Training -->
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
+                  <i class="fas fa-graduation-cap text-primary w-6 h-6"></i>
+                </div>
+                <h2>Education & Training</h2>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h3>Medical Degree</h3>
+                  <p class="text-muted-foreground">
+                    MBBS - Bachelor of Medicine and Bachelor of Surgery
+                  </p>
+                </div>
+                <div>
+                  <h3>Specialization</h3>
+                  <p class="text-muted-foreground">
+                    MD Dermatology - Advanced training in dermatology, venereology, and leprology
+                  </p>
+                </div>
+                <div>
+                  <h3>Additional Training</h3>
+                  <p class="text-muted-foreground">
+                    Advanced certification in aesthetic dermatology and cosmetic procedures
+                  </p>
+                  <p class="text-muted-foreground mt-2">
+                    Specialized training in dermatologic surgery and laser treatments
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current Practice -->
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
+                  <i class="fas fa-briefcase text-accent w-6 h-6"></i>
+                </div>
+                <h2>Current Practice</h2>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h3>Areas of Expertise</h3>
+                  <ul class="list-disc space-y-2 text-muted-foreground">
+                    <li>Medical Dermatology - diagnosis and treatment of skin diseases</li>
+                    <li>Aesthetic Dermatology - cosmetic procedures and skin rejuvenation</li>
+                    <li>Dermatologic Surgery - surgical treatment of skin conditions</li>
+                    <li>Acne and Scar Management</li>
+                    <li>Hair Disorders</li>
+                    <li>Nail Conditions</li>
+                    <li>Laser Treatments</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Locations -->
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
+                  <i class="fas fa-map-marker-alt text-primary w-6 h-6"></i>
+                </div>
+                <h2>Practice Locations</h2>
+              </div>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h3>Patan Hospital</h3>
+                  <p class="text-sm text-muted-foreground">Lagankhel, Lalitpur</p>
+                </div>
+                <div>
+                  <h3>Elite Health Clinic</h3>
+                  <p class="text-sm text-muted-foreground">Kathmandu</p>
+                </div>
+                <div>
+                  <h3>Shankhamul Healthcare</h3>
+                  <p class="text-sm text-muted-foreground">Shankhamul, Kathmandu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Philosophy -->
+          <div>
+            <h2>Professional Philosophy</h2>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              Dr. Paudel believes in a holistic approach to dermatological care, combining evidence-based medical treatments 
+              with personalized care plans. His practice philosophy emphasizes patient education, preventive care, and the use 
+              of the latest technologies to achieve optimal outcomes. He is committed to staying at the forefront of dermatological 
+              advancements through continuous learning and professional development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dr. Vikash Paudel</p>
+  </footer>
+</body>
+</html>
