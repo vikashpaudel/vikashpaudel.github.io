@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research - Dr. Vikash Paudel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary: #1a6aa2;
+      --primary-foreground: #ffffff;
+      --accent: #4db6ac;
+      --background: #ffffff;
+      --foreground: #333333;
+      --muted-foreground: #666666;
+      --border: #e0e0e0;
+      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
+      --transition-smooth: all 0.3s ease;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background-color: var(--background);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), #2c8ac9);
+      color: var(--primary-foreground);
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Navigation Styles */
+    .navbar {
+      background-color: var(--background);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .navbar li {
+      margin: 0;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: var(--foreground);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .navbar a:hover {
+      color: var(--primary);
+      background-color: #f5f5f5;
+    }
+
+    .navbar a.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+    }
+
+    /* Main Content Styles */
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-section {
+      background: var(--hero-gradient);
+      color: var(--primary-foreground);
+      padding: 4rem 0;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    .content-section {
+      padding: 4rem 0;
+      background-color: var(--background);
+    }
+
+    .max-w-4xl {
+      max-width: 56rem;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .space-y-12 > * + * {
+      margin-top: 3rem;
+    }
+
+    /* Typography */
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+    }
+
+    .text-muted-foreground {
+      color: var(--muted-foreground);
+    }
+
+    .leading-relaxed {
+      line-height: 1.625;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-medical);
+      transform: translateY(-5px);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .space-x-3 > * + * {
+      margin-left: 0.75rem;
+    }
+
+    .space-x-4 > * + * {
+      margin-left: 1rem;
+    }
+
+    .w-12 {
+      width: 3rem;
+    }
+
+    .h-12 {
+      height: 3rem;
+    }
+
+    .w-10 {
+      width: 2.5rem;
+    }
+
+    .h-10 {
+      height: 2.5rem;
+    }
+
+    .w-6 {
+      width: 1.5rem;
+    }
+
+    .h-6 {
+      height: 1.5rem;
+    }
+
+    .w-5 {
+      width: 1.25rem;
+    }
+
+    .h-5 {
+      height: 1.25rem;
+    }
+
+    .bg-primary\/10 {
+      background-color: rgba(26, 106, 162, 0.1);
+    }
+
+    .bg-accent\/10 {
+      background-color: rgba(77, 182, 172, 0.1);
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .space-y-6 > * + * {
+      margin-top: 1.5rem;
+    }
+
+    /* Publication Tags */
+    .pub-tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: rgba(26, 106, 162, 0.1);
+      color: var(--primary);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .text-sm {
+      font-size: 0.875rem;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .gap-3 {
+      gap: 0.75rem;
+    }
+
+    .shrink-0 {
+      flex-shrink: 0;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    /* Presentations Grid */
+    .presentations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .presentations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Research Focus */
+    .research-focus {
+      background-color: #f8f9fa;
+    }
+
+    .mt-16 {
+      margin-top: 4rem;
+    }
+
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    .space-y-3 > * + * {
+      margin-top: 0.75rem;
+    }
+
+    .w-2 {
+      width: 0.5rem;
+    }
+
+    .h-2 {
+      height: 0.5rem;
+    }
+
+    .rounded-full {
+      border-radius: 9999px;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        padding: 0;
+      }
+      
+      .navbar a {
+        padding: 0.8rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .navbar a.active {
+        border-bottom: 3px solid var(--accent);
+      }
+
+      .flex.space-x-4 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .flex.space-x-4 > * + * {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+      
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      
+      .card-content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="biography.html">Biography</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>Publications & Research</h1>
+        <p>Contributing to dermatological knowledge through research and academic publications</p>
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="content-section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto space-y-12">
+          <!-- Introduction -->
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
+                <i class="fas fa-book-open text-primary w-6 h-6"></i>
+              </div>
+              <h2>Published Research</h2>
+            </div>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              Dr. Vikash Paudel has contributed to numerous peer-reviewed journals and publications, 
+              advancing the field of dermatology through evidence-based research and clinical studies.
+            </p>
+          </div>
+
+          <!-- Publications List -->
+          <div class="space-y-6">
+            <!-- Publication 1 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">The increasing scope of teledermatology in Nepal</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">JNMA: Journal of the Nepal Medical Association</span>
+                      <span>•</span>
+                      <span>2020</span>
+                      <span>•</span>
+                      <span class="pub-tag">Research Article</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">15 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Comprehensive analysis of teledermatology implementation and its growing impact on healthcare delivery in Nepal.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 2 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Carbamazepine Induced Toxic Epidermal Necrolysis Managed by Mobile Teledermatology in COVID-19 Pandemic in Rural Nepal</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Case Reports in Dermatological Medicine</span>
+                      <span>•</span>
+                      <span>2020</span>
+                      <span>•</span>
+                      <span class="pub-tag">Case Report</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">10 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Innovative approach to managing severe drug reactions using mobile teledermatology during the COVID-19 pandemic in rural settings.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 3 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Clinical and Epidemiological Profile of Herpes Zoster; A Cross-Sectional Study from Tertiary Hospital</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">med Phoenix</span>
+                      <span>•</span>
+                      <span>2018</span>
+                      <span>•</span>
+                      <span class="pub-tag">Clinical Study</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">9 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Cross-sectional study examining the clinical presentation and epidemiological patterns of Herpes Zoster in tertiary care settings.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 4 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Clinical and Histopathological Findings in a Patient of Darier–White Disease with Acrokeratosis Verruciformis of Hopf</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Case Reports in Dermatological Medicine</span>
+                      <span>•</span>
+                      <span>2022</span>
+                      <span>•</span>
+                      <span class="pub-tag">Case Report</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">8 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Detailed case study documenting the clinical and histopathological characteristics of a rare dermatological condition.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 5 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Patterns and barriers of teledermatology in resource-limited settings in COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">JAAD International</span>
+                      <span>•</span>
+                      <span>2022</span>
+                      <span>•</span>
+                      <span class="pub-tag">Research Article</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">7 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Survey-based study identifying challenges and adoption patterns of teledermatology in resource-limited healthcare settings during COVID-19.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 6 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Tele-dermatology in clinical management of suspected cutaneous leishmaniasis in COVID-19 pandemic</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Nepal Journal of Dermatology, Venereology & Leprology</span>
+                      <span>•</span>
+                      <span>2020</span>
+                      <span>•</span>
+                      <span class="pub-tag">Clinical Study</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">7 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Application of teledermatology for diagnosis and management of cutaneous leishmaniasis during the pandemic.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 7 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Alopecia associated with the use of selective serotonin reuptake inhibitors: Systematic review</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Psychiatry Research</span>
+                      <span>•</span>
+                      <span>2022</span>
+                      <span>•</span>
+                      <span class="pub-tag">Review Article</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">6 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Systematic review examining the relationship between SSRI medications and hair loss conditions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 8 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Alopecia universalis associated with hyperthyroidism treated with azathioprine and hydroxychloroquine: a case report</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">JNMA: Journal of the Nepal Medical Association</span>
+                      <span>•</span>
+                      <span>2021</span>
+                      <span>•</span>
+                      <span class="pub-tag">Case Report</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">6 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Case report documenting successful treatment of alopecia universalis in a patient with concurrent hyperthyroidism.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 9 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Isolated leprosy of bilateral ear lobes, a rare presentation of leprosy</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Kathmandu University Medical Journal</span>
+                      <span>•</span>
+                      <span>2021</span>
+                      <span>•</span>
+                      <span class="pub-tag">Case Report</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">6 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Documentation of an unusual presentation of leprosy affecting bilateral ear lobes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Publication 10 -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-file-alt text-accent w-5 h-5"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-foreground mb-2">Surgery of Kerion, a Nightmare for Nondermatologists</h3>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                      <span class="font-medium">Medical Journal</span>
+                      <span>•</span>
+                      <span>2020</span>
+                      <span>•</span>
+                      <span class="pub-tag">Review Article</span>
+                      <span>•</span>
+                      <span class="text-accent font-medium">6 citations</span>
+                    </div>
+                    <p class="text-muted-foreground">Educational review discussing proper surgical management of kerion and common pitfalls in treatment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Presentations Section -->
+          <div class="mt-16">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
+                <i class="fas fa-award text-accent w-6 h-6"></i>
+              </div>
+              <h2>Conference Presentations</h2>
+            </div>
+            
+            <div class="presentations-grid">
+              <!-- Presentation 1 -->
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Novel Approaches in Aesthetic Dermatology</h3>
+                  <p class="text-sm text-muted-foreground mb-1">Annual Dermatology Conference Nepal</p>
+                  <p class="text-sm text-primary font-medium">2023</p>
+                </div>
+              </div>
+
+              <!-- Presentation 2 -->
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Managing Complex Skin Conditions</h3>
+                  <p class="text-sm text-muted-foreground mb-1">South Asian Dermatology Summit</p>
+                  <p class="text-sm text-primary font-medium">2023</p>
+                </div>
+              </div>
+
+              <!-- Presentation 3 -->
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Dermatologic Surgery Workshop</h3>
+                  <p class="text-sm text-muted-foreground mb-1">Nepal Medical Association Conference</p>
+                  <p class="text-sm text-primary font-medium">2022</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Research Focus -->
+          <div class="card research-focus">
+            <div class="card-content">
+              <h2 class="text-2xl font-bold text-foreground mb-6">Current Research Focus</h2>
+              <div class="space-y-4">
+                <p class="text-muted-foreground">
+                  Dr. Paudel's research focuses on teledermatology, dermatosurgery, venereology, and leprosy. Key areas include:
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Teledermatology implementation and barriers in resource-limited settings
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Clinical management of complex dermatological conditions and rare presentations
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Drug-induced dermatological reactions and their management
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground">
+                      Leprosy and venereological conditions in Nepal
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dr. Vikash Paudel</p>
+  </footer>
+</body>
+</html>
