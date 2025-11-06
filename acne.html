@@ -1,50 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acne Treatment by Dr. Vikash Paudel | Best Dermatologist in Kathmandu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acne — Causes, Treatment & Prevention | Patient Guide</title>
   
-  <!-- SEO Meta Tags -->
-   <meta name="description" content=" Comprehensive guide on acne causes, prevention, and treatment by Dr. Vikash Paudel, Dermatologist in Kathmandu. Learn about acne vulgaris, acne scars, and modern treatment options.">
-   <meta name="keywords" content="Dr Vikash Paudel, dermatologist in Kathmandu, acne treatment Nepal, acne scars treatment, acne vulgaris, skin doctor Kathmandu, acne prevention, acne vulgaris causes, acne management, acne vulgaris treatment, laser acne treatment, chemical peel for acne, acne scar removal, acne care clinic, acne and pimples, best acne doctor Kathmandu">
-   <meta name="author" content="Dr. Vikash Paudel">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Understanding Acne: Causes, Treatment & Prevention">
+  <meta property="og:description" content="A comprehensive guide to acne causes, types, treatments and prevention strategies for patients and medical students.">
+  <meta property="og:image" content="https://yourwebsite.com/images/after.jpg">
+  <meta property="og:url" content="https://yourwebsite.com/acne.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dermatology Patient Guide">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Understanding Acne: Causes, Treatment & Prevention">
+  <meta name="twitter:description" content="A comprehensive guide to acne causes, types, treatments and prevention strategies.">
+  <meta name="twitter:image" content="https://yourwebsite.com/images/after.jpg">
+  <meta name="twitter:site" content="@dermguide">
 
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-{
-   "@context": "https://schema.org",
-   "@type": "MedicalWebPage",
-   "name": "Acne Treatment by Dr. Vikash Paudel",
-   "about": {
-   "@type": "MedicalCondition",
-   "name": "Acne Vulgaris",
-   "alternateName": ["Pimples", "Acne Scars"],
-   "possibleTreatment": [
-     {"@type": "MedicalTherapy", "name": "Topical Retinoids"},
-     {"@type": "MedicalTherapy", "name": "Antibiotics"},
-     {"@type": "MedicalTherapy", "name": "Chemical Peels"},
-     {"@type": "MedicalTherapy", "name": "Laser Therapy"}
-  ]
- },
-  "mainEntity": {
-  "@type": "Person",
-  "name": "Dr. Vikash Paudel",
-  "jobTitle": "Consultant Dermatologist",
-  "affiliation": "Patan Hospital, Elite Health Clinic",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kathmandu",
-    "addressCountry": "NP"
- },
- "url": "https://vikashpaudel.com.np",
-"sameAs": [
-"https://www.linkedin.com/in/drvikashpaudel",
-"https://www.facebook.com/drvikashpaudel"
-]
-}
-}
-</script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#f7f9fc;
@@ -67,8 +45,8 @@
     p,li,dd{font-size:1rem;}
     strong{color:#0f172a;}
 
-    .before-after{position:relative;overflow:hidden;border-radius:12px;margin-top:15px;}
-    .before-after img{display:block;width:100%;height:auto;border-radius:12px;}
+    .before-after{position:relative;overflow:hidden;border-radius:12px;margin-top:15px;max-height:400px;}
+    .before-after img{display:block;width:100%;height:auto;border-radius:12px;object-fit:cover;}
     .ba-overlay{position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;}
     .ba-overlay img{width:100%;height:100%;object-fit:cover;}
     .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:white;cursor:ew-resize;}
@@ -77,6 +55,99 @@
     dl.faq dd{margin:6px 0 14px;color:var(--muted);}
     footer{margin-top:30px;text-align:center;color:#6b7280;font-size:0.9rem;padding:20px;}
     footer a{color:var(--accent);text-decoration:none;font-weight:600;}
+    
+    /* Contact section styles */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .clinic-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .contact-form button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .contact-form button:hover {
+      background-color: #005f8d;
+    }
+    .clinic-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .clinic-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .clinic-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .consultation-note {
+      background-color: #e8f4fc;
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    /* Clinic details styling */
+    .clinic-details {
+      background-color: #f8fdff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .clinic-details h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .clinic-details p {
+      margin: 8px 0;
+    }
+    .clinic-hours {
+      margin-top: 15px;
+    }
+    .clinic-hours table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .clinic-hours td {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .clinic-hours td:last-child {
+      text-align: right;
+    }
+    
+    /* Map container */
+    .map-container {
+      margin-top: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +160,7 @@
       <a href="#treatment">Treatment</a>
       <a href="#prevention">Prevention</a>
       <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -96,6 +168,10 @@
     <section class="card">
       <h2>Overview</h2>
       <p>Acne vulgaris is one of the most common skin conditions seen in young people and adults. It occurs when hair follicles become blocked with oil, dead skin cells, and bacteria. Understanding its causes and management helps prevent long-term marks or scars. This guide simplifies medical facts for general readers and early medical graduates.</p>
+      
+      <div class="consultation-note">
+        <p><strong>Friendly Note:</strong> While this guide provides comprehensive information about acne, everyone's skin is unique. For personalized treatment recommendations and accurate diagnosis, we strongly encourage you to consult with a qualified dermatologist.</p>
+      </div>
     </section>
 
     <section class="card" id="causes">
@@ -148,7 +224,7 @@
         <li>Cleanse gently twice daily with a mild, non-comedogenic cleanser.</li>
         <li>Use oil-free moisturizers and sunscreen daily.</li>
         <li>Avoid popping pimples to prevent scars.</li>
-        <li>Choose makeup labeled “non-comedogenic.”</li>
+        <li>Choose makeup labeled "non-comedogenic."</li>
         <li>Maintain a balanced diet and manage stress.</li>
       </ol>
     </section>
@@ -157,10 +233,11 @@
       <h2>Before and After Treatment</h2>
       <p>See how professional treatment can make a visible difference. (Images for demonstration)</p>
       <div class="before-after" id="ba">
-        <img src="images/after.jpg" alt="After acne treatment">
-        <div class="ba-overlay" id="baOverlay"><img src="images/before.jpg" alt="Before acne treatment"></div>
+        <img src="images/after.jpg" alt="After acne treatment - clear skin after professional treatment">
+        <div class="ba-overlay" id="baOverlay"><img src="images/before.jpg" alt="Before acne treatment - skin with active acne"></div>
         <div class="ba-handle" id="baHandle"></div>
       </div>
+      <p style="text-align: center; margin-top: 10px; font-style: italic;">Slide to compare before and after treatment results</p>
     </section>
 
     <section class="card" id="faqs">
@@ -179,21 +256,129 @@
         <dd>Yes. Deep inflammatory acne can scar. Early treatment helps prevent permanent marks.</dd>
 
         <dt>When should I see a dermatologist?</dt>
-        <dd>If acne is painful, leaves scars, or doesn’t improve after 2–3 months of over-the-counter treatments, consult a certified dermatologist for expert care.</dd>
+        <dd>If acne is painful, leaves scars, or doesn't improve after 2–3 months of over-the-counter treatments, consult a certified dermatologist for expert care.</dd>
       </dl>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>Contact a Dermatologist</h2>
+      <p>Ready to get professional help for your acne? Reach out to a dermatologist today for personalized treatment.</p>
+      
+      <div class="contact-container">
+        <div class="clinic-info">
+          <div class="clinic-details">
+            <h3>Vikash Paudel Skin Clinic</h3>
+            <p><strong>Address:</strong> 123 Wellness Avenue, Kathmandu, Nepal</p>
+            <p><strong>Phone:</strong> (977) 1-1234567</p>
+            <p><strong>Email:</strong> info@vikashpaudelskinclinic.com</p>
+            <p><strong>Website:</strong> www.vikashpaudelskinclinic.com</p>
+            
+            <div class="clinic-hours">
+              <h4>Clinic Hours</h4>
+              <table>
+                <tr><td>Monday - Friday</td><td>9:00 AM - 6:00 PM</td></tr>
+                <tr><td>Saturday</td><td>9:00 AM - 2:00 PM</td></tr>
+                <tr><td>Sunday</td><td>Closed</td></tr>
+              </table>
+            </div>
+          </div>
+          
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.456789012345!2d85.3239545153846!3d27.717234982893456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1966f6e8a7ab%3A0x3f4b4a5e5e5e5e5e!2sVikash%20Paudel%20Skin%20Clinic!5e0!3m2!1sen!2snp!4v1621234567890!5m2!1sen!2snp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3>Request Appointment</h3>
+          <form id="dermatology-contact">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Phone Number">
+            <textarea placeholder="Tell us about your skin concerns..." rows="4"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+          <p style="font-size: 0.9rem; margin-top: 10px;">We'll contact you to schedule your appointment.</p>
+        </div>
+      </div>
     </section>
 
     <section class="card">
       <h2>संक्षेप (नेपाली)</h2>
-      <p>डन्डिफोर (Acne) सामान्य छालाको समस्या हो जसमा दाना, कालो वा सेतो टुक्रा आउँछ। यो हर्मोन, तेल उत्पादन र ब्याक्टेरियाको कारण हुन्छ। नियमित सफा गर्ने, तेलरहित मोइस्चराइजर र घामको सुरक्षा गर्ने बानीले सहयोग गर्छ। गहिरो वा दाग दिने एक्ने भएमा डर्माटोलोजिस्टसँग सम्पर्क गर्नुहोस्।</p>
+      <p>एक्ने (Acne) सामान्य छालाको समस्या हो जसमा दाना, कालो वा सेतो टुक्रा आउँछ। यो हर्मोन, तेल उत्पादन र ब्याक्टेरियाको कारण हुन्छ। नियमित सफा गर्ने, तेलरहित मोइस्चराइजर र घामको सुरक्षा गर्ने बानीले सहयोग गर्छ। गहिरो वा दाग दिने एक्ने भएमा डर्माटोलोजिस्टसँग सम्पर्क गर्नुहोस्।</p>
     </section>
   </main>
 
-<footer>
-<p>For personalized acne and skin care, consult <strong>Dr. Vikash Paudel</strong>, Consultant Dermatologist at Patan Hospital and Elite Health Clinic, Kathmandu.</p>
-<p>© 2025 Dr. Vikash Paudel | All Rights Reserved</p>
-</footer>
+  <footer>
+    <div class="consultation-note">
+      <p><strong>Important:</strong> This information is for educational purposes only. For accurate diagnosis and personalized treatment plans, always consult a qualified dermatologist.</p>
+    </div>
+    <p>References: AAD Guidelines, Fitzpatrick's Dermatology, Habif's Clinical Dermatology.</p>
+    <p>&copy; 2023 Dermatology Patient Guide. All rights reserved.</p>
+  </footer>
 
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Understanding Acne: Causes, Treatment & Prevention",
+    "description": "A comprehensive guide to acne causes, types, treatments and prevention strategies",
+    "url": "https://yourwebsite.com/acne.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yourwebsite.com/acne.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dermatology Patient Guide",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yourwebsite.com/logo.png"
+      }
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Acne Vulgaris",
+      "description": "Acne vulgaris is a common skin condition that occurs when hair follicles become blocked with oil, dead skin cells, and bacteria."
+    },
+    "mentions": [
+      {
+        "@type": "MedicalEntity",
+        "name": "Dermatologist"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Topical Retinoids"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Benzoyl Peroxide"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Vikash Paudel Skin Clinic",
+    "description": "Specialized dermatology clinic offering comprehensive acne treatment and skin care services",
+    "url": "https://yourwebsite.com/acne.html#contact",
+    "telephone": "+977-1-1234567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Wellness Avenue",
+      "addressLocality": "Kathmandu",
+      "addressCountry": "NP"
+    },
+    "openingHours": [
+      "Mo-Fr 09:00-18:00",
+      "Sa 09:00-14:00"
+    ],
+    "medicalSpecialty": "Dermatology"
+  }
+  </script>
 
   <script>
     // Improved before-after slider functionality
