@@ -6,316 +6,158 @@
   <title>Acne — Causes, Treatment & Prevention | Patient Guide</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f7fafc; /* soft gray-blue */
+      --bg:#f7f9fc;
       --card:#ffffff;
-      --accent:#1266d4; /* professional blue */
-      --muted:#6b7280;
-      --success:#16a34a;
-      --danger:#ef4444;
-      --glass: rgba(255,255,255,0.6);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --accent:#0077b6;
+      --muted:#555;
+      --highlight:#ff6f61;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef2f7);color:#0f172a;line-height:1.5}
-    header{background:linear-gradient(90deg,var(--accent),#0b5ed7);color:white;padding:28px 20px}
-    .container{max-width:1100px;margin:24px auto;padding:20px}
-    .brand{display:flex;gap:18px;align-items:center}
-    .logo{width:64px;height:64px;border-radius:10px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
-    h1{font-family:'Merriweather', serif;margin:0 0 6px}
-    p.lead{margin:6px 0 18px;color:var(--glass)}
+    body{margin:0;background:var(--bg);color:#1e293b;font-family:'Poppins',sans-serif;line-height:1.7;}
+    header{background:linear-gradient(90deg,var(--accent),#005f8d);color:white;padding:32px 20px;text-align:center;}
+    header h1{font-family:'Roboto Serif',serif;font-size:2rem;margin:0 0 10px;}
+    header p{color:#e2e8f0;margin:0;font-size:1rem;}
+    nav{margin-top:15px;}
+    nav a{color:#eaf4ff;text-decoration:none;margin:0 10px;font-weight:600;}
+    .container{max-width:1100px;margin:auto;padding:20px;}
+    .card{background:var(--card);border-radius:12px;padding:22px;margin-top:20px;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+    h2,h3,h4{color:var(--accent);font-family:'Roboto Serif',serif;}
+    h2{font-size:1.6rem;}
+    h3{font-size:1.3rem;}
+    p,li,dd{font-size:1rem;}
+    strong{color:#0f172a;}
 
-    nav{margin-top:12px}
-    nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-right:12px;font-weight:600}
+    .before-after{position:relative;overflow:hidden;border-radius:12px;margin-top:15px;}
+    .before-after img{display:block;width:100%;height:auto;border-radius:12px;}
+    .ba-overlay{position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;}
+    .ba-overlay img{width:100%;height:100%;object-fit:cover;}
+    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:white;cursor:ew-resize;}
 
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:22px}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(13,27,48,0.06)}
-    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-    .muted{color:var(--muted);font-size:14px}
-
-    /* before/after slider */
-    .before-after{position:relative;overflow:hidden;border-radius:10px}
-    .before-after img{display:block;width:100%;height:auto}
-    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#fff,#ccc);transform:translateX(-50%);z-index:3}
-    .ba-handle:after{content:'◀ ▶';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.45);color:white;padding:6px 10px;border-radius:20px;font-size:14px}
-    .ba-overlay{position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden}
-    .ba-overlay img{display:block;width:100%;height:100%;object-fit:cover}
-
-    .svg-diagram{width:100%;height:auto}
-    .faq dt{font-weight:600;margin-top:12px}
-    .faq dd{margin:6px 0 12px 0;color:var(--muted)}
-
-    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
-
-    /* responsive */
-    @media (max-width:920px){
-      .grid{grid-template-columns:1fr}
-      .ba-handle{display:none}
-      .ba-overlay{width:100%}
-    }
-
-    /* small badges */
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(18,102,212,0.1);color:var(--accent);font-weight:600;font-size:13px}
-
-    /* references list */
-    ol.references{padding-left:20px;color:var(--muted)}
+    dl.faq dt{font-weight:700;color:var(--highlight);font-size:1.05rem;margin-top:15px;}
+    dl.faq dd{margin:6px 0 14px;color:var(--muted);}
+    footer{margin-top:30px;text-align:center;color:#6b7280;font-size:0.9rem;padding:20px;}
+    footer a{color:var(--accent);text-decoration:none;font-weight:600;}
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="brand">
-        <div class="logo">AC</div>
-        <div>
-          <h1>Understanding Acne: Causes, Treatment & Prevention</h1>
-          <div class="muted">Comprehensive patient-friendly guide — Causes, modern treatment options, prevention & FAQs</div>
-          <nav>
-            <a href="#causes">Causes</a>
-            <a href="#types">Types</a>
-            <a href="#treatment">Treatment</a>
-            <a href="#prevention">Prevention</a>
-            <a href="#faqs">FAQs</a>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <h1>Understanding Acne: Causes, Treatment & Prevention</h1>
+    <p>A simple, comprehensive guide for everyone — from patients to medical students</p>
+    <nav>
+      <a href="#causes">Causes</a>
+      <a href="#types">Types</a>
+      <a href="#treatment">Treatment</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#faqs">FAQs</a>
+    </nav>
   </header>
 
-  <main class="container grid">
-    <article class="card">
-      <section id="intro">
-        <div class="section-title">
-          <h2>Overview</h2>
-          <span class="badge">Patient Guide</span>
-        </div>
-        <p>Acne vulgaris is a common inflammatory disease of the pilosebaceous unit. It ranges from comedones and papules to pustules, nodules and post-inflammatory scarring. This guide explains causes, risk factors, types of acne, modern evidence-based treatments, prevention strategies and answers frequent patient questions.</p>
-      </section>
+  <main class="container">
+    <section class="card">
+      <h2>Overview</h2>
+      <p>Acne vulgaris is one of the most common skin conditions seen in young people and adults. It occurs when hair follicles become blocked with oil, dead skin cells, and bacteria. Understanding its causes and management helps prevent long-term marks or scars. This guide simplifies medical facts for general readers and early medical graduates.</p>
+    </section>
 
-      <hr>
+    <section class="card" id="causes">
+      <h2>Causes of Acne</h2>
+      <ul>
+        <li><strong>Excess oil production:</strong> Stimulated by hormones during puberty or stress.</li>
+        <li><strong>Clogged pores:</strong> Dead skin cells block the hair follicles.</li>
+        <li><strong>Bacteria (Cutibacterium acnes):</strong> Multiply inside blocked pores, causing inflammation.</li>
+        <li><strong>Hormonal imbalance:</strong> Common during teenage years, menstruation, or hormonal disorders.</li>
+        <li><strong>Genetics:</strong> Family history increases susceptibility.</li>
+      </ul>
+    </section>
 
-      <section id="causes">
-        <h3>Causes & Pathogenesis</h3>
-        <ul>
-          <li><strong>Follicular hyperkeratinization:</strong> Excess keratin blocks the follicle entrance forming microcomedones.</li>
-          <li><strong>Increased sebum production:</strong> Androgen-driven sebaceous gland activity creates an oily environment.</li>
-          <li><strong>Cutibacterium acnes (formerly Propionibacterium acnes):</strong> Bacterial colonization triggers inflammation.</li>
-          <li><strong>Inflammatory response:</strong> Immune reactions lead to papules, pustules and nodules.</li>
-          <li><strong>Genetic predisposition:</strong> Family history increases risk.</li>
-        </ul>
+    <section class="card" id="types">
+      <h2>Types of Acne</h2>
+      <ul>
+        <li><strong>Blackheads and whiteheads (Comedonal acne)</strong></li>
+        <li><strong>Papules and pustules (Inflammatory acne)</strong></li>
+        <li><strong>Nodules and cysts (Severe acne)</strong> — often need medical attention.</li>
+      </ul>
+    </section>
 
-        <!-- Simple SVG: cause diagram -->
-        <h4>Cause diagram</h4>
-        <svg class="svg-diagram" viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing causes of acne">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#1266d4"/>
-              <stop offset="1" stop-color="#0b5ed7"/>
-            </linearGradient>
-          </defs>
-          <rect x="10" y="10" width="880" height="220" rx="12" fill="#fff" stroke="#e6eefb"/>
+    <section class="card" id="treatment">
+      <h2>Treatment Options</h2>
+      <p>Treatment depends on acne severity. Combining topical and oral medications with proper skincare gives the best results. Always consult a dermatologist before starting new medications.</p>
 
-          <g font-family="Inter, Arial" font-size="14" fill="#07203a">
-            <text x="35" y="42" font-weight="700">Acne pathogenesis — key contributors</text>
-            <circle cx="160" cy="110" r="44" fill="url(#g1)" opacity="0.12" stroke="#bdd7ff"/>
-            <text x="120" y="110">Hyperkeratosis</text>
+      <h3>Topical treatments</h3>
+      <ul>
+        <li><strong>Adapalene or Tretinoin:</strong> Vitamin A derivatives that help unclog pores and reduce blackheads.</li>
+        <li><strong>Benzoyl Peroxide:</strong> Reduces bacteria and inflammation.</li>
+        <li><strong>Topical antibiotics:</strong> Help fight bacteria; often used with benzoyl peroxide.</li>
+      </ul>
 
-            <circle cx="380" cy="110" r="44" fill="url(#g1)" opacity="0.12" stroke="#bdd7ff"/>
-            <text x="350" y="110">↑ Sebum</text>
+      <h3>Oral medications</h3>
+      <ul>
+        <li><strong>Antibiotics:</strong> For moderate acne — should be used short term.</li>
+        <li><strong>Isotretinoin:</strong> Used for severe acne under dermatologist supervision.</li>
+        <li><strong>Hormonal therapy:</strong> May help women with hormonally driven acne.</li>
+      </ul>
 
-            <circle cx="600" cy="110" r="44" fill="url(#g1)" opacity="0.12" stroke="#bdd7ff"/>
-            <text x="575" y="110">C. acnes</text>
+      <h3>Procedural treatments</h3>
+      <ul>
+        <li>Chemical peels, comedone extraction, and laser therapy help manage acne and scars.</li>
+      </ul>
+    </section>
 
-            <circle cx="820" cy="110" r="44" fill="url(#g1)" opacity="0.12" stroke="#bdd7ff"/>
-            <text x="795" y="110">Inflammation</text>
+    <section class="card" id="prevention">
+      <h2>Prevention and Skin Care Tips</h2>
+      <ol>
+        <li>Cleanse gently twice daily with a mild, non-comedogenic cleanser.</li>
+        <li>Use oil-free moisturizers and sunscreen daily.</li>
+        <li>Avoid popping pimples to prevent scars.</li>
+        <li>Choose makeup labeled “non-comedogenic.”</li>
+        <li>Maintain a balanced diet and manage stress.</li>
+      </ol>
+    </section>
 
-            <!-- arrows -->
-            <line x1="205" y1="110" x2="340" y2="110" stroke="#9fbff5" stroke-width="3" marker-end="url(#arrow)"/>
-            <line x1="425" y1="110" x2="560" y2="110" stroke="#9fbff5" stroke-width="3"/>
-            <line x1="645" y1="110" x2="780" y2="110" stroke="#9fbff5" stroke-width="3"/>
-          </g>
-        </svg>
-
-      </section>
-
-      <section id="types" style="margin-top:18px">
-        <h3>Types of acne (clinical)</h3>
-        <ul>
-          <li><strong>Comedonal acne:</strong> Open (blackheads) and closed (whiteheads).</li>
-          <li><strong>Inflammatory acne:</strong> Papules and pustules.</li>
-          <li><strong>Nodulocystic acne:</strong> Deep nodules and cysts — more likely to scar.</li>
-          <li><strong>Acne conglobata / fulminans:</strong> Severe inflammatory variants — rare and may require systemic therapy.</li>
-        </ul>
-
-        <!-- Types diagram -->
-        <svg class="svg-diagram" viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="8" width="884" height="164" rx="10" fill="#fff" stroke="#eef3ff"/>
-          <text x="24" y="34" font-family="Merriweather, serif" font-size="16" font-weight="700">Clinical Types</text>
-          <g font-size="13" fill="#1f2937">
-            <rect x="30" y="48" width="200" height="100" rx="8" fill="#f8fafc" stroke="#e6eefb"/>
-            <text x="44" y="72">Comedonal</text>
-            <text x="44" y="96" class="muted">Blackheads & whiteheads</text>
-
-            <rect x="260" y="48" width="200" height="100" rx="8" fill="#f8fafc" stroke="#e6eefb"/>
-            <text x="274" y="72">Inflammatory</text>
-            <text x="274" y="96" class="muted">Papules & pustules</text>
-
-            <rect x="490" y="48" width="200" height="100" rx="8" fill="#f8fafc" stroke="#e6eefb"/>
-            <text x="504" y="72">Nodulocystic</text>
-            <text x="504" y="96" class="muted">Deep nodules, scarring</text>
-
-            <rect x="720" y="48" width="120" height="100" rx="8" fill="#f8fafc" stroke="#e6eefb"/>
-            <text x="734" y="72">Severe</text>
-            <text x="734" y="96" class="muted">Conglobata / fulminans</text>
-          </g>
-        </svg>
-      </section>
-
-      <section id="treatment" style="margin-top:18px">
-        <h3>Treatment options (modern, evidence based)</h3>
-        <p class="muted">Treatment is tailored by severity, scarring risk, patient preference and comorbidities.</p>
-
-        <h4>Topical therapies</h4>
-        <ul>
-          <li><strong>Topical retinoids</strong> (adapalene, tretinoin) — normalize follicular keratinization.</li>
-          <li><strong>Benzoyl peroxide</strong> — antibacterial and helps prevent resistance when combined with antibiotics.</li>
-          <li><strong>Topical antibiotics</strong> (clindamycin) — short courses, used with benzoyl peroxide.</li>
-          <li><strong>Azelaic acid</strong> — anti-inflammatory and comedolytic; useful in pregnancy and sensitive skin.</li>
-        </ul>
-
-        <h4>Systemic therapies</h4>
-        <ul>
-          <li><strong>Oral antibiotics</strong> (doxycycline, minocycline) — for inflammatory acne, short-term (3 months typically).</li>
-          <li><strong>Oral isotretinoin</strong> — for severe/nodulocystic acne or scarring acne; requires monitoring for teratogenicity and labs.</li>
-          <li><strong>Hormonal therapies</strong> (combined oral contraceptives, anti-androgens like spironolactone) — useful in females with hormonally influenced acne.</li>
-        </ul>
-
-        <h4>Procedural & adjunctive options</h4>
-        <ul>
-          <li>Comedone extraction, intralesional corticosteroid for stubborn nodules, chemical peels, fractional lasers and microneedling for scarring.</li>
-        </ul>
-
-      </section>
-
-      <section id="prevention" style="margin-top:18px">
-        <h3>Prevention & skin care basics</h3>
-        <ol>
-          <li>Use gentle, non-comedogenic cleansers twice daily — avoid harsh scrubs that worsen inflammation.</li>
-          <li>Use oil-free, non-comedogenic moisturizers and sunscreens.</li>
-          <li>Avoid picking or squeezing lesions to reduce scarring risk.</li>
-          <li>Be cautious with cosmetic products — choose "non-comedogenic" labels.</li>
-          <li>For females with persistent flares, consider gynecologic/endocrine evaluation for hormonal therapy.</li>
-        </ol>
-      </section>
-
-      <!-- Before/After -->
-      <section id="before-after" style="margin-top:18px">
-        <h3>Before & after treatment</h3>
-        <p class="muted">Drag the handle (or on mobile see the single image) to compare.</p>
-        <div class="before-after" id="ba">
-          <!-- background/base image (after) -->
-          <img src="https://images.unsplash.com/photo-1590490360186-5b9f45b1b7ce?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="After treatment" style="display:block">
-          <!-- overlay (before) -->
-          <div class="ba-overlay" id="baOverlay"><img src="https://images.unsplash.com/photo-1596496051761-3a4a6d9e2a3c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Before treatment"></div>
-          <div class="ba-handle" id="baHandle"></div>
-        </div>
-      </section>
-
-      <hr>
-
-      <section id="faqs">
-        <h3>Frequently Asked Questions</h3>
-        <dl class="faq">
-          <dt>What causes acne?</dt>
-          <dd>Acne is caused by a combination of follicular plugging by keratin, increased sebum, bacterial colonization (Cutibacterium acnes) and inflammation. Hormones and genetics play a role.</dd>
-
-          <dt>Will acne go away on its own?</dt>
-          <dd>Mild acne sometimes improves with age; however, many patients benefit from early treatment to prevent scarring and prolonged disease.</dd>
-
-          <dt>Is diet important?</dt>
-          <dd>High glycemic index diets and dairy have been associated with acne in some studies. A balanced diet and attention to triggers may help; food effects vary by person.</dd>
-
-          <dt>How long until treatment works?</dt>
-          <dd>Topical treatments often take 6–12 weeks to show improvement. Oral antibiotics may show benefit in weeks, but full improvement may take months. Isotretinoin course is usually 4–6 months.</dd>
-
-          <dt>Is acne contagious?</dt>
-          <dd>No — acne is not contagious.</dd>
-
-          <dt>Can I use makeup?</dt>
-          <dd>Yes — choose non-comedogenic, oil-free products and remove makeup thoroughly before sleep.</dd>
-
-          <dt>What should women consider?</dt>
-          <dd>Hormonal acne may respond to combined oral contraceptives or anti-androgens (spironolactone). Discuss fertility plans before starting certain medications (e.g., isotretinoin is contraindicated in pregnancy).</dd>
-        </dl>
-      </section>
-
-      <section id="references" style="margin-top:18px">
-        <h3>Standard References</h3>
-        <ol class="references">
-          <li>Fitzpatrick's Dermatology in General Medicine, 9th Edition. (Goldsmith et al.)</li>
-          <li>Habif's Clinical Dermatology: A Color Guide to Diagnosis and Therapy, 6th Edition. (Thomas P. Habif)</li>
-          <li>Zaenglein AL, Pathy AL, Schlosser BJ, et al. Guidelines of care for the management of acne vulgaris. Journal of the American Academy of Dermatology. 2016.</li>
-          <li>American Academy of Dermatology (AAD) acne patient resources and clinical guidance.</li>
-          <li>European Academy of Dermatology and Venereology (EADV) practical guidance documents.</li>
-        </ol>
-      </section>
-
-      <!-- Nepali summary -->
-      <section id="nepali" style="margin-top:18px">
-        <h3>संक्षेप (नेपाली)</h3>
-        <p>एक्ने (Acne vulgaris) छालाको पाइलोसिबेसियस इकाईको सामान्य समस्या हो। यसले कालो/सेतो केमिडोन, सुन्निएको दाना (papule), pus भरिएका दाना (pustule), छोला जस्ता गहिरा नोड्युलहरू, र दाग-छाप (scarring) दिन सक्छ। उपचारमा शीर्षिकल र प्रणालीगत औषधिहरू, स्किन केयर, र कहिलेकाहीँ प्रक्रियाहरू (जस्तै पिलिङ, लेजर) सम्म समावेश हुन्छ। गर्भावस्थामा केही औषधि प्रयोग गर्न मिल्दैन (उदा. isotretinoin)। छालाको घामबाट सुरक्षा, नरम क्लेन्जर र non-comedogenic उत्पादनहरू प्रयोग गर्दा फाइदा हुन्छ।</p>
-      </section>
-
-    </article>
-
-    <!-- RIGHT COLUMN / Sidebar -->
-    <aside>
-      <div class="card">
-        <h3>Quick facts</h3>
-        <ul>
-          <li>Most common in adolescents but affects adults too.</li>
-          <li>Early treatment reduces risk of scarring.</li>
-          <li>Multimodal treatment often necessary.</li>
-        </ul>
-
-        <h4 style="margin-top:12px">Risk factors</h4>
-        <svg class="svg-diagram" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="6" width="308" height="208" rx="8" fill="#fff" stroke="#eef3ff"/>
-          <text x="20" y="32" font-weight="700">Risk factors</text>
-          <text x="20" y="58" class="muted">• Family history</text>
-          <text x="20" y="78" class="muted">• Puberty / androgen excess</text>
-          <text x="20" y="98" class="muted">• Medications (steroids, lithium)</text>
-          <text x="20" y="118" class="muted">• Occlusive cosmetics</text>
-          <text x="20" y="138" class="muted">• Diet (high glycemic load)</text>
-          <text x="20" y="158" class="muted">• Stress</text>
-        </svg>
-
-        <h4 style="margin-top:12px">When to see a dermatologist</h4>
-        <p class="muted">If acne causes pain, nodules, scarring, psychological distress, or doesn't respond to OTC measures after 2–3 months.</p>
-
+    <section class="card" id="before-after">
+      <h2>Before and After Treatment</h2>
+      <p>See how professional treatment can make a visible difference. (Images for demonstration)</p>
+      <div class="before-after" id="ba">
+        <img src="images/after.jpg" alt="After acne treatment">
+        <div class="ba-overlay" id="baOverlay"><img src="images/before.jpg" alt="Before acne treatment"></div>
+        <div class="ba-handle" id="baHandle"></div>
       </div>
+    </section>
 
-      <div style="height:18px"></div>
+    <section class="card" id="faqs">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <dl class="faq">
+        <dt>Is acne caused by poor hygiene?</dt>
+        <dd>No. Acne is not caused by dirt. Overwashing or scrubbing can irritate the skin and worsen acne.</dd>
 
-      <div class="card">
-        <h4>Tools & Tests</h4>
-        <p class="muted">Most acne is diagnosed clinically. Consider hormonal tests (androgens) in resistant female acne, pregnancy test prior to teratogenic drugs, and baseline labs before isotretinoin as per local protocols.</p>
-      </div>
+        <dt>Does stress cause acne?</dt>
+        <dd>Stress can worsen acne by increasing hormone levels that stimulate oil glands.</dd>
 
-    </aside>
+        <dt>Can diet influence acne?</dt>
+        <dd>High-sugar foods and dairy products may trigger acne in some people. Eat a balanced diet with fruits and vegetables.</dd>
 
+        <dt>Can acne leave scars?</dt>
+        <dd>Yes. Deep inflammatory acne can scar. Early treatment helps prevent permanent marks.</dd>
+
+        <dt>When should I see a dermatologist?</dt>
+        <dd>If acne is painful, leaves scars, or doesn’t improve after 2–3 months of over-the-counter treatments, consult a certified dermatologist for expert care.</dd>
+      </dl>
+    </section>
+
+    <section class="card">
+      <h2>संक्षेप (नेपाली)</h2>
+      <p>एक्ने (Acne) सामान्य छालाको समस्या हो जसमा दाना, कालो वा सेतो टुक्रा आउँछ। यो हर्मोन, तेल उत्पादन र ब्याक्टेरियाको कारण हुन्छ। नियमित सफा गर्ने, तेलरहित मोइस्चराइजर र घामको सुरक्षा गर्ने बानीले सहयोग गर्छ। गहिरो वा दाग दिने एक्ने भएमा डर्माटोलोजिस्टसँग सम्पर्क गर्नुहोस्।</p>
+    </section>
   </main>
 
   <footer>
-    <div class="container">
-      <small>Created as a patient education page. For personalized medical advice, consult a dermatologist. &middot; Last updated: November 6, 2025</small>
-    </div>
+    <p>For accurate diagnosis and personalized care, always <a href="#contact">consult a dermatologist</a>. <br> References: AAD Guidelines, Fitzpatrick’s Dermatology, Habif’s Clinical Dermatology.</p>
   </footer>
 
   <script>
-    // Simple before-after slider
+    // Improved before-after slider functionality
     (function(){
       const ba = document.getElementById('ba');
       const overlay = document.getElementById('baOverlay');
@@ -331,13 +173,9 @@
         handle.style.left = (pos*100) + '%';
       }
 
-      ba.addEventListener('pointerdown', (e)=>{dragging=true; setPos(e.clientX); });
-      window.addEventListener('pointermove', (e)=>{ if(dragging) setPos(e.clientX); });
-      window.addEventListener('pointerup', ()=>{ dragging=false });
-
-      // init
-      overlay.style.width = '50%';
-      handle.style.left = '50%';
+      ba.addEventListener('pointerdown', e => {dragging = true; setPos(e.clientX);});
+      window.addEventListener('pointermove', e => {if(dragging) setPos(e.clientX);});
+      window.addEventListener('pointerup', () => dragging = false);
     })();
   </script>
 </body>
