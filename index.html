@@ -11,10 +11,12 @@
     <meta name="author" content="Dr. Vikash Paudel">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Dr. Vikash Paudel | Best Dermatologist in Kathmandu">
-    <meta property="og: description" content=" Expert dermatologist specializing in skin diseases, cosmetic dermatology, venereology, and advanced skin treatments in Kathmandu, Nepal.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.vikashpaudel.com">
+    <meta property="og:title" content="Dr Vikash Paudel — Dermatologist in Kathmandu" />
+    <meta property="og:description" content="Consultant Dermatologist specialising in medical & cosmetic dermatology, dermatosurgery. Clinics at Patan Hospital, Elite Health Clinic & Shankhamul." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vikashpaudel.com.np/" />
+    <meta property="og:image" content="https://vikashpaudel.com.np/images/og-image.jpg" />
+    <meta property="og:image:alt" content="Dr Vikash Paudel - Dermatologist Kathmandu" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.vikashpaudel.com">
@@ -29,6 +31,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
    <link rel="stylesheet" href="style.css">
+   
+    <!-- Optional: defer non-critical JS -->
+    <script defer src="/js/main.js"></script>
         
 </head>
 <body>
@@ -52,7 +57,6 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    
                     <li><a href="#services">Services</a></li>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="award.html">Award</a></li>
@@ -302,10 +306,12 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
+      "@type": "Physician",
       "name": "Dr. Vikash Paudel - Dermatologist",
       "description": "Leading dermatologist in Kathmandu specializing in skin diseases, cosmetic dermatology, and advanced skin treatments.",
       "url": "https://www.vikashpaudel.com",
+      "image": "https://vikashpaudel.com.np/images/doctor-profile.jpg",
+      "medicalSpecialty": "Dermatology",
       "telephone": "+977-9825207253",
       "address": {
         "@type": "PostalAddress",
@@ -313,6 +319,14 @@
         "addressLocality": "Kathmandu",
         "addressCountry": "NP"
       },
+      "award": "Rising Star Award (WCD 2019, 2023); Imrich Sarkany Award (EADV 2023)",
+       "sameAs": [
+        "https://www.facebook.com/vikashderma",
+        "https://www.instagram.com/vikash.paudel",
+        "https://www.linkedin.com/in/vikash-paudel-89598324"
+         ]
+        },
+      
       "openingHours": "Su-Fr 09:00-20:00",
       "medicalSpecialty": "Dermatology",
       "hasOfferCatalog": {
@@ -329,7 +343,7 @@
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
+              "@type": "Service, Medical Business",
               "name": "Cosmetic Dermatology"
             }
           },
