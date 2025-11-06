@@ -3,445 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - Dr. Vikash Paudel</title>
+  <title>Blog - Dr. Vikash Paudel | Skin, Hair & Aesthetic Care</title>
+  <meta name="description" content="Dermatology blog by Dr. Vikash Paudel sharing expert insights on common skin diseases, skincare tips, aesthetic treatments, and latest updates for patients.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary: #1a6aa2;
-      --primary-foreground: #ffffff;
-      --accent: #4db6ac;
-      --background: #ffffff;
-      --foreground: #333333;
-      --muted-foreground: #666666;
-      --border: #e0e0e0;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
-      --transition-smooth: all 0.3s ease;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--foreground);
-      background-color: var(--background);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--primary), #2c8ac9);
-      color: var(--primary-foreground);
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Navigation Styles */
-    .navbar {
-      background-color: var(--background);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .navbar li {
-      margin: 0;
-    }
-
-    .navbar a {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: var(--foreground);
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-bottom: 3px solid transparent;
-    }
-
-    .navbar a:hover {
-      color: var(--primary);
-      background-color: #f5f5f5;
-    }
-
-    .navbar a.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-    }
-
-    /* Main Content Styles */
-    main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero-section {
-      background: var(--hero-gradient);
-      color: var(--primary-foreground);
-      padding: 4rem 0;
-    }
-
-    .hero-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-section p {
-      font-size: 1.125rem;
-      opacity: 0.9;
-      max-width: 600px;
-    }
-
-    .content-section {
-      padding: 4rem 0;
-      background-color: var(--background);
-    }
-
-    .max-w-6xl {
-      max-width: 72rem;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Category Filter */
-    .category-filter {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-radius: 0.375rem;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      border: 1px solid var(--border);
-      background-color: var(--background);
-      color: var(--foreground);
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #f5f5f5;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-      border-color: var(--primary);
-    }
-
-    .btn-primary:hover {
-      background-color: #155d8a;
-    }
-
-    .btn-link {
-      background: transparent;
-      border: none;
-      color: var(--primary);
-      padding: 0;
-      font-weight: 500;
-    }
-
-    .btn-link:hover {
-      background: transparent;
-      color: #155d8a;
-    }
-
-    /* Blog Grid */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .blog-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* Card Styles */
-    .card {
-      background-color: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: var(--transition-smooth);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-medical);
-      transform: translateY(-5px);
-    }
-
-    .card-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .space-x-2 > * + * {
-      margin-left: 0.5rem;
-    }
-
-    .text-sm {
-      font-size: 0.875rem;
-    }
-
-    .text-muted-foreground {
-      color: var(--muted-foreground);
-    }
-
-    .mb-3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .mb-4 {
-      margin-bottom: 1rem;
-    }
-
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
-
-    .w-4 {
-      width: 1rem;
-    }
-
-    .h-4 {
-      height: 1rem;
-    }
-
-    .category-tag {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background-color: rgba(26, 106, 162, 0.1);
-      color: var(--primary);
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      align-self: flex-start;
-    }
-
-    .text-xl {
-      font-size: 1.25rem;
-    }
-
-    .font-semibold {
-      font-weight: 600;
-    }
-
-    .line-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .line-clamp-3 {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .flex-1 {
-      flex: 1;
-    }
-
-    .justify-start {
-      justify-content: flex-start;
-    }
-
-    .group {
-      position: relative;
-    }
-
-    .group:hover .group-hover\:translate-x-1 {
-      transform: translateX(0.25rem);
-    }
-
-    .ml-2 {
-      margin-left: 0.5rem;
-    }
-
-    .transition-transform {
-      transition: transform 0.3s ease;
-    }
-
-    /* Newsletter Section */
-    .newsletter-card {
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      margin-top: 3rem;
-      background-color: #f8f9fa;
-    }
-
-    .newsletter-content {
-      padding: 2rem;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .max-w-2xl {
-      max-width: 42rem;
-    }
-
-    .text-2xl {
-      font-size: 1.5rem;
-    }
-
-    .font-bold {
-      font-weight: 700;
-    }
-
-    .newsletter-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 640px) {
-      .newsletter-form {
-        flex-direction: row;
-      }
-    }
-
-    .form-input {
-      flex: 1;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      border: 1px solid var(--border);
-      background-color: var(--background);
-      color: var(--foreground);
-    }
-
-    .form-input:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--primary);
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-      
-      .navbar ul {
-        flex-direction: column;
-        padding: 0;
-      }
-      
-      .navbar a {
-        padding: 0.8rem 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border);
-      }
-      
-      .navbar a.active {
-        border-bottom: 3px solid var(--accent);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-section {
-        padding: 2rem 0;
-      }
-      
-      .hero-section h1 {
-        font-size: 1.8rem;
-      }
-      
-      .card-content {
-        padding: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="navbar">
@@ -460,7 +25,7 @@
     <section class="hero-section">
       <div class="container">
         <h1>Blog & Articles</h1>
-        <p>Expert insights on skin health, dermatology treatments, skin, and haircare tips and Sexual Health </p>
+        <p>Accessible, reliable, and easy-to-understand information on skin health, hair care, and dermatology treatments — written to help patients make informed decisions.</p>
       </div>
     </section>
 
@@ -468,177 +33,125 @@
     <section class="content-section">
       <div class="container">
         <div class="max-w-6xl mx-auto">
-          <!-- Categories Filter -->
+
+          <!-- Category Filter -->
           <div class="category-filter">
             <button class="btn btn-primary">All</button>
-            <button class="btn">Medical Dermatology</button>
+            <button class="btn">Common Skin Conditions</button>
+            <button class="btn">Patient Skincare Tips</button>
+            <button class="btn">Latest Dermatology Updates</button>
             <button class="btn">Aesthetic Dermatology</button>
-            <button class="btn">Skin Care</button>
-            <button class="btn">Hair Disorders</button>
-            <button class="btn">Sexually Transmitted Infection</button>
           </div>
 
-          <!-- Blog Posts Grid -->
+          <!-- Blog Grid -->
           <div class="blog-grid">
-            <!-- Blog Post 1 -->
+
+            <!-- Blog Post: Common Skin Conditions -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 15, 2024</span>
+                  <span>April 10, 2025</span>
                   <span>•</span>
                   <span>5 min read</span>
                 </div>
-                
-                <span class="category-tag">Medical Dermatology</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Understanding Acne: Causes, Treatment, and Prevention
-                </h3>
-                
+                <span class="category-tag">Common Skin Conditions</span>
+                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">Understanding Acne: Causes, Myths, and Modern Treatments</h3>
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Comprehensive guide to understanding acne vulgaris, its causes, modern treatment options, and effective prevention strategies for clear, healthy skin.
+                  Acne is more than just teenage pimples — it’s a medical condition caused by excess oil, bacteria, and hormones. Learn how proper skincare and modern treatments like topical retinoids, chemical peels, and laser therapies can help achieve healthy, confident skin.
                 </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
+                <a href="acne.html" class="btn btn-link justify-start group" target="_blank">Read More <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></a>
               </div>
             </div>
 
-            <!-- Blog Post 2 -->
+            <!-- Blog Post: Eczema -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 8, 2024</span>
+                  <span>March 22, 2025</span>
                   <span>•</span>
                   <span>4 min read</span>
                 </div>
-                
-                <span class="category-tag">Aesthetic Dermatology</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  The Science Behind Chemical Peels
-                </h3>
-                
+                <span class="category-tag">Common Skin Conditions</span>
+                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">Managing Eczema: Everyday Tips for Comfortable Skin</h3>
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Explore how chemical peels work, the different types available, their benefits, and what to expect during and after the procedure.
+                  Eczema causes dry, itchy, and inflamed skin. Learn about triggers such as weather, detergents, and stress — and discover how moisturizers, gentle cleansers, and medical creams can restore skin health and improve comfort.
                 </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
+                <a href="eczema.html" class="btn btn-link justify-start group" target="_blank">Read More <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></a>
               </div>
             </div>
 
-            <!-- Blog Post 3 -->
+            <!-- Blog Post: Patient Skincare Tips -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 1, 2024</span>
+                  <span>March 12, 2025</span>
                   <span>•</span>
                   <span>6 min read</span>
                 </div>
-                
-                <span class="category-tag">Skin Care</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Sun Protection: More Than Just Sunscreen
-                </h3>
-                
+                <span class="category-tag">Patient Skincare Tips</span>
+                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">Your Daily Skincare Routine: Simple Steps for Healthier Skin</h3>
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Learn about comprehensive sun protection strategies, understanding UV radiation, and choosing the right sunscreen for your skin type.
+                  Healthy skin doesn’t need expensive products. Learn how to choose cleansers, moisturizers, and sunscreens suitable for your skin type, and understand why consistency matters more than complexity in daily skincare.
                 </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
+                <a href="skincare-tips.html" class="btn btn-link justify-start group" target="_blank">Read More <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></a>
               </div>
             </div>
 
-            <!-- Blog Post 4 -->
+            <!-- Blog Post: Dermatology Updates -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 22, 2025</span>
+                  <span>February 28, 2025</span>
                   <span>•</span>
                   <span>7 min read</span>
                 </div>
-                
-                <span class="category-tag">Aesthetic Dermatology</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Laser Treatments in Dermatology: What You Need to Know
-                </h3>
-                
+                <span class="category-tag">Latest Dermatology Updates</span>
+                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">New Advances in Skin Treatments and Technology</h3>
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  An overview of various laser treatments used in dermatology, their applications, benefits, and what to expect from laser therapy.
+                  Discover the latest dermatology innovations — from laser resurfacing and microneedling to AI-based diagnosis tools — making skin care more precise, personalized, and effective for patients.
                 </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
+                <a href="dermatology-updates.html" class="btn btn-link justify-start group" target="_blank">Read More <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></a>
               </div>
             </div>
 
-            <!-- Blog Post 5 -->
+            <!-- Blog Post: Aesthetic Dermatology -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 15, 2024</span>
+                  <span>February 10, 2025</span>
                   <span>•</span>
                   <span>5 min read</span>
                 </div>
-                
-                <span class="category-tag">Medical Dermatology</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Managing Eczema: Tips for Daily Care
-                </h3>
-                
+                <span class="category-tag">Aesthetic Dermatology</span>
+                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">Understanding Laser and Filler Treatments</h3>
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Practical advice for managing eczema symptoms, identifying triggers, and maintaining healthy skin through proper skincare routines.
+                  Cosmetic dermatology combines science and artistry. Learn how laser and filler treatments can rejuvenate skin safely, with guidance on what to expect before and after procedures.
                 </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
+                <a href="aesthetic.html" class="btn btn-link justify-start group" target="_blank">Read More <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></a>
               </div>
             </div>
 
-            <!-- Blog Post 6 -->
-            <div class="card">
-              <div class="card-content">
-                <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
-                  <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 8, 2024</span>
-                  <span>•</span>
-                  <span>6 min read</span>
+          </div>
+
+          <!-- Newspaper Articles Section -->
+          <div class="newsletter-card" style="margin-top:4rem;">
+            <div class="newsletter-content">
+              <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold text-foreground mb-4">Dermatology in the News</h2>
+                <p class="text-muted-foreground mb-6">Explore articles by Dr. Vikash Paudel published in reputed newspapers — sharing dermatology awareness and skin health insights for the public.</p>
+                <div style="text-align:left;">
+                  <ul>
+                    <li><a href="https://example.com/article1" target="_blank">"बालबालिकामा देखिने छालाका सामान्य रोगहरू" — Nagarik Daily (Nepali)</a></li>
+                    <li><a href="https://kathmandupost.com/art-culture/2024/08/06/a-look-at-hyperpigmentation" target="_blank">"A look at hyperpigmentation" — The Kathmandu Post (English)</a></li>
+                    <li><a href="https://kathmandupost.com/life--style/2024/03/27/keeping-skin-healthy-in-dry-seasons" target="_blank">"Keeping skin healthy in dry seasons" — The Kathmandu Post (English)</a></li>
+                    <li><a href="https://www.onlinekhabar.com/2025/05/1679651/some-tumors-can-also-be-cancerous" target="_blank">"कतिपय कोठी क्यान्सर पनि हुनसक्छ" — Online Khabar(Nepali)</a></li>
+                  </ul>
                 </div>
-                
-                <span class="category-tag">Hair Disorders</span>
-                
-                <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Hair Loss: Causes and Modern Treatment Options
-                </h3>
-                
-                <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Understanding different types of hair loss, their causes, and the latest evidence-based treatment options available.
-                </p>
-                
-                <button class="btn btn-link justify-start group">
-                  Read More 
-                  <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </button>
               </div>
             </div>
           </div>
@@ -648,9 +161,7 @@
             <div class="newsletter-content">
               <div class="text-center max-w-2xl mx-auto">
                 <h2 class="text-2xl font-bold text-foreground mb-4">Stay Updated</h2>
-                <p class="text-muted-foreground mb-6">
-                  Subscribe to receive the latest articles on dermatology, skincare tips, and health updates directly in your inbox.
-                </p>
+                <p class="text-muted-foreground mb-6">Subscribe to receive the latest dermatology blogs, skincare tips, and updates directly in your inbox.</p>
                 <div class="newsletter-form">
                   <input type="email" placeholder="Enter your email" class="form-input">
                   <button class="btn btn-primary">Subscribe</button>
@@ -658,6 +169,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -666,30 +178,5 @@
   <footer>
     <p>&copy; 2025 Dr. Vikash Paudel</p>
   </footer>
-
-  <script>
-    // Simple JavaScript for category filtering
-    document.addEventListener('DOMContentLoaded', function() {
-      const filterButtons = document.querySelectorAll('.category-filter .btn');
-      
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => {
-            btn.classList.remove('btn-primary');
-            btn.classList.add('btn');
-          });
-          
-          // Add active class to clicked button
-          this.classList.remove('btn');
-          this.classList.add('btn-primary');
-          
-          // In a real implementation, you would filter the blog posts here
-          // For this example, we'll just log the category
-          console.log(`Filtering by: ${this.textContent}`);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
