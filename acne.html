@@ -1,207 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acne Treatment by Dr. Vikash Paudel | Best Dermatologist in Kathmandu</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Comprehensive guide on acne causes, prevention, and treatment by Dr. Vikash Paudel, Dermatologist in Kathmandu. Learn about acne vulgaris, acne scars, and modern treatment options.">
-  <meta name="keywords" content="Dr Vikash Paudel, dermatologist in Kathmandu, acne treatment Nepal, acne scars treatment, acne vulgaris, skin doctor Kathmandu, acne prevention, acne vulgaris causes, acne management, acne vulgaris treatment, laser acne treatment, chemical peel for acne, acne scar removal, acne care clinic, acne and pimples, best acne doctor Kathmandu">
-  <meta name="author" content="Dr. Vikash Paudel">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acne — Causes, Treatment & Prevention | Patient Guide</title>
 
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Acne Treatment by Dr. Vikash Paudel",
-    "about": {
-      "@type": "MedicalCondition",
-      "name": "Acne Vulgaris",
-      "alternateName": ["Pimples", "Acne Scars"],
-      "possibleTreatment": [
-        {"@type": "MedicalTherapy", "name": "Topical Retinoids"},
-        {"@type": "MedicalTherapy", "name": "Antibiotics"},
-        {"@type": "MedicalTherapy", "name": "Chemical Peels"},
-        {"@type": "MedicalTherapy", "name": "Laser Therapy"}
-      ]
-    },
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Dr. Vikash Paudel",
-      "jobTitle": "Consultant Dermatologist",
-      "affiliation": "Patan Hospital, Elite Health Clinic",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kathmandu",
-        "addressCountry": "NP"
-      },
-      "url": "https://vikashpaudel.com.np",
-      "sameAs": [
-        "https://www.linkedin.com/in/drvikashpaudel",
-        "https://www.facebook.com/drvikashpaudel"
-      ]
-    }
-  }
-  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.8;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --accent:#0077b6;
+      --muted:#555;
+      --highlight:#ff6f61;
     }
+    body{margin:0;background:var(--bg);color:#1e293b;font-family:'Poppins',sans-serif;line-height:1.7;}
+    header{background:linear-gradient(90deg,var(--accent),#005f8d);color:white;padding:32px 20px;text-align:center;}
+    header h1{font-family:'Roboto Serif',serif;font-size:2rem;margin:0 0 10px;}
+    header p{color:#e2e8f0;margin:0;font-size:1rem;}
+    nav{margin-top:15px;}
+    nav a{color:#eaf4ff;text-decoration:none;margin:0 10px;font-weight:600;}
+    .container{max-width:1100px;margin:auto;padding:20px;}
+    .card{background:var(--card);border-radius:12px;padding:22px;margin-top:20px;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+    h2,h3,h4{color:var(--accent);font-family:'Roboto Serif',serif;}
+    h2{font-size:1.6rem;}
+    h3{font-size:1.3rem;}
+    p,li,dd{font-size:1rem;}
+    strong{color:#0f172a;}
 
-    header {
-      background-color: #0077b6;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 2em;
-      font-weight: bold;
-    }
+    .before-after{position:relative;overflow:hidden;border-radius:12px;margin-top:15px;}
+    .before-after img{display:block;width:100%;height:auto;border-radius:12px;}
+    .ba-overlay{position:absolute;left:0;top:0;bottom:0;width:50%;overflow:hidden;}
+    .ba-overlay img{width:100%;height:100%;object-fit:cover;}
+    .ba-handle{position:absolute;left:50%;top:0;bottom:0;width:4px;background:white;cursor:ew-resize;}
 
-    h2, h3 {
-      color: #0077b6;
-    }
-
-    p {
-      font-size: 1.1em;
-      margin: 10px 20px;
-    }
-
-    .section {
-      padding: 20px 40px;
-      background-color: white;
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 900px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .before-after {
-      display: flex;
-      justify-content: space-around;
-      margin: 30px 0;
-    }
-
-    .before-after img {
-      width: 40%;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .faq h4 {
-      color: #d62828;
-      margin-top: 20px;
-    }
-
-    .faq p {
-      margin-left: 20px;
-    }
-
-    footer {
-      background-color: #023e8a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 1em;
-      margin-top: 40px;
-    }
-
-    .nepali-summary {
-      background-color: #e3f2fd;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
+    dl.faq dt{font-weight:700;color:var(--highlight);font-size:1.05rem;margin-top:15px;}
+    dl.faq dd{margin:6px 0 14px;color:var(--muted);}
+    footer{margin-top:30px;text-align:center;color:#6b7280;font-size:0.9rem;padding:20px;}
+    footer a{color:var(--accent);text-decoration:none;font-weight:600;}
   </style>
 </head>
 <body>
   <header>
-    Understanding Acne: Causes, Treatment, and Prevention
+    <h1>Understanding Acne: Causes, Treatment & Prevention</h1>
+    <p>A simple, comprehensive guide for everyone — from patients to medical students</p>
+    <nav>
+      <a href="#causes">Causes</a>
+      <a href="#types">Types</a>
+      <a href="#treatment">Treatment</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#faqs">FAQs</a>
+    </nav>
   </header>
 
-  <div class="section">
-    <h2>Comprehensive Guide to Acne Vulgaris</h2>
-    <p>Acne vulgaris is one of the most common skin conditions affecting teenagers and adults alike. It develops when hair follicles become clogged with oil and dead skin cells, leading to pimples, blackheads, or cystic lesions. While acne is not dangerous, it can cause emotional distress and permanent scarring if untreated.</p>
+  <main class="container">
+    <section class="card">
+      <h2>Overview</h2>
+      <p>Acne vulgaris is one of the most common skin conditions seen in young people and adults. It occurs when hair follicles become blocked with oil, dead skin cells, and bacteria. Understanding its causes and management helps prevent long-term marks or scars. This guide simplifies medical facts for general readers and early medical graduates.</p>
+    </section>
 
-    <div class="before-after">
-      <img src="images/before.jpg" alt="Before Acne Treatment">
-      <img src="images/after.jpg" alt="After Acne Treatment">
-    </div>
+    <section class="card" id="causes">
+      <h2>Causes of Acne</h2>
+      <ul>
+        <li><strong>Excess oil production:</strong> Stimulated by hormones during puberty or stress.</li>
+        <li><strong>Clogged pores:</strong> Dead skin cells block the hair follicles.</li>
+        <li><strong>Bacteria (Cutibacterium acnes):</strong> Multiply inside blocked pores, causing inflammation.</li>
+        <li><strong>Hormonal imbalance:</strong> Common during teenage years, menstruation, or hormonal disorders.</li>
+        <li><strong>Genetics:</strong> Family history increases susceptibility.</li>
+      </ul>
+    </section>
 
-    <h3>Causes of Acne</h3>
-    <ul>
-      <li>Excess oil (sebum) production</li>
-      <li>Blocked hair follicles by oil and dead skin</li>
-      <li>Bacteria (Propionibacterium acnes)</li>
-      <li>Hormonal changes, especially during puberty</li>
-      <li>Stress, diet, and certain medications</li>
-    </ul>
+    <section class="card" id="types">
+      <h2>Types of Acne</h2>
+      <ul>
+        <li><strong>Blackheads and whiteheads (Comedonal acne)</strong></li>
+        <li><strong>Papules and pustules (Inflammatory acne)</strong></li>
+        <li><strong>Nodules and cysts (Severe acne)</strong> — often need medical attention.</li>
+      </ul>
+    </section>
 
-    <h3>Treatment Options</h3>
-    <p>Modern dermatology offers a range of effective acne treatments depending on severity:</p>
-    <ul>
-      <li>Topical creams with retinoids, benzoyl peroxide, or antibiotics</li>
-      <li>Oral medications such as isotretinoin or hormonal therapy</li>
-      <li>Chemical peels and laser therapy for acne scars</li>
-      <li>Medical facials and comedone extraction by dermatologists</li>
-    </ul>
+    <section class="card" id="treatment">
+      <h2>Treatment Options</h2>
+      <p>Treatment depends on acne severity. Combining topical and oral medications with proper skincare gives the best results. Always consult a dermatologist before starting new medications.</p>
 
-    <h3>Prevention Tips</h3>
-    <ul>
-      <li>Wash face twice daily with mild cleansers</li>
-      <li>Avoid harsh scrubbing or over-cleansing</li>
-      <li>Use non-comedogenic skincare products</li>
-      <li>Maintain a healthy diet and stay hydrated</li>
-    </ul>
+      <h3>Topical treatments</h3>
+      <ul>
+        <li><strong>Adapalene or Tretinoin:</strong> Vitamin A derivatives that help unclog pores and reduce blackheads.</li>
+        <li><strong>Benzoyl Peroxide:</strong> Reduces bacteria and inflammation.</li>
+        <li><strong>Topical antibiotics:</strong> Help fight bacteria; often used with benzoyl peroxide.</li>
+      </ul>
 
-    <h3>Pictorial Diagram</h3>
-    <img src="images/acne-types.jpg" alt="Types of Acne" style="width:45%; margin:10px; border-radius:10px;">
-    <img src="images/acne-management.jpg" alt="Acne Management Options" style="width:45%; margin:10px; border-radius:10px;">
+      <h3>Oral medications</h3>
+      <ul>
+        <li><strong>Antibiotics:</strong> For moderate acne — should be used short term.</li>
+        <li><strong>Isotretinoin:</strong> Used for severe acne under dermatologist supervision.</li>
+        <li><strong>Hormonal therapy:</strong> May help women with hormonally driven acne.</li>
+      </ul>
 
-    <div class="faq">
-      <h3>Frequently Asked Questions (FAQs)</h3>
-      <h4>1. What causes acne?</h4>
-      <p>Acne is mainly caused by clogged pores, excess oil, and bacteria. Hormones and genetics also play a major role.</p>
+      <h3>Procedural treatments</h3>
+      <ul>
+        <li>Chemical peels, comedone extraction, and laser therapy help manage acne and scars.</li>
+      </ul>
+    </section>
 
-      <h4>2. Can acne be permanently cured?</h4>
-      <p>Acne can be controlled and scars improved with consistent medical treatment. Permanent cure depends on the cause and severity.</p>
+    <section class="card" id="prevention">
+      <h2>Prevention and Skin Care Tips</h2>
+      <ol>
+        <li>Cleanse gently twice daily with a mild, non-comedogenic cleanser.</li>
+        <li>Use oil-free moisturizers and sunscreen daily.</li>
+        <li>Avoid popping pimples to prevent scars.</li>
+        <li>Choose makeup labeled “non-comedogenic.”</li>
+        <li>Maintain a balanced diet and manage stress.</li>
+      </ol>
+    </section>
 
-      <h4>3. What are the best acne treatments?</h4>
-      <p>Treatments include topical creams, oral medications, chemical peels, and laser therapy under a dermatologist’s guidance.</p>
+    <section class="card" id="before-after">
+      <h2>Before and After Treatment</h2>
+      <p>See how professional treatment can make a visible difference. (Images for demonstration)</p>
+      <div class="before-after" id="ba">
+        <img src="images/after.jpg" alt="After acne treatment">
+        <div class="ba-overlay" id="baOverlay"><img src="images/before.jpg" alt="Before acne treatment"></div>
+        <div class="ba-handle" id="baHandle"></div>
+      </div>
+    </section>
 
-      <h4>4. Does diet affect acne?</h4>
-      <p>Yes, diets high in sugar and dairy may worsen acne. A balanced diet helps in prevention.</p>
+    <section class="card" id="faqs">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <dl class="faq">
+        <dt>Is acne caused by poor hygiene?</dt>
+        <dd>No. Acne is not caused by dirt. Overwashing or scrubbing can irritate the skin and worsen acne.</dd>
 
-      <h4>5. Should I see a dermatologist?</h4>
-      <p>Yes. Consulting a qualified dermatologist ensures accurate diagnosis and safe, effective management of acne and acne scars.</p>
-    </div>
+        <dt>Does stress cause acne?</dt>
+        <dd>Stress can worsen acne by increasing hormone levels that stimulate oil glands.</dd>
 
-    <div class="nepali-summary">
-      <h3>सारांश (Summary in Nepali)</h3>
-      <p>पिम्पल वा एक्ने एक सामान्य छालाको समस्या हो जुन किशोरावस्था र वयस्कमा देखिन्छ। यसको कारण तेल ग्रन्थिको बढी सक्रियता, हर्मोनल परिवर्तन, ब्याक्टेरिया, र पोर्स बन्द हुनु हो। उपचारका लागि औषधि, लेजर, केमिकल पिल, र डर्माटोलोजिस्टको सल्लाह अत्यावश्यक हुन्छ। छालाको हेरचाह र सफाइमा ध्यान दिएर एक्ने नियन्त्रण गर्न सकिन्छ।</p>
-    </div>
+        <dt>Can diet influence acne?</dt>
+        <dd>High-sugar foods and dairy products may trigger acne in some people. Eat a balanced diet with fruits and vegetables.</dd>
 
-    <h3>References</h3>
-    <ul>
-      <li>American Academy of Dermatology. Acne: Overview.</li>
-      <li>UpToDate: Pathogenesis, Clinical Features, and Diagnosis of Acne Vulgaris.</li>
-      <li>World Health Organization. Global burden of skin diseases.</li>
-    </ul>
+        <dt>Can acne leave scars?</dt>
+        <dd>Yes. Deep inflammatory acne can scar. Early treatment helps prevent permanent marks.</dd>
 
-  </div>
+        <dt>When should I see a dermatologist?</dt>
+        <dd>If acne is painful, leaves scars, or doesn’t improve after 2–3 months of over-the-counter treatments, consult a certified dermatologist for expert care.</dd>
+      </dl>
+    </section>
+
+    <section class="card">
+      <h2>संक्षेप (नेपाली)</h2>
+      <p>एक्ने (Acne) सामान्य छालाको समस्या हो जसमा दाना, कालो वा सेतो टुक्रा आउँछ। यो हर्मोन, तेल उत्पादन र ब्याक्टेरियाको कारण हुन्छ। नियमित सफा गर्ने, तेलरहित मोइस्चराइजर र घामको सुरक्षा गर्ने बानीले सहयोग गर्छ। गहिरो वा दाग दिने एक्ने भएमा डर्माटोलोजिस्टसँग सम्पर्क गर्नुहोस्।</p>
+    </section>
+  </main>
 
   <footer>
-    <p>For personalized acne and skin care, consult <strong>Dr. Vikash Paudel</strong>, Consultant Dermatologist at Patan Hospital and Elite Health Clinic, Kathmandu.</p>
-    <p>© 2025 Dr. Vikash Paudel | All Rights Reserved</p>
+    <p>For accurate diagnosis and personalized care, always <a href="#contact">consult a dermatologist</a>. <br> References: AAD Guidelines, Fitzpatrick’s Dermatology, Habif’s Clinical Dermatology.</p>
   </footer>
+
+  <script>
+    // Improved before-after slider functionality
+    (function(){
+      const ba = document.getElementById('ba');
+      const overlay = document.getElementById('baOverlay');
+      const handle = document.getElementById('baHandle');
+      if(!ba || !overlay || !handle) return;
+
+      let dragging = false;
+      function setPos(x){
+        const rect = ba.getBoundingClientRect();
+        let pos = (x - rect.left) / rect.width;
+        pos = Math.max(0, Math.min(1, pos));
+        overlay.style.width = (pos*100) + '%';
+        handle.style.left = (pos*100) + '%';
+      }
+
+      ba.addEventListener('pointerdown', e => {dragging = true; setPos(e.clientX);});
+      window.addEventListener('pointermove', e => {if(dragging) setPos(e.clientX);});
+      window.addEventListener('pointerup', () => dragging = false);
+    })();
+  </script>
 </body>
 </html>
