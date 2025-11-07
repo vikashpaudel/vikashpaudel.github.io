@@ -117,6 +117,8 @@
       background: var(--hero-gradient);
       color: var(--primary-foreground);
       padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-section h1 {
@@ -406,6 +408,69 @@
       border-top: 1px solid #e0e0e0;
     }
 
+    /* New Styles for Newspaper Logos */
+    .newspaper-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .newspaper-list li {
+      margin-bottom: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .newspaper-list li:last-child {
+      border-bottom: none;
+    }
+
+    .newspaper-list a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition-smooth);
+    }
+
+    .newspaper-list a:hover {
+      color: #155d8a;
+    }
+
+    .newspaper-logo {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      object-fit: contain;
+    }
+
+    /* Hero Image Styles */
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 0 0 300px;
+      margin-left: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -426,6 +491,17 @@
       .navbar a.active {
         border-bottom: 3px solid var(--accent);
       }
+
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-image {
+        margin-left: 0;
+        margin-top: 2rem;
+        flex: 0 0 auto;
+      }
     }
 
     @media (max-width: 480px) {
@@ -440,6 +516,17 @@
       .card-content {
         padding: 1rem;
       }
+    }
+
+    /* Thank you message styles */
+    .thank-you-message {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      text-align: center;
     }
   </style>
 </head>
@@ -458,9 +545,14 @@
   <main>
     <!-- Header -->
     <section class="hero-section">
-      <div class="container">
-        <h1>Blog & Articles</h1>
-        <p>Expert insights on skin health, dermatology treatments, skin, and haircare tips and Sexual Health </p>
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1>Blog & Articles</h1>
+          <p>Expert insights on skin health, dermatology treatments, skin, haircare tips and Sexual Health</p>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Medical books and dermatology resources">
+        </div>
       </div>
     </section>
 
@@ -485,7 +577,7 @@
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 15, 2024</span>
+                  <span>June 15, 2025</span>
                   <span>•</span>
                   <span>5 min read</span>
                 </div>
@@ -497,7 +589,7 @@
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Comprehensive guide to understanding acne vulgaris, its causes, modern treatment options, and effective prevention strategies for clear, healthy skin.
+                  Acne is a common skin condition affecting millions worldwide. Learn about the root causes, effective treatments, and preventive measures to maintain clear, healthy skin.
                 </p>
                 <a href="acne.html" target="_blank" class="btn btn-link justify-start group">
                 Read More 
@@ -511,7 +603,7 @@
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 8, 2024</span>
+                  <span>June 8, 2025</span>
                   <span>•</span>
                   <span>4 min read</span>
                 </div>
@@ -523,7 +615,7 @@
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Explore how chemical peels work, the different types available, their benefits, and what to expect during and after the procedure.
+                  Chemical peels can rejuvenate your skin by removing damaged outer layers. Discover how different peels work and which might be right for your skin concerns.
                 </p>
                 
                 <button class="btn btn-link justify-start group">
@@ -538,7 +630,7 @@
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>March 1, 2024</span>
+                  <span>June 1, 2025</span>
                   <span>•</span>
                   <span>6 min read</span>
                 </div>
@@ -550,7 +642,7 @@
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Learn about comprehensive sun protection strategies, understanding UV radiation, and choosing the right sunscreen for your skin type.
+                  Effective sun protection involves more than just applying sunscreen. Learn about comprehensive strategies including clothing, timing, and environmental factors.
                 </p>
                 
                 <button class="btn btn-link justify-start group">
@@ -560,12 +652,12 @@
               </div>
             </div>
 
-            <!-- Blog Post 4 -->
+            <!-- Blog Post 4 (Nepali) -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 22, 2025</span>
+                  <span>May 25, 2025</span>
                   <span>•</span>
                   <span>7 min read</span>
                 </div>
@@ -573,26 +665,26 @@
                 <span class="category-tag">Aesthetic Dermatology</span>
                 
                 <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Laser Treatments in Dermatology: What You Need to Know
+                  डर्माटोलोजीमा लेजर उपचारहरू: तपाईंले के जान्नु पर्छ
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  An overview of various laser treatments used in dermatology, their applications, benefits, and what to expect from laser therapy.
+                  लेजर उपचारहरूले छालाको विभिन्न समस्याहरूको समाधान गर्न सक्छन्। यसले कसरी काम गर्छ, प्रकारहरू, र उपचारपछिको हेरचाहका बारेमा जान्नुहोस्।
                 </p>
                 
                 <button class="btn btn-link justify-start group">
-                  Read More 
+                  थप पढ्नुहोस् 
                   <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </button>
               </div>
             </div>
 
-            <!-- Blog Post 5 -->
+            <!-- Blog Post 5 (Nepali) -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 15, 2024</span>
+                  <span>May 18, 2025</span>
                   <span>•</span>
                   <span>5 min read</span>
                 </div>
@@ -600,26 +692,26 @@
                 <span class="category-tag">Medical Dermatology</span>
                 
                 <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Managing Eczema: Tips for Daily Care
+                  एक्जिमा व्यवस्थापन: दैनिक हेरचाहका सुझावहरू
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Practical advice for managing eczema symptoms, identifying triggers, and maintaining healthy skin through proper skincare routines.
+                  एक्जिमाको समस्याले ग्रस्त व्यक्तिहरूको लागि दैनिक हेरचाहका महत्त्वपूर्ण सुझावहरू, ट्रिगरहरू पहिचान गर्ने तरिका र छाला स्वास्थ्यलाई कसरी राख्ने।
                 </p>
                 
                 <button class="btn btn-link justify-start group">
-                  Read More 
+                  थप पढ्नुहोस् 
                   <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </button>
               </div>
             </div>
 
-            <!-- Blog Post 6 -->
+            <!-- Blog Post 6 (Nepali) -->
             <div class="card">
               <div class="card-content">
                 <div class="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
                   <i class="fas fa-calendar w-4 h-4"></i>
-                  <span>February 8, 2024</span>
+                  <span>May 10, 2025</span>
                   <span>•</span>
                   <span>6 min read</span>
                 </div>
@@ -627,15 +719,15 @@
                 <span class="category-tag">Hair Disorders</span>
                 
                 <h3 class="text-xl font-semibold text-foreground mb-3 line-clamp-2">
-                  Hair Loss: Causes and Modern Treatment Options
+                  कपाल झर्ने समस्या: कारण र आधुनिक उपचारका विकल्पहरू
                 </h3>
                 
                 <p class="text-muted-foreground mb-6 line-clamp-3 flex-1">
-                  Understanding different types of hair loss, their causes, and the latest evidence-based treatment options available.
+                  कपाल झर्ने विभिन्न प्रकार, तिनीहरूको कारणहरू, र प्रमाण-आधारित उपचारका विकल्पहरूको बारेमा जानकारी। कसरी रोकथाम गर्ने र उपचार गर्ने।
                 </p>
                 
                 <button class="btn btn-link justify-start group">
-                  Read More 
+                  थप पढ्नुहोस् 
                   <i class="fas fa-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </button>
               </div>
@@ -649,11 +741,31 @@
                    <h2 class="text-2xl font-bold text-foreground mb-4">Dermatology in the Newspaper, विभिन्न पत्रपत्रिकामा प्रकाशित लेख रचनाहरु</h2>
                    <p class="text-muted-foreground mb-6">Explore articles by Dr. Vikash Paudel published in reputed newspapers — sharing dermatology awareness and skin health insights for the public.</p>
                    <div style="text-align:left;">
-                    <ul>
-                    <li><a href="https://www.onlinekhabar.com/2024/07/1511295/my-hair-started-growing-what-should-i-do" target="_blank">"मेरो कपाल फुल्न थाल्यो, के गरौं ?" — Online Khabar(Nepali)</a></li>
-                    <li><a href="https://kathmandupost.com/art-culture/2024/08/06/a-look-at-hyperpigmentation" target="_blank">"A look at hyperpigmentation — The Kathmandu Post (English)</a></li>
-                    <li><a href="https://kathmandupost.com/life--style/2024/03/27/keeping-skin-healthy-in-dry-seasons" target="_blank">"Keeping skin healthy in dry seasons— The Kathmandu Post </a></li>
-                    <li><a href="https://www.onlinekhabar.com/2024/11/1566424/why-lips-crack-in-winter-how-to-avoid" target="_blank">"जाडोमा ओठ किन फुट्छ, कसरी बच्ने ?" — Online Khabar(Nepali)</a></li>
+                    <ul class="newspaper-list">
+                    <li>
+                      <a href="https://www.onlinekhabar.com/2024/07/1511295/my-hair-started-growing-what-should-i-do" target="_blank">
+                        <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" alt="Online Khabar Logo" class="newspaper-logo">
+                        "मेरो कपाल फुल्न थाल्यो, के गरौं ?" — Online Khabar (Nepali)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://kathmandupost.com/art-culture/2024/08/06/a-look-at-hyperpigmentation" target="_blank">
+                        <img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" alt="The Kathmandu Post Logo" class="newspaper-logo">
+                        "A look at hyperpigmentation" — The Kathmandu Post (English)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://kathmandupost.com/life--style/2024/03/27/keeping-skin-healthy-in-dry-seasons" target="_blank">
+                        <img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" alt="The Kathmandu Post Logo" class="newspaper-logo">
+                        "Keeping skin healthy in dry seasons" — The Kathmandu Post (English)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.onlinekhabar.com/2024/11/1566424/why-lips-crack-in-winter-how-to-avoid" target="_blank">
+                        <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" alt="Online Khabar Logo" class="newspaper-logo">
+                        "जाडोमा ओठ किन फुट्छ, कसरी बच्ने ?" — Online Khabar (Nepali)
+                      </a>
+                    </li>
                     </ul>
                   </div>
                 </div>
@@ -664,13 +776,16 @@
           <div class="newsletter-card">
             <div class="newsletter-content">
               <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-2xl font-bold text-foreground mb-4">Stay Updated</h2>
+                <h2 class="text-2xl font-bold text-foreground mb-4">Join Our Dermatology Community</h2>
                 <p class="text-muted-foreground mb-6">
-                  Subscribe to receive the latest articles on dermatology, skincare tips, and health updates directly in your inbox.
+                  Dear valued reader, as part of our community, you'll receive personalized dermatology insights, skincare tips tailored to your needs, and the latest health updates directly in your inbox. We're committed to helping you achieve and maintain healthy skin.
                 </p>
                 <div class="newsletter-form">
-                  <input type="email" placeholder="Enter your email" class="form-input">
-                  <button class="btn btn-primary">Subscribe</button>
+                  <input type="email" placeholder="Enter your email" class="form-input" id="newsletter-email">
+                  <button class="btn btn-primary" id="subscribe-btn">Subscribe</button>
+                </div>
+                <div id="thank-you-message" class="thank-you-message">
+                  Thank you for subscribing! We're excited to have you in our community and will keep you updated with the latest dermatology insights.
                 </div>
               </div>
             </div>
@@ -705,6 +820,33 @@
           // For this example, we'll just log the category
           console.log(`Filtering by: ${this.textContent}`);
         });
+      });
+
+      // Newsletter subscription with thank you message
+      const subscribeBtn = document.getElementById('subscribe-btn');
+      const emailInput = document.getElementById('newsletter-email');
+      const thankYouMessage = document.getElementById('thank-you-message');
+      
+      subscribeBtn.addEventListener('click', function() {
+        const email = emailInput.value.trim();
+        
+        if (email) {
+          // In a real implementation, you would send this to a server
+          console.log(`Subscribed email: ${email}`);
+          
+          // Show thank you message
+          thankYouMessage.style.display = 'block';
+          
+          // Clear the input
+          emailInput.value = '';
+          
+          // Hide message after 5 seconds
+          setTimeout(() => {
+            thankYouMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          alert('Please enter a valid email address.');
+        }
       });
     });
   </script>
