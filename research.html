@@ -47,6 +47,73 @@
       font-weight: 600;
     }
 
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-left.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-right.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scale-in.in-view {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-delay > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .stagger-delay.in-view > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-delay > *:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-delay > *:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-delay > *:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-delay > *:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-delay > *:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-delay > *:nth-child(6) { transition-delay: 0.6s; }
+    .stagger-delay > *:nth-child(7) { transition-delay: 0.7s; }
+    .stagger-delay > *:nth-child(8) { transition-delay: 0.8s; }
+    .stagger-delay > *:nth-child(9) { transition-delay: 0.9s; }
+    .stagger-delay > *:nth-child(10) { transition-delay: 1s; }
+
     /* Header Styles */
     header {
       background: linear-gradient(135deg, var(--primary), #2c8ac9);
@@ -279,25 +346,23 @@
       transition: var(--transition-smooth);
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .card.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card:nth-child(2) { animation-delay: 0.1s; }
-    .card:nth-child(3) { animation-delay: 0.2s; }
-    .card:nth-child(4) { animation-delay: 0.3s; }
-    .card:nth-child(5) { animation-delay: 0.4s; }
-    .card:nth-child(6) { animation-delay: 0.5s; }
-    .card:nth-child(7) { animation-delay: 0.6s; }
-    .card:nth-child(8) { animation-delay: 0.7s; }
-    .card:nth-child(9) { animation-delay: 0.8s; }
-    .card:nth-child(10) { animation-delay: 0.9s; }
+    .card:nth-child(2) { transition-delay: 0.1s; }
+    .card:nth-child(3) { transition-delay: 0.2s; }
+    .card:nth-child(4) { transition-delay: 0.3s; }
+    .card:nth-child(5) { transition-delay: 0.4s; }
+    .card:nth-child(6) { transition-delay: 0.5s; }
+    .card:nth-child(7) { transition-delay: 0.6s; }
+    .card:nth-child(8) { transition-delay: 0.7s; }
+    .card:nth-child(9) { transition-delay: 0.8s; }
+    .card:nth-child(10) { transition-delay: 0.9s; }
 
     .card:hover {
       box-shadow: var(--shadow-medical);
@@ -453,6 +518,25 @@
     /* Research Focus */
     .research-focus {
       background-color: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-focus::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/research-bg.jpg') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .research-focus .card-content {
+      position: relative;
+      z-index: 1;
     }
 
     .mt-16 {
@@ -669,6 +753,26 @@
       font-size: 1.25rem;
     }
 
+    /* Featured Publication */
+    .featured-publication {
+      background: linear-gradient(rgba(26, 106, 162, 0.05), rgba(26, 106, 162, 0.05)), url('images/jaad-bg.jpg') center/cover no-repeat;
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background-color: #d32f2f;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -780,8 +884,8 @@
     <!-- Header -->
     <section class="hero-section">
       <div class="container">
-        <h1>Publications & Research</h1>
-        <p>Contributing to dermatological knowledge through research and academic publications</p>
+        <h1 class="fade-in">Publications & Research</h1>
+        <p class="fade-in">Contributing to dermatological knowledge through research and academic publications</p>
       </div>
     </section>
 
@@ -789,18 +893,18 @@
     <section class="content-section">
       <div class="container">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-center mb-6">Research Profiles</h2>
-          <div class="social-links">
-            <a href="https://orcid.org/0000-0001-8729-052X" class="social-link" aria-label="ORCID Profile" target="_blank">
+          <h2 class="text-center mb-6 fade-in">Research Profiles</h2>
+          <div class="social-links stagger-delay">
+            <a href="https://orcid.org/0000-0001-8729-052X" class="social-link scale-in" aria-label="ORCID Profile" target="_blank">
               <i class="fab fa-orcid"></i>
             </a>
-            <a href="https://scholar.google.com/citations?user=USER_ID" class="social-link" aria-label="Google Scholar Profile" target="_blank">
+            <a href="https://scholar.google.com/citations?user=USER_ID" class="social-link scale-in" aria-label="Google Scholar Profile" target="_blank">
               <i class="fas fa-graduation-cap"></i>
             </a>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Paudel+V" class="social-link" aria-label="PubMed Publications" target="_blank">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Paudel+V" class="social-link scale-in" aria-label="PubMed Publications" target="_blank">
               <i class="fas fa-book-medical"></i>
             </a>
-            <a href="https://www.researchgate.net/profile/Vikash_Paudel" class="social-link" aria-label="ResearchGate Profile" target="_blank">
+            <a href="https://www.researchgate.net/profile/Vikash_Paudel" class="social-link scale-in" aria-label="ResearchGate Profile" target="_blank">
               <i class="fab fa-researchgate"></i>
             </a>
           </div>
@@ -813,7 +917,7 @@
       <div class="container">
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Introduction -->
-          <div>
+          <div class="fade-in">
             <div class="flex items-center space-x-3 mb-6">
               <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
                 <i class="fas fa-book-open text-primary w-6 h-6"></i>
@@ -826,13 +930,28 @@
             </p>
           </div>
 
+          <!-- Featured Publication -->
+          <div class="featured-publication fade-in">
+            <div class="featured-badge">High Impact Publication</div>
+            <h3 class="text-xl font-semibold text-foreground mb-2">Patterns and barriers of teledermatology in resource-limited settings in the COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
+            <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+              <span class="font-medium">JAAD International</span>
+              <span>•</span>
+              <span>2022</span>
+              <span>•</span>
+              <span class="pub-tag">Original Research</span>
+            </div>
+            <p class="text-muted-foreground">Comprehensive analysis of teledermatology implementation challenges and patterns during the COVID-19 pandemic in Nepal's resource-limited settings.</p>
+            <a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
+          </div>
+
           <!-- Original Research -->
           <div class="pub-category">
-            <div class="pub-category-title">
+            <div class="pub-category-title fade-in">
               <i class="fas fa-flask pub-category-icon"></i>
               <h2>Original Research</h2>
             </div>
-            <div class="space-y-6">
+            <div class="space-y-6 stagger-delay">
               <!-- Original Research Publications - in descending chronological order -->
               <div class="card">
                 <div class="card-content">
@@ -945,11 +1064,11 @@
 
           <!-- Case Reports / Case Series -->
           <div class="pub-category">
-            <div class="pub-category-title">
+            <div class="pub-category-title fade-in">
               <i class="fas fa-file-medical pub-category-icon"></i>
               <h2>Case Reports / Case Series</h2>
             </div>
-            <div class="space-y-6">
+            <div class="space-y-6 stagger-delay">
               <!-- Case Report Publications - in descending chronological order -->
               <div class="card">
                 <div class="card-content">
@@ -1062,11 +1181,11 @@
 
           <!-- Editorial / Short Communication / View Point -->
           <div class="pub-category">
-            <div class="pub-category-title">
+            <div class="pub-category-title fade-in">
               <i class="fas fa-edit pub-category-icon"></i>
               <h2>Editorial / Short Communication / View Point</h2>
             </div>
-            <div class="space-y-6">
+            <div class="space-y-6 stagger-delay">
               <!-- Editorial Publications - in descending chronological order -->
               <div class="card">
                 <div class="card-content">
@@ -1119,11 +1238,11 @@
 
           <!-- Review Article / Meta Analyses -->
           <div class="pub-category">
-            <div class="pub-category-title">
+            <div class="pub-category-title fade-in">
               <i class="fas fa-search pub-category-icon"></i>
               <h2>Review Article / Meta Analyses</h2>
             </div>
-            <div class="space-y-6">
+            <div class="space-y-6 stagger-delay">
               <!-- Review Publications - in descending chronological order -->
               <div class="card">
                 <div class="card-content">
@@ -1140,16 +1259,35 @@
                 </div>
               </div>
 
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-xl font-semibold text-foreground mb-2">Growing burden of dermatophytosis in southern region of Nepal</h3>
+                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                    <span class="font-medium">British Journal of Dermatology</span>
+                    <span>•</span>
+                    <span>2021</span>
+                    <span>•</span>
+                    <span class="pub-tag">Review Article</span>
+                  </div>
+                  <p class="text-muted-foreground">Review of the increasing burden of dermatophytosis in southern Nepal.</p>
+                  <a href="https://doi.org/10.1111/bjd.20013" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
+                </div>
+              </div>
+
+              <!-- Add more review articles here -->
+            </div>
+          </div>
+
           <!-- Presentations Section -->
           <div class="mt-16">
-            <div class="flex items-center space-x-3 mb-6">
+            <div class="flex items-center space-x-3 mb-6 fade-in">
               <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
                 <i class="fas fa-award text-accent w-6 h-6"></i>
               </div>
               <h2>Conference Presentations</h2>
             </div>
             
-            <div class="presentations-grid">
+            <div class="presentations-grid stagger-delay">
               <!-- Recent Presentations - in descending chronological order -->
               <div class="card">
                 <div class="card-content">
@@ -1188,14 +1326,14 @@
           </div>
 
           <!-- Research Focus -->
-          <div class="card research-focus">
+          <div class="card research-focus fade-in">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Current Research Focus</h2>
               <div class="space-y-4">
                 <p class="text-muted-foreground">
                   Dr. Paudel's research focuses on teledermatology, dermatosurgery, STIs, and leprosy. Key areas include:
                 </p>
-                <ul class="space-y-3">
+                <ul class="space-y-3 stagger-delay">
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
                     <span class="text-muted-foreground">
@@ -1226,14 +1364,14 @@
           </div>
 
           <!-- Peer Reviewer Section -->
-          <div class="card">
+          <div class="card fade-in">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Peer Reviewer</h2>
               <div class="space-y-4">
                 <p class="text-muted-foreground">
                   Dr. Paudel serves as a peer reviewer for numerous prestigious journals:
                 </p>
-                <div class="peer-reviewer-grid">
+                <div class="peer-reviewer-grid stagger-delay">
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
                     <span>Wiley (Dermatologic therapy, Journal of Chemotherapy)</span>
@@ -1282,13 +1420,37 @@
                     <i class="fas fa-check-circle reviewer-icon"></i>
                     <span>Medphoenix, Journal of National Medical College</span>
                   </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>JEADV (Journal of European Academy of Dermatology and Venereology)</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>JAAD (Journal of the American Academy of Dermatology)</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>JPAHS (Journal of Patan Academy of Health Sciences)</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Dermatology Practical & Conceptual</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Clinical Case Reports journal</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Journal of Medical Case Reports</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Editorial Work -->
-          <div class="card">
+          <div class="card fade-in">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Editorial Work</h2>
               <div class="space-y-4">
@@ -1296,7 +1458,7 @@
                   Dr. Paudel holds editorial positions in several scientific journals:
                 </p>
               </div>
-              <div class="editorial-grid">
+              <div class="editorial-grid stagger-delay">
                 <div class="editorial-card">
                   <div class="editorial-icon">
                     <i class="fas fa-book-medical"></i>
@@ -1337,10 +1499,10 @@
           </div>
 
           <!-- Work Experience -->
-          <div class="card">
+          <div class="card fade-in">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Work Experience</h2>
-              <div class="work-experience-grid">
+              <div class="work-experience-grid stagger-delay">
                 <div class="work-card">
                   <div class="work-logo">
                     <i class="fas fa-university"></i>
@@ -1370,20 +1532,23 @@
   </footer>
 
   <script>
-    // Simple scroll animation for cards
+    // Enhanced scroll animation for all elements with animation classes
     document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.card');
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-delay, .card');
       
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
+            entry.target.classList.add('in-view');
           }
         });
-      }, { threshold: 0.1 });
+      }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
       
-      cards.forEach(card => {
-        observer.observe(card);
+      animatedElements.forEach(element => {
+        observer.observe(element);
       });
     });
   </script>
