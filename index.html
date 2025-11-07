@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikash Paudel | Best Dermatologist in Kathmandu | Dr. Skin  </title>
-    <meta name="description" content=" Dr. Vikash Paudel is a leading dermatologist in Kathmandu, Nepal. Specializing in skin diseases, cosmetic dermatology, and advanced skin treatments">
+    <title>Dr. Vikash Paudel | Best Dermatologist in Kathmandu | Skin & Hair Specialist</title>
+    <meta name="description" content="Dr. Vikash Paudel is a leading dermatologist in Kathmandu, Nepal. Specializing in skin diseases, cosmetic dermatology, and advanced skin treatments">
     
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="dermatologist Kathmandu, skin doctor Nepal, best dermatologist, acne treatment, cosmetic dermatology, skin care">
+    <meta name="keywords" content="dermatologist Kathmandu, skin doctor Nepal, best dermatologist, acne treatment, cosmetic dermatology, skin care, hair treatment">
     <meta name="author" content="Dr. Vikash Paudel">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content=" Dr. Vikash Paudel — Dermatologist in Kathmandu" />
+    <meta property="og:title" content="Dr. Vikash Paudel — Dermatologist in Kathmandu" />
     <meta property="og:description" content="Consultant Dermatologist specialising in medical & cosmetic dermatology, dermatosurgery. Clinics at Patan Hospital, Elite Health Clinic & Shankhamul." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://vikashpaudel.com.np/" />
@@ -25,46 +25,722 @@
     <link rel="icon" href="/favicon.ico" />
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   <link rel="stylesheet" href="style.css">
-   
-    <!-- Optional: defer non-critical JS -->
-    <script defer src="/js/main.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --success: #2ecc71;
+            --gold: #f1c40f;
+        }
         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: relative;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        .dropdown a:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .nav-menu li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%), url('images/hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .hero-image {
+            text-align: center;
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        .doctor-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: transform 0.5s;
+        }
+        
+        .doctor-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-subtitle {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            color: var(--accent);
+        }
+        
+        .service-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Why Choose Section */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .why-choose-item {
+            display: flex;
+            align-items: flex-start;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .why-choose-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .why-choose-icon {
+            background-color: var(--light);
+            color: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .why-choose-text h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--light);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Google Reviews Section */
+        .reviews-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .reviews-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .review-badge {
+            background: white;
+            color: var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .review-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .google-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .review-stars {
+            color: var(--gold);
+            margin: 10px 0;
+        }
+        
+        .review-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+            
+            .nav-menu.active {
+                max-height: 500px;
+                margin-top: 15px;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: #f8f9fa;
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+            
+            .nav-menu li:hover .dropdown {
+                max-height: 200px;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
-        <header>
+    <header>
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-image">
                     <img src="images/logo.png" alt="Dr. Vikash Paudel Logo" loading="lazy">
                 </div>
                 <div class="logo-text">
-                 <i class="fas fa-stethoscope logo-icon"></i>
+                    <i class="fas fa-stethoscope logo-icon"></i>
                     <h1>Dr. Vikash Paudel</h1>
                 </div>
             </div>
             
-           <div class="mobile-toggle" aria-label="Open navigation menu">
+            <div class="mobile-toggle" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
             </div>
             
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li>
+                        <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="acne.html">Acne Treatment</a></li>
+                            <li><a href="peel.html">Chemical Peels</a></li>
+                            <li><a href="hair.html">Hair Restoration</a></li>
+                            <li><a href="sti.html">STI Treatment</a></li>
+                            <li><a href="cosmetic.html">Cosmetic Procedures</a></li>
+                        </ul>
+                    </li>
                     <li><a href="research.html">Research</a></li>
-                    <li><a href="award.html">Award</a></li>
+                    <li><a href="award.html">Awards</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="appointment">Book Appointment</a></li>
+                    <li><a href="appointment.html" class="btn">Book Appointment</a></li>
                 </ul>
             </nav>
         </div>
@@ -77,15 +753,12 @@
                 <h1 class="hero-title">Expert Dermatology Care in Kathmandu</h1>
                 <p class="hero-subtitle">Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
                 <div class="hero-buttons">
-                    <a href="appointment" class="btn">Book Appointment</a>
-                    <a href="about" class="btn btn-outline">About</a>
+                    <a href="appointment.html" class="btn">Book Appointment</a>
+                    <a href="about.html" class="btn btn-outline">About Dr. Paudel</a>
                 </div>
             </div>
-            <!-- After (real image) -->
-<div class="hero-image">
-    <img src="images/Vikash Paudel.jpg" alt="Dr. Vikash Paudel - Best Dermatologist in Kathmandu" class="doctor-img">
-</div>
-                </div>
+            <div class="hero-image">
+                <img src="images/Vikash Paudel.jpg" alt="Dr. Vikash Paudel - Best Dermatologist in Kathmandu" class="doctor-img">
             </div>
         </div>
     </section>
@@ -97,40 +770,40 @@
             <p class="section-subtitle">Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns.</p>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-allergies service-icon"></i>
                     <h3 class="service-title">Medical Dermatology</h3>
                     <p>Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-spa service-icon"></i>
                     <h3 class="service-title">Cosmetic Dermatology</h3>
-                    <p>Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies.</p>
+                    <p>Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-syringe service-icon"></i>
-                    <h3 class="service-title">Sexually Transmitted Infection</h3>
-                    <p>Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections like syphilis, gonorrhoea, genital herpes, warts etc..</p>
+                    <h3 class="service-title">STI Treatment</h3>
+                    <p>Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-procedures service-icon"></i>
                     <h3 class="service-title">Surgical Procedures</h3>
                     <p>Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-user-md service-icon"></i>
                     <h3 class="service-title">Hair & Scalp Treatments</h3>
-                    <p>Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions.</p>
+                    <p>Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <i class="fas fa-laptop-medical service-icon"></i>
                     <h3 class="service-title">Teledermatology</h3>
-                    <p>Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home, nationally, and internationally.</p>
+                    <p>Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
                 </div>
             </div>
         </div>
@@ -142,7 +815,7 @@
             <h2 class="section-title">Why Choose Dr. Vikash Paudel?</h2>
             <div class="why-choose-content">
                 <div class="why-choose-grid">
-                    <div class="why-choose-item">
+                    <div class="why-choose-item fade-in">
                         <div class="why-choose-icon">
                             <i class="fas fa-check"></i>
                         </div>
@@ -152,7 +825,7 @@
                         </div>
                     </div>
                     
-                    <div class="why-choose-item">
+                    <div class="why-choose-item fade-in">
                         <div class="why-choose-icon">
                             <i class="fas fa-check"></i>
                         </div>
@@ -162,7 +835,7 @@
                         </div>
                     </div>
                     
-                    <div class="why-choose-item">
+                    <div class="why-choose-item fade-in">
                         <div class="why-choose-icon">
                             <i class="fas fa-check"></i>
                         </div>
@@ -172,7 +845,7 @@
                         </div>
                     </div>
                     
-                    <div class="why-choose-item">
+                    <div class="why-choose-item fade-in">
                         <div class="why-choose-icon">
                             <i class="fas fa-check"></i>
                         </div>
@@ -186,6 +859,55 @@
         </div>
     </section>
 
+    <!-- Google Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Patient Reviews</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">See what our patients are saying about their experience with Dr. Paudel</p>
+            
+            <div class="reviews-container">
+                <div class="review-badge fade-in">
+                    <i class="fab fa-google google-icon"></i>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Excellent Dermatologist</p>
+                    <p>4.9/5 Rating</p>
+                </div>
+                
+                <div class="review-badge fade-in">
+                    <i class="fab fa-google google-icon"></i>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">Highly Recommended</p>
+                    <p>50+ Reviews</p>
+                </div>
+                
+                <div class="review-badge fade-in">
+                    <i class="fab fa-google google-icon"></i>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Trusted Skin Specialist</p>
+                    <p>Patient Favorite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
         <div class="container">
@@ -193,10 +915,10 @@
             <p class="section-subtitle">Hear what our patients have to say about their experience with Dr. Paudel.</p>
             
             <div class="testimonials-container">
-                <div class="testimonial">
+                <div class="testimonial fade-in">
                     <p class="testimonial-text">"Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."</p>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-img">RS</div>
                         <div class="author-info">
                             <h4>R. Shrestha</h4>
                             <p>Acne Treatment Patient</p>
@@ -204,10 +926,10 @@
                     </div>
                 </div>
                 
-                <div class="testimonial">
+                <div class="testimonial fade-in">
                     <p class="testimonial-text">"The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."</p>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-img">AK</div>
                         <div class="author-info">
                             <h4>A Kumar</h4>
                             <p>Skin Surgery Patient</p>
@@ -215,10 +937,10 @@
                     </div>
                 </div>
                 
-                <div class="testimonial">
+                <div class="testimonial fade-in">
                     <p class="testimonial-text">"I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months."</p>
                     <div class="testimonial-author">
-                        <div class="author-img"></div>
+                        <div class="author-img">ST</div>
                         <div class="author-info">
                             <h4>S Thapa</h4>
                             <p>Hair Treatment Patient</p>
@@ -237,10 +959,10 @@
                     <h3>Dr. Vikash Paudel</h3>
                     <p>Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/vikashderma"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.x.com/merodesh"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/vikash.paudel"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/vikash-paudel-89598324"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/vikashderma" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.x.com/merodesh" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/vikash.paudel" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -248,10 +970,10 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="about">About</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -262,21 +984,23 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <strong>Main Clinic</strong>
-                                <p>Shankhamul Health Care, Shankhamul, Kathmandu,    Elite Health Clinic, Mahalaxmisthan, Lalitpur</p>
+                                <p>Shankhamul Health Care, Shankhamul, Kathmandu</p>
+                                <p>Elite Health Clinic, Mahalaxmisthan, Lalitpur</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <strong>Satellite Clinic</strong>
-                                <p> Shubharambha Skin Centre, Chatakpur, Dhangadhi, </p>
+                                <p>Shubharambha Skin Centre, Chatakpur, Dhangadhi</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
                             <div>
                                 <strong>Phone</strong>
-                                <p>+977-1-5242511 (Shankhamul),  5420745 (Elite) </p>
+                                <p>+977-1-5242511 (Shankhamul)</p>
+                                <p>+977-1-5420745 (Elite)</p>
                             </div>
                         </li>
                         <li>
@@ -290,9 +1014,9 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Appointment</h3>
-                    <p>Book your consultation with Dr. Paudel for personalized skin care solutions.</p>
-                    <a href="appointment" class="btn" style="margin-top: 15px;">Book Now</a>
+                    <h3>Book Appointment</h3>
+                    <p>Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
+                    <a href="appointment.html" class="btn" style="margin-top: 15px;">Book Now</a>
                 </div>
             </div>
             
@@ -306,56 +1030,29 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Physician",
+      "@type": "MedicalBusiness",
       "name": "Dr. Vikash Paudel - Dermatologist",
       "description": "Leading dermatologist in Kathmandu specializing in skin diseases, cosmetic dermatology, and advanced skin treatments.",
-      "url": "https://www.vikashpaudel.com",
-      "image": "https://vikashpaudel.com.np/images/doctor-profile.jpg",
-      "medicalSpecialty": "Dermatology",
-      "telephone": "+977-9825207253",
+      "url": "https://www.vikashpaudel.com.np",
+      "telephone": "+977-1-5242511",
+      "email": "vikashpaudel@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Shankhamul",
+        "streetAddress": "Shankhamul Health Care, Shankhamul",
         "addressLocality": "Kathmandu",
         "addressCountry": "NP"
       },
+      "openingHours": [
+        "Su-Fr 04:00-19:00",
+        "We 09:00-19:00"
+      ],
+      "medicalSpecialty": "Dermatology",
       "award": "Rising Star Award (WCD 2019, 2023); Imrich Sarkany Award (EADV 2023)",
-       "sameAs": [
+      "sameAs": [
         "https://www.facebook.com/vikashderma",
         "https://www.instagram.com/vikash.paudel",
         "https://www.linkedin.com/in/vikash-paudel-89598324"
-         ]
-        },
-      
-      "openingHours": "Su-Fr 09:00-20:00",
-      "medicalSpecialty": "Dermatology",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Dermatology Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Medical Dermatology"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service, Medical Business",
-              "name": "Cosmetic Dermatology"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Sexually Transmitted Infections Clinic"
-            }
-          }
-        ]
-      }
+      ]
     }
     </script>
 
@@ -370,6 +1067,38 @@
             link.addEventListener('click', () => {
                 document.querySelector('.nav-menu').classList.remove('active');
             });
+        });
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check
+        checkFade();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkFade);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '5px 0';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+                header.style.padding = '15px 0';
+            }
         });
     </script>
 </body>
