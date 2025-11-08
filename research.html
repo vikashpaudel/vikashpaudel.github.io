@@ -136,13 +136,14 @@
       margin: 0 auto;
     }
 
-    /* Navigation Styles */
+    /* Navigation Styles - Updated to match index.html */
     .navbar {
-      background-color: var(--background);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      transition: all 0.3s;
     }
 
     .navbar-container {
@@ -155,12 +156,20 @@
     }
 
     .navbar-logo {
+      display: flex;
+      align-items: center;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--primary);
       text-decoration: none;
       padding: 1rem 0;
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      margin-right: 10px;
+      font-size: 1.5rem;
     }
 
     .navbar-menu {
@@ -180,64 +189,74 @@
       color: var(--foreground);
       font-weight: 500;
       transition: var(--transition-smooth);
-      border-bottom: 3px solid transparent;
+      position: relative;
     }
 
     .navbar-link:hover {
       color: var(--primary);
-      background-color: #f5f5f5;
+    }
+
+    .navbar-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .navbar-link:hover::after {
+      width: 100%;
     }
 
     .navbar-link.active {
       color: var(--primary);
-      border-bottom: 3px solid var(--accent);
+    }
+
+    .navbar-link.active::after {
+      width: 100%;
     }
 
     .dropdown {
-      position: relative;
-    }
-
-    .dropdown-toggle::after {
-      content: '\f078';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      margin-left: 5px;
-      font-size: 0.8rem;
-    }
-
-    .dropdown-menu {
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: white;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 5px;
       min-width: 200px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      border-radius: 4px;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
-      z-index: 1000;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      z-index: 100;
     }
 
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    .dropdown li {
+      margin: 0;
+      width: 100%;
     }
 
-    .dropdown-item {
+    .dropdown a {
       display: block;
-      padding: 0.75rem 1.5rem;
+      padding: 10px 15px;
+      border-bottom: 1px solid #f1f1f1;
       color: var(--foreground);
       text-decoration: none;
       transition: var(--transition-smooth);
-      border-bottom: 1px solid #f0f0f0;
     }
 
-    .dropdown-item:hover {
-      background-color: #f5f5f5;
+    .dropdown a:hover {
+      background-color: #f8f9fa;
       color: var(--primary);
+    }
+
+    .navbar-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .appointment-btn {
@@ -246,11 +265,24 @@
       border-radius: 4px;
       margin-left: 1rem;
       transition: var(--transition-smooth);
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     .appointment-btn:hover {
       background-color: var(--accent-dark);
       color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
     }
 
     /* Main Content Styles */
@@ -267,13 +299,13 @@
     .hero-section {
       background: linear-gradient(rgba(26, 106, 162, 0.8), rgba(26, 106, 162, 0.9)), url('images/hero-research.jpg') center/cover no-repeat;
       color: var(--primary-foreground);
-      padding: 6rem 0;
+      padding: 4rem 0;
       position: relative;
       overflow: hidden;
     }
 
     .hero-section h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
       position: relative;
@@ -288,7 +320,7 @@
     }
 
     .content-section {
-      padding: 4rem 0;
+      padding: 3rem 0;
       background-color: var(--background);
     }
 
@@ -302,7 +334,7 @@
     }
 
     .space-y-12 > * + * {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
     /* Typography */
@@ -505,7 +537,7 @@
     /* Presentations Grid */
     .presentations-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
@@ -583,11 +615,30 @@
       transition: all 0.3s ease;
       text-align: center;
       border: 1px solid #f0f0f0;
+      position: relative;
+      overflow: hidden;
     }
 
     .editorial-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .editorial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .editorial-card:hover::before {
+      transform: scaleX(1);
     }
 
     .editorial-icon {
@@ -642,7 +693,7 @@
 
     /* Publication Categories */
     .pub-category {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .pub-category-title {
@@ -712,6 +763,13 @@
       margin: 0 auto 1rem;
       font-size: 2rem;
       color: var(--primary);
+      overflow: hidden;
+    }
+
+    .work-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .work-title {
@@ -728,7 +786,7 @@
     /* Peer Reviewer Section */
     .peer-reviewer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -773,10 +831,26 @@
       margin-bottom: 1rem;
     }
 
+    /* Compact layout adjustments */
+    .compact-section {
+      padding: 2rem 0;
+    }
+
+    /* Conference Presentations Grid */
+    .conference-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
         font-size: 2rem;
+      }
+      
+      .hero-section {
+        padding: 3rem 0;
       }
       
       .navbar-container {
@@ -787,6 +861,14 @@
       .navbar-menu {
         flex-direction: column;
         width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+      
+      .navbar-menu.active {
+        max-height: 500px;
+        margin-top: 15px;
       }
       
       .navbar-item {
@@ -804,18 +886,28 @@
         border-bottom: 3px solid var(--accent);
       }
 
-      .dropdown-menu {
+      .dropdown {
         position: static;
+        box-shadow: none;
+        background: #f8f9fa;
+        border-radius: 0;
         opacity: 1;
         visibility: visible;
         transform: none;
-        box-shadow: none;
-        width: 100%;
-        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
       }
 
-      .dropdown:hover .dropdown-menu {
+      .navbar-item:hover .dropdown {
+        max-height: 200px;
+      }
+
+      .mobile-toggle {
         display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
       }
 
       .flex.space-x-4 {
@@ -828,7 +920,7 @@
         margin-top: 1rem;
       }
 
-      .editorial-grid, .work-experience-grid, .peer-reviewer-grid {
+      .editorial-grid, .work-experience-grid, .peer-reviewer-grid, .conference-grid {
         grid-template-columns: 1fr;
       }
       
@@ -837,11 +929,15 @@
         height: 60px;
         font-size: 1.8rem;
       }
+
+      .content-section {
+        padding: 2rem 0;
+      }
     }
 
     @media (max-width: 480px) {
       .hero-section {
-        padding: 4rem 0;
+        padding: 2rem 0;
       }
       
       .hero-section h1 {
@@ -855,19 +951,28 @@
   </style>
 </head>
 <body>
+  <!-- Updated Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="navbar-container">
-      <a href="index.html" class="navbar-logo">Dr. Vikash Paudel</a>
+      <a href="index.html" class="navbar-logo">
+        <i class="fas fa-stethoscope logo-icon"></i>
+        Dr. Vikash Paudel
+      </a>
+      
+      <div class="mobile-toggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      
       <ul class="navbar-menu">
         <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-        <li class="navbar-item dropdown">
-          <a href="#" class="navbar-link dropdown-toggle">Services</a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Teledermatology</a>
-            <a href="#" class="dropdown-item">Dermatosurgery</a>
-            <a href="#" class="dropdown-item">STI Management</a>
-            <a href="#" class="dropdown-item">Leprosy Care</a>
-          </div>
+        <li class="navbar-item">
+          <a href="#" class="navbar-link">Services</a>
+          <ul class="dropdown">
+            <li><a href="#" class="dropdown-item">Teledermatology</a></li>
+            <li><a href="#" class="dropdown-item">Dermatosurgery</a></li>
+            <li><a href="#" class="dropdown-item">STI Management</a></li>
+            <li><a href="#" class="dropdown-item">Leprosy Care</a></li>
+          </ul>
         </li>
         <li class="navbar-item"><a href="research.html" class="navbar-link active">Research</a></li>
         <li class="navbar-item"><a href="award.html" class="navbar-link">Award</a></li>
@@ -890,7 +995,7 @@
     </section>
 
     <!-- External Profiles -->
-    <section class="content-section">
+    <section class="content-section compact-section">
       <div class="container">
         <div class="max-w-4xl mx-auto">
           <h2 class="text-center mb-6 fade-in">Research Profiles</h2>
@@ -913,7 +1018,7 @@
     </section>
 
     <!-- Publications Section -->
-    <section class="content-section">
+    <section class="content-section compact-section">
       <div class="container">
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Introduction -->
@@ -1278,7 +1383,7 @@
             </div>
           </div>
 
-          <!-- Presentations Section -->
+          <!-- Conference Presentations Section -->
           <div class="mt-16">
             <div class="flex items-center space-x-3 mb-6 fade-in">
               <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
@@ -1287,12 +1392,12 @@
               <h2>Conference Presentations</h2>
             </div>
             
-            <div class="presentations-grid stagger-delay">
-              <!-- Recent Presentations - in descending chronological order -->
+            <div class="conference-grid stagger-delay">
+              <!-- Conference Presentations - Added more from the provided list -->
               <div class="card">
                 <div class="card-content">
                   <h3 class="text-lg font-semibold text-foreground mb-2">Could oral isotretinoin be a novel in the armamentarium of Molluscum contagiosum? A case series of three Nepalese boys</h3>
-                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore, 2023</p>
+                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore</p>
                   <p class="text-sm text-primary font-medium">2023</p>
                 </div>
               </div>
@@ -1300,7 +1405,7 @@
               <div class="card">
                 <div class="card-content">
                   <h3 class="text-lg font-semibold text-foreground mb-2">Clinical, Epidemiological, Histopathological and Socio-economic Panorama of Leprosy at a Tertiary Center Across Nepal-India Border in the Post-Elimination Era</h3>
-                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore, 2023</p>
+                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore</p>
                   <p class="text-sm text-primary font-medium">2023</p>
                 </div>
               </div>
@@ -1308,7 +1413,7 @@
               <div class="card">
                 <div class="card-content">
                   <h3 class="text-lg font-semibold text-foreground mb-2">Clinical, epidemiological and socio-economic profile of patient with dermatophytoses treated via mobile teledermatology</h3>
-                  <p class="text-sm text-muted-foreground mb-1">EADV Seville, 2023</p>
+                  <p class="text-sm text-muted-foreground mb-1">EADV Seville</p>
                   <p class="text-sm text-primary font-medium">2023</p>
                 </div>
               </div>
@@ -1316,8 +1421,40 @@
               <div class="card">
                 <div class="card-content">
                   <h3 class="text-lg font-semibold text-foreground mb-2">Congenital syphilis presenting as snuffles, skin lesions with peeling of palms and soles and oral ulcers: a case report</h3>
-                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu, 2023</p>
+                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
                   <p class="text-sm text-primary font-medium">2023</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Co-occurrence of Herpes Zoster and Anagen Effluvium in a 17-year-old male undergoing chemotherapy: A Case Report</h3>
+                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
+                  <p class="text-sm text-primary font-medium">2023</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Bowen disease a rare carcinoma in situ: A Case Report</h3>
+                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
+                  <p class="text-sm text-primary font-medium">2023</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Tele-dermatology in clinical management of suspected cutaneous leishmaniasis in COVID-19 pandemic</h3>
+                  <p class="text-sm text-muted-foreground mb-1">Regional Dermatology Training Centre, IFD. Tanzania (Virtual)</p>
+                  <p class="text-sm text-primary font-medium">2021</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">Clinico-epidemiological characteristics of scabies in children. Do we need mass drug administration?</h3>
+                  <p class="text-sm text-muted-foreground mb-1">38th ESPID (Virtual)</p>
+                  <p class="text-sm text-primary font-medium">2020</p>
                 </div>
               </div>
 
@@ -1363,22 +1500,30 @@
             </div>
           </div>
 
-          <!-- Peer Reviewer Section -->
+          <!-- Peer Reviewer Section - Reordered by impact factor -->
           <div class="card fade-in">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Peer Reviewer</h2>
               <div class="space-y-4">
                 <p class="text-muted-foreground">
-                  Dr. Paudel serves as a peer reviewer for numerous prestigious journals:
+                  Dr. Paudel serves as a peer reviewer for numerous prestigious journals, listed in descending order of impact factor:
                 </p>
                 <div class="peer-reviewer-grid stagger-delay">
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Wiley (Dermatologic therapy, Journal of Chemotherapy)</span>
+                    <span>JAAD (Journal of the American Academy of Dermatology)</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>JEADV (Journal of European Academy of Dermatology and Venereology)</span>
                   </div>
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
                     <span>Skin Health and Disease</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Wiley (Dermatologic therapy, Journal of Chemotherapy)</span>
                   </div>
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
@@ -1402,7 +1547,23 @@
                   </div>
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Cureus, Frontiers</span>
+                    <span>Frontiers</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Cureus</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Dermatology Practical & Conceptual</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Clinical Case Reports journal</span>
+                  </div>
+                  <div class="reviewer-item">
+                    <i class="fas fa-check-circle reviewer-icon"></i>
+                    <span>Journal of Medical Case Reports</span>
                   </div>
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
@@ -1422,27 +1583,7 @@
                   </div>
                   <div class="reviewer-item">
                     <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>JEADV (Journal of European Academy of Dermatology and Venereology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>JAAD (Journal of the American Academy of Dermatology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
                     <span>JPAHS (Journal of Patan Academy of Health Sciences)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dermatology Practical & Conceptual</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Clinical Case Reports journal</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Journal of Medical Case Reports</span>
                   </div>
                 </div>
               </div>
@@ -1478,7 +1619,7 @@
                     <i class="fas fa-university"></i>
                   </div>
                   <div class="editorial-title">JPAHS</div>
-                  <p class="text-sm text-muted-foreground">Journal of Patan Academy of Health Sciences (Editor)</p>
+                  <p class="text-sm text-muted-foreground">Journal of Patan Academy of Health Sciences (Editor, Since 2025)</p>
                 </div>
                 <div class="editorial-card">
                   <div class="editorial-icon">
@@ -1505,7 +1646,7 @@
               <div class="work-experience-grid stagger-delay">
                 <div class="work-card">
                   <div class="work-logo">
-                    <i class="fas fa-university"></i>
+                    <img src="images/tribhuvan-university-logo.jpg" alt="Tribhuvan University">
                   </div>
                   <div class="work-title">Associate Professor</div>
                   <p class="text-muted-foreground">Tribhuvan University</p>
@@ -1513,7 +1654,7 @@
                 </div>
                 <div class="work-card">
                   <div class="work-logo">
-                    <i class="fas fa-user-md"></i>
+                    <img src="images/patan-hospital-logo.jpg" alt="Patan Hospital">
                   </div>
                   <div class="work-title">Assistant Professor/Lecturer</div>
                   <p class="text-muted-foreground">Dermatology, Tribhuvan University</p>
@@ -1549,6 +1690,18 @@
       
       animatedElements.forEach(element => {
         observer.observe(element);
+      });
+
+      // Mobile Navigation Toggle
+      document.querySelector('.mobile-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar-menu').classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.navbar-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.querySelector('.navbar-menu').classList.remove('active');
+        });
       });
     });
   </script>
