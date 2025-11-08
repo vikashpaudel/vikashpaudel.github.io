@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Guide to Sunscreen & Sun Protection | Dr. Vikash Paudel - Dermatology</title>
     <meta name="description" content="Expert dermatology insights on choosing and using sunscreen effectively for optimal skin health">
-    <meta name="keywords" content="sunscreen, dermatologist, photo, Mineral sunscreen,  Chemical Sunscreen, UV rays, melasma, Dr. Vikash Paudel, Kathmandu, Nepal">
+    <meta name="keywords" content="sunscreen, dermatologist, photo, Mineral sunscreen, Chemical Sunscreen, UV rays, melasma, Dr. Vikash Paudel, Kathmandu, Nepal">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Complete Guide to Sunscreen & Sun Protection | Dr. Vikash Paudel - Dermatology">
@@ -18,8 +18,14 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sunscreen & Sun Protection | Dr. Vikash Paudel">
-    <meta name="twitter:description" content=" Expert dermatology insights on choosing and using sunscreen effectively for optimal skin health">
-    <meta name="twitter:image" content="https://www.drvikashpaudel.com/images/sunscreen.jpg">
+    <meta name="twitter:description" content="Expert dermatology insights on choosing and using sunscreen effectively for optimal skin health">
+    <meta name="twitter:image" content="https://www.drvikashpaudel.com/images/sunscreen-twitter.jpg">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -53,9 +59,6 @@
     }
     </script>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <style>
         /* CSS Variables */
         :root {
@@ -86,7 +89,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--foreground);
             background-color: var(--background);
@@ -138,6 +141,7 @@
             margin-bottom: 1rem;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
         }
 
         .hero-content p {
@@ -214,6 +218,7 @@
             font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .section-title p {
@@ -237,7 +242,13 @@
             border-radius: 8px;
             box-shadow: var(--shadow-card);
             transition: var(--transition-smooth);
-            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .content-box.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .content-box:hover {
@@ -279,7 +290,13 @@
             box-shadow: var(--shadow-card);
             border-radius: 8px;
             overflow: hidden;
-            animation: fadeIn 0.8s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .comparison-table.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .comparison-table th, .comparison-table td {
@@ -312,7 +329,13 @@
             border-radius: 8px;
             margin: 3rem 0;
             box-shadow: var(--shadow-card);
-            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .faq-section.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .faq-item {
@@ -334,11 +357,21 @@
         .faq-answer {
             margin-top: 1rem;
             color: var(--muted-foreground);
-            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
-            display: block;
+            max-height: 500px;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
         }
 
         /* Call-to-Action Section */
@@ -349,13 +382,20 @@
             margin: 3rem 0;
             text-align: center;
             box-shadow: var(--shadow-card);
-            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .cta-section.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .cta-title {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
 
         .cta-description {
@@ -534,6 +574,14 @@
         @media (max-width: 480px) {
             .hero-header {
                 height: 70vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -814,8 +862,8 @@
                     <h3>Quick Links</h3>
                     <p><a href="index.html">Home</a></p>
                     <p><a href="about.html">About Dr. Paudel</a></p>
-                    <p><a href="services.html">Our Services</a></p>
                     <p><a href="blog.html">Blog & Articles</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
                 </div>
             </div>
             <div class="copyright">
@@ -834,20 +882,22 @@
                 const question = item.querySelector('.faq-question');
                 
                 question.addEventListener('click', function() {
-                    // Close all other FAQ items
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
                     faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
+                        otherItem.classList.remove('active');
                     });
                     
-                    // Toggle current item
-                    item.classList.toggle('active');
+                    // Open current if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
                 });
             });
 
             // Scroll animations
-            const animatedElements = document.querySelectorAll('.content-box, .faq-section, .cta-section');
+            const animatedElements = document.querySelectorAll('.content-box, .comparison-table, .faq-section, .cta-section');
             
             function checkScroll() {
                 animatedElements.forEach(element => {
@@ -855,8 +905,7 @@
                     const elementVisible = 150;
                     
                     if (elementTop < window.innerHeight - elementVisible) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
+                        element.classList.add('animated');
                     }
                 });
             }
