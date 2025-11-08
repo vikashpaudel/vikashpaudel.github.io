@@ -1,886 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sun Protection: More Than Just Sunscreen | Dr. Vikash Paudel</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content=" Comprehensive guide to sun protection strategies. Learn about sunscreen types, SPF ratings, application techniques, and advanced protection methods from dermatologist Dr. Vikash Paudel.">
-  <meta name="keywords" content="sunscreen, sun protection, SPF, UVA, UVB, dermatology, skin cancer prevention, mineral sunscreen, chemical sunscreen, Dr. Vikash Paudel">
-  <meta name="author" content="Dr. Vikash Paudel">
-  
-  <!-- Open Graph Tags for Social Sharing -->
-  <meta property="og:title" content="Sun Protection: More Than Just Sunscreen | Dr. Vikash Paudel">
-  <meta property="og: description" content= "Expert dermatology insights on comprehensive sun protection strategies beyond just sunscreen application.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://drvikashpaudel.com/sun-protection">
-  <meta property="og:image" content="https://drvikashpaudel.com/images/sun-protection-og.jpg">
-  <meta property="og:site_name" content="Dr. Vikash Paudel - Dermatology Blog">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sun Protection: More Than Just Sunscreen">
-  <meta name="twitter: description" content=" Expert dermatology insights on comprehensive sun protection strategies.">
-  <meta name="twitter:image" content="https://drvikashpaudel.com/images/sun-protection-twitter.jpg">
-  
-  <style>
-    /* CSS Variables - Matching Blog Style */
-    :root {
-      --primary: #1a6aa2;
-      --primary-foreground: #ffffff;
-      --accent: #4db6ac;
-      --background: #ffffff;
-      --foreground: #333333;
-      --muted-foreground: #666666;
-      --border: #e0e0e0;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
-      --transition-smooth: all 0.3s ease;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--foreground);
-      background-color: var(--background);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--primary), #2c8ac9);
-      color: var(--primary-foreground);
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Navigation Styles */
-    .navbar {
-      background-color: var(--background);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .navbar li {
-      margin: 0;
-    }
-
-    .navbar a {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: var(--foreground);
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-bottom: 3px solid transparent;
-    }
-
-    .navbar a:hover {
-      color: var(--primary);
-      background-color: #f5f5f5;
-    }
-
-    .navbar a.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-    }
-
-    /* Main Content Styles */
-    main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .content-section {
-      padding: 4rem 0;
-      background-color: var(--background);
-    }
-
-    .max-w-6xl {
-      max-width: 72rem;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Blog Article Styles */
-    .blog-article {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .article-header {
-      margin-bottom: 2rem;
-    }
-
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      color: var(--muted-foreground);
-      font-size: 0.9rem;
-    }
-
-    .article-meta i {
-      margin-right: 0.5rem;
-    }
-
-    .article-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .article-image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 2rem 0;
-    }
-
-    .article-content h2 {
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem;
-      color: var(--primary);
-    }
-
-    .article-content h3 {
-      font-size: 1.4rem;
-      margin: 1.5rem 0 0.8rem;
-      color: var(--foreground);
-    }
-
-    .article-content p {
-      margin-bottom: 1.2rem;
-    }
-
-    .article-content ul, .article-content ol {
-      margin-bottom: 1.2rem;
-      padding-left: 1.5rem;
-    }
-
-    .article-content li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Comparison Table */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-card);
-    }
-
-    .comparison-table th, .comparison-table td {
-      padding: 1rem;
-      text-align: left;
-      border: 1px solid var(--border);
-    }
-
-    .comparison-table th {
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-    }
-
-    .comparison-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    /* Before/After Slider */
-    .slider-container {
-      position: relative;
-      max-width: 600px;
-      margin: 2rem auto;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--shadow-medical);
-    }
-
-    .slider-before, .slider-after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .slider-before {
-      width: 50%;
-      z-index: 2;
-    }
-
-    .slider-after {
-      z-index: 1;
-    }
-
-    .slider-before img, .slider-after img {
-      width: 600px;
-      height: 400px;
-      object-fit: cover;
-    }
-
-    .slider-handle {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background-color: var(--primary);
-      z-index: 3;
-      cursor: ew-resize;
-    }
-
-    .slider-handle::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--primary);
-      border: 3px solid white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    /* Call-to-Action Section */
-    .cta-section {
-      background-color: #f8f9fa;
-      padding: 3rem 2rem;
-      border-radius: 8px;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .cta-title {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-
-    .cta-description {
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 0.375rem;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      border: 1px solid var(--border);
-      background-color: var(--background);
-      color: var(--foreground);
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #f5f5f5;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-      border-color: var(--primary);
-    }
-
-    .btn-primary:hover {
-      background-color: #155d8a;
-    }
-
-    /* Social Sharing */
-    .social-sharing {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .social-btn.facebook {
-      background-color: #3b5998;
-    }
-
-    .social-btn.twitter {
-      background-color: #1da1f2;
-    }
-
-    .social-btn.linkedin {
-      background-color: #0077b5;
-    }
-
-    .social-btn.whatsapp {
-      background-color: #25d366;
-    }
-
-    /* Newsletter Section */
-    .newsletter-card {
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      margin-top: 3rem;
-      background-color: #f8f9fa;
-    }
-
-    .newsletter-content {
-      padding: 2rem;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .max-w-2xl {
-      max-width: 42rem;
-    }
-
-    .text-2xl {
-      font-size: 1.5rem;
-    }
-
-    .font-bold {
-      font-weight: 700;
-    }
-
-    .newsletter-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 640px) {
-      .newsletter-form {
-        flex-direction: row;
-      }
-    }
-
-    .form-input {
-      flex: 1;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      border: 1px solid var(--border);
-      background-color: var(--background);
-      color: var(--foreground);
-    }
-
-    .form-input:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--primary);
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    .contact-info {
-      margin: 1rem 0;
-    }
-
-    .contact-info a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-
-    /* Info Boxes */
-    .info-box {
-      background-color: #e8f4fd;
-      border-left: 4px solid var(--primary);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 0 4px 4px 0;
-    }
-
-    .info-box.warning {
-      background-color: #fff3cd;
-      border-left-color: #ffc107;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .navbar ul {
-        flex-direction: column;
-        padding: 0;
-      }
-      
-      .navbar a {
-        padding: 0.8rem 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border);
-      }
-      
-      .navbar a.active {
-        border-bottom: 3px solid var(--accent);
-      }
-
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .slider-container {
-        max-width: 100%;
-      }
-
-      .slider-before img, .slider-after img {
-        width: 100%;
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .article-image {
-        height: 250px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Guide to Sunscreen & Sun Protection | Dr. Vikash Paudel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #1a6aa2;
+            --primary-light: #2c8ac9;
+            --primary-dark: #155d8a;
+            --accent: #4db6ac;
+            --accent-light: #80cbc4;
+            --background: #ffffff;
+            --foreground: #333333;
+            --muted-foreground: #666666;
+            --border: #e0e0e0;
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --hero-gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --transition-smooth: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .hero-header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 106, 162, 0.85), rgba(44, 138, 201, 0.7));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background-color: var(--background);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .navbar li {
+            margin: 0;
+        }
+
+        .navbar a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--foreground);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            border-bottom: 3px solid transparent;
+        }
+
+        .navbar a:hover {
+            color: var(--primary);
+            background-color: #f5f5f5;
+        }
+
+        .navbar a.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background-color: var(--background);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Boxes */
+        .content-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medical);
+        }
+
+        .content-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-box h3 i {
+            color: var(--accent);
+        }
+
+        .content-box p {
+            margin-bottom: 1rem;
+        }
+
+        .content-box ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-card);
+            border-radius: 8px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .comparison-table tr {
+            transition: background-color 0.3s ease;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #e8f4fd;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-card);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--muted-foreground);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Call-to-Action Section */
+        .cta-section {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .cta-description {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border);
+            background-color: var(--background);
+            color: var(--foreground);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #f5f5f5;
+            padding: 2rem 0;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--muted-foreground);
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .navbar a {
+                padding: 0.8rem 1rem;
+                text-align: center;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .navbar a.active {
+                border-bottom: 3px solid var(--accent);
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .content-boxes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                height: 70vh;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="award.html">Award</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="award.html">Award</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-  <main>
-    <!-- Article Content -->
-    <section class="content-section">
-      <div class="container">
-        <article class="blog-article" itemscope itemtype="https://schema.org/Article">
-          <!-- Schema.org markup for SEO -->
-          <meta itemprop="author" content="Dr. Vikash Paudel">
-          <meta itemprop="datePublished" content="2024-06-01">
-          <meta itemprop="publisher" content="Dr. Vikash Paudel, Dermatologist">
-          
-          <header class="article-header">
-            <div class="article-meta">
-              <span><i class="fas fa-calendar"></i> June 1, 2025</span>
-              <span><i class="fas fa-clock"></i> 6 min read</span>
-              <span><i class="fas fa-tag"></i> Skin Care</span>
+    <main>
+        <!-- Hero Section -->
+        <header class="hero-header">
+            <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9cb14a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Person applying sunscreen at beach" 
+                 class="hero-image" 
+                 loading="lazy">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Complete Guide to Sunscreen & Sun Protection</h1>
+                <p>Expert dermatology insights on choosing and using sunscreen effectively for optimal skin health</p>
+                <a href="#content-start" class="btn btn-primary">Learn More</a>
             </div>
-            <h1 class="article-title" itemprop="headline">Sun Protection: More Than Just Sunscreen</h1>
-            <p class="text-muted-foreground">Comprehensive strategies for effective sun protection beyond traditional sunscreen application</p>
-          </header>
+        </header>
 
-          <!-- Social Sharing Buttons -->
-          <div class="social-sharing">
-            <a href="#" class="social-btn facebook" aria-label="Share on Facebook">
-              <i class="fab fa-facebook-f"></i> Share
-            </a>
-            <a href="#" class="social-btn twitter" aria-label="Share on Twitter">
-              <i class="fab fa-twitter"></i> Tweet
-            </a>
-            <a href="#" class="social-btn linkedin" aria-label="Share on LinkedIn">
-              <i class="fab fa-linkedin-in"></i> Share
-            </a>
-            <a href="#" class="social-btn whatsapp" aria-label="Share on WhatsApp">
-              <i class="fab fa-whatsapp"></i> Share
-            </a>
-          </div>
-
-          <img src="https://images.unsplash.com/photo-1550259979-ed79b48d2a30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-               alt="Person applying sunscreen at beach" 
-               class="article-image"
-               itemprop="image">
-
-          <div class="article-content" itemprop="articleBody">
-            <p>When we think about sun protection, our minds typically go straight to sunscreen. While sunscreen is an essential component of any sun safety strategy, truly effective protection requires a comprehensive approach that goes far beyond simply applying a cream.</p>
-
-            <h2>Understanding UV Radiation</h2>
-            <p>To protect ourselves effectively from the sun, we first need to understand what we're protecting against. The sun emits two types of ultraviolet (UV) radiation that reach our skin:</p>
-            
-            <ul>
-              <li><strong>UVA rays</strong> penetrate deep into the skin and are primarily responsible for premature aging, wrinkles, and some forms of skin cancer.</li>
-              <li><strong>UVB rays</strong> affect the skin's surface and are the main cause of sunburn and most skin cancers.</li>
-            </ul>
-            
-            <div class="info-box">
-              <p><strong>Did you know?</strong> UV radiation can penetrate clouds and glass, meaning you need protection even on cloudy days or when indoors near windows.</p>
-            </div>
-
-            <h2>Choosing the Right Sunscreen</h2>
-            <p>Not all sunscreens are created equal. Understanding the differences can help you make better choices for your skin type and lifestyle.</p>
-
-            <h3>Mineral vs. Chemical Sunscreens</h3>
-            
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>Mineral Sunscreens</th>
-                  <th>Chemical Sunscreens</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Active Ingredients</td>
-                  <td>Zinc oxide, Titanium dioxide</td>
-                  <td>Avobenzone, Oxybenzone, Octinoxate</td>
-                </tr>
-                <tr>
-                  <td>How They Work</td>
-                  <td>Create physical barrier that reflects UV rays</td>
-                  <td>Absorb UV rays and convert them to heat</td>
-                </tr>
-                <tr>
-                  <td>Protection Start</td>
-                  <td>Immediate upon application</td>
-                  <td>15-30 minutes after application</td>
-                </tr>
-                <tr>
-                  <td>Best For</td>
-                  <td>Sensitive skin, children, immediate sun exposure</td>
-                  <td>Daily wear, water activities</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <h3>Understanding SPF Ratings</h3>
-            <p>SPF (Sun Protection Factor) measures protection against UVB rays only. Here's what the numbers really mean:</p>
-            
-            <ul>
-              <li><strong>SPF 15</strong> blocks about 93% of UVB rays</li>
-              <li><strong>SPF 30</strong> blocks about 97% of UVB rays</li>
-              <li><strong>SPF 50</strong> blocks about 98% of UVB rays</li>
-              <li><strong>SPF 100</strong> blocks about 99% of UVB rays</li>
-            </ul>
-            
-            <div class="info-box warning">
-              <p><strong>Important:</strong> No sunscreen can block 100% of UV rays. Higher SPF provides diminishing returns and may create a false sense of security.</p>
-            </div>
-
-            <h2>Beyond Sunscreen: Comprehensive Protection Strategies</h2>
-            
-            <h3>Protective Clothing</h3>
-            <p>Clothing provides consistent protection that doesn't wear off or need reapplication. Look for:</p>
-            <ul>
-              <li>UPF (Ultraviolet Protection Factor) rated clothing</li>
-              <li>Dark or bright colors (they absorb more UV than pastels)</li>
-              <li>Tightly woven fabrics</li>
-              <li>Long sleeves and pants when possible</li>
-            </ul>
-
-            <h3>Sunglasses with UV Protection</h3>
-            <p>Your eyes need protection too. UV exposure can contribute to cataracts, macular degeneration, and cancers of the eye and eyelid. Choose sunglasses that:</p>
-            <ul>
-              <li>Block 99-100% of both UVA and UVB rays</li>
-              <li>Have large lenses or wraparound styles</li>
-              <li>Are labeled "UV400" or "100% UV protection"</li>
-            </ul>
-
-            <h3>Seeking Shade and Timing Outdoor Activities</h3>
-            <p>The sun's rays are strongest between 10 a.m. and 4 p.m. When possible:</p>
-            <ul>
-              <li>Plan outdoor activities for early morning or late afternoon</li>
-              <li>Take breaks in shaded areas</li>
-              <li>Use umbrellas, canopies, or other shade structures</li>
-            </ul>
-
-            <!-- Before/After Slider -->
-            <h3>Sun Damage Prevention: Before and After</h3>
-            <p>See the difference comprehensive sun protection can make over time:</p>
-            
-            <div class="slider-container">
-              <div class="slider-before">
-                <img src="https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                     alt="Skin with sun damage showing wrinkles and pigmentation">
-              </div>
-              <div class="slider-after">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                     alt="Healthy protected skin with even tone and texture">
-              </div>
-              <div class="slider-handle"></div>
-            </div>
-
-            <h2>New Advances in Sun Protection</h2>
-            
-            <h3>Oral Sun Protection</h3>
-            <p>Recent research has explored supplements that may provide additional protection:</p>
-            <ul>
-              <li><strong>Polypodium leucotomos</strong> (fern extract) has shown promise in reducing sun damage</li>
-              <li>Nicotinamide (a form of vitamin B3) may help reduce non-melanoma skin cancers in high-risk individuals</li>
-            </ul>
-            
-            <div class="info-box">
-              <p><strong>Note:</strong> Oral supplements should complement, not replace, topical sun protection methods. Consult with a dermatologist before starting any new supplement regimen.</p>
-            </div>
-
-            <h3>DNA Repair Enzymes</h3>
-            <p>Some newer sunscreens and after-sun products now contain DNA repair enzymes that may help reverse some UV-induced damage at the cellular level.</p>
-
-            <h3>Smart Sun Protection Devices</h3>
-            <p>Wearable UV sensors and smartphone apps can now track your UV exposure and remind you when to reapply sunscreen or seek shade.</p>
-
-            <h2>Proper Sunscreen Application</h2>
-            <p>Even the best sunscreen won't work if applied incorrectly. Follow these guidelines:</p>
-            
-            <ul>
-              <li>Apply 15-30 minutes before sun exposure</li>
-              <li>Use enough product (about a shot glass full for the entire body)</li>
-              <li>Don't forget often-missed spots: ears, back of neck, tops of feet, and hair part</li>
-              <li>Reapply every 2 hours, or immediately after swimming or sweating</li>
-              <li>Check expiration dates - most sunscreens are effective for 3 years</li>
-            </ul>
-
-            <!-- Call-to-Action Section -->
-            <div class="cta-section">
-              <h2 class="cta-title">Personalized Sun Protection Consultation</h2>
-              <p class="cta-description">Every skin type has different sun protection needs. Book a consultation with Dr. Vikash Paudel to develop a personalized sun protection plan tailored to your skin type, lifestyle, and concerns.</p>
-              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                <a href="tel:+977-1-1234567" class="btn">Call Our Clinic</a>
-              </div>
-            </div>
-
-            <h2>Conclusion</h2>
-            <p>Effective sun protection is a multi-faceted approach that combines sunscreen with other protective measures. By understanding the different types of UV radiation, choosing appropriate sun protection products, and implementing comprehensive strategies, you can significantly reduce your risk of sun damage, premature aging, and skin cancer.</p>
-            
-            <p>Remember that sun protection is a year-round commitment, not just a summer concern. Making these practices part of your daily routine is one of the most important investments you can make in your long-term skin health.</p>
-          </div>
-
-          <!-- Author Bio -->
-          <div style="margin-top: 3rem; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px;">
-            <h3>About the Author</h3>
-            <p><strong>Dr. Vikash Paudel</strong> is a board-certified dermatologist specializing in medical and cosmetic dermatology. With extensive experience in skin cancer prevention and treatment, Dr. Paudel is committed to educating patients about comprehensive sun protection strategies.</p>
-          </div>
-
-          <!-- Newsletter Signup -->
-          <div class="newsletter-card">
-            <div class="newsletter-content">
-              <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-2xl font-bold text-foreground mb-4">Stay Updated on Dermatology Insights</h2>
-                <p class="text-muted-foreground mb-6">
-                  Subscribe to receive the latest articles on skin health, dermatology treatments, and skincare tips directly in your inbox.
-                </p>
-                <div class="newsletter-form">
-                  <input type="email" 
-                         placeholder="Enter your email address" 
-                         class="form-input" 
-                         id="newsletter-email"
-                         aria-label="Email address for newsletter subscription">
-                  <button class="btn btn-primary" id="subscribe-btn">Subscribe to Newsletter</button>
+        <!-- Article Content -->
+        <section class="content-section" id="content-start">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Understanding Sunscreen & Sun Protection</h2>
+                    <p>Proper sun protection is essential for preventing skin damage, premature aging, and reducing skin cancer risk</p>
                 </div>
-                <div id="thank-you-message" class="thank-you-message" style="display: none;">
-                  Thank you for subscribing! We're excited to share dermatology insights with you.
+
+                <!-- Use of Sunscreen Section -->
+                <div class="content-boxes">
+                    <div class="content-box">
+                        <h3><i class="fas fa-sun"></i> Why Use Sunscreen?</h3>
+                        <p>Sunscreen is your first line of defense against harmful UV radiation. Here's why it's essential:</p>
+                        <ul>
+                            <li>Protects against skin cancer including melanoma, basal cell, and squamous cell carcinoma</li>
+                            <li>Prevents premature aging like wrinkles, fine lines, and age spots</li>
+                            <li>Reduces risk of sunburn and skin damage</li>
+                            <li>Helps maintain even skin tone and texture</li>
+                            <li>Protects against UV-induced DNA damage</li>
+                        </ul>
+                        <p>Daily sunscreen use can reduce melanoma risk by 50% and squamous cell carcinoma by 40%.</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fas fa-user-shield"></i> Proper Application</h3>
+                        <p>Using sunscreen correctly is just as important as choosing the right one:</p>
+                        <ul>
+                            <li>Apply 15-30 minutes before sun exposure</li>
+                            <li>Use enough product (about a shot glass full for full body coverage)</li>
+                            <li>Don't forget often-missed spots: ears, back of neck, tops of feet</li>
+                            <li>Reapply every 2 hours, or immediately after swimming or sweating</li>
+                            <li>Use daily, even on cloudy days and during winter months</li>
+                        </ul>
+                        <p>Most people apply only 25-50% of the recommended amount of sunscreen.</p>
+                    </div>
                 </div>
-              </div>
+
+                <!-- Types of Sunscreen Section -->
+                <div class="section-title">
+                    <h2>Types of Sunscreen</h2>
+                    <p>Understanding the difference between sunscreen types helps you make the best choice for your skin</p>
+                </div>
+
+                <div class="content-boxes">
+                    <div class="content-box">
+                        <h3><i class="fas fa-shield-alt"></i> Mineral Sunscreens</h3>
+                        <p>Also known as physical sunscreens, these create a protective barrier on the skin's surface:</p>
+                        <ul>
+                            <li><strong>Active Ingredients:</strong> Zinc oxide, Titanium dioxide</li>
+                            <li><strong>How They Work:</strong> Create a physical barrier that reflects UV rays</li>
+                            <li><strong>Protection Start:</strong> Immediate upon application</li>
+                            <li><strong>Best For:</strong> Sensitive skin, children, rosacea, immediate sun exposure</li>
+                            <li><strong>Pros:</strong> Less irritating, broad-spectrum protection, works immediately</li>
+                            <li><strong>Cons:</strong> Can leave white cast, thicker consistency</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fas fa-flask"></i> Chemical Sunscreens</h3>
+                        <p>These sunscreens absorb into the skin and transform UV radiation into heat:</p>
+                        <ul>
+                            <li><strong>Active Ingredients:</strong> Avobenzone, Oxybenzone, Octinoxate, Homosalate</li>
+                            <li><strong>How They Work:</strong> Absorb UV rays and convert them to heat</li>
+                            <li><strong>Protection Start:</strong> 15-30 minutes after application</li>
+                            <li><strong>Best For:</strong> Daily wear, water activities, active lifestyles</li>
+                            <li><strong>Pros:</strong> Lightweight, invisible finish, easy to apply</li>
+                            <li><strong>Cons:</strong> Can cause irritation in sensitive skin, needs time to activate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="content-box">
+                    <h3><i class="fas fa-balance-scale"></i> Mineral vs. Chemical Sunscreen Comparison</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Mineral Sunscreens</th>
+                                <th>Chemical Sunscreens</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mechanism</td>
+                                <td>Reflects UV rays</td>
+                                <td>Absorbs UV rays</td>
+                            </tr>
+                            <tr>
+                                <td>Protection Start</td>
+                                <td>Immediate</td>
+                                <td>15-30 minutes</td>
+                            </tr>
+                            <tr>
+                                <td>Skin Sensitivity</td>
+                                <td>Better for sensitive skin</td>
+                                <td>May cause irritation</td>
+                            </tr>
+                            <tr>
+                                <td>Texture</td>
+                                <td>Thicker, can leave white cast</td>
+                                <td>Lightweight, invisible</td>
+                            </tr>
+                            <tr>
+                                <td>Water Resistance</td>
+                                <td>Generally less water-resistant</td>
+                                <td>Often more water-resistant</td>
+                            </tr>
+                            <tr>
+                                <td>Environmental Impact</td>
+                                <td>Generally reef-safe</td>
+                                <td>Some ingredients harm marine life</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- What is SPF Section -->
+                <div class="section-title">
+                    <h2>Understanding SPF</h2>
+                    <p>SPF ratings tell you how well a sunscreen protects against UVB rays, but there's more to the story</p>
+                </div>
+
+                <div class="content-boxes">
+                    <div class="content-box">
+                        <h3><i class="fas fa-chart-line"></i> SPF Explained</h3>
+                        <p>SPF (Sun Protection Factor) measures protection against UVB rays only:</p>
+                        <ul>
+                            <li><strong>SPF 15</strong> blocks about 93% of UVB rays</li>
+                            <li><strong>SPF 30</strong> blocks about 97% of UVB rays</li>
+                            <li><strong>SPF 50</strong> blocks about 98% of UVB rays</li>
+                            <li><strong>SPF 100</strong> blocks about 99% of UVB rays</li>
+                        </ul>
+                        <p>Higher SPF provides diminishing returns and may create a false sense of security. No sunscreen blocks 100% of UV rays.</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fas fa-sun"></i> Broad Spectrum Protection</h3>
+                        <p>SPF only measures UVB protection. For complete protection, look for "Broad Spectrum":</p>
+                        <ul>
+                            <li><strong>UVA Rays:</strong> Penetrate deep into skin, cause aging, wrinkles</li>
+                            <li><strong>UVB Rays:</strong> Affect skin surface, cause sunburn</li>
+                            <li><strong>Both UVA & UVB</strong> contribute to skin cancer risk</li>
+                        </ul>
+                        <p>Broad spectrum sunscreens protect against both UVA and UVB radiation. Look for this label regardless of SPF.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How much sunscreen should I use?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For full body coverage, use about one ounce (a shot glass full) of sunscreen. For just your face and neck, use about a teaspoon. Most people apply only 25-50% of the recommended amount, significantly reducing protection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I use last year's sunscreen?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sunscreens are typically effective for up to three years. Check the expiration date. If there's no date, mark your purchase date and discard after three years. If the sunscreen has changed color or consistency, discard it immediately.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need sunscreen on cloudy days?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Up to 80% of UV rays can penetrate clouds. UV radiation is present year-round, even on cloudy days and during winter months. Make daily sunscreen application part of your routine regardless of weather.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is higher SPF always better?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Not necessarily. While SPF 100 blocks slightly more UVB rays than SPF 50, the difference is minimal (98% vs 99% protection). Higher SPF may create a false sense of security, leading to less frequent reapplication. SPF 30-50 with proper application is generally sufficient.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I use sunscreen on babies?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For babies under 6 months, use protective clothing and shade instead of sunscreen. For babies over 6 months, use mineral-based sunscreens with zinc oxide or titanium dioxide, as they're less likely to cause irritation. Always test on a small area first.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call-to-Action Section -->
+                <div class="cta-section">
+                    <h2 class="cta-title">Personalized Sun Protection Consultation</h2>
+                    <p class="cta-description">Every skin type has different sun protection needs. Book a consultation with Dr. Vikash Paudel to develop a personalized sun protection plan tailored to your skin type, lifestyle, and concerns.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                        <a href="tel:+977-1-5242511" class="btn">Call Our Clinic</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Dr. Vikash Paudel. All rights reserved.</p>
-      <div class="contact-info">
-        <p>
-          <a href="tel:+977-9825297253" aria-label="Call our clinic">+977-9825297253</a> | 
-          <a href="mailto:vikashpaudel@gmail.com" aria-label="Email our clinic">vikashpaudel@gmail.com</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <a href="tel:+977-1-5242511">Phone: +977-1-5242511</a>
+                        <a href="tel:+977-9825207253">Mobile: +977-9825207253</a>
+                        <a href="mailto:vikashpaudel@gmail.com">Email: vikashpaudel@gmail.com</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Clinic Hours</h3>
+                    <p>Sunday-Friday: 4:00 AM - 7:00 PM</p>
+                    <p>Wednesday: 9:00 AM - 7:00 PM</p>
+                    <p>Saturday: Closed</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Location</h3>
+                    <p>Shankhamul Healthcare</p>
+                    <p>Shankhamul, Kathmandu, Nepal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About Dr. Paudel</a></p>
+                    <p><a href="services.html">Our Services</a></p>
+                    <p><a href="blog.html">Blog & Articles</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dr. Vikash Paudel - Dermatology. All rights reserved.</p>
+                <p style="margin-top: 10px;">Medical information on this website is for educational purposes only. Consult a qualified dermatologist for diagnosis and treatment.</p>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    // Before/After Slider Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const sliderContainer = document.querySelector('.slider-container');
-      const sliderBefore = document.querySelector('.slider-before');
-      const sliderHandle = document.querySelector('.slider-handle');
-      
-      let isDragging = false;
-      
-      function updateSliderPosition(clientX) {
-        const containerRect = sliderContainer.getBoundingClientRect();
-        const relativeX = clientX - containerRect.left;
-        const percentage = (relativeX / containerRect.width) * 100;
-        const clampedPercentage = Math.max(0, Math.min(100, percentage));
-        
-        sliderBefore.style.width = `${clampedPercentage}%`;
-        sliderHandle.style.left = `${clampedPercentage}%`;
-      }
-      
-      sliderHandle.addEventListener('mousedown', function(e) {
-        isDragging = true;
-        e.preventDefault();
-      });
-      
-      sliderContainer.addEventListener('mousemove', function(e) {
-        if (isDragging) {
-          updateSliderPosition(e.clientX);
-        }
-      });
-      
-      document.addEventListener('mouseup', function() {
-        isDragging = false;
-      });
-      
-      // Touch events for mobile
-      sliderHandle.addEventListener('touchstart', function(e) {
-        isDragging = true;
-        e.preventDefault();
-      });
-      
-      sliderContainer.addEventListener('touchmove', function(e) {
-        if (isDragging && e.touches.length > 0) {
-          updateSliderPosition(e.touches[0].clientX);
-        }
-      });
-      
-      document.addEventListener('touchend', function() {
-        isDragging = false;
-      });
-      
-      // Newsletter subscription
-      const subscribeBtn = document.getElementById('subscribe-btn');
-      const emailInput = document.getElementById('newsletter-email');
-      const thankYouMessage = document.getElementById('thank-you-message');
-      
-      subscribeBtn.addEventListener('click', function() {
-        const email = emailInput.value.trim();
-        
-        if (email && validateEmail(email)) {
-          // In a real implementation, you would send this to a server
-          console.log(`Subscribed email: ${email}`);
-          
-          // Show thank you message
-          thankYouMessage.style.display = 'block';
-          
-          // Clear the input
-          emailInput.value = '';
-          
-          // Hide message after 5 seconds
-          setTimeout(() => {
-            thankYouMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          alert('Please enter a valid email address.');
-        }
-      });
-      
-      function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-      }
-    });
-    
-    // JSON-LD Structured Data for SEO
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Sun Protection: More Than Just Sunscreen",
-      "description": "Comprehensive guide to sun protection strategies beyond traditional sunscreen application",
-      "image": "https://images.unsplash.com/photo-1550259979-ed79b48d2a30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-      "author": {
-        "@type": "Person",
-        "name": "Dr. Vikash Paudel",
-        "url": "https://drvikashpaudel.com.np"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Dr. Vikash Paudel Dermatology",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://drvikashpaudel.com.np/logo.png"
-        }
-      },
-      "datePublished": "2024-06-01",
-      "dateModified": "2024-06-01",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://drvikashpaudel.com/sunscreen.html"
-      },
-      "keywords": "sunscreen, sun protection, SPF, UVA, UVB, dermatology, skin cancer prevention"
-    };
-    
-    // Add structured data to the page
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(structuredData);
-    document.head.appendChild(script);
-  </script>
+    <script>
+        // FAQ Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Scroll animations
+            const animatedElements = document.querySelectorAll('.content-box, .faq-section, .cta-section');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initial check
+            checkScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
 </body>
 </html>
