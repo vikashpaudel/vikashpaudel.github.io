@@ -160,13 +160,19 @@
             width: 100%;
         }
 
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .navbar ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
         }
 
         .navbar li {
@@ -191,6 +197,72 @@
         .navbar a.active {
             color: var(--primary);
             border-bottom: 3px solid var(--accent);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 0.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background);
+            z-index: 1000;
+            flex-direction: column;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-links a {
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--foreground);
+            font-weight: 500;
+            border-radius: 0.375rem;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-nav-links a:hover {
+            background-color: #f5f5f5;
+            color: var(--primary);
         }
 
         /* Main Content Styles */
@@ -435,6 +507,43 @@
             background-color: var(--primary-dark);
         }
 
+        /* Map Section */
+        .map-section {
+            padding: 3rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .map-wrapper {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medical);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+        }
+
         /* Footer Styles */
         footer {
             background-color: #f5f5f5;
@@ -544,20 +653,13 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar ul {
-                flex-direction: column;
-                padding: 0;
+                display: none;
             }
             
-            .navbar a {
-                padding: 0.8rem 1rem;
-                text-align: center;
-                border-bottom: 1px solid var(--border);
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .navbar a.active {
-                border-bottom: 3px solid var(--accent);
-            }
-
             .hero-content h1 {
                 font-size: 2.2rem;
             }
@@ -568,6 +670,10 @@
 
             .content-boxes {
                 grid-template-columns: 1fr;
+            }
+            
+            .map-iframe {
+                height: 300px;
             }
         }
 
@@ -586,25 +692,45 @@
         }
     </style>
 </head>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>Dr. Vikash Paudel - Dermatology</h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#Sunscreen">Understanding Sunscreen & Sun Protection</a></li>
-                        <li><a href="#types">Types of Sunscreen</a></li>
-                        <li><a href="#comparison">Mineral vs. Chemical Sunscreen</a></li>
-                        <li><a href="#Spf">Understanding SPF</a></li>
-                        <li><a href="#faq">FAQs</a></li>
-                        <li><a href="#contact">Consultation</a></li>
-                    </ul>
-                </nav>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Dr. Vikash Paudel</h2>
             </div>
+            <ul>
+                <li><a href="#sunscreen">Understanding Sunscreen</a></li>
+                <li><a href="#types">Types of Sunscreen</a></li>
+                <li><a href="#comparison">Mineral vs. Chemical</a></li>
+                <li><a href="#spf">Understanding SPF</a></li>
+                <li><a href="#advances">Recent Advances</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#consultation">Consultation</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </header>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Menu</h3>
+            <button class="mobile-nav-close" id="mobileNavClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#sunscreen">Understanding Sunscreen</a>
+            <a href="#types">Types of Sunscreen</a>
+            <a href="#comparison">Mineral vs. Chemical</a>
+            <a href="#spf">Understanding SPF</a>
+            <a href="#advances">Recent Advances</a>
+            <a href="#faq">FAQs</a>
+            <a href="#consultation">Consultation</a>
+        </div>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -617,12 +743,12 @@
             <div class="hero-content">
                 <h1>Complete Guide to Sunscreen & Sun Protection</h1>
                 <p>Expert dermatology insights on choosing and using sunscreen effectively for optimal skin health</p>
-                <a href="#content-start" class="btn btn-primary">Learn More</a>
+                <a href="#sunscreen" class="btn btn-primary">Learn More</a>
             </div>
         </header>
 
         <!-- Article Content -->
-        <section class="content-section" id="content-start">
+        <section class="content-section" id="sunscreen">
             <div class="container">
                 <div class="section-title">
                     <h2>Understanding Sunscreen & Sun Protection</h2>
@@ -657,8 +783,12 @@
                         <p>Most people apply only 25-50% of the recommended amount of sunscreen.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Types of Sunscreen Section -->
+        <!-- Types of Sunscreen Section -->
+        <section class="content-section" id="types">
+            <div class="container">
                 <div class="section-title">
                     <h2>Types of Sunscreen</h2>
                     <p>Understanding the difference between sunscreen types helps you make the best choice for your skin</p>
@@ -691,8 +821,12 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Comparison Table -->
+        <!-- Comparison Table -->
+        <section class="content-section" id="comparison">
+            <div class="container">
                 <div class="content-box">
                     <h3><i class="fas fa-balance-scale"></i> Mineral vs. Chemical Sunscreen Comparison</h3>
                     <table class="comparison-table">
@@ -737,8 +871,12 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </section>
 
-                <!-- What is SPF Section -->
+        <!-- What is SPF Section -->
+        <section class="content-section" id="spf">
+            <div class="container">
                 <div class="section-title">
                     <h2>Understanding SPF</h2>
                     <p>SPF ratings tell you how well a sunscreen protects against UVB rays, but there's more to the story</p>
@@ -768,8 +906,61 @@
                         <p>Broad spectrum sunscreens protect against both UVA and UVB radiation. Look for this label regardless of SPF.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- FAQ Section -->
+        <!-- Recent Advances Section -->
+        <section class="content-section" id="advances">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Recent Advances in Sunscreen Technology</h2>
+                    <p>Innovations in sunscreen formulation are making protection more effective and user-friendly</p>
+                </div>
+
+                <div class="content-boxes">
+                    <div class="content-box">
+                        <h3><i class="fas fa-microscope"></i> Nanosized Particles</h3>
+                        <p>Advanced formulations using nanotechnology are improving mineral sunscreens:</p>
+                        <ul>
+                            <li><strong>Nano Zinc Oxide & Titanium Dioxide:</strong> Smaller particles reduce white cast while maintaining protection</li>
+                            <li><strong>Improved Cosmetics:</strong> Better spreadability and invisible finish</li>
+                            <li><strong>Enhanced Protection:</strong> More even coverage and higher SPF values</li>
+                            <li><strong>Safety Considerations:</strong> Ongoing research confirms safety for topical use</li>
+                        </ul>
+                        <p>These advances make mineral sunscreens more appealing for daily use.</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fas fa-capsules"></i> Oral Sunscreen Supplements</h3>
+                        <p>Systemic photoprotection through dietary supplements is an emerging area:</p>
+                        <ul>
+                            <li><strong>Polypodium Leucotomos:</strong> Fern extract that provides systemic photoprotection</li>
+                            <li><strong>Antioxidants:</strong> Vitamins C, E, and other antioxidants help combat UV damage</li>
+                            <li><strong>Heliocare:</strong> Popular oral supplement containing fern extract and antioxidants</li>
+                            <li><strong>Limitations:</strong> Should complement, not replace, topical sunscreen</li>
+                        </ul>
+                        <p>Oral supplements can provide additional protection but aren't a substitute for topical application.</p>
+                    </div>
+                </div>
+
+                <div class="content-box">
+                    <h3><i class="fas fa-flask"></i> Advanced Formulations</h3>
+                    <p>New delivery systems and ingredients are enhancing sunscreen performance:</p>
+                    <ul>
+                        <li><strong>Encapsulation Technology:</strong> Protects active ingredients, improves stability</li>
+                        <li><strong>Blue Light Protection:</strong> New ingredients that protect against high-energy visible light</li>
+                        <li><strong>DNA Repair Enzymes:</strong> Some sunscreens now include enzymes that help repair sun damage</li>
+                        <li><strong>Antioxidant Blends:</strong> Added vitamins and botanical extracts for enhanced protection</li>
+                        <li><strong>Water-Resistant Improvements:</strong> Better adherence to skin during swimming and sweating</li>
+                    </ul>
+                    <p>These innovations make modern sunscreens more effective and pleasant to use.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="content-section" id="faq">
+            <div class="container">
                 <div class="faq-section">
                     <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Frequently Asked Questions</h2>
                     
@@ -823,8 +1014,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Call-to-Action Section -->
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <div class="section-title">
+                    <h2>Visit Our Clinic</h2>
+                    <p>Located in the heart of Kathmandu for your convenience</p>
+                </div>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.137353867944!2d85.3292746!3d27.6813332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199321f634b5%3A0x52ddc625a3481046!2sDr%20Vikash%20Paudel%20Skin%20Clinic!5e0!3m2!1sen!2snp!4v1691234567890!5m2!1sen!2snp" 
+                        class="map-iframe"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Map showing location of Dr. Vikash Paudel Skin Clinic in Kathmandu, Nepal">
+                    </iframe>
+                </div>
+                <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D" 
+                   target="_blank" class="map-link">View on Google Maps</a>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="content-section" id="consultation">
+            <div class="container">
                 <div class="cta-section">
                     <h2 class="cta-title">Personalized Sun Protection Consultation</h2>
                     <p class="cta-description">Every skin type has different sun protection needs. Book a consultation with Dr. Vikash Paudel to develop a personalized sun protection plan tailored to your skin type, lifestyle, and concerns.</p>
@@ -878,27 +1095,36 @@
                 <p>&copy; 2025 Dr. Vikash Paudel - Dermatology. All rights reserved.</p>
                 <p style="margin-top: 10px;">Medical information on this website is for educational purposes only. Consult a qualified dermatologist for diagnosis and treatment.</p>
             </div>
-                </div>
-                    </div>
-                     <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D" 
-                       target="_blank" class="map-link">View on Google Maps</a>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.137353867944!2d85.3292746!3d27.6813332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199321f634b5%3A0x52ddc625a3481046!2sDr%20Vikash%20Paudel%20Skin%20Clinic!5e0!3m2!1sen!2snp!4v1691234567890!5m2!1sen!2snp" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Map showing location of Dr. Vikash Paudel Skin Clinic in Kathmandu, Nepal">
-                    </iframe>
-                </div>
-            </div>
-            
         </div>
     </footer>
 
     <script>
-        // FAQ Toggle Functionality
+        // Mobile Menu Functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            mobileNavClose.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close mobile nav when clicking on a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // FAQ Toggle Functionality
             const faqItems = document.querySelectorAll('.faq-item');
             
             faqItems.forEach(item => {
@@ -938,6 +1164,31 @@
             
             // Check on scroll
             window.addEventListener('scroll', checkScroll);
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.navbar a, .mobile-nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle internal links
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+                            
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
