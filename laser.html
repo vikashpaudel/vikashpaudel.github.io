@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Treatments | Dr. Vikash Paudel - Dermatology</title>
+    <meta name="description" content="Expert laser treatments for various skin conditions. Advanced solutions for scars, wrinkles, unwanted hair, tattoo removal, and vascular issues.">
+    <meta name="keywords" content="laser treatment, dermatology, skin care, laser, scars, wrinkles, hair removal, tattoo removal, Dr. Vikash Paudel, Kathmandu, Nepal">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --success: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .language-toggle {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-left: 20px;
+        }
+        
+        .language-toggle:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1576097449797-4c9aef8a58af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: #f8f9fa;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .card ul, .card ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .card li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .before-after-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .before-img, .after-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .before-img {
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c8ae9d19d8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            z-index: 1;
+        }
+        
+        .after-img {
+            background-image: url('https://images.unsplash.com/photo-1556228579-4a5c9c6f1870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            width: 50%;
+            z-index: 2;
+            border-right: 2px solid white;
+        }
+        
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 4px;
+            background-color: white;
+            z-index: 3;
+            cursor: ew-resize;
+        }
+        
+        .slider-handle::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .slider-handle::before {
+            content: "↔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: var(--primary);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #e9ecef;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            color: var(--text-light);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .clinic-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .map-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .map-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .clinic-hours table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        
+        .clinic-hours td {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .clinic-hours td:first-child {
+            font-weight: 500;
+        }
+        
+        .clinic-hours tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .nepali-summary {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .nepali-summary h3 {
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+        
+        .nepali-summary p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .before-after-container {
+                height: 300px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        /* Animation for cards on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .treatment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .treatment-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .treatment-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .treatment-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .treatment-table tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        /* Language-specific styling */
+        .lang-np {
+            display: none;
+        }
+        
+        .lang-en {
+            display: block;
+        }
+        
+        body.nepali .lang-np {
+            display: block;
+        }
+        
+        body.nepali .lang-en {
+            display: none;
+        }
+    </style>
+</head>
+<body class="lang-en">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Dr. Vikash Paudel - Dermatology</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-np">गृहपृष्ठ</a></li>
+                        <li><a href="about.html" class="lang-en">About</a><a href="about.html" class="lang-np">बारेमा</a></li>
+                        <li><a href="award.html" class="lang-en">Awards</a><a href="award.html" class="lang-np">पुरस्कारहरू</a></li>
+                        <li><a href="research.html" class="lang-en">Research</a><a href="research.html" class="lang-np">अनुसन्धान</a></li>
+                        <li><a href="blog.html" class="lang-en">Blog</a><a href="blog.html" class="lang-np">ब्लग</a></li>
+                        <li><a href="#contact" class="lang-en">Contact</a><a href="#contact" class="lang-np">सम्पर्क</a></li>
+                        <li><button class="language-toggle" id="languageToggle">नेपाली</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2 class="lang-en">Advanced Laser Treatments</h2>
+            <h2 class="lang-np">उन्नत लेजर उपचारहरू</h2>
+            <p class="lang-en">Modern laser technology for various skin problems. Effective solutions for scars, wrinkles, unwanted hair, tattoo removal, and other issues.</p>
+            <p class="lang-np">छालाका विभिन्न समस्याहरूको लागि आधुनिक लेजर प्रविधिको प्रयोग। दाग-धब्बा, झुर्रीहरू, अनचाहे रौंहरू, ट्याटू हटाउने र अन्य समस्याहरूको प्रभावकारी समाधान।</p>
+            <a href="#contact" class="btn lang-en">Book a Consultation</a>
+            <a href="#contact" class="btn lang-np">परामर्शको लागि भर्ना गर्नुहोस्</a>
+            <a href="#treatment" class="btn btn-secondary lang-en">Learn About Treatments</a>
+            <a href="#treatment" class="btn btn-secondary lang-np">उपचारहरू बारे जान्नुहोस्</a>
+        </div>
+    </section>
+
+    <section class="section" id="overview">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Introduction to Laser Treatments</h2>
+                <h2 class="lang-np">लेजर उपचारहरूको परिचय</h2>
+                <p class="lang-en">Laser treatments can solve various skin problems. Learn how it works, types, and post-treatment care.</p>
+                <p class="lang-np">लेजर उपचारहरूले छालाको विभिन्न समस्याहरूको समाधान गर्न सक्छन्। यसले कसरी काम गर्छ, प्रकारहरू, र उपचारपछिको हेरचाहका बारेमा जान्नुहोस्।</p>
+            </div>
+            <div class="content-grid">
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1576097449797-4c9aef8a58af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">How Does Laser Work?</h3>
+                        <h3 class="lang-np">लेजरले कसरी काम गर्छ?</h3>
+                        <p class="lang-en">Laser treatments use light beams to target specific areas of the skin:</p>
+                        <p class="lang-np">लेजर उपचारहरूले प्रकाशको किरणहरू प्रयोग गरेर छालाको विशिष्ट लक्ष्यहरूमा असर गर्छन्:</p>
+                        <ul>
+                            <li class="lang-en">Different wavelengths solve different problems</li>
+                            <li class="lang-np">विभिन्न तरंग लम्बाइहरूले विभिन्न समस्याहरू समाधान गर्छन्</li>
+                            <li class="lang-en">Focused on targets like melanin, hemoglobin, or water</li>
+                            <li class="lang-np">मेलानिन, हिमोग्लोबिन, वा पानीजस्ता लक्ष्यहरूमा केन्द्रित</li>
+                            <li class="lang-en">Can affect skin at different depths</li>
+                            <li class="lang-np">छालाको गहिराईमा असर गर्न सक्छ</li>
+                            <li class="lang-en">Stimulates cell regeneration</li>
+                            <li class="lang-np">कोषहरूको पुनर्जननलाई प्रेरित गर्छ</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">Benefits of Laser Treatments</h3>
+                        <h3 class="lang-np">लेजर उपचारका लाभहरू</h3>
+                        <p class="lang-en">Laser treatments have many benefits:</p>
+                        <p class="lang-np">लेजर उपचारहरूका धेरै फाइदाहरू छन्:</p>
+                        <ul>
+                            <li class="lang-en"><strong>Precision:</strong> Only affects specific areas</li>
+                            <li class="lang-np"><strong>सटीकता:</strong> विशिष्ट क्षेत्रहरूमा मात्र असर</li>
+                            <li class="lang-en"><strong>Effectiveness:</strong> Effective for many problems</li>
+                            <li class="lang-np"><strong>प्रभावकारिता:</strong> धेरै समस्याहरूको लागि प्रभावकारी</li>
+                            <li class="lang-en"><strong>Low Downtime:</strong> Less recovery time for many procedures</li>
+                            <li class="lang-np"><strong>कम डाउनटाइम:</strong> धेरै प्रक्रियाहरूमा काम गर्ने समय कम</li>
+                            <li class="lang-en"><strong>Long-term Results:</strong> Long-lasting results for many treatments</li>
+                            <li class="lang-np"><strong>दीर्घकालीन नतिजा:</strong> धेरै उपचारहरूको लागि लामो समयसम्म नतिजा</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">Safety and Risks</h3>
+                        <h3 class="lang-np">सुरक्षा र जोखिमहरू</h3>
+                        <p class="lang-en">Laser treatment is safe, but there are some risks:</p>
+                        <p class="lang-np">लेजर उपचार सुरक्षित छ, तर केही जोखिमहरू पनि छन्:</p>
+                        <ul>
+                            <li class="lang-en">Should only be performed by trained professionals</li>
+                            <li class="lang-np">प्रशिक्षित पेशेवरद्वारा मात्र गरिनुपर्छ</li>
+                            <li class="lang-en">Minor temporary redness, numbness, or swelling may occur</li>
+                            <li class="lang-np">सानो अस्थायी लालो, सुन्ने, वा सूजन हुन सक्छ</li>
+                            <li class="lang-en">Results may vary depending on skin tone</li>
+                            <li class="lang-np">रंगत अनुसार फरक नतिजा हुन सक्छ</li>
+                            <li class="lang-en">Proper care after treatment is necessary</li>
+                            <li class="lang-np">उपचारपछि उचित हेरचाह आवश्यक</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="treatment">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Types of Laser Treatments</h2>
+                <h2 class="lang-np">लेजर उपचारका प्रकारहरू</h2>
+                <p class="lang-en">Different types of laser treatments and the skin problems they can solve</p>
+                <p class="lang-np">विभिन्न प्रकारका लेजर उपचारहरू र तिनीहरूले समाधान गर्न सक्ने छालाका समस्याहरू</p>
+            </div>
+            <div class="content-grid">
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1576097449797-4c9aef8a58af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">CO2 Laser</h3>
+                        <h3 class="lang-np">CO2 लेजर</h3>
+                        <p class="lang-en">Carbon dioxide laser precisely removes the superficial layer of skin:</p>
+                        <p class="lang-np">कार्बन डाइअक्साइड लेजरले छालाको सतही तहलाई सटीक रूपमा हटाउँछ:</p>
+                        <ul>
+                            <li class="lang-en"><strong>Uses:</strong> Wrinkles, scars, warts, mole removal</li>
+                            <li class="lang-np"><strong>उपयोग:</strong> झुर्रीहरू, दाग-धब्बा, मस्सा, तिल हटाउने</li>
+                            <li class="lang-en"><strong>Benefits:</strong> Precise, effective, solves multiple problems at once</li>
+                            <li class="lang-np"><strong>लाभ:</strong> सटीक, प्रभावकारी, एकै पटकमा धेरै समस्याहरू समाधान</li>
+                            <li class="lang-en"><strong>Downtime:</strong> 1-2 weeks</li>
+                            <li class="lang-np"><strong>डाउनटाइम:</strong> १-२ सप्ताह</li>
+                            <li class="lang-en"><strong>Sessions:</strong> Usually 1-3 sessions</li>
+                            <li class="lang-np"><strong>सत्रहरू:</strong> प्राय: १-३ सत्रहरू</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">Nd:YAG Laser</h3>
+                        <h3 class="lang-np">Nd:YAG लेजर</h3>
+                        <p class="lang-en">Neodymium-doped yttrium aluminum garnet laser:</p>
+                        <p class="lang-np">नेओडिमियम-डोप्ड यट्रियम एल्युमिनियम गार्नेट लेजर:</p>
+                        <ul>
+                            <li class="lang-en"><strong>Uses:</strong> Tattoo removal, blood vessels, dark spots</li>
+                            <li class="lang-np"><strong>उपयोग:</strong> ट्याटू हटाउने, रक्तवाहिनीहरू, गाढा रंगका दागहरू</li>
+                            <li class="lang-en"><strong>Benefits:</strong> Affects deeper skin, suitable for different skin tones</li>
+                            <li class="lang-np"><strong>लाभ:</strong> गहिरो छालामा पनि असर गर्छ, विभिन्न रंगतका लागि उपयुक्त</li>
+                            <li class="lang-en"><strong>Downtime:</strong> Minimal or none</li>
+                            <li class="lang-np"><strong>डाउनटाइम:</strong> न्यून वा नभएको</li>
+                            <li class="lang-en"><strong>Sessions:</strong> 3-6 sessions</li>
+                            <li class="lang-np"><strong>सत्रहरू:</strong> ३-६ सत्रहरू</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3 class="lang-en">Fractional Laser</h3>
+                        <h3 class="lang-np">फ्र्याक्सेल लेजर</h3>
+                        <p class="lang-en">Affects only small areas of the skin, which stimulates regeneration:</p>
+                        <p class="lang-np">छालाको सानो-सानो क्षेत्रहरूमा मात्र असर गर्छ, जसले पुनर्जननलाई प्रेरित गर्छ:</p>
+                        <ul>
+                            <li class="lang-en"><strong>Uses:</strong> Scars, wrinkles, skin texture, complexion improvement</li>
+                            <li class="lang-np"><strong>उपयोग:</strong> दाग-धब्बा, झुर्रीहरू, छालाको टाउको, रंगत सुधार</li>
+                            <li class="lang-en"><strong>Benefits:</strong> Less downtime, natural results</li>
+                            <li class="lang-np"><strong>लाभ:</strong> कम डाउनटाइम, प्राकृतिक नतिजा</li>
+                            <li class="lang-en"><strong>Downtime:</strong> 3-7 days</li>
+                            <li class="lang-np"><strong>डाउनटाइम:</strong> ३-७ दिन</li>
+                            <li class="lang-en"><strong>Sessions:</strong> 3-5 sessions</li>
+                            <li class="lang-np"><strong>सत्रहरू:</strong> ३-५ सत्रहरू</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h3 class="lang-en">Comparison of Problems and Laser Treatments</h3>
+                <h3 class="lang-np">समस्याहरू र लेजर उपचारहरूको तुलना</h3>
+                <table class="treatment-table">
+                    <thead>
+                        <tr>
+                            <th class="lang-en">Skin Problem</th>
+                            <th class="lang-np">छालाको समस्या</th>
+                            <th class="lang-en">Suitable Laser</th>
+                            <th class="lang-np">उपयुक्त लेजर</th>
+                            <th class="lang-en">Estimated Sessions</th>
+                            <th class="lang-np">अनुमानित सत्रहरू</th>
+                            <th class="lang-en">Time to See Results</th>
+                            <th class="lang-np">नतिजा देख्ने समय</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="lang-en">Scars (acne scars)</td>
+                            <td class="lang-np">दाग-धब्बा (एक्ने स्कार)</td>
+                            <td class="lang-en">Fractional Laser, CO2 Laser</td>
+                            <td class="lang-np">फ्र्याक्सेल लेजर, CO2 लेजर</td>
+                            <td class="lang-en">3-5 sessions</td>
+                            <td class="lang-np">३-५ सत्रहरू</td>
+                            <td class="lang-en">2-4 weeks</td>
+                            <td class="lang-np">२-४ सप्ताह</td>
+                        </tr>
+                        <tr>
+                            <td class="lang-en">Wrinkles</td>
+                            <td class="lang-np">झुर्रीहरू</td>
+                            <td class="lang-en">CO2 Laser, Fractional Laser</td>
+                            <td class="lang-np">CO2 लेजर, फ्र्याक्सेल लेजर</td>
+                            <td class="lang-en">1-3 sessions</td>
+                            <td class="lang-np">१-३ सत्रहरू</td>
+                            <td class="lang-en">1-3 months</td>
+                            <td class="lang-np">१-३ महिना</td>
+                        </tr>
+                        <tr>
+                            <td class="lang-en">Unwanted Hair</td>
+                            <td class="lang-np">अनचाहे रौंहरू</td>
+                            <td class="lang-en">Diode Laser, Nd:YAG Laser</td>
+                            <td class="lang-np">डायोड लेजर, Nd:YAG लेजर</td>
+                            <td class="lang-en">6-8 sessions</td>
+                            <td class="lang-np">६-८ सत्रहरू</td>
+                            <td class="lang-en">2-4 weeks per session</td>
+                            <td class="lang-np">२-४ सप्ताह प्रति सत्र</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Frequently Asked Questions</h2>
+                <h2 class="lang-np">बारम्बार सोधिने प्रश्नहरू</h2>
+                <p class="lang-en">Common questions about laser treatments, their causes, and prevention strategies.</p>
+                <p class="lang-np">लेजर उपचारहरूको बारेमा सामान्य प्रश्नहरूको उत्तरहरू।</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question lang-en">How many laser treatment sessions are needed?</div>
+                    <div class="faq-question lang-np">लेजर उपचार कति पटक गर्नुपर्छ?</div>
+                    <div class="faq-answer">
+                        <p class="lang-en">The number of treatments depends on the type of problem, severity, and the individual's skin response. Typically, 3-6 sessions are needed, with intervals of 4-6 weeks between each.</p>
+                        <p class="lang-np">उपचारको संख्या समस्याको प्रकार, गम्भीरता, र व्यक्तिको छालाको प्रतिक्रियामा निर्भर गर्दछ। सामान्यतया, ३-६ सत्रहरूको आवश्यकता पर्छ, प्रत्येक ४-६ सप्ताहको अन्तरालमा।</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question lang-en">Is laser treatment painful?</div>
+                    <div class="faq-question lang-np">लेजर उपचार दुखाइदायक हुन्छ?</div>
+                    <div class="faq-answer">
+                        <p class="lang-en">Most laser treatments cause mild pain or a tingling sensation. Modern lasers have cooling systems that reduce the effect. For some procedures, local anesthesia cream is used.</p>
+                        <p class="lang-np">धेरै लेजर उपचारहरूमा हल्का दुखाइ वा चिरमिरे जस्तो महसुस हुन सक्छ। आधुनिक लेजरहरूमा कूलिङ प्रणालीहरू हुन्छन् जसले असर कम गर्छन्। केही प्रक्रियाहरूको लागि स्थानीय एनेस्थेसिया क्रीम प्रयोग गरिन्छ।</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question lang-en">How long should I take off work after laser treatment?</div>
+                    <div class="faq-question lang-np">लेजर उपचारपछि कति समयसम्म कामबाट विराम लिनुपर्छ?</div>
+                    <div class="faq-answer">
+                        <p class="lang-en">This depends on the type of treatment. No time off is needed for non-ablative lasers. For ablative lasers, 3-7 days of rest may be needed. Your doctor will recommend based on your specific condition.</p>
+                        <p class="lang-np">यो उपचारको प्रकारमा निर्भर गर्दछ। नन-एब्लेटिभ लेजरहरूको लागि कुनै विरामको आवश्यकता पर्दैन। एब्लेटिभ लेजरहरूको लागि ३-७ दिनको विराम चाहिन्छ। डाक्टरले तपाईंको विशेष अवस्थाको लागि सिफारिस गर्नेछन्।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Contact Dr. Vikash Paudel</h2>
+                <h2 class="lang-np">डा. विकास पौडेलसँग सम्पर्क गर्नुहोस्</h2>
+                <p class="lang-en">Ready to get professional help for your skin concerns? Schedule a consultation with Dr. Paudel for personalized treatment.</p>
+                <p class="lang-np">लेजर उपचारको लागि विशेषज्ञ सहायता चाहनुहुन्छ? डा. पौडेलसँग व्यक्तिगत उपचारको लागि परामर्शको समय तोक्नुहोस्।</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="clinic-info">
+                    <div class="clinic-details">
+                        <h3 class="lang-en">Vikash Paudel Skin Clinic</h3>
+                        <h3 class="lang-np">विकास पौडेल स्किन क्लिनिक</h3>
+                        <p class="lang-en"><strong>Address:</strong> Shankhamul Healthcare, Kathmandu, Nepal</p>
+                        <p class="lang-np"><strong>ठेगाना:</strong> शंखमुल हेल्थकेयर, काठमाडौं, नेपाल</p>
+                        <p class="lang-en"><strong>Phone:</strong> <a href="tel:+977-1-5242511">+977-1-5242511</a></p>
+                        <p class="lang-np"><strong>फोन:</strong> <a href="tel:+977-1-5242511">+९७७-१-५२४२५११</a></p>
+                        <p class="lang-en"><strong>Mobile:</strong> <a href="tel:+977-9825207253">+977-9825207253</a></p>
+                        <p class="lang-np"><strong>मोबाइल:</strong> <a href="tel:+977-9825207253">+९७७-९८२५२०७२५३</a></p>
+                        
+                        <div class="clinic-hours">
+                            <h4 class="lang-en">Clinic Hours</h4>
+                            <h4 class="lang-np">क्लिनिकको समय</h4>
+                            <table>
+                                <tr><td class="lang-en">Sunday - Friday</td><td class="lang-np">आइतबार - शुक्रबार</td><td>4:00 AM - 7:00 PM</td></tr>
+                                <tr><td class="lang-en">Wednesday</td><td class="lang-np">बुधबार</td><td>9:00 AM - 7:00 PM</td></tr>
+                                <tr><td class="lang-en">Saturday</td><td class="lang-np">शनिबार</td><td>Closed</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwMi4wIKXMDSoASAFQAw%3D%3D" 
+                       target="_blank" class="map-link lang-en">View on Google Maps</a>
+                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwDi4wIKXMDSoASAFQAw%3D%3D" 
+                       target="_blank" class="map-link lang-np">गुगल मान्समा हेर्नुहोस्</a>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.137353867944!2d85.3292746!3d27.6813332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199321f634b5%3A0x52ddc625a3481046!2sDr%20Vikash%20Paudel%20Skin%20Clinic!5e0!3m2!1sen!2snp!4v1691234567890!5m2!1sen!2snp" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Map showing location of Dr. Vikash Paudel Skin Clinic in Kathmandu, Nepal">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 class="lang-en">Request Appointment</h3>
+                <h3 class="lang-np">अनुमति को लागि निवेदन</h3>
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <label for="name" class="lang-en" aria-label="Enter your full name">Full Name</label>
+                        <label for="name" class="lang-np" aria-label="आफ्नो पूरा नाम लेख्नुहोस्">पूरा नाम</label>
+                        <input type="text" id="name" class="form-control" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="lang-en" aria-label="Enter your phone number">Phone Number</label>
+                        <label for="phone" class="lang-np" aria-label="आफ्नो फोन नम्बर लेख्नुहोस्">फोन नम्बर</label>
+                        <input type="tel" id="phone" class="form-control" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="lang-en" aria-label="Enter your email address">Email Address</label>
+                        <label for="email" class="lang-np" aria-label="आफ्नो इमेल ठेगाना लेख्नुहोस्">इमेल ठेगाना</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="lang-en" aria-label="Describe your skin concerns">Tell us about your skin concerns</label>
+                        <label for="message" class="lang-np" aria-label="आफ्ना छालाका समस्याहरूको बारेमा लेख्नुहोस्">आफ्ना छालाका समस्याहरूको बारेमा हामीलाई भन्नुहोस्</label>
+                        <textarea id="message" class="form-control" rows="4" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="btn lang-en" style="width: 100%;">Send Message to Schedule Appointment</button>
+                    <button type="submit" class="btn lang-np" style="width: 100%;">अनुमति को लागि सन्देश पठाउनुहोस्</button>
+                </form>
+                <p style="font-size: 0.9rem; margin-top: 10px; text-align: center;" class="lang-en">We'll contact you within 24 hours to schedule your appointment.</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; text-align: center;" class="lang-np">हामी २४ घण्टाभित्र तपाईंसँग सम्पर्क गरेर अनुमति को समय तोक्नेछौं।</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="lang-en">Contact Information</h3>
+                    <h3 class="lang-np">सम्पर्क जानकारी</h3>
+                    <div class="contact-info">
+                        <a href="tel:+977-1-5242511" class="lang-en" aria-label="Call Dr. Vikash Paudel at +977-1-5242511">Phone: +977-1-5242511</a>
+                        <a href="tel:+977-1-5242511" class="lang-np" aria-label="डा. विकास पौडेललाई +९७७-१-५२४२५११ मा फोन गर्नुहोस्">फोन: +९७७-१-५२४२५११</a>
+                        <a href="tel:+977-9825207253" class="lang-en" aria-label="Call Dr. Vikash Paudel mobile at +977-9825207253">Mobile: +977-9825207253</a>
+                        <a href="tel:+977-9825207253" class="lang-np" aria-label="डा. विकास पौडेलको मोबाइल +९७७-९८२५२०७२५३ मा फोन गर्नुहोस्">मोबाइल: +९७७-९८२५२०७२५३</a>
+                        <a href="mailto:vikashpaudel@gmail.com" class="lang-en" aria-label="Email Dr. Vikash Paudel at vikashpaudel@gmail.com">Email: vikashpaudel@gmail.com</a>
+                        <a href="mailto:vikashpaudel@gmail.com" class="lang-np" aria-label="डा. विकास पौडेललाई vikashpaudel@gmail.com मा इमेल गर्नुहोस्">इमेल: vikashpaudel@gmail.com</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="lang-en" aria-label="Follow us on Facebook">FB</a>
+                        <a href="#" class="lang-np" aria-label="हामीलाई फेसबुकमा पछ्याउनुहोस्">FB</a>
+                        <a href="#" class="lang-en" aria-label="Follow us on Instagram">IG</a>
+                        <a href="#" class="lang-np" aria-label="हामीलाई इन्स्टाग्राममा पछ्याउनुहोस्">IG</a>
+                        <a href="#" class="lang-en" aria-label="Follow us on Twitter">TW</a>
+                        <a href="#" class="lang-np" aria-label="हामीलाई ट्विटरमा पछ्याउनुहोस्">TW</a>
+                        <a href="#" class="lang-en" aria-label="Connect on LinkedIn">LI</a>
+                        <a href="#" class="lang-np" aria-label="हामीसँग लिंक्डइनमा जडान गर्नुहोस्">LI</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-en">Clinic Hours</h3>
+                    <h3 class="lang-np">क्लिनिकको समय</h3>
+                    <p class="lang-en">Sunday-Friday: 4:00 AM - 7:00 PM</p>
+                    <p class="lang-np">आइतबार-शुक्रबार: ४:०० बिहान - ७:०० बेलुका</p>
+                    <p class="lang-en">Wednesday: 9:00 AM - 7:00 PM</p>
+                    <p class="lang-np">बुधबार: ९:०० बिहान - ७:०० बेलुका</p>
+                    <p class="lang-en">Saturday: Closed</p>
+                    <p class="lang-np">शनिबार: बन्द</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-en">Location</h3>
+                    <h3 class="lang-np">स्थान</h3>
+                    <p class="lang-en">Shankhamul Healthcare</p>
+                    <p class="lang-np">शंखमुल हेल्थकेयर</p>
+                    <p class="lang-en">Shankhamul, Kathmandu, Nepal</p>
+                    <p class="lang-np">शंखमुल, काठमाडौं, नेपाल</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-en">Quick Links</h3>
+                    <h3 class="lang-np">द्रुत लिंकहरू</h3>
+                    <p><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-np">गृहपृष्ठ</a></p>
+                    <p><a href="about.html" class="lang-en">About Dr. Paudel</a><a href="about.html" class="lang-np">डा. पौडेलको बारेमा</a></p>
+                    <p><a href="services.html" class="lang-en">Our Services</a><a href="services.html" class="lang-np">हाम्रा सेवाहरू</a></p>
+                    <p><a href="blog.html" class="lang-en">Blog & Articles</a><a href="blog.html" class="lang-np">ब्लग र लेखहरू</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="lang-en">&copy; 2025 Dr. Vikash Paudel - Dermatology. All rights reserved.</p>
+                <p class="lang-np">&copy; २०२५ डा. विकास पौडेल - डर्माटोलोजी। सर्वाधिकार सुरक्षित।</p>
+                <p style="margin-top: 10px;" class="lang-en">Medical information on this website is for educational purposes only. Consult a qualified dermatologist for diagnosis and treatment.</p>
+                <p style="margin-top: 10px;" class="lang-np">यस वेबसाइटमा रहेको चिकित्सा सम्बन्धी जानकारी शैक्षिक उद्देश्यको लागि मात्र हो। निदान र उपचारको लागि योग्य डर्माटोलोजिस्टसँग परामर्श गर्नुहोस्।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language toggle functionality
+        document.getElementById('languageToggle').addEventListener('click', function() {
+            const body = document.body;
+            const button = this;
+            
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-np');
+                button.textContent = 'English';
+            } else {
+                body.classList.remove('lang-np');
+                body.classList.add('lang-en');
+                button.textContent = 'नेपाली';
+            }
+        });
+
+        // Before/After Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('beforeAfterSlider');
+            if (slider) {
+                const handle = slider.querySelector('.slider-handle');
+                const afterImg = slider.querySelector('.after-img');
+                let isDragging = false;
+                
+                function updateSliderPosition(clientX) {
+                    const sliderRect = slider.getBoundingClientRect();
+                    let position = ((clientX - sliderRect.left) / sliderRect.width) * 100;
+                    
+                    // Constrain between 0 and 100
+                    position = Math.max(0, Math.min(100, position));
+                    
+                    afterImg.style.width = position + '%';
+                    handle.style.left = position + '%';
+                }
+                
+                handle.addEventListener('mousedown', function(e) {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', function(e) {
+                    if (isDragging) {
+                        updateSliderPosition(e.clientX);
+                    }
+                });
+                
+                document.addEventListener('mouseup', function() {
+                    isDragging = false;
+                });
+                
+                // Touch events for mobile
+                handle.addEventListener('touchstart', function(e) {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('touchmove', function(e) {
+                    if (isDragging && e.touches.length > 0) {
+                        updateSliderPosition(e.touches[0].clientX);
+                    }
+                });
+                
+                document.addEventListener('touchend', function() {
+                    isDragging = false;
+                });
+            }
+            
+            // Form submission
+            document.getElementById('consultationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (document.body.classList.contains('lang-en')) {
+                    alert('Thank you for your consultation request. We will contact you shortly to schedule your appointment. If you don\'t receive a call, please call us at 01-5242511.');
+                } else {
+                    alert('लेजर उपचारको लागि तपाईंको निवेदनको लागि धन्यवाद। हामी चाँडै नै तपाईंसँग सम्पर्क गरेर अनुमति को समय तोक्नेछौं। यदि कल आएन भने, कृपया हामीलाई ०१-५२४२५११ मा फोन गर्नुहोस्।');
+                }
+                this.reset();
+            });
+            
+            // FAQ toggle functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Fade in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkFade();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
+        });
+    </script>
+</body>
+</html>
