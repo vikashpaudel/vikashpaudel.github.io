@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Dr. Vikash Paudel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("nPsKsuZlR3ghah6k-"); // You'll need to replace with your actual EmailJS public key
+    })();
+  </script>
   <style>
     /* CSS Variables */
     :root {
@@ -15,11 +26,12 @@
       --foreground: #333333;
       --muted-foreground: #666666;
       --border: #e0e0e0;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
       --transition-smooth: all 0.3s ease;
       --destructive: #dc2626;
       --destructive-foreground: #ffffff;
+      --success: #10b981;
     }
 
     /* Base Styles */
@@ -30,13 +42,18 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: var(--foreground);
       background-color: var(--background);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
     }
 
     /* Header Styles */
@@ -51,7 +68,7 @@
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     header p {
@@ -77,6 +94,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      flex-wrap: wrap;
     }
 
     .navbar li {
@@ -91,6 +109,7 @@
       font-weight: 500;
       transition: all 0.3s ease;
       border-bottom: 3px solid transparent;
+      font-size: 0.95rem;
     }
 
     .navbar a:hover {
@@ -101,6 +120,18 @@
     .navbar a.active {
       color: var(--primary);
       border-bottom: 3px solid var(--accent);
+    }
+
+    .navbar .book-appointment {
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      margin-left: 1rem;
+    }
+
+    .navbar .book-appointment:hover {
+      background-color: #155d8a;
+      color: white;
     }
 
     /* Main Content Styles */
@@ -185,14 +216,19 @@
     .card {
       background-color: var(--background);
       border: 1px solid var(--border);
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       box-shadow: var(--shadow-card);
       overflow: hidden;
       transition: var(--transition-smooth);
     }
 
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
     .card-content {
-      padding: 1.5rem;
+      padding: 1.75rem;
     }
 
     .flex {
@@ -332,20 +368,23 @@
     .form-select,
     .form-textarea {
       width: 100%;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
       border: 1px solid var(--border);
-      background-color: var(--background);
+      background-color: #f9f9f9;
       color: var(--foreground);
       font-size: 1rem;
       transition: var(--transition-smooth);
+      font-family: 'Poppins', sans-serif;
     }
 
     .form-input:focus,
     .form-select:focus,
     .form-textarea:focus {
       outline: none;
-      box-shadow: 0 0 0 2px var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 106, 162, 0.2);
+      border-color: var(--primary);
+      background-color: white;
     }
 
     .form-textarea {
@@ -361,11 +400,12 @@
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       font-weight: 500;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       cursor: pointer;
       transition: var(--transition-smooth);
       border: none;
       text-decoration: none;
+      font-family: 'Poppins', sans-serif;
     }
 
     .btn-primary {
@@ -375,6 +415,8 @@
 
     .btn-primary:hover {
       background-color: #155d8a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     .btn-lg {
@@ -404,6 +446,42 @@
 
     .text-lg {
       font-size: 1.125rem;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      background-color: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .text-success {
+      color: var(--success);
+    }
+
+    /* Loading State */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     /* Footer Styles */
@@ -436,6 +514,11 @@
       .navbar a.active {
         border-bottom: 3px solid var(--accent);
       }
+      
+      .navbar .book-appointment {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -448,7 +531,7 @@
       }
       
       .card-content {
-        padding: 1rem;
+        padding: 1.25rem;
       }
     }
 
@@ -467,11 +550,14 @@
   <nav class="navbar">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="biography.html">Biography</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="research.html">Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="award.html">Award</a></li>
+      <li><a href="award.html">Awards</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="appointment.html" class="book-appointment">Book Appointment</a></li>
     </ul>
   </nav>
 
@@ -621,7 +707,7 @@
           <div class="card">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Send Us a Message</h2>
-              <form class="contact-form">
+              <form class="contact-form" id="contact-form">
                 <div class="form-grid">
                   <div class="form-group">
                     <label for="name" class="form-label">
@@ -630,6 +716,7 @@
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       required
                       class="form-input"
                       placeholder="Your full name"
@@ -643,6 +730,7 @@
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
                       required
                       class="form-input"
                       placeholder="+977-XXXXXXXXXX"
@@ -657,6 +745,7 @@
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     class="form-input"
                     placeholder="your.email@example.com"
@@ -667,7 +756,7 @@
                   <label for="clinic" class="form-label">
                     Preferred Clinic
                   </label>
-                  <select id="clinic" class="form-select">
+                  <select id="clinic" name="clinic" class="form-select">
                     <option value="">Select a clinic</option>
                     <option value="patan">Patan Hospital</option>
                     <option value="elite">Elite Health Clinic</option>
@@ -681,6 +770,7 @@
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows="6"
                     class="form-textarea"
@@ -688,9 +778,18 @@
                   ></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-lg w-full md:w-auto">
+                <button type="submit" class="btn btn-primary btn-lg w-full md:w-auto" id="submit-btn">
                   Send Message
                 </button>
+                
+                <div class="loading" id="loading">
+                  <span class="spinner"></span> Sending your message...
+                </div>
+                
+                <div class="success-message" id="success-message">
+                  <i class="fas fa-check-circle text-success"></i>
+                  <span class="text-success ml-2">Thank you! Your message has been sent successfully.</span>
+                </div>
               </form>
             </div>
           </div>
@@ -715,9 +814,11 @@
   </footer>
 
   <script>
-    // Simple form validation and submission handling
     document.addEventListener('DOMContentLoaded', function() {
-      const contactForm = document.querySelector('.contact-form');
+      const contactForm = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const loading = document.getElementById('loading');
+      const successMessage = document.getElementById('success-message');
       
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -727,6 +828,7 @@
           const name = document.getElementById('name').value;
           const phone = document.getElementById('phone').value;
           const email = document.getElementById('email').value;
+          const clinic = document.getElementById('clinic').value;
           const message = document.getElementById('message').value;
           
           // Simple validation
@@ -742,10 +844,40 @@
             return;
           }
           
-          // In a real implementation, you would send the form data to a server
-          // For this example, we'll just show a success message
-          alert('Thank you for your message! We will get back to you soon.');
-          contactForm.reset();
+          // Show loading state
+          submitBtn.style.display = 'none';
+          loading.style.display = 'block';
+          
+          // Prepare template parameters
+          const templateParams = {
+            from_name: name,
+            from_email: email,
+            phone: phone,
+            clinic: clinic,
+            message: message,
+            to_email: 'vikashpaudel@gmail.com'
+          };
+          
+          // Send email using EmailJS
+          emailjs.send('service_mpd7gs5', 'template_3ifmzbd', templateParams)
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+              // Show success message
+              loading.style.display = 'none';
+              successMessage.style.display = 'block';
+              contactForm.reset();
+              
+              // Reset button after 5 seconds
+              setTimeout(() => {
+                successMessage.style.display = 'none';
+                submitBtn.style.display = 'inline-flex';
+              }, 5000);
+            }, function(error) {
+              console.log('FAILED...', error);
+              alert('Sorry, there was an error sending your message. Please try again later.');
+              loading.style.display = 'none';
+              submitBtn.style.display = 'inline-flex';
+            });
         });
       }
     });
