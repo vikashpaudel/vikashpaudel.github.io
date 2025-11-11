@@ -107,9 +107,73 @@
             font-family: 'Playfair Display', serif;
         }
         
+        /* Language Switcher */
+        .language-switcher {
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .language-btn {
+            background: none;
+            border: 1px solid var(--light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--light);
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .language-option:hover {
+            background-color: var(--light);
+        }
+        
         /* Navigation Styles */
         nav {
             position: relative;
+            display: flex;
+            align-items: center;
         }
         
         .nav-menu {
@@ -517,6 +581,132 @@
             margin-bottom: 10px;
         }
         
+        /* Live Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .chat-button:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .chat-container {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-container.active {
+            display: flex;
+        }
+        
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .message.bot {
+            background: var(--light);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message.user {
+            background: var(--secondary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid var(--light);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--light);
+            border-radius: 20px;
+            outline: none;
+        }
+        
+        .chat-input button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -597,33 +787,6 @@
             color: rgba(255,255,255,0.7);
         }
         
-        /* Language Toggle Button */
-        .language-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .language-toggle:hover {
-            background-color: var(--primary);
-            transform: scale(1.1);
-        }
-        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -656,23 +819,6 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        
-        /* Language-specific styling */
-        .lang-np {
-            display: none;
-        }
-        
-        .lang-en {
-            display: block;
-        }
-        
-        body.nepali .lang-np {
-            display: block;
-        }
-        
-        body.nepali .lang-en {
-            display: none;
         }
         
         /* Mobile Responsive */
@@ -745,20 +891,19 @@
                 font-size: 2rem;
             }
             
-            .language-toggle {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1rem;
+            .language-switcher {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .chat-container {
+                width: 300px;
+                height: 400px;
             }
         }
     </style>
 </head>
-<body class="lang-en">
-    <!-- Language Toggle Button -->
-    <button class="language-toggle" id="languageToggle" aria-label="Switch language">ने</button>
-
+<body>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -768,36 +913,52 @@
                 </div>
                 <div class="logo-text">
                     <i class="fas fa-stethoscope logo-icon"></i>
-                    <h1 class="lang-en">Dr. Vikash Paudel</h1>
-                    <h1 class="lang-np">डा. विकास पौडेल</h1>
+                    <h1>Dr. Vikash Paudel</h1>
                 </div>
             </div>
             
-            <div class="mobile-toggle" aria-label="Open navigation menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            
             <nav>
+                <div class="language-switcher">
+                    <button class="language-btn" id="languageBtn">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Nepal Flag" class="language-flag">
+                        <span>English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="en">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjEyIiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjE4IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjI0IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RlMjcyNyIvPjwvc3ZnPg==" alt="US Flag" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="np">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Nepal Flag" class="language-flag">
+                            <span>नेपाली</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mobile-toggle" aria-label="Open navigation menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
                 <ul class="nav-menu">
-                    <li><a href="#home" class="lang-en">Home</a><a href="#home" class="lang-np">गृहपृष्ठ</a></li>
+                    <li><a href="#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
                     <li>
-                        <a href="#services" class="lang-en">Services <i class="fas fa-chevron-down"></i></a>
-                        <a href="#services" class="lang-np">सेवाहरू <i class="fas fa-chevron-down"></i></a>
+                        <a href="#services" data-en="Services" data-np="सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="acne.html" class="lang-en">Acne Treatment</a><a href="acne.html" class="lang-np">डन्डिफोर उपचार</a></li>
-                            <li><a href="peel.html" class="lang-en">Chemical Peels</a><a href="peel.html" class="lang-np">रासायनिक पील</a></li>
-                            <li><a href="hair.html" class="lang-en">Hair Restoration</a><a href="hair.html" class="lang-np">कपाल उपचार</a></li>
-                            <li><a href="sti.html" class="lang-en">STI Treatment</a><a href="sti.html" class="lang-np">यौन संक्रमण उपचार</a></li>
-                            <li><a href="cosmetic.html" class="lang-en">Cosmetic Procedures</a><a href="cosmetic.html" class="lang-np">कस्मेटिक प्रक्रियाहरू</a></li>
+                            <li><a href="acne.html" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</a></li>
+                            <li><a href="peel.html" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
+                            <li><a href="hair.html" data-en="Hair Restoration" data-np="कपाल उपचार">Hair Restoration</a></li>
+                            <li><a href="sti.html" data-en="STI Treatment" data-np="यौन संक्रमण उपचार">STI Treatment</a></li>
+                            <li><a href="cosmetic.html" data-en="Cosmetic Procedures" data-np="कस्मेटिक प्रक्रिया">Cosmetic Procedures</a></li>
                         </ul>
                     </li>
-                    <li><a href="research.html" class="lang-en">Research</a><a href="research.html" class="lang-np">अनुसन्धान</a></li>
-                    <li><a href="award.html" class="lang-en">Awards</a><a href="award.html" class="lang-np">पुरस्कारहरू</a></li>
-                    <li><a href="#testimonials" class="lang-en">Testimonials</a><a href="#testimonials" class="lang-np">प्रशंसापत्र</a></li>
-                    <li><a href="about.html" class="lang-en">About</a><a href="about.html" class="lang-np">बारेमा</a></li>
-                    <li><a href="#contact" class="lang-en">Contact</a><a href="#contact" class="lang-np">सम्पर्क</a></li>
-                    <li><a href="blog.html" class="lang-en">Blog</a><a href="blog.html" class="lang-np">ब्लग</a></li>
-                    <li><a href="appointment.html" class="btn lang-en">Book Appointment</a><a href="appointment.html" class="btn lang-np">अनुमति लिनुहोस्</a></li>
+                    <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
+                    <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
+                    <li><a href="#testimonials" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
+                    <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+                    <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+                    <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                    <li><a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a></li>
                 </ul>
             </nav>
         </div>
@@ -807,15 +968,11 @@
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1 class="hero-title lang-en">Expert Dermatology Care in Kathmandu</h1>
-                <h1 class="hero-title lang-np">काठमाडौंमा विशेषज्ञ डर्माटोलोजी सेवा</h1>
-                <p class="hero-subtitle lang-en">Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
-                <p class="hero-subtitle lang-np">डा. विकास पौडेल एक अग्रणी डर्माटोलोजिस्ट हुन् जो उन्नत छाला उपचार, कस्मेटिक डर्माटोलोजी, र यौन संक्रमणको व्यवस्थापनमा विशेषज्ञ हुन्।</p>
+                <h1 class="hero-title" data-en="Expert Dermatology Care in Kathmandu" data-np="काठमाडौंमा विशेषज्ञ त्वचा उपचार">Expert Dermatology Care in Kathmandu</h1>
+                <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections." data-np="डा. विकास पौडेल काठमाडौंका अग्रणी त्वचा विशेषज्ञ हुनुहुन्छ जसले उन्नत त्वचा उपचार, कस्मेटिक त्वचा विज्ञान, र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
                 <div class="hero-buttons">
-                    <a href="appointment.html" class="btn lang-en">Book Appointment</a>
-                    <a href="appointment.html" class="btn lang-np">अनुमति लिनुहोस्</a>
-                    <a href="about.html" class="btn btn-outline lang-en">About Dr. Paudel</a>
-                    <a href="about.html" class="btn btn-outline lang-np">डा. पौडेलको बारेमा</a>
+                    <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
+                    <a href="about.html" class="btn btn-outline" data-en="About Dr. Paudel" data-np="डा. पौडेलको बारेमा">About Dr. Paudel</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -827,58 +984,44 @@
     <!-- Services Section -->
     <section class="section services" id="services">
         <div class="container">
-            <h2 class="section-title lang-en">Our Specialized Services</h2>
-            <h2 class="section-title lang-np">हाम्रा विशेषीकृत सेवाहरू</h2>
-            <p class="section-subtitle lang-en">Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns.</p>
-            <p class="section-subtitle lang-np">तपाईंको सबै छाला, कपाल, नङ र यौन संक्रमण सम्बन्धी चिन्ताको लागि व्यापक डर्माटोलोजिकल हेरचाह।</p>
+            <h2 class="section-title" data-en="Our Specialized Services" data-np="हाम्रा विशेषीकृत सेवाहरू">Our Specialized Services</h2>
+            <p class="section-subtitle" data-en="Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns." data-np="तपाईंको त्वचा, कपाल, नङ, र यौन संक्रमित रोग सम्बन्धी सबै चिन्ताहरूको लागि व्यापक त्वचा उपचार।">Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns.</p>
             
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <i class="fas fa-allergies service-icon"></i>
-                    <h3 class="service-title lang-en">Medical Dermatology</h3>
-                    <h3 class="service-title lang-np">चिकित्सा डर्माटोलोजी</h3>
-                    <p class="lang-en">Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections.</p>
-                    <p class="lang-np">डन्डिफोर, एक्जिमा, मेलास्मा, भिटिलिगो, सोरायसिस र छालाको संक्रमण सहित सबै छालाको अवस्थाको निदान र उपचार।</p>
+                    <h3 class="service-title" data-en="Medical Dermatology" data-np="चिकित्सा त्वचा विज्ञान">Medical Dermatology</h3>
+                    <p data-en="Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections." data-np="एक्ने, एक्जिमा, मेलास्मा, भिटिलिगो, सोरायसिस, र त्वचा संक्रमण सहित सबै त्वचा अवस्थाहरूको निदान र उपचार।">Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-spa service-icon"></i>
-                    <h3 class="service-title lang-en">Cosmetic Dermatology</h3>
-                    <h3 class="service-title lang-np">कस्मेटिक डर्माटोलोजी</h3>
-                    <p class="lang-en">Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation.</p>
-                    <p class="lang-np">बोटोक्स, फिलरहरू, रासायनिक पील, र लेजर थेरापीहरू सहित उन्नत कस्मेटिक उपचारहरू छालाको पुनर्योवनको लागि।</p>
+                    <h3 class="service-title" data-en="Cosmetic Dermatology" data-np="कस्मेटिक त्वचा विज्ञान">Cosmetic Dermatology</h3>
+                    <p data-en="Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation." data-np="त्वचा पुनर्योजनको लागि बोटोक्स, फिलर, केमिकल पील, र लेजर उपचार सहित उन्नत कस्मेटिक उपचार।">Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-syringe service-icon"></i>
-                    <h3 class="service-title lang-en">STI Treatment</h3>
-                    <h3 class="service-title lang-np">यौन संक्रमण उपचार</h3>
-                    <p class="lang-en">Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality.</p>
-                    <p class="lang-np">सबै प्रकारका यौन संक्रमणको व्यापक स्क्रिनिङ, निदान, र उपचार पूर्ण गोपनीयताको साथ।</p>
+                    <h3 class="service-title" data-en="STI Treatment" data-np="यौन संक्रमण उपचार">STI Treatment</h3>
+                    <p data-en="Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality." data-nn="पूर्ण गोपनीयताको साथ सबै प्रकारका यौन संक्रमित संक्रमणहरूको व्यापक स्क्रिनिंग, निदान, र उपचार।">Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-procedures service-icon"></i>
-                    <h3 class="service-title lang-en">Surgical Procedures</h3>
-                    <h3 class="service-title lang-np">सर्जिकल प्रक्रियाहरू</h3>
-                    <p class="lang-en">Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring.</p>
-                    <p class="lang-np">छालाको बढ्दो, सिस्ट, मस्सा हटाउने, दाग सुधार, र बायोप्सीहरूको लागि सानो सर्जिकल प्रक्रियाहरू न्यूनतम दागको साथ।</p>
+                    <h3 class="service-title" data-en="Surgical Procedures" data-np="सर्जिकल प्रक्रियाहरू">Surgical Procedures</h3>
+                    <p data-en="Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring." data-np="त्वचा वृद्धि, सिस्ट, मस्सा हटाउने, दाग सुधार, र न्यूनतम दागको साथ बायोप्सीको लागि साना सर्जिकल प्रक्रियाहरू।">Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-user-md service-icon"></i>
-                    <h3 class="service-title lang-en">Hair & Scalp Treatments</h3>
-                    <h3 class="service-title lang-np">कपाल र टाउकोको छालाको उपचार</h3>
-                    <p class="lang-en">Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results.</p>
-                    <p class="lang-np">कपाल झर्नेको लागि विशेषीकृत हेरचाह: एलोपेसिया, रुवा, टाउकोको छालाको सोरायसिस, र अन्य कपाल सम्बन्धी अवस्थाहरू प्रमाणित नतिजाको साथ।</p>
+                    <h3 class="service-title" data-en="Hair & Scalp Treatments" data-np="कपाल र खोप्डी उपचार">Hair & Scalp Treatments</h3>
+                    <p data-en="Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results." data-np="कपाल झर्ने: एलोपेसिया, रूसी, खोप्डी सोरायसिस, र अन्य कपाल सम्बन्धी अवस्थाहरूको लागि विशेषीकृत हेरचाह प्रमाणित नतिजाको साथ।">Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <i class="fas fa-laptop-medical service-icon"></i>
-                    <h3 class="service-title lang-en">Teledermatology</h3>
-                    <h3 class="service-title lang-np">टेलिडर्माटोलोजी</h3>
-                    <p class="lang-en">Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
-                    <p class="lang-np">फलो-अप र गैर-आपतकालीन छालाको चिन्ताको लागि जुम वा सामाजिक सञ्जाल मार्फत आभासी परामर्श तपाईंको घरको सुविधाबाट।</p>
+                    <h3 class="service-title" data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</h3>
+                    <p data-en="Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home." data-np="तपाईंको घरको सुविधाबाट अनुवर्ती र गैर-आपतकालीन त्वचा चिन्ताहरूको लागि जुम वा सामाजिक मिडिया मार्फत आभासी परामर्श।">Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
                 </div>
             </div>
         </div>
@@ -887,8 +1030,7 @@
     <!-- Why Choose Section -->
     <section class="section why-choose" id="why-choose">
         <div class="container">
-            <h2 class="section-title lang-en">Why Choose Dr. Vikash Paudel?</h2>
-            <h2 class="section-title lang-np">किन डा. विकास पौडेल छान्नुहोस्?</h2>
+            <h2 class="section-title" data-en="Why Choose Dr. Vikash Paudel?" data-np="किन डा. विकास पौडेल छान्नुहोस्?">Why Choose Dr. Vikash Paudel?</h2>
             <div class="why-choose-content">
                 <div class="why-choose-grid">
                     <div class="why-choose-item fade-in">
@@ -896,10 +1038,8 @@
                             <i class="fas fa-check"></i>
                         </div>
                         <div class="why-choose-text">
-                            <h3 class="lang-en">Expert Credentials</h3>
-                            <h3 class="lang-np">विशेषज्ञ योग्यता</h3>
-                            <p class="lang-en">Board-certified dermatologist with extensive training in aesthetic dermatology and skin surgery</p>
-                            <p class="lang-np">एस्थेटिक डर्माटोलोजी र छाला सर्जरीमा व्यापक प्रशिक्षण भएको बोर्ड-प्रमाणित डर्माटोलोजिस्ट</p>
+                            <h3 data-en="Expert Credentials" data-np="विशेषज्ञ योग्यता">Expert Credentials</h3>
+                            <p data-en="Board-certified dermatologist with extensive training in aesthetic dermatology and skin surgery" data-np="एस्थेटिक त्वचा विज्ञान र त्वचा सर्जरीमा व्यापक प्रशिक्षण भएको बोर्ड-प्रमाणित त्वचा विशेषज्ञ">Board-certified dermatologist with extensive training in aesthetic dermatology and skin surgery</p>
                         </div>
                     </div>
                     
@@ -908,10 +1048,8 @@
                             <i class="fas fa-check"></i>
                         </div>
                         <div class="why-choose-text">
-                            <h3 class="lang-en">Multiple Clinic Locations</h3>
-                            <h3 class="lang-np">धेरै क्लिनिक स्थानहरू</h3>
-                            <p class="lang-en">Convenient access at Patan Hospital, Elite Health Clinic, and Shankhamul Healthcare</p>
-                            <p class="lang-np">पाटन अस्पताल, एलाइट हेल्थ क्लिनिक, र शंखमुल हेल्थकेयरमा सुविधाजनक पहुँच</p>
+                            <h3 data-en="Multiple Clinic Locations" data-np="धेरै क्लिनिक स्थानहरू">Multiple Clinic Locations</h3>
+                            <p data-en="Convenient access at Patan Hospital, Elite Health Clinic, and Shankhamul Healthcare" data-np="पाटन अस्पताल, एलाइट हेल्थ क्लिनिक, र शंखमुल हेल्थकेयरमा सुविधाजनक पहुँच">Convenient access at Patan Hospital, Elite Health Clinic, and Shankhamul Healthcare</p>
                         </div>
                     </div>
                     
@@ -920,10 +1058,8 @@
                             <i class="fas fa-check"></i>
                         </div>
                         <div class="why-choose-text">
-                            <h3 class="lang-en">Advanced Treatment Options</h3>
-                            <h3 class="lang-np">उन्नत उपचार विकल्पहरू</h3>
-                            <p class="lang-en">Latest technology and evidence-based treatments for optimal results</p>
-                            <p class="lang-np">उत्तम नतिजाको लागि नवीनतम प्रविधि र प्रमाण-आधारित उपचारहरू</p>
+                            <h3 data-en="Advanced Treatment Options" data-np="उन्नत उपचार विकल्पहरू">Advanced Treatment Options</h3>
+                            <p data-en="Latest technology and evidence-based treatments for optimal results" data-np="उत्तम नतिजाको लागि नवीनतम प्रविधि र प्रमाण-आधारित उपचार">Latest technology and evidence-based treatments for optimal results</p>
                         </div>
                     </div>
                     
@@ -932,10 +1068,8 @@
                             <i class="fas fa-check"></i>
                         </div>
                         <div class="why-choose-text">
-                            <h3 class="lang-en">Patient-Centered Care</h3>
-                            <h3 class="lang-np">रोगी-केन्द्रित हेरचाह</h3>
-                            <p class="lang-en">Personalized treatment plans with compassionate, professional care</p>
-                            <p class="lang-np">दयालु, पेशेवर हेरचाहको साथ व्यक्तिगत उपचार योजनाहरू</p>
+                            <h3 data-en="Patient-Centered Care" data-np="रोगी-केन्द्रित हेरचाह">Patient-Centered Care</h3>
+                            <p data-en="Personalized treatment plans with compassionate, professional care" data-np="दयालु, पेशेवर हेरचाहको साथ व्यक्तिगत उपचार योजनाहरू">Personalized treatment plans with compassionate, professional care</p>
                         </div>
                     </div>
                 </div>
@@ -946,10 +1080,8 @@
     <!-- Google Reviews Section -->
     <section class="reviews-section">
         <div class="container">
-            <h2 class="section-title lang-en" style="color: white;">Patient Reviews</h2>
-            <h2 class="section-title lang-np" style="color: white;">रोगीको समीक्षाहरू</h2>
-            <p class="section-subtitle lang-en" style="color: rgba(255,255,255,0.9);">See what our patients are saying about their experience with Dr. Paudel</p>
-            <p class="section-subtitle lang-np" style="color: rgba(255,255,255,0.9);">हाम्रा रोगीहरूले डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्दैछन् हेर्नुहोस्</p>
+            <h2 class="section-title" style="color: white;" data-en="Patient Reviews" data-np="रोगीहरूको समीक्षा">Patient Reviews</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-en="See what our patients are saying about their experience with Dr. Paudel" data-np="हाम्रा रोगीहरूले डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्दैछन् हेर्नुहोस्">See what our patients are saying about their experience with Dr. Paudel</p>
             
             <div class="reviews-container">
                 <div class="review-badge fade-in">
@@ -961,10 +1093,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text lang-en">Excellent Dermatologist</p>
-                    <p class="review-text lang-np">उत्कृष्ट डर्माटोलोजिस्ट</p>
-                    <p class="lang-en">4.9/5 Rating</p>
-                    <p class="lang-np">४.९/५ रेटिङ</p>
+                    <p class="review-text" data-en="Excellent Dermatologist" data-np="उत्कृष्ट त्वचा विशेषज्ञ">Excellent Dermatologist</p>
+                    <p data-en="4.9/5 Rating" data-np="४.९/५ रेटिंग">4.9/5 Rating</p>
                 </div>
                 
                 <div class="review-badge fade-in">
@@ -976,10 +1106,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="review-text lang-en">Highly Recommended</p>
-                    <p class="review-text lang-np">अत्यधिक सिफारिस गरिएको</p>
-                    <p class="lang-en">50+ Reviews</p>
-                    <p class="lang-np">५०+ समीक्षाहरू</p>
+                    <p class="review-text" data-en="Highly Recommended" data-np="अत्यधिक सिफारिस">Highly Recommended</p>
+                    <p data-en="50+ Reviews" data-np="५०+ समीक्षा">50+ Reviews</p>
                 </div>
                 
                 <div class="review-badge fade-in">
@@ -991,10 +1119,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text lang-en">Trusted Skin Specialist</p>
-                    <p class="review-text lang-np">विश्वसनीय छाला विशेषज्ञ</p>
-                    <p class="lang-en">Patient Favorite</p>
-                    <p class="lang-np">रोगीको मनपर्ने</p>
+                    <p class="review-text" data-en="Trusted Skin Specialist" data-np="विश्वसनीय त्वचा विशेषज्ञ">Trusted Skin Specialist</p>
+                    <p data-en="Patient Favorite" data-np="रोगीहरूको मनपर्ने">Patient Favorite</p>
                 </div>
             </div>
         </div>
@@ -1003,50 +1129,39 @@
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title lang-en">Patient Testimonials</h2>
-            <h2 class="section-title lang-np">रोगीको प्रशंसापत्र</h2>
-            <p class="section-subtitle lang-en">Hear what our patients have to say about their experience with Dr. Paudel.</p>
-            <p class="section-subtitle lang-np">हाम्रा रोगीहरूले डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्दैछन् सुन्नुहोस्।</p>
+            <h2 class="section-title" data-en="Patient Testimonials" data-np="रोगीहरूको प्रशंसापत्र">Patient Testimonials</h2>
+            <p class="section-subtitle" data-en="Hear what our patients have to say about their experience with Dr. Paudel." data-np="हाम्रा रोगीहरूले डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्छन् सुन्नुहोस्।">Hear what our patients have to say about their experience with Dr. Paudel.</p>
             
             <div class="testimonials-container">
                 <div class="testimonial fade-in">
-                    <p class="testimonial-text lang-en">"Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."</p>
-                    <p class="testimonial-text lang-np">"डा. पौडेलको मेरो क्रोनिक डन्डिफोरको उपचारको विशेषज्ञता जीवन परिवर्तनकारी थियो। वर्षौंको संघर्षपछि, अन्ततः मसँग सफा छाला र नवीकृत आत्मविश्वास छ।"</p>
+                    <p class="testimonial-text" data-en="&quot;Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence.&quot;" data-np="&quot;मेरो पुरानो एक्नेको उपचारमा डा. पौडेलको विशेषज्ञता जीवन परिवर्तनकारी रह्यो। वर्षौंसम्म संघर्ष पछि, अन्ततः मस्पष्ट त्वचा र नवीकृत आत्मविश्वास छ।&quot;">"Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."</p>
                     <div class="testimonial-author">
                         <div class="author-img">RS</div>
                         <div class="author-info">
-                            <h4 class="lang-en">R. Shrestha</h4>
-                            <h4 class="lang-np">आर. श्रेष्ठ</h4>
-                            <p class="lang-en">Acne Treatment Patient</p>
-                            <p class="lang-np">डन्डिफोर उपचार रोगी</p>
+                            <h4>R. Shrestha</h4>
+                            <p data-en="Acne Treatment Patient" data-np="एक्ने उपचारको रोगी">Acne Treatment Patient</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial fade-in">
-                    <p class="testimonial-text lang-en">"The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."</p>
-                    <p class="testimonial-text lang-np">"तिल हटाउने प्रक्रिया छिटो र दुखाइरहित थियो। डा. पौडेलले सबै कुरा पूर्ण रूपमा वर्णन गरे र म नतिजाबाट अत्यन्त खुसी छु।"</p>
+                    <p class="testimonial-text" data-en="&quot;The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results.&quot;" data-np="&quot;तिल हटाउने प्रक्रिया छिटो र दुखाइरहित थियो। डा. पौडेलले सबै कुरा पूर्ण रूपमा वर्णन गर्नुभयो र म नतिजासँग अत्यन्त खुसी छु।&quot;">"The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."</p>
                     <div class="testimonial-author">
                         <div class="author-img">AK</div>
                         <div class="author-info">
-                            <h4 class="lang-en">A Kumar</h4>
-                            <h4 class="lang-np">ए कुमार</h4>
-                            <p class="lang-en">Skin Surgery Patient</p>
-                            <p class="lang-np">छाला सर्जरी रोगी</p>
+                            <h4>A Kumar</h4>
+                            <p data-en="Skin Surgery Patient" data-np="त्वचा सर्जरीको रोगी">Skin Surgery Patient</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial fade-in">
-                    <p class="testimonial-text lang-en">"I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months."</p>
-                    <p class="testimonial-text lang-np">"म कपाल झर्नेबाट चिन्तित थिएँ, तर डा. पौडेलको व्यक्तिगत उपचार योजनाले मात्र तीन महिनामै उल्लेखनीय सुधार देखाएको छ।"</p>
+                    <p class="testimonial-text" data-en="&quot;I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months.&quot;" data-np="&quot;म कपाल झर्नेबारे चिन्तित थिएँ, तर डा. पौडेलको व्यक्तिगत उपचार योजनाले मात्र तीन महिनामा उल्लेखनीय सुधार देखाएको छ।&quot;">"I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months."</p>
                     <div class="testimonial-author">
                         <div class="author-img">ST</div>
                         <div class="author-info">
-                            <h4 class="lang-en">S Thapa</h4>
-                            <h4 class="lang-np">एस थापा</h4>
-                            <p class="lang-en">Hair Treatment Patient</p>
-                            <p class="lang-np">कपाल उपचार रोगी</p>
+                            <h4>S Thapa</h4>
+                            <p data-en="Hair Treatment Patient" data-np="कपाल उपचारको रोगी">Hair Treatment Patient</p>
                         </div>
                     </div>
                 </div>
@@ -1059,10 +1174,8 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3 class="lang-en">Dr. Vikash Paudel</h3>
-                    <h3 class="lang-np">डा. विकास पौडेल</h3>
-                    <p class="lang-en">Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach.</p>
-                    <p class="lang-np">काठमाडौंको अग्रणी डर्माटोलोजिस्ट जसले उन्नत उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक छाला हेरचाह प्रदान गर्दछ।</p>
+                    <h3 data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</h3>
+                    <p data-en="Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach." data-np="काठमाडौंका अग्रणी त्वचा विशेषज्ञ जसले अत्याधुनिक उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक त्वचा हेरचाह प्रदान गर्दछ।">Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/vikashderma" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.x.com/merodesh" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
@@ -1072,80 +1185,90 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3 class="lang-en">Quick Links</h3>
-                    <h3 class="lang-np">द्रुत लिंकहरू</h3>
+                    <h3 data-en="Quick Links" data-np="द्रुत लिंकहरू">Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home" class="lang-en">Home</a><a href="#home" class="lang-np">गृहपृष्ठ</a></li>
-                        <li><a href="about.html" class="lang-en">About</a><a href="about.html" class="lang-np">बारेमा</a></li>
-                        <li><a href="#services" class="lang-en">Services</a><a href="#services" class="lang-np">सेवाहरू</a></li>
-                        <li><a href="blog.html" class="lang-en">Blog</a><a href="blog.html" class="lang-np">ब्लग</a></li>
-                        <li><a href="#contact" class="lang-en">Contact</a><a href="#contact" class="lang-np">सम्पर्क</a></li>
+                        <li><a href="#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+                        <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+                        <li><a href="#services" data-en="Services" data-np="सेवाहरू">Services</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                        <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3 class="lang-en">Clinic Locations</h3>
-                    <h3 class="lang-np">क्लिनिक स्थानहरू</h3>
+                    <h3 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h3>
                     <ul class="footer-contact">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <strong class="lang-en">Main Clinic</strong>
-                                <strong class="lang-np">मुख्य क्लिनिक</strong>
-                                <p class="lang-en">Shankhamul Health Care, Shankhamul, Kathmandu</p>
-                                <p class="lang-np">शंखमुल हेल्थ केयर, शंखमुल, काठमाडौं</p>
-                                <p class="lang-en">Elite Health Clinic, Mahalaxmisthan, Lalitpur</p>
-                                <p class="lang-np">एलाइट हेल्थ क्लिनिक, महालक्ष्मीस्थान, ललितपुर</p>
+                                <strong data-en="Main Clinic" data-np="मुख्य क्लिनिक">Main Clinic</strong>
+                                <p data-en="Shankhamul Health Care, Shankhamul, Kathmandu" data-np="शंखमुल हेल्थ केयर, शंखमुल, काठमाडौं">Shankhamul Health Care, Shankhamul, Kathmandu</p>
+                                <p data-en="Elite Health Clinic, Mahalaxmisthan, Lalitpur" data-np="एलाइट हेल्थ क्लिनिक, महालक्ष्मीस्थान, ललितपुर">Elite Health Clinic, Mahalaxmisthan, Lalitpur</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <strong class="lang-en">Satellite Clinic</strong>
-                                <strong class="lang-np">उपग्रह क्लिनिक</strong>
-                                <p class="lang-en">Shubharambha Skin Centre, Chatakpur, Dhangadhi</p>
-                                <p class="lang-np">शुभारम्भ स्किन सेन्टर, चटकपुर, धनगढी</p>
+                                <strong data-en="Satellite Clinic" data-np="उपग्रह क्लिनिक">Satellite Clinic</strong>
+                                <p data-en="Shubharambha Skin Centre, Chatakpur, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, चटकपुर, धनगढी">Shubharambha Skin Centre, Chatakpur, Dhangadhi</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
                             <div>
-                                <strong class="lang-en">Phone</strong>
-                                <strong class="lang-np">फोन</strong>
-                                <p class="lang-en">+977-1-5242511 (Shankhamul)</p>
-                                <p class="lang-np">+९७७-१-५२४२५११ (शंखमुल)</p>
-                                <p class="lang-en">+977-1-5420745 (Elite)</p>
-                                <p class="lang-np">+९७७-१-५४२०७४५ (एलाइट)</p>
+                                <strong data-en="Phone" data-np="फोन">Phone</strong>
+                                <p>+977-1-5242511 (Shankhamul)</p>
+                                <p>+977-1-5420745 (Elite)</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
                             <div>
-                                <strong class="lang-en">Email</strong>
-                                <strong class="lang-np">इमेल</strong>
-                                <p class="lang-en">vikashpaudel@gmail.com</p>
-                                <p class="lang-np">vikashpaudel@gmail.com</p>
+                                <strong data-en="Email" data-np="इमेल">Email</strong>
+                                <p>vikashpaudel@gmail.com</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3 class="lang-en">Book Appointment</h3>
-                    <h3 class="lang-np">अनुमति लिनुहोस्</h3>
-                    <p class="lang-en">Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
-                    <p class="lang-np">व्यक्तिगत छाला हेरचाह समाधानको लागि डा. पौडेलसँग आफ्नो परामर्श तोक्नुहोस्।</p>
-                    <a href="appointment.html" class="btn lang-en" style="margin-top: 15px;">Book Now</a>
-                    <a href="appointment.html" class="btn lang-np" style="margin-top: 15px;">अब लिनुहोस्</a>
+                    <h3 data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</h3>
+                    <p data-en="Schedule your consultation with Dr. Paudel for personalized skin care solutions." data-np="व्यक्तिगत त्वचा हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्श तालिका बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
+                    <a href="appointment.html" class="btn" style="margin-top: 15px;" data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</a>
                 </div>
             </div>
             
             <div class="copyright">
-                <p class="lang-en">&copy; 2025 Dr. Vikash Paudel. All Rights Reserved.</p>
-                <p class="lang-np">&copy; २०२५ डा. विकास पौडेल। सर्वाधिकार सुरक्षित।</p>
+                <p>&copy; 2025 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" id="chatButton">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." data-en="Type your message..." data-np="आफ्नो सन्देश टाइप गर्नुहोस्...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -1178,22 +1301,61 @@
     </script>
 
     <script>
-        // Language toggle functionality
-        document.getElementById('languageToggle').addEventListener('click', function() {
-            const body = document.body;
-            const button = this;
+        // Language Switching Functionality
+        let currentLanguage = 'en';
+        
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+        
+        languageBtn.addEventListener('click', () => {
+            languageDropdown.classList.toggle('active');
+        });
+        
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedLang = option.getAttribute('data-lang');
+                switchLanguage(selectedLang);
+                languageDropdown.classList.remove('active');
+            });
+        });
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
             
-            if (body.classList.contains('lang-en')) {
-                body.classList.remove('lang-en');
-                body.classList.add('lang-np');
-                button.textContent = 'EN';
-            } else {
-                body.classList.remove('lang-np');
-                body.classList.add('lang-en');
-                button.textContent = 'ने';
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else if (lang === 'np') {
+                    element.textContent = element.getAttribute('data-np');
+                }
+            });
+            
+            // Update language button
+            const flagSrc = lang === 'en' 
+                ? "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjEyIiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjE4IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjI0IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RlMjcyNyIvPjwvc3ZnPg=="
+                : "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==";
+            
+            const languageText = lang === 'en' ? 'English' : 'नेपाली';
+            
+            languageBtn.innerHTML = `
+                <img src="${flagSrc}" alt="${lang === 'en' ? 'US Flag' : 'Nepal Flag'}" class="language-flag">
+                <span>${languageText}</span>
+                <i class="fas fa-chevron-down"></i>
+            `;
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+        
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageDropdown.classList.remove('active');
             }
         });
-
+        
         // Mobile Navigation Toggle
         document.querySelector('.mobile-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
@@ -1237,6 +1399,88 @@
                 header.style.padding = '15px 0';
             }
         });
+        
+        // Live Chat Functionality
+        const chatButton = document.getElementById('chatButton');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+        
+        chatButton.addEventListener('click', () => {
+            chatContainer.classList.toggle('active');
+        });
+        
+        closeChat.addEventListener('click', () => {
+            chatContainer.classList.remove('active');
+        });
+        
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            const messageSpan = document.createElement('span');
+            messageSpan.textContent = text;
+            
+            messageDiv.appendChild(messageSpan);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function handleUserMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const responses = {
+                        en: [
+                            "Thank you for your message. Our team will get back to you shortly.",
+                            "I understand your concern. Would you like to schedule an appointment?",
+                            "For urgent matters, please call us at +977-1-5242511",
+                            "We're here to help! Could you provide more details about your concern?"
+                        ],
+                        np: [
+                            "तपाईंको सन्देशको लागि धन्यवाद। हाम्रो टोम चाँडै नै तपाईंसँग सम्पर्क गर्नेछ।",
+                            "म तपाईंको चिन्ता बुझ्दछु। के तपाईं अपोइन्टमेन्ट तालिका बनाउन चाहनुहुन्छ?",
+                            "अत्यावश्यक मामिलाहरूको लागि, कृपया हामीलाई +९७७-१-५२४२५११ मा कल गर्नुहोस्",
+                            "हामी यहाँ मद्दत गर्न छौं! कृपया तपाईंको चिन्ताको बारेमा थप विवरण दिनुहोस्?"
+                        ]
+                    };
+                    
+                    const randomResponse = responses[currentLanguage][Math.floor(Math.random() * responses[currentLanguage].length)];
+                    addMessage(randomResponse);
+                }, 1000);
+            }
+        }
+        
+        sendMessage.addEventListener('click', handleUserMessage);
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+        
+        // Update chat placeholder based on language
+        function updateChatPlaceholder() {
+            chatInput.placeholder = currentLanguage === 'en' 
+                ? "Type your message..." 
+                : "आफ्नो सन्देश टाइप गर्नुहोस्...";
+        }
+        
+        // Update chat when language changes
+        const originalSwitchLanguage = switchLanguage;
+        switchLanguage = function(lang) {
+            originalSwitchLanguage(lang);
+            updateChatPlaceholder();
+        };
+        
+        // Initialize chat placeholder
+        updateChatPlaceholder();
     </script>
 </body>
 </html>
