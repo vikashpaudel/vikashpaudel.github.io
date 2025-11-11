@@ -6,11 +6,6 @@
   <title>Book Appointment - Dr. Vikash Paudel | Best Dermatologist in Kathmandu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("F4lVbbEhtMM48hjtO"); // Your EmailJS public key
-    })();
-  </script>
   <style>
     /* CSS Variables - Updated Color Scheme */
     :root {
@@ -280,96 +275,6 @@
       padding: 2rem;
     }
 
-    /* Flex Utilities */
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .items-start {
-      align-items: flex-start;
-    }
-
-    .justify-center {
-      justify-content: center;
-    }
-
-    .w-12 {
-      width: 3rem;
-    }
-
-    .h-12 {
-      height: 3rem;
-    }
-
-    .w-6 {
-      width: 1.5rem;
-    }
-
-    .h-6 {
-      height: 1.5rem;
-    }
-
-    .w-5 {
-      width: 1.25rem;
-    }
-
-    .h-5 {
-      height: 1.25rem;
-    }
-
-    .bg-primary-light {
-      background-color: rgba(26, 106, 162, 0.1);
-    }
-
-    .bg-accent-light {
-      background-color: rgba(231, 76, 60, 0.1);
-    }
-
-    .rounded-lg {
-      border-radius: 0.75rem;
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .mb-2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .mb-4 {
-      margin-bottom: 1rem;
-    }
-
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
-
-    .space-y-6 > * + * {
-      margin-top: 1.5rem;
-    }
-
-    /* Info Cards Grid */
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     /* Form Styles */
     .appointment-form {
       display: flex;
@@ -535,22 +440,6 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-    }
-
-    .mt-0\.5 {
-      margin-top: 0.125rem;
-    }
-
-    .font-semibold {
-      font-weight: 600;
-    }
-
-    .text-sm {
-      font-size: 0.875rem;
-    }
-
-    .shrink-0 {
-      flex-shrink: 0;
     }
 
     /* Footer Styles */
@@ -950,6 +839,11 @@
   </footer>
 
   <script>
+    // Initialize EmailJS with your Public Key
+    (function() {
+      emailjs.init("F4lVbbEhtMM48hjtO");
+    })();
+
     // Form validation and submission handling
     document.addEventListener('DOMContentLoaded', function() {
       const appointmentForm = document.getElementById('appointmentForm');
@@ -1034,13 +928,12 @@
             from_name: fullName,
             age: age,
             phone_number: phoneNumber,
-            email_address: emailAddress,
+            reply_to: emailAddress,
             clinic_location: clinicLocation,
             preferred_date: preferredDate,
             preferred_time: preferredTime,
             reason_for_visit: reasonForVisit,
-            additional_info: additionalInfo,
-            to_email: "vikashpaudel@gmail.com",
+            additional_info: additionalInfo || 'No additional information provided',
             submitted_at: new Date().toLocaleString('en-US', { 
               year: 'numeric', 
               month: 'long', 
@@ -1049,6 +942,8 @@
               minute: '2-digit'
             })
           };
+          
+          console.log('Sending email with params:', templateParams);
           
           // Send email using EmailJS with the correct Service ID and Template ID
           emailjs.send('service_z7z2n3h', 'template_hqr000g', templateParams)
@@ -1059,7 +954,20 @@
               preferredDateInput.min = today;
             }, function(error) {
               console.log('FAILED...', error);
-              showStatus('There was an error submitting your request. Please try again or contact us directly at +977-1-5242511.', 'error');
+              // More detailed error information
+              let errorMessage = 'There was an error submitting your request. ';
+              
+              if (error.status === 400) {
+                errorMessage += 'Invalid request parameters. Please check your form data.';
+              } else if (error.status === 401) {
+                errorMessage += 'Authentication failed. Please contact the website administrator.';
+              } else if (error.status === 403) {
+                errorMessage += 'Access denied. Please try again later.';
+              } else {
+                errorMessage += 'Please try again or contact us directly at +977-1-5242511.';
+              }
+              
+              showStatus(errorMessage, 'error');
             })
             .finally(function() {
               setLoading(false);
