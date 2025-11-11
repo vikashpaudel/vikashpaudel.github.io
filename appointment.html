@@ -5,19 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appointments - Dr. Vikash Paudel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("F4lVbbEhtMM48hjtO");
+    })();
+  </script>
   <style>
     /* CSS Variables */
     :root {
       --primary: #1a6aa2;
+      --primary-light: #2c8ac9;
+      --primary-dark: #155d8a;
       --primary-foreground: #ffffff;
       --accent: #4db6ac;
+      --accent-light: #80cbc4;
+      --accent-dark: #26a69a;
       --background: #ffffff;
       --foreground: #333333;
       --muted-foreground: #666666;
       --border: #e0e0e0;
       --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
+      --hero-gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
       --transition-smooth: all 0.3s ease;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --error: #f44336;
     }
 
     /* Base Styles */
@@ -39,7 +52,7 @@
 
     /* Header Styles */
     header {
-      background: linear-gradient(135deg, var(--primary), #2c8ac9);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: var(--primary-foreground);
       padding: 3rem 1rem;
       text-align: center;
@@ -99,6 +112,28 @@
     .navbar a.active {
       color: var(--primary);
       border-bottom: 3px solid var(--accent);
+    }
+
+    /* Book Now Button */
+    .book-now-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      border-radius: 30px;
+      margin-left: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .book-now-btn:hover {
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     /* Main Content Styles */
@@ -179,9 +214,15 @@
     .card {
       background-color: var(--background);
       border: 1px solid var(--border);
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       box-shadow: var(--shadow-card);
       overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .card-content {
@@ -313,8 +354,8 @@
     .form-select,
     .form-textarea {
       width: 100%;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
       border: 1px solid var(--border);
       background-color: var(--background);
       color: var(--foreground);
@@ -326,7 +367,8 @@
     .form-select:focus,
     .form-textarea:focus {
       outline: none;
-      box-shadow: 0 0 0 2px var(--primary);
+      box-shadow: 0 0 0 2px var(--accent);
+      border-color: var(--accent);
     }
 
     .form-textarea {
@@ -358,7 +400,7 @@
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       font-weight: 500;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       cursor: pointer;
       transition: var(--transition-smooth);
       border: none;
@@ -366,12 +408,14 @@
     }
 
     .btn-primary {
-      background-color: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: var(--primary-foreground);
     }
 
     .btn-primary:hover {
-      background-color: #155d8a;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-lg {
@@ -391,7 +435,7 @@
 
     /* Contact Information */
     .contact-info {
-      background-color: #f8f9fa;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     }
 
     .contact-grid {
@@ -438,6 +482,49 @@
       border-top: 1px solid #e0e0e0;
     }
 
+    /* Status Messages */
+    .status-message {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .status-success {
+      background-color: rgba(76, 175, 80, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+
+    .status-error {
+      background-color: rgba(244, 67, 54, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(244, 67, 54, 0.3);
+    }
+
+    .status-warning {
+      background-color: rgba(255, 152, 0, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(255, 152, 0, 0.3);
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -457,6 +544,12 @@
       
       .navbar a.active {
         border-bottom: 3px solid var(--accent);
+      }
+      
+      .book-now-btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        justify-content: center;
       }
     }
 
@@ -485,6 +578,10 @@
       <li><a href="awards.html">Awards</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="appointment.html" class="active">Appointment</a></li>
+      <li><a href="#appointment-form" class="book-now-btn">
+        <i class="fas fa-calendar-alt"></i>
+        Book Now
+      </a></li>
     </ul>
   </nav>
 
@@ -529,10 +626,11 @@
           </div>
 
           <!-- Booking Form -->
-          <div class="card">
+          <div class="card" id="appointment-form">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6">Request an Appointment</h2>
-              <form class="appointment-form">
+              <div id="form-status"></div>
+              <form class="appointment-form" id="appointmentForm">
                 <div class="form-grid">
                   <div class="form-group">
                     <label for="fullName" class="form-label">
@@ -541,6 +639,7 @@
                     <input
                       type="text"
                       id="fullName"
+                      name="fullName"
                       required
                       class="form-input"
                       placeholder="Your full name"
@@ -554,6 +653,7 @@
                     <input
                       type="number"
                       id="age"
+                      name="age"
                       required
                       class="form-input"
                       placeholder="Your age"
@@ -569,6 +669,7 @@
                     <input
                       type="tel"
                       id="phoneNumber"
+                      name="phoneNumber"
                       required
                       class="form-input"
                       placeholder="+977-XXXXXXXXXX"
@@ -582,6 +683,7 @@
                     <input
                       type="email"
                       id="emailAddress"
+                      name="emailAddress"
                       required
                       class="form-input"
                       placeholder="your.email@example.com"
@@ -596,11 +698,12 @@
                     </label>
                     <select
                       id="clinicLocation"
+                      name="clinicLocation"
                       required
                       class="form-select"
                     >
                       <option value="">Select a clinic</option>
-                      <option value="patan">Patan Private Clinic, Patan Hospital </option>
+                      <option value="patan">Patan Private Clinic, Patan Hospital</option>
                       <option value="elite">Elite Health Clinic</option>
                       <option value="shankhamul">Shankhamul Healthcare</option>
                     </select>
@@ -613,6 +716,7 @@
                     <input
                       type="date"
                       id="preferredDate"
+                      name="preferredDate"
                       required
                       class="form-input"
                     />
@@ -625,6 +729,7 @@
                   </label>
                   <select
                     id="preferredTime"
+                    name="preferredTime"
                     required
                     class="form-select"
                   >
@@ -641,6 +746,7 @@
                   </label>
                   <select
                     id="reasonForVisit"
+                    name="reasonForVisit"
                     required
                     class="form-select"
                   >
@@ -662,6 +768,7 @@
                   </label>
                   <textarea
                     id="additionalInfo"
+                    name="additionalInfo"
                     rows="4"
                     class="form-textarea"
                     placeholder="Please provide any additional details about your condition or concerns..."
@@ -672,6 +779,7 @@
                   <input
                     type="checkbox"
                     id="consent"
+                    name="consent"
                     required
                     class="checkbox-input"
                   />
@@ -680,7 +788,7 @@
                   </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg w-full md:w-auto">
+                <button type="submit" class="btn btn-primary btn-lg w-full md:w-auto" id="submit-btn">
                   Request Appointment
                 </button>
               </form>
@@ -731,12 +839,33 @@
   <script>
     // Form validation and submission handling
     document.addEventListener('DOMContentLoaded', function() {
-      const appointmentForm = document.querySelector('.appointment-form');
+      const appointmentForm = document.getElementById('appointmentForm');
       const preferredDateInput = document.getElementById('preferredDate');
+      const submitBtn = document.getElementById('submit-btn');
+      const formStatus = document.getElementById('form-status');
       
       // Set minimum date to today
       const today = new Date().toISOString().split('T')[0];
       preferredDateInput.min = today;
+      
+      // Show status message
+      function showStatus(message, type) {
+        formStatus.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+        setTimeout(() => {
+          formStatus.innerHTML = '';
+        }, 5000);
+      }
+      
+      // Show loading state
+      function setLoading(isLoading) {
+        if (isLoading) {
+          submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
+          submitBtn.disabled = true;
+        } else {
+          submitBtn.innerHTML = 'Request Appointment';
+          submitBtn.disabled = false;
+        }
+      }
       
       if (appointmentForm) {
         appointmentForm.addEventListener('submit', function(e) {
@@ -751,36 +880,63 @@
           const preferredDate = document.getElementById('preferredDate').value;
           const preferredTime = document.getElementById('preferredTime').value;
           const reasonForVisit = document.getElementById('reasonForVisit').value;
+          const additionalInfo = document.getElementById('additionalInfo').value;
           const consent = document.getElementById('consent').checked;
           
           // Simple validation
           if (!fullName || !age || !phoneNumber || !emailAddress || 
               !clinicLocation || !preferredDate || !preferredTime || 
               !reasonForVisit || !consent) {
-            alert('Please fill in all required fields and provide consent.');
+            showStatus('Please fill in all required fields and provide consent.', 'error');
             return;
           }
           
           // Age validation
           if (age < 1 || age > 120) {
-            alert('Please enter a valid age.');
+            showStatus('Please enter a valid age.', 'error');
             return;
           }
           
           // Email validation
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(emailAddress)) {
-            alert('Please enter a valid email address.');
+            showStatus('Please enter a valid email address.', 'error');
             return;
           }
           
-          // In a real implementation, you would send the form data to a server
-          // For this example, we'll just show a success message
-          alert('Thank you for your appointment request! We will contact you within 24 hours to confirm your appointment.');
-          appointmentForm.reset();
+          // Set loading state
+          setLoading(true);
           
-          // Reset the date min attribute
-          preferredDateInput.min = today;
+          // Prepare template parameters for EmailJS
+          const templateParams = {
+            fullName: fullName,
+            age: age,
+            phoneNumber: phoneNumber,
+            emailAddress: emailAddress,
+            clinicLocation: clinicLocation,
+            preferredDate: preferredDate,
+            preferredTime: preferredTime,
+            reasonForVisit: reasonForVisit,
+            additionalInfo: additionalInfo,
+            submittedAt: new Date().toLocaleString()
+          };
+          
+          // IMPORTANT: Replace these with your actual EmailJS IDs
+          // Service ID: Find in EmailJS dashboard under "Email Services"
+          // Template ID: Find in EmailJS dashboard under "Email Templates"
+          emailjs.send('YOUR_SERVICE_ID_HERE', 'YOUR_TEMPLATE_ID_HERE', templateParams)
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+              showStatus('Thank you for your appointment request! We will contact you within 24 hours to confirm your appointment.', 'success');
+              appointmentForm.reset();
+              preferredDateInput.min = today;
+            }, function(error) {
+              console.log('FAILED...', error);
+              showStatus('There was an error submitting your request. Please try again or contact us directly.', 'error');
+            })
+            .finally(function() {
+              setLoading(false);
+            });
         });
       }
     });
