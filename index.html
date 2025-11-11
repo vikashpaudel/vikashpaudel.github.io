@@ -9,12 +9,6 @@
     <!-- SEO Meta Tags -->
     <meta name="keywords" content="dermatologist Kathmandu, skin doctor Nepal, best dermatologist, acne treatment, cosmetic dermatology, skin care, hair treatment">
     <meta name="author" content="Dr. Vikash Paudel">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="geo.region" content="NP-KT" />
-    <meta name="geo.placename" content="Kathmandu" />
-    <meta name="geo.position" content="27.7172;85.3240" />
-    <meta name="ICBM" content="27.7172, 85.3240" />
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Dr. Vikash Paudel — Dermatologist in Kathmandu" />
@@ -220,29 +214,6 @@
             width: 100%;
         }
         
-        /* Book Now Navigation Tool */
-        .book-now-nav {
-            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
-            padding: 8px 20px;
-            border-radius: 30px;
-            margin-left: 15px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .book-now-nav a {
-            color: white !important;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .book-now-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-        
         /* Dropdown Styles */
         .dropdown {
             position: absolute;
@@ -261,9 +232,7 @@
         
         .dropdown li {
             margin: 0;
-            width: 100%;EmailJS Account (if you haven't already)
-
-Add Email Service (Gmail, Outlook, etc.)
+            width: 100%;
         }
         
         .dropdown a {
@@ -612,199 +581,6 @@ Add Email Service (Gmail, Outlook, etc.)
             margin-bottom: 10px;
         }
         
-        /* Appointment Booking Section */
-        .appointment-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        
-        .appointment-form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .appointment-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--primary);
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-        }
-        
-        .form-submit {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .appointment-info {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-        
-        .info-item i {
-            color: var(--secondary);
-            margin-right: 15px;
-            margin-top: 5px;
-            font-size: 1.2rem;
-        }
-        
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        /* FAQ Section */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 15px;
-            border: 1px solid #e1e1e1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            width: 100%;
-            background: white;
-            border: none;
-            padding: 20px;
-            text-align: left;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .faq-question:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
-        }
-        
-        .faq-answer.active {
-            padding: 20px;
-            max-height: 500px;
-        }
-        
-        /* Blog Preview */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .blog-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .blog-card:hover .blog-image img {
-            transform: scale(1.05);
-        }
-        
-        .blog-content {
-            padding: 20px;
-        }
-        
-        .blog-content h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .blog-content p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-        
-        .read-more {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .read-more:hover {
-            color: var(--accent);
-        }
-        
-        .blog-cta {
-            text-align: center;
-        }
-        
         /* Live Chat Widget */
         .chat-widget {
             position: fixed;
@@ -929,30 +705,6 @@ Add Email Service (Gmail, Outlook, etc.)
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        /* Quick Response Buttons */
-        .quick-responses {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        
-        .quick-response-btn {
-            background: var(--light);
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            padding: 5px 12px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .quick-response-btn:hover {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
         }
         
         /* Footer */
@@ -1148,19 +900,6 @@ Add Email Service (Gmail, Outlook, etc.)
                 width: 300px;
                 height: 400px;
             }
-            
-            .appointment-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .appointment-form .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .book-now-nav {
-                margin-left: 0;
-                margin-top: 10px;
-            }
         }
     </style>
 </head>
@@ -1216,14 +955,10 @@ Add Email Service (Gmail, Outlook, etc.)
                     <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
                     <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
                     <li><a href="#testimonials" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
-                    <li><a href="#blog" data-en="Blog" data-np="ब्लग">Blog</a></li>
                     <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
                     <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
-                    <li class="book-now-nav">
-                        <a href="#appointment" data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">
-                            <i class="fas fa-calendar-check"></i> Book Now
-                        </a>
-                    </li>
+                    <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                    <li><a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a></li>
                 </ul>
             </nav>
         </div>
@@ -1236,7 +971,7 @@ Add Email Service (Gmail, Outlook, etc.)
                 <h1 class="hero-title" data-en="Expert Dermatology Care in Kathmandu" data-np="काठमाडौंमा विशेषज्ञ त्वचा उपचार">Expert Dermatology Care in Kathmandu</h1>
                 <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections." data-np="डा. विकास पौडेल काठमाडौंका अग्रणी त्वचा विशेषज्ञ हुनुहुन्छ जसले उन्नत त्वचा उपचार, कस्मेटिक त्वचा विज्ञान, र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
                 <div class="hero-buttons">
-                    <a href="#appointment" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
+                    <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
                     <a href="about.html" class="btn btn-outline" data-en="About Dr. Paudel" data-np="डा. पौडेलको बारेमा">About Dr. Paudel</a>
                 </div>
             </div>
@@ -1434,94 +1169,6 @@ Add Email Service (Gmail, Outlook, etc.)
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="section faq" id="faq">
-        <div class="container">
-            <h2 class="section-title" data-en="Frequently Asked Questions" data-np="बारम्बार सोधिने प्रश्नहरू">Frequently Asked Questions</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-en="How often should I have a skin check?" data-np="मैले कति पटक त्वचा जाँच गर्नुपर्छ?">How often should I have a skin check?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p data-en="Annual skin checks are recommended for most adults. However, if you have a personal or family history of skin cancer, more frequent checks may be necessary." data-np="धेरै वयस्कहरूको लागि वार्षिक त्वचा जाँच सिफारिस गरिन्छ। यद्यपि, यदि तपाईंसँग त्वचा क्यान्सरको व्यक्तिगत वा पारिवारिक इतिहास छ भने, थप बारम्बार जाँचहरू आवश्यक हुन सक्छ।">Annual skin checks are recommended for most adults. However, if you have a personal or family history of skin cancer, more frequent checks may be necessary.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-en="What is the recovery time for cosmetic procedures?" data-np="कस्मेटिक प्रक्रियाहरूको लागि निको हुन कति समय लाग्छ?">What is the recovery time for cosmetic procedures?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p data-en="Recovery time varies by procedure. Non-invasive treatments like chemical peels may have minimal downtime (1-3 days), while more intensive procedures may require 1-2 weeks of recovery." data-np="निको हुने समय प्रक्रियाअनुसार फरक हुन्छ। केमिकल पील जस्ता गैर-आक्रामक उपचारहरूको न्यूनतम डाउनटाइम (१-३ दिन) हुन सक्छ, जबकि थप गहन प्रक्रियाहरूले १-२ सप्ताहको निको हुन समय आवश्यक पर्न सक्छ।">Recovery time varies by procedure. Non-invasive treatments like chemical peels may have minimal downtime (1-3 days), while more intensive procedures may require 1-2 weeks of recovery.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-en="Do you offer virtual consultations?" data-np="के तपाईं आभासी परामर्श दिनुहुन्छ?">Do you offer virtual consultations?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p data-en="Yes, we offer teledermatology services for follow-up appointments and non-emergency concerns. Virtual consultations are conducted via Zoom or secure messaging platforms." data-np="हो, हामी अनुवर्ती अपोइन्टमेन्ट र गैर-आपतकालीन चिन्ताहरूको लागि टेलिडर्माटोलोजी सेवाहरू प्रदान गर्दछौं। आभासी परामर्शहरू जुम वा सुरक्षित सन्देश प्लेटफर्महरू मार्फत सम्पन्न गरिन्छ।">Yes, we offer teledermatology services for follow-up appointments and non-emergency concerns. Virtual consultations are conducted via Zoom or secure messaging platforms.</p>
-                    </div>
-                </div>
-                
-                <!-- Add more FAQ items as needed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Preview Section -->
-    <section class="section blog-preview" id="blog">
-        <div class="container">
-            <h2 class="section-title" data-en="Skin Care Insights" data-np="त्वचा हेरचाह ज्ञान">Skin Care Insights</h2>
-            <p class="section-subtitle" data-en="Educational articles and latest updates in dermatology from Dr. Paudel." data-np="डा. पौडेलबाट त्वचा विज्ञानमा शैक्षिक लेखहरू र नवीनतम अपडेटहरू।">Educational articles and latest updates in dermatology from Dr. Paudel.</p>
-            
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="images/blog/acne-myths.jpg" alt="Common Acne Myths" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <h3 data-en="5 Common Acne Myths Debunked" data-np="५ सामान्य एक्ने मिथकहरू खण्डन">5 Common Acne Myths Debunked</h3>
-                        <p data-en="Learn the truth behind common acne misconceptions and evidence-based treatments." data-np="सामान्य एक्ने गलतधारणाहरू र प्रमाण-आधारित उपचारहरूको पछाडिको सत्य जान्नुहोस्।">Learn the truth behind common acne misconceptions and evidence-based treatments.</p>
-                        <a href="blog/acne-myths.html" class="read-more" data-en="Read More" data-np="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="images/blog/sun-protection.jpg" alt="Sun Protection Guide" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <h3 data-en="Complete Guide to Sun Protection" data-np="सुरक्षा सम्पूर्ण मार्गदर्शन">Complete Guide to Sun Protection</h3>
-                        <p data-en="Essential tips for protecting your skin from harmful UV rays and preventing skin damage." data-np="हानिकारक युभी किरणबाट आफ्नो त्वचा लाई र त्वचा क्षति रोकथाम गर्न आवश्यक सुझावहरू।">Essential tips for protecting your skin from harmful UV rays and preventing skin damage.</p>
-                        <a href="blog/sun-protection.html" class="read-more" data-en="Read More" data-np="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="images/blog/hair-care.jpg" alt="Hair Care Tips" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <h3 data-en="Hair Care Routine for Healthy Hair" data-np="स्वस्थ कपालको लागि कपाल हेरचाह दिनचर्या">Hair Care Routine for Healthy Hair</h3>
-                        <p data-en="Expert advice on maintaining healthy hair and preventing common hair problems." data-np="स्वस्थ कपाल कायम राख्न र सामान्य कपाल समस्याहरू रोकथाम गर्न विशेषज्ञको सल्लाह।">Expert advice on maintaining healthy hair and preventing common hair problems.</p>
-                        <a href="blog/hair-care.html" class="read-more" data-en="Read More" data-np="थप पढ्नुहोस्">Read More</a>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="blog-cta">
-                <a href="blog.html" class="btn btn-outline" data-en="View All Articles" data-np="सबै लेखहरू हेर्नुहोस्">View All Articles</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -1543,7 +1190,7 @@ Add Email Service (Gmail, Outlook, etc.)
                         <li><a href="#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
                         <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
                         <li><a href="#services" data-en="Services" data-np="सेवाहरू">Services</a></li>
-                        <li><a href="#blog" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
                         <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
                     </ul>
                 </div>
@@ -1587,7 +1234,7 @@ Add Email Service (Gmail, Outlook, etc.)
                 <div class="footer-column">
                     <h3 data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</h3>
                     <p data-en="Schedule your consultation with Dr. Paudel for personalized skin care solutions." data-np="व्यक्तिगत त्वचा हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्श तालिका बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
-                    <a href="#appointment" class="btn" style="margin-top: 15px;" data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</a>
+                    <a href="appointment.html" class="btn" style="margin-top: 15px;" data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</a>
                 </div>
             </div>
             
@@ -1623,9 +1270,6 @@ Add Email Service (Gmail, Outlook, etc.)
         </div>
     </div>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -1640,11 +1284,11 @@ Add Email Service (Gmail, Outlook, etc.)
         "@type": "PostalAddress",
         "streetAddress": "Shankhamul Health Care, Shankhamul",
         "addressLocality": "Kathmandu",
-        "addressRegion": "Bagmati",
         "addressCountry": "NP"
       },
       "openingHours": [
-        "Mo-Sa 09:00-19:00"
+        "Su-Fr 04:00-19:00",
+        "We 09:00-19:00"
       ],
       "medicalSpecialty": "Dermatology",
       "award": "Rising Star Award (WCD 2019, 2023); Imrich Sarkany Award (EADV 2023)",
@@ -1652,43 +1296,11 @@ Add Email Service (Gmail, Outlook, etc.)
         "https://www.facebook.com/vikashderma",
         "https://www.instagram.com/vikash.paudel",
         "https://www.linkedin.com/in/vikash-paudel-89598324"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Dermatology Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Acne Treatment"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Cosmetic Dermatology"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "STI Treatment"
-            }
-          }
-        ]
-      }
+      ]
     }
     </script>
 
     <script>
-        // Initialize EmailJS with your Public Key
-        (function() {
-            emailjs.init("F4lVbbEhtMM48hjtO"); // Your EmailJS Public Key
-        })();
-
         // Language Switching Functionality
         let currentLanguage = 'en';
         
@@ -1735,9 +1347,6 @@ Add Email Service (Gmail, Outlook, etc.)
             
             // Update HTML lang attribute
             document.documentElement.lang = lang;
-            
-            // Update chat placeholder
-            updateChatPlaceholder();
         }
         
         // Close language dropdown when clicking outside
@@ -1791,163 +1400,6 @@ Add Email Service (Gmail, Outlook, etc.)
             }
         });
         
-        // FAQ Toggle Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                
-                // Close all answers
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('active');
-                });
-                
-                // Toggle current answer if it wasn't active
-                if (!isActive) {
-                    answer.classList.add('active');
-                }
-            });
-        });
-        
-        // Enhanced Appointment Booking with EmailJS
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const appointmentData = Object.fromEntries(formData);
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLanguage === 'en' ? 'Booking...' : 'बुक गर्दै...');
-            submitBtn.disabled = true;
-            
-            // Send email notification using EmailJS
-            sendAppointmentEmail(appointmentData)
-                .then(() => {
-                    // Show success message
-                    const successMessage = currentLanguage === 'en' 
-                        ? 'Your appointment has been booked successfully! We will contact you shortly to confirm.'
-                        : 'तपाईंको अपोइन्टमेन्ट सफलतापूर्वक बुक भएको छ! हामी चाँडै नै पुष्टि गर्न तपाईंसँग सम्पर्क गर्नेछौं।';
-                    
-                    alert(successMessage);
-                    this.reset();
-                })
-                .catch(error => {
-                    console.error('Error sending email:', error);
-                    const errorMessage = currentLanguage === 'en'
-                        ? 'There was an error submitting your appointment. Please call us directly at +977-9825207253'
-                        : 'तपाईंको अपोइन्टमेन्ट पेश गर्दा त्रुटि भयो। कृपया सिधै +९७७-९८२५२०७२५३ मा कल गर्नुहोस्';
-                    
-                    alert(errorMessage);
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
-        });
-        
-        function sendAppointmentEmail(appointmentData) {
-            // Prepare template parameters
-            const templateParams = {
-                full_name: appointmentData.fullName,
-                phone: appointmentData.phone,
-                email: appointmentData.email || 'Not provided',
-                age: appointmentData.age || 'Not provided',
-                preferred_date: appointmentData.preferredDate,
-                preferred_time: appointmentData.preferredTime,
-                clinic_location: appointmentData.clinicLocation,
-                concern: appointmentData.concern,
-                message: appointmentData.message || 'No additional details provided',
-                submission_date: new Date().toLocaleString()
-            };
-
-            // Send email using EmailJS
-            return emailjs.send('DrPaudelAppointments', 'Appointment_Notification', templateParams)
-                .then(function(response) {
-                    console.log('Email sent successfully!', response.status, response.text);
-                    return response;
-                });
-        }
-        
-        // Enhanced Live Chat with Predefined Responses
-        const chatResponses = {
-            en: {
-                greetings: [
-                    "Hello! How can we help you today?",
-                    "Hi there! What can we assist you with?",
-                    "Welcome! How may I help you?"
-                ],
-                appointment: [
-                    "To book an appointment, you can use our online booking system or call us at +977-1-5242511. Would you like me to direct you to our booking page?",
-                    "Dr. Paudel sees patients at multiple locations in Kathmandu. You can book online or call our clinic directly."
-                ],
-                services: [
-                    "Dr. Paudel specializes in medical dermatology, cosmetic procedures, STI treatment, hair restoration, and skin surgery. Which service are you interested in?",
-                    "We offer comprehensive dermatological care including acne treatment, chemical peels, Botox, fillers, and more. What specific concern would you like to discuss?"
-                ],
-                hours: [
-                    "Our clinic hours are Monday to Saturday from 9 AM to 7 PM. We're closed on Sundays.",
-                    "Dr. Paudel consults at different locations on different days. Would you like specific timing for a particular clinic?"
-                ],
-                location: [
-                    "Dr. Paudel practices at Shankhamul Health Care, Elite Health Clinic in Mahalaxmisthan, and Patan Hospital. Which location is convenient for you?",
-                    "We have clinics in Shankhamul, Mahalaxmisthan, and Patan Hospital. All locations are easily accessible."
-                ],
-                cost: [
-                    "Consultation fees vary based on the type of visit. For accurate pricing, please contact our clinic directly at +977-1-5242511.",
-                    "Treatment costs depend on the specific procedure and complexity. We can provide detailed pricing during your consultation."
-                ],
-                emergency: [
-                    "For urgent dermatological concerns, please call +977-9825207253 directly.",
-                    "If this is a medical emergency, please visit the nearest hospital or call +977-9825207253 immediately."
-                ],
-                default: [
-                    "I understand you're asking about {topic}. Let me connect you with more specific information.",
-                    "That's a good question about {topic}. Our team can provide detailed answers during a consultation.",
-                    "For detailed information about {topic}, I recommend scheduling a consultation with Dr. Paudel."
-                ]
-            },
-            np: {
-                greetings: [
-                    "नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?",
-                    "नमस्कार! हामी तपाईंलाई के सहयोग गर्न सक्छौं?",
-                    "स्वागत छ! म तपाईंलाई कसरी मद्दत गर्न सक्छु?"
-                ],
-                appointment: [
-                    "अपोइन्टमेन्ट बुक गर्न, तपाईं हाम्रो अनलाइन बुकिङ प्रणाली प्रयोग गर्न सक्नुहुन्छ वा +९७७-१-५२४२५११ मा कल गर्न सक्नुहुन्छ। के म तपाईंलाई हाम्रो बुकिङ पृष्ठमा निर्देशन गर्न सक्छु?",
-                    "डा. पौडेल काठमाडौंको धेरै स्थानहरूमा रोगीहरूलाई हेर्नुहुन्छ। तपाईं अनलाइन बुक गर्न सक्नुहुन्छ वा सिधै हाम्रो क्लिनिकमा कल गर्न सक्नुहुन्छ।"
-                ],
-                services: [
-                    "डा. पौडेल चिकित्सा त्वचा विज्ञान, कस्मेटिक प्रक्रिया, यौन संक्रमण उपचार, कपाल पुनर्स्थापना, र त्वचा सर्जरीमा विशेषज्ञ हुनुहुन्छ। तपाईं कुन सेवामा रुचि राख्नुहुन्छ?",
-                    "हामी एक्ने उपचार, केमिकल पील, बोटोक्स, फिलर, र थप सहित व्यापक त्वचा हेरचाह प्रदान गर्दछौं। तपाईं कुन विशेष चिन्ताको बारेमा छलफल गर्न चाहनुहुन्छ?"
-                ],
-                hours: [
-                    "हाम्रो क्लिनिकको समय सोमबार देखि शनिबार सम्म ९ बजे देखि ७ बजे सम्म हो। हामी आइतबार बन्द छौं।",
-                    "डा. पौडेल विभिन्न दिनहरूमा विभिन्न स्थानहरूमा परामर्श दिनुहुन्छ। के तपाईं कुनै विशेष क्लिनिकको लागि विशेष समय चाहनुहुन्छ?"
-                ],
-                location: [
-                    "डा. पौडेल शंखमुल हेल्थ केयर, महालक्ष्मीस्थानमा एलाइट हेल्थ क्लिनिक, र पाटन अस्पतालमा अभ्यास गर्नुहुन्छ। तपाईंको लागि कुन स्थान सुविधाजनक छ?",
-                    "हामीसँग शंखमुल, महालक्ष्मीस्थान, र पाटन अस्पतालमा क्लिनिकहरू छन्। सबै स्थानहरू सजिलै पहुँचयोग्य छन्।"
-                ],
-                cost: [
-                    "परामर्श शुल्क भ्रमणको प्रकारको आधारमा फरक हुन्छ। सही मूल्याकंनको लागि, कृपया सिधै +९७७-१-५२४२५११ मा हाम्रो क्लिनिकमा सम्पर्क गर्नुहोस्।",
-                    "उपचारको लागत विशेष प्रक्रिया र जटिलताको आधारमा निर्भर गर्दछ। हामी तपाईंको परामर्शको during विस्तृत मूल्याकंन प्रदान गर्न सक्छौं।"
-                ],
-                emergency: [
-                    "अत्यावश्यक त्वचा सम्बन्धी चिन्ताहरूको लागि, कृपया सिधै +९७७-९८२५२०७२५३ मा कल गर्नुहोस्।",
-                    "यदि यो चिकित्सा आपतकालीन हो भने, कृपया नजिकैको अस्पतालमा जानुहोस् वा तुरुन्त +९७७-९८२५२०७२५३ मा कल गर्नुहोस्।"
-                ],
-                default: [
-                    "म बुझ्दछु तपाईं {topic} को बारेमा सोध्नुहुन्छ। म तपाईंलाई थप विशिष्ट जानकारी संग जडान गर्छु।",
-                    "{topic} को बारेमा त्यो राम्रो प्रश्न हो। हाम्रो टोमले परामर्शको during विस्तृत जवाफहरू प्रदान गर्न सक्छ।",
-                    "{topic} को बारेमा विस्तृत जानकारीको लागि, म डा. पौडेलसंग परामर्श तालिका बनाउन सिफारिस गर्दछु।"
-                ]
-            }
-        };
-        
         // Live Chat Functionality
         const chatButton = document.getElementById('chatButton');
         const chatContainer = document.getElementById('chatContainer');
@@ -1958,10 +1410,6 @@ Add Email Service (Gmail, Outlook, etc.)
         
         chatButton.addEventListener('click', () => {
             chatContainer.classList.toggle('active');
-            if (chatContainer.classList.contains('active')) {
-                // Add quick responses after a short delay
-                setTimeout(addQuickResponseButtons, 500);
-            }
         });
         
         closeChat.addEventListener('click', () => {
@@ -1981,86 +1429,32 @@ Add Email Service (Gmail, Outlook, etc.)
         }
         
         function handleUserMessage() {
-            const message = chatInput.value.trim().toLowerCase();
+            const message = chatInput.value.trim();
             if (message) {
                 addMessage(message, true);
                 chatInput.value = '';
                 
-                // Process user message and generate appropriate response
+                // Simulate bot response
                 setTimeout(() => {
-                    const response = generateChatResponse(message);
-                    addMessage(response);
+                    const responses = {
+                        en: [
+                            "Thank you for your message. Our team will get back to you shortly.",
+                            "I understand your concern. Would you like to schedule an appointment?",
+                            "For urgent matters, please call us at +977-1-5242511",
+                            "We're here to help! Could you provide more details about your concern?"
+                        ],
+                        np: [
+                            "तपाईंको सन्देशको लागि धन्यवाद। हाम्रो टोम चाँडै नै तपाईंसँग सम्पर्क गर्नेछ।",
+                            "म तपाईंको चिन्ता बुझ्दछु। के तपाईं अपोइन्टमेन्ट तालिका बनाउन चाहनुहुन्छ?",
+                            "अत्यावश्यक मामिलाहरूको लागि, कृपया हामीलाई +९७७-१-५२४२५११ मा कल गर्नुहोस्",
+                            "हामी यहाँ मद्दत गर्न छौं! कृपया तपाईंको चिन्ताको बारेमा थप विवरण दिनुहोस्?"
+                        ]
+                    };
+                    
+                    const randomResponse = responses[currentLanguage][Math.floor(Math.random() * responses[currentLanguage].length)];
+                    addMessage(randomResponse);
                 }, 1000);
             }
-        }
-        
-        function generateChatResponse(userMessage) {
-            const responses = chatResponses[currentLanguage];
-            let topic = 'general';
-            
-            // Simple keyword matching for response selection
-            if (userMessage.includes('appointment') || userMessage.includes('book') || userMessage.includes('schedule')) {
-                topic = 'appointment';
-            } else if (userMessage.includes('service') || userMessage.includes('treatment') || userMessage.includes('procedure')) {
-                topic = 'services';
-            } else if (userMessage.includes('hour') || userMessage.includes('time') || userMessage.includes('open')) {
-                topic = 'hours';
-            } else if (userMessage.includes('location') || userMessage.includes('clinic') || userMessage.includes('address')) {
-                topic = 'location';
-            } else if (userMessage.includes('cost') || userMessage.includes('price') || userMessage.includes('fee')) {
-                topic = 'cost';
-            } else if (userMessage.includes('emergency') || userMessage.includes('urgent')) {
-                topic = 'emergency';
-            }
-            
-            // Select random response from the appropriate category
-            const responseArray = responses[topic] || responses.default;
-            let response = responseArray[Math.floor(Math.random() * responseArray.length)];
-            
-            // Replace topic placeholder if needed
-            response = response.replace('{topic}', extractMainTopic(userMessage));
-            
-            return response;
-        }
-        
-        function extractMainTopic(message) {
-            // Simple topic extraction
-            const topics = ['acne', 'hair', 'skin', 'cosmetic', 'sti', 'surgery'];
-            for (let topic of topics) {
-                if (message.includes(topic)) {
-                    return topic;
-                }
-            }
-            return 'your concern';
-        }
-        
-        function addQuickResponseButtons() {
-            // Remove existing quick responses
-            const existingButtons = document.querySelector('.quick-responses');
-            if (existingButtons) {
-                existingButtons.remove();
-            }
-            
-            const quickResponses = currentLanguage === 'en' 
-                ? ['Book Appointment', 'Clinic Hours', 'Services', 'Location', 'Cost']
-                : ['अपोइन्टमेन्ट बुक गर्नुहोस्', 'क्लिनिक समय', 'सेवाहरू', 'स्थान', 'लागत'];
-            
-            const buttonsContainer = document.createElement('div');
-            buttonsContainer.className = 'quick-responses';
-            
-            quickResponses.forEach(text => {
-                const button = document.createElement('button');
-                button.className = 'quick-response-btn';
-                button.textContent = text;
-                button.addEventListener('click', () => {
-                    chatInput.value = text;
-                    handleUserMessage();
-                });
-                buttonsContainer.appendChild(button);
-            });
-            
-            chatMessages.appendChild(buttonsContainer);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
         sendMessage.addEventListener('click', handleUserMessage);
@@ -2071,11 +1465,19 @@ Add Email Service (Gmail, Outlook, etc.)
             }
         });
         
+        // Update chat placeholder based on language
         function updateChatPlaceholder() {
             chatInput.placeholder = currentLanguage === 'en' 
                 ? "Type your message..." 
                 : "आफ्नो सन्देश टाइप गर्नुहोस्...";
         }
+        
+        // Update chat when language changes
+        const originalSwitchLanguage = switchLanguage;
+        switchLanguage = function(lang) {
+            originalSwitchLanguage(lang);
+            updateChatPlaceholder();
+        };
         
         // Initialize chat placeholder
         updateChatPlaceholder();
