@@ -261,7 +261,9 @@
         
         .dropdown li {
             margin: 0;
-            width: 100%;
+            width: 100%;EmailJS Account (if you haven't already)
+
+Add Email Service (Gmail, Outlook, etc.)
         }
         
         .dropdown a {
@@ -1516,121 +1518,6 @@
             
             <div class="blog-cta">
                 <a href="blog.html" class="btn btn-outline" data-en="View All Articles" data-np="सबै लेखहरू हेर्नुहोस्">View All Articles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Booking Section -->
-    <section class="section appointment-booking" id="appointment">
-        <div class="container">
-            <h2 class="section-title" data-en="Book Your Appointment" data-np="तपाईंको अपोइन्टमेन्ट बुक गर्नुहोस्">Book Your Appointment</h2>
-            <p class="section-subtitle" data-en="Schedule your consultation with Dr. Paudel for personalized skin care solutions." data-np="व्यक्तिगत त्वचा हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्श तालिका बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
-            
-            <div class="appointment-container">
-                <div class="appointment-form-container">
-                    <form id="appointmentForm" class="appointment-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName" data-en="Full Name" data-np="पुरा नाम">Full Name *</label>
-                                <input type="text" id="fullName" name="fullName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" data-en="Phone Number" data-np="फोन नम्बर">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email" data-en="Email Address" data-np="इमेल ठेगाना">Email Address</label>
-                                <input type="email" id="email" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="age" data-en="Age" data-np="उमेर">Age</label>
-                                <input type="number" id="age" name="age" min="1" max="120">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="preferredDate" data-en="Preferred Date" data-np="रोजाइएको मिति">Preferred Date *</label>
-                            <input type="date" id="preferredDate" name="preferredDate" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="preferredTime" data-en="Preferred Time" data-np="रोजाइएको समय">Preferred Time *</label>
-                            <select id="preferredTime" name="preferredTime" required>
-                                <option value="" data-en="Select Time" data-np="समय चयन गर्नुहोस्">Select Time</option>
-                                <option value="morning" data-en="Morning (9 AM - 12 PM)" data-np="बिहान (९ बजे - १२ बजे)">Morning (9 AM - 12 PM)</option>
-                                <option value="afternoon" data-en="Afternoon (1 PM - 4 PM)" data-np="दिउँसो (१ बजे - ४ बजे)">Afternoon (1 PM - 4 PM)</option>
-                                <option value="evening" data-en="Evening (5 PM - 7 PM)" data-np="साँझ (५ बजे - ७ बजे)">Evening (5 PM - 7 PM)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="clinicLocation" data-en="Preferred Clinic Location" data-np="रोजाइएको क्लिनिक स्थान">Preferred Clinic Location *</label>
-                            <select id="clinicLocation" name="clinicLocation" required>
-                                <option value="" data-en="Select Location" data-np="स्थान चयन गर्नुहोस्">Select Location</option>
-                                <option value="shankhamul" data-en="Shankhamul Health Care" data-np="शंखमुल हेल्थ केयर">Shankhamul Health Care</option>
-                                <option value="elite" data-en="Elite Health Clinic" data-np="एलाइट हेल्थ क्लिनिक">Elite Health Clinic</option>
-                                <option value="patan" data-en="Patan Hospital" data-np="पाटन अस्पताल">Patan Hospital</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="concern" data-en="Primary Concern" data-np="मुख्य चिन्ता">Primary Concern *</label>
-                            <select id="concern" name="concern" required>
-                                <option value="" data-en="Select Concern" data-np="चिन्ता चयन गर्नुहोस्">Select Concern</option>
-                                <option value="acne" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</option>
-                                <option value="hair" data-en="Hair Loss" data-np="कपाल झर्ने">Hair Loss</option>
-                                <option value="skin" data-en="Skin Conditions" data-np="त्वचा समस्या">Skin Conditions</option>
-                                <option value="cosmetic" data-en="Cosmetic Procedures" data-np="कस्मेटिक प्रक्रिया">Cosmetic Procedures</option>
-                                <option value="sti" data-en="STI Consultation" data-np="यौन संक्रमण परामर्श">STI Consultation</option>
-                                <option value="other" data-en="Other" data-np="अन्य">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" data-en="Additional Details" data-np="थप विवरण">Additional Details</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Please provide any additional information about your condition..." data-en="Please provide any additional information about your condition..." data-np="कृपया तपाईंको अवस्थाको बारेमा कुनै थप जानकारी प्रदान गर्नुहोस्..."></textarea>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</button>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="appointment-info">
-                    <h3 data-en="Appointment Information" data-np="अपोइन्टमेन्ट जानकारी">Appointment Information</h3>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4 data-en="Consultation Hours" data-np="परामर्श घण्टा">Consultation Hours</h4>
-                            <p data-en="Monday - Saturday: 9 AM - 7 PM" data-np="सोमबार - शनिबार: ९ बजे - ७ बजे">Monday - Saturday: 9 AM - 7 PM</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4 data-en="Emergency Contact" data-np="आपतकालीन सम्पर्क">Emergency Contact</h4>
-                            <p>+977-9825207253</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4 data-en="Email" data-np="इमेल">Email</h4>
-                            <p>vikashpaudel@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h4>
-                            <p data-en="Multiple locations in Kathmandu and Lalitpur for your convenience" data-np="तपाईंको सुविधाको लागि काठमाडौं र ललितपुरमा धेरै स्थानहरू">Multiple locations in Kathmandu and Lalitpur for your convenience</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
