@@ -1050,8 +1050,8 @@
             })
           };
           
-          // Send email using EmailJS
-          emailjs.send('service_7z2n8ln', 'template_kf6hq0f', templateParams)
+          // Send email using EmailJS with the correct Service ID and Template ID
+          emailjs.send('service_z7z2n3h', 'template_hqr000g', templateParams)
             .then(function(response) {
               console.log('SUCCESS!', response.status, response.text);
               showStatus('Thank you for your appointment request! We will contact you within 24 hours to confirm your appointment.', 'success');
