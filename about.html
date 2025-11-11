@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Dr. Vikash Paudel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* CSS Variables */
     :root {
@@ -17,6 +18,8 @@
       --border: #e0e0e0;
       --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
+      --button-gradient: linear-gradient(135deg, #4db6ac, #1a6aa2);
+      --button-hover: linear-gradient(135deg, #1a6aa2, #4db6ac);
     }
 
     /* Base Styles */
@@ -34,6 +37,10 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    body.nepali {
+      font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     /* Header Styles */
@@ -65,22 +72,35 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: all 0.3s ease;
     }
 
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .navbar li {
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
       margin: 0;
     }
 
-    .navbar a {
+    .nav-links a {
       display: block;
       padding: 1rem 1.5rem;
       text-decoration: none;
@@ -88,16 +108,118 @@
       font-weight: 500;
       transition: all 0.3s ease;
       border-bottom: 3px solid transparent;
+      position: relative;
     }
 
-    .navbar a:hover {
+    .nav-links a:hover {
       color: var(--primary);
       background-color: #f5f5f5;
     }
 
-    .navbar a.active {
+    .nav-links a.active {
       color: var(--primary);
-      border-bottom: 3px solid var(--accent);
+    }
+
+    .nav-links a.active:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--accent);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .book-now-btn {
+      background: var(--button-gradient);
+      color: white;
+      border-radius: 30px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(26, 106, 162, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(26, 106, 162, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(26, 106, 162, 0); }
+    }
+
+    .book-now-btn:hover {
+      background: var(--button-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      animation: none;
+    }
+
+    .language-toggle {
+      display: flex;
+      align-items: center;
+      background: #f8f9fa;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid #e0e0e0;
+    }
+
+    .language-toggle:hover {
+      background: #e9ecef;
+      transform: scale(1.05);
+    }
+
+    .language-toggle i {
+      margin-right: 0.5rem;
+      color: var(--primary);
+    }
+
+    .language-text {
+      font-weight: 500;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--foreground);
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
     }
 
     /* Main Content Styles */
@@ -115,6 +237,44 @@
       background: var(--hero-gradient);
       color: var(--primary-foreground);
       padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text {
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .hero-image {
+      flex: 0 0 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover {
+      transform: perspective(1000px) rotateY(0);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-section h1 {
@@ -153,6 +313,19 @@
       font-weight: 700;
       color: var(--foreground);
       margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent);
+      border-radius: 2px;
     }
 
     h3 {
@@ -160,6 +333,9 @@
       font-weight: 600;
       color: var(--foreground);
       margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     p {
@@ -185,6 +361,18 @@
       border-radius: 0.5rem;
       box-shadow: var(--shadow-card);
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: cardSlideUp 0.5s ease;
+    }
+
+    @keyframes cardSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .card-content {
@@ -260,6 +448,15 @@
 
     .list-disc li {
       margin-bottom: 0.5rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .list-disc li:before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
 
     /* Grid Styles */
@@ -269,6 +466,10 @@
 
     .md\:grid-cols-3 {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .md\:grid-cols-4 {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .gap-6 {
@@ -291,22 +492,71 @@
         font-size: 2rem;
       }
       
-      .navbar ul {
+      .hamburger {
+        display: flex;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
         flex-direction: column;
-        padding: 0;
+        background-color: white;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        z-index: 99;
       }
       
-      .navbar a {
-        padding: 0.8rem 1rem;
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        width: 100%;
         text-align: center;
-        border-bottom: 1px solid var(--border);
       }
       
-      .navbar a.active {
-        border-bottom: 3px solid var(--accent);
+      .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
       }
       
-      .md\:grid-cols-3 {
+      .nav-links a.active:after {
+        display: none;
+      }
+      
+      .nav-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .book-now-btn {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .language-toggle {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text {
+        padding-right: 0;
+        margin-bottom: 2rem;
+      }
+      
+      .hero-image {
+        flex: 0 0 250px;
+      }
+      
+      .md\:grid-cols-3, .md\:grid-cols-4 {
         grid-template-columns: 1fr;
       }
     }
@@ -328,22 +578,53 @@
 </head>
 <body>
   <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="biography.html" class="active">Biography</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="award.html">Award</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo">
+        <h2 style="color: var(--primary);">Dr. Vikash Paudel</h2>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="biography.html" class="active">Biography</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="award.html">Award</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="booking.html" class="book-now-btn">
+          <i class="fas fa-calendar-check"></i> Book Appointment
+        </a>
+        <div class="language-toggle" id="languageToggle">
+          <i class="fas fa-globe"></i>
+          <span class="language-text" id="languageText">EN</span>
+        </div>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </nav>
 
   <main>
     <!-- Header -->
     <section class="hero-section">
       <div class="container">
-        <h1>About Dr. Vikash Paudel</h1>
-        <p>Leading dermatologist, venereologist in Kathmandu, dedicated to providing exceptional skin care services and sexual health support</p>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 id="hero-title">About Dr. Vikash Paudel</h1>
+            <p id="hero-subtitle">Leading dermatologist, venereologist in Kathmandu, dedicated to providing exceptional skin care services and sexual health support</p>
+          </div>
+          <div class="hero-image">
+            <!-- Replace the src with the actual image path when available -->
+            <!-- Suggested image path: images/dr-vikash-paudel.jpg -->
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Dr. Vikash Paudel - Dermatologist">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -353,14 +634,16 @@
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Introduction -->
           <div>
-            <h2>Professional Overview</h2>
+            <h2 id="overview-title">
+              <i class="fas fa-user-md text-primary"></i> Professional Overview
+            </h2>
             <div>
-              <p class="text-lg text-muted-foreground leading-relaxed">
+              <p class="text-lg text-muted-foreground leading-relaxed" id="overview-text-1">
                 Dr. Vikash Paudel is a highly qualified and experienced consultant dermatologist practicing in Kathmandu, Nepal. 
                 With extensive training in both medical and aesthetic dermatology, Dr. Paudel brings a comprehensive approach to skin care,  
                 combining clinical expertise with the latest advancements in dermatological treatments.
               </p>
-              <p class="text-lg text-muted-foreground leading-relaxed">
+              <p class="text-lg text-muted-foreground leading-relaxed" id="overview-text-2">
                 Currently serving as a consultant dermatologist and associate professor, he is committed to providing accessible, 
                 high-quality dermatological care to patients across the Kathmandu valley (physical) and across the different parts of the world (teledermatology).
               </p>
@@ -374,27 +657,33 @@
                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
                   <i class="fas fa-graduation-cap text-primary w-6 h-6"></i>
                 </div>
-                <h2>Education & Training</h2>
+                <h2 id="education-title">Education & Training</h2>
               </div>
               <div class="space-y-4">
                 <div>
-                  <h3>Medical Degree</h3>
-                  <p class="text-muted-foreground">
+                  <h3 id="degree-title">
+                    <i class="fas fa-user-graduate text-accent"></i> Medical Degree
+                  </h3>
+                  <p class="text-muted-foreground" id="degree-text">
                     MBBS - Bachelor of Medicine and Bachelor of Surgery (KU, Nepal)
                   </p>
                 </div>
                 <div>
-                  <h3>Specialization</h3>
-                  <p class="text-muted-foreground">
+                  <h3 id="specialization-title">
+                    <i class="fas fa-stethoscope text-accent"></i> Specialization
+                  </h3>
+                  <p class="text-muted-foreground" id="specialization-text">
                     MD Dermatology - Advanced training in Dermatology, Venereology, and Leprology (IOM, TU, Nepal)
                   </p>
                 </div>
                 <div>
-                  <h3>Additional Training</h3>
-                  <p class="text-muted-foreground">
+                  <h3 id="training-title">
+                    <i class="fas fa-certificate text-accent"></i> Additional Training
+                  </h3>
+                  <p class="text-muted-foreground" id="training-text-1">
                     Advanced certification in aesthetic dermatology and cosmetic procedures (Nepal, India, S. Korea, Dubai )
                   </p>
-                  <p class="text-muted-foreground mt-2">
+                  <p class="text-muted-foreground mt-2" id="training-text-2">
                     Specialized training in advanced dermatology, dermatologic surgery and laser treatments (S. Korea)
                   </p>
                 </div>
@@ -409,12 +698,14 @@
                 <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
                   <i class="fas fa-briefcase text-accent w-6 h-6"></i>
                 </div>
-                <h2>Current Practice</h2>
+                <h2 id="practice-title">Current Practice</h2>
               </div>
               <div class="space-y-4">
                 <div>
-                  <h3>Areas of Expertise</h3>
-                  <ul class="list-disc space-y-2 text-muted-foreground">
+                  <h3 id="expertise-title">
+                    <i class="fas fa-tasks text-primary"></i> Areas of Expertise
+                  </h3>
+                  <ul class="list-disc space-y-2 text-muted-foreground" id="expertise-list">
                     <li>Medical Dermatology - diagnosis and treatment of skin diseases</li>
                     <li>Aesthetic Dermatology - cosmetic procedures and skin rejuvenation</li>
                     <li>Dermatologic Surgery - surgical treatment of skin conditions</li>
@@ -435,20 +726,32 @@
                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
                   <i class="fas fa-map-marker-alt text-primary w-6 h-6"></i>
                 </div>
-                <h2>Practice Locations</h2>
+                <h2 id="locations-title">Practice Locations</h2>
               </div>
-              <div class="grid md:grid-cols-3 gap-6">
+              <div class="grid md:grid-cols-4 gap-6">
                 <div>
-                  <h3>Patan Hospital</h3>
-                  <p class="text-sm text-muted-foreground">Lagankhel, Lalitpur, Nepal</p>
+                  <h3 id="location-1">
+                    <i class="fas fa-hospital text-accent"></i> Patan Hospital
+                  </h3>
+                  <p class="text-sm text-muted-foreground" id="location-1-address">Lagankhel, Lalitpur, Nepal</p>
                 </div>
                 <div>
-                  <h3>Elite Health Clinic</h3>
-                  <p class="text-sm text-muted-foreground">Mahalaxmisthan, Lalitpur, Nepal</p>
+                  <h3 id="location-2">
+                    <i class="fas fa-clinic-medical text-accent"></i> Elite Health Clinic
+                  </h3>
+                  <p class="text-sm text-muted-foreground" id="location-2-address">Mahalaxmisthan, Lalitpur, Nepal</p>
                 </div>
                 <div>
-                  <h3>Shankhamul Healthcare</h3>
-                  <p class="text-sm text-muted-foreground">Shankhamul, Kathmandu, Nepal</p>
+                  <h3 id="location-3">
+                    <i class="fas fa-stethoscope text-accent"></i> Shankhamul Healthcare
+                  </h3>
+                  <p class="text-sm text-muted-foreground" id="location-3-address">Shankhamul, Kathmandu, Nepal</p>
+                </div>
+                <div>
+                  <h3 id="location-4">
+                    <i class="fas fa-satellite-dish text-accent"></i> Shubharambha Skin Centre
+                  </h3>
+                  <p class="text-sm text-muted-foreground" id="location-4-address">Dhangadhi, Nepal (Satellite Clinic)</p>
                 </div>
               </div>
             </div>
@@ -456,8 +759,10 @@
 
           <!-- Professional Philosophy -->
           <div>
-            <h2>Professional Philosophy</h2>
-            <p class="text-lg text-muted-foreground leading-relaxed">
+            <h2 id="philosophy-title">
+              <i class="fas fa-heartbeat text-primary"></i> Professional Philosophy
+            </h2>
+            <p class="text-lg text-muted-foreground leading-relaxed" id="philosophy-text">
               Dr. Paudel believes in a holistic approach to dermatological care, combining evidence-based medical treatments 
               with personalized care plans. His practice philosophy emphasizes patient education, preventive care, and the use 
               of the latest technologies to achieve optimal outcomes. He is committed to staying at the forefront of dermatological 
@@ -472,5 +777,140 @@
   <footer>
     <p>&copy; 2025 Dr. Vikash Paudel</p>
   </footer>
+
+  <script>
+    // Language toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const languageToggle = document.getElementById('languageToggle');
+      const languageText = document.getElementById('languageText');
+      const body = document.body;
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      // Check for saved language preference
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      
+      // Set initial language
+      setLanguage(savedLanguage);
+      
+      // Toggle language on click
+      languageToggle.addEventListener('click', function() {
+        const currentLang = body.classList.contains('nepali') ? 'ne' : 'en';
+        const newLang = currentLang === 'en' ? 'ne' : 'en';
+        setLanguage(newLang);
+        localStorage.setItem('preferredLanguage', newLang);
+      });
+      
+      // Mobile menu toggle
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+      
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      function setLanguage(lang) {
+        if (lang === 'ne') {
+          // Switch to Nepali
+          body.classList.add('nepali');
+          languageText.textContent = 'ने';
+          
+          // Update all translatable content
+          document.getElementById('hero-title').textContent = 'डा. विकास पौडेलको बारेमा';
+          document.getElementById('hero-subtitle').textContent = 'काठमाडौंका अग्रणी चर्मरोग विशेषज्ञ, यौन स्वास्थ्य सेवा प्रदान गर्न समर्पित';
+          document.getElementById('overview-title').innerHTML = '<i class="fas fa-user-md text-primary"></i> व्यावसायिक अवलोकन';
+          document.getElementById('overview-text-1').textContent = 'डा. विकास पौडेल काठमाडौं, नेपालमा अभ्यास गर्ने एक अत्यधिक योग्य र अनुभवी परामर्शदाता चर्मरोग विशेषज्ञ हुन्। चिकित्सा र सौन्दर्य दुवै चर्मरोग विज्ञानमा व्यापक प्रशिक्षणका साथ, डा. पौडेल त्वचा हेरचाहमा एक व्यापक दृष्टिकोण ल्याउँछन्, चिकित्सा विशेषज्ञतालाई चर्मरोग उपचारको नवीनतम प्रगतिसँग जोड्दछन्।';
+          document.getElementById('overview-text-2').textContent = 'हाल एक परामर्शदाता चर्मरोग विशेषज्ञ र सहयोगी प्राध्यापकको रूपमा सेवा गर्दै, उहाँ काठमाडौं उपत्यकाभर (शारीरिक) र विश्वको विभिन्न भागहरूमा (टेलिडर्माटोलोजी) रोगीहरूलाई सुलभ, उच्च गुणस्तरको चर्मरोग सम्बन्धी हेरचाह प्रदान गर्न प्रतिबद्ध हुनुहुन्छ।';
+          document.getElementById('education-title').textContent = 'शिक्षा र प्रशिक्षण';
+          document.getElementById('degree-title').innerHTML = '<i class="fas fa-user-graduate text-accent"></i> चिकित्सा डिग्री';
+          document.getElementById('degree-text').textContent = 'एमबीबीएस - ब्याचलर अफ मेडिसिन एण्ड ब्याचलर अफ सर्जरी (केयू, नेपाल)';
+          document.getElementById('specialization-title').innerHTML = '<i class="fas fa-stethoscope text-accent"></i> विशेषज्ञता';
+          document.getElementById('specialization-text').textContent = 'एमडी डर्माटोलोजी - डर्माटोलोजी, भेनरोलोजी, र लेप्रोलोजीमा उन्नत प्रशिक्षण (आईओएम, टीयू, नेपाल)';
+          document.getElementById('training-title').innerHTML = '<i class="fas fa-certificate text-accent"></i> अतिरिक्त प्रशिक्षण';
+          document.getElementById('training-text-1').textContent = 'एस्थेटिक डर्माटोलोजी र कस्मेटिक प्रक्रियाहरूमा उन्नत प्रमाणपत्र (नेपाल, भारत, दक्षिण कोरिया, दुबई)';
+          document.getElementById('training-text-2').textContent = 'उन्नत चर्मरोग विज्ञान, चर्मरोग शल्यचिकित्सा र लेजर उपचारहरूमा विशेष प्रशिक्षण (दक्षिण कोरिया)';
+          document.getElementById('practice-title').textContent = 'वर्तमान अभ्यास';
+          document.getElementById('expertise-title').innerHTML = '<i class="fas fa-tasks text-primary"></i> विशेषज्ञताका क्षेत्रहरू';
+          document.getElementById('expertise-list').innerHTML = `
+            <li>चिकित्सा चर्मरोग - त्वचा रोगहरूको निदान र उपचार</li>
+            <li>सौन्दर्य चर्मरोग - कस्मेटिक प्रक्रियाहरू र त्वचा पुनर्योजना</li>
+            <li>चर्मरोग शल्यचिकित्सा - त्वचा समस्याहरूको शल्यक्रिया उपचार</li>
+            <li>एक्ने र दाग व्यवस्थापन</li>
+            <li>कपाल र नङ्गा सम्बन्धी विकारहरू</li>
+            <li>यौन संचारित संक्रमणहरू</li>
+            <li>लेजर उपचारहरू</li>
+          `;
+          document.getElementById('locations-title').textContent = 'अभ्यास स्थानहरू';
+          document.getElementById('location-1').innerHTML = '<i class="fas fa-hospital text-accent"></i> पाटन अस्पताल';
+          document.getElementById('location-1-address').textContent = 'लगनखेल, ललितपुर, नेपाल';
+          document.getElementById('location-2').innerHTML = '<i class="fas fa-clinic-medical text-accent"></i> एलाइट हेल्थ क्लिनिक';
+          document.getElementById('location-2-address').textContent = 'महालक्ष्मीस्थान, ललितपुर, नेपाल';
+          document.getElementById('location-3').innerHTML = '<i class="fas fa-stethoscope text-accent"></i> शंखमुल हेल्थकेयर';
+          document.getElementById('location-3-address').textContent = 'शंखमुल, काठमाडौं, नेपाल';
+          document.getElementById('location-4').innerHTML = '<i class="fas fa-satellite-dish text-accent"></i> शुभारम्भ स्किन सेन्टर';
+          document.getElementById('location-4-address').textContent = 'धनगढी, नेपाल (उपग्रह क्लिनिक)';
+          document.getElementById('philosophy-title').innerHTML = '<i class="fas fa-heartbeat text-primary"></i> व्यावसायिक दर्शन';
+          document.getElementById('philosophy-text').textContent = 'डा. पौडेल चर्मरोग हेरचाहमा समग्र दृष्टिकोणमा विश्वास गर्छन्, प्रमाण-आधारित चिकित्सा उपचारहरूलाई व्यक्तिगत हेरचाह योजनाहरूसँग जोड्दछन्। उहाँको अभ्यास दर्शनले रोगी शिक्षा, रोकथाम हेरचाह, र उत्कृष्ट नतिजाहरू प्राप्त गर्न नवीनतम प्रविधिहरूको प्रयोगमा जोड दिन्छ। उहाँ निरन्तर सिकाइ र व्यावसायिक विकास मार्फत चर्मरोग विज्ञानको अग्रिममा रहन प्रतिबद्ध हुनुहुन्छ।';
+        } else {
+          // Switch to English
+          body.classList.remove('nepali');
+          languageText.textContent = 'EN';
+          
+          // Reset all content to English
+          document.getElementById('hero-title').textContent = 'About Dr. Vikash Paudel';
+          document.getElementById('hero-subtitle').textContent = 'Leading dermatologist, venereologist in Kathmandu, dedicated to providing exceptional skin care services and sexual health support';
+          document.getElementById('overview-title').innerHTML = '<i class="fas fa-user-md text-primary"></i> Professional Overview';
+          document.getElementById('overview-text-1').textContent = 'Dr. Vikash Paudel is a highly qualified and experienced consultant dermatologist practicing in Kathmandu, Nepal. With extensive training in both medical and aesthetic dermatology, Dr. Paudel brings a comprehensive approach to skin care, combining clinical expertise with the latest advancements in dermatological treatments.';
+          document.getElementById('overview-text-2').textContent = 'Currently serving as a consultant dermatologist and associate professor, he is committed to providing accessible, high-quality dermatological care to patients across the Kathmandu valley (physical) and across the different parts of the world (teledermatology).';
+          document.getElementById('education-title').textContent = 'Education & Training';
+          document.getElementById('degree-title').innerHTML = '<i class="fas fa-user-graduate text-accent"></i> Medical Degree';
+          document.getElementById('degree-text').textContent = 'MBBS - Bachelor of Medicine and Bachelor of Surgery (KU, Nepal)';
+          document.getElementById('specialization-title').innerHTML = '<i class="fas fa-stethoscope text-accent"></i> Specialization';
+          document.getElementById('specialization-text').textContent = 'MD Dermatology - Advanced training in Dermatology, Venereology, and Leprology (IOM, TU, Nepal)';
+          document.getElementById('training-title').innerHTML = '<i class="fas fa-certificate text-accent"></i> Additional Training';
+          document.getElementById('training-text-1').textContent = 'Advanced certification in aesthetic dermatology and cosmetic procedures (Nepal, India, S. Korea, Dubai )';
+          document.getElementById('training-text-2').textContent = 'Specialized training in advanced dermatology, dermatologic surgery and laser treatments (S. Korea)';
+          document.getElementById('practice-title').textContent = 'Current Practice';
+          document.getElementById('expertise-title').innerHTML = '<i class="fas fa-tasks text-primary"></i> Areas of Expertise';
+          document.getElementById('expertise-list').innerHTML = `
+            <li>Medical Dermatology - diagnosis and treatment of skin diseases</li>
+            <li>Aesthetic Dermatology - cosmetic procedures and skin rejuvenation</li>
+            <li>Dermatologic Surgery - surgical treatment of skin conditions</li>
+            <li>Acne and Scar Management</li>
+            <li>Hair and Nail Disorders</li>
+            <li>Sexually Transmitted Infections</li>
+            <li>Laser Treatments</li>
+          `;
+          document.getElementById('locations-title').textContent = 'Practice Locations';
+          document.getElementById('location-1').innerHTML = '<i class="fas fa-hospital text-accent"></i> Patan Hospital';
+          document.getElementById('location-1-address').textContent = 'Lagankhel, Lalitpur, Nepal';
+          document.getElementById('location-2').innerHTML = '<i class="fas fa-clinic-medical text-accent"></i> Elite Health Clinic';
+          document.getElementById('location-2-address').textContent = 'Mahalaxmisthan, Lalitpur, Nepal';
+          document.getElementById('location-3').innerHTML = '<i class="fas fa-stethoscope text-accent"></i> Shankhamul Healthcare';
+          document.getElementById('location-3-address').textContent = 'Shankhamul, Kathmandu, Nepal';
+          document.getElementById('location-4').innerHTML = '<i class="fas fa-satellite-dish text-accent"></i> Shubharambha Skin Centre';
+          document.getElementById('location-4-address').textContent = 'Dhangadhi, Nepal (Satellite Clinic)';
+          document.getElementById('philosophy-title').innerHTML = '<i class="fas fa-heartbeat text-primary"></i> Professional Philosophy';
+          document.getElementById('philosophy-text').textContent = 'Dr. Paudel believes in a holistic approach to dermatological care, combining evidence-based medical treatments with personalized care plans. His practice philosophy emphasizes patient education, preventive care, and the use of the latest technologies to achieve optimal outcomes. He is committed to staying at the forefront of dermatological advancements through continuous learning and professional development.';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
