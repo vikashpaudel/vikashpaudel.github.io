@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awards - Dr. Vikash Paudel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* CSS Variables */
     :root {
@@ -29,7 +33,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: var(--foreground);
       background-color: var(--background);
@@ -38,9 +42,16 @@
       flex-direction: column;
     }
 
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
     /* Header Styles */
     header {
-      background: var(--hero-gradient);
+      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
       color: var(--primary-foreground);
       padding: 3rem 1rem;
       text-align: center;
@@ -69,20 +80,34 @@
       z-index: 100;
     }
 
-    .navbar ul {
-      list-style: none;
+    .navbar-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
+      position: relative;
     }
 
-    .navbar li {
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .navbar-item {
       margin: 0;
     }
 
-    .navbar a {
+    .navbar-link {
       display: block;
       padding: 1rem 1.5rem;
       text-decoration: none;
@@ -90,16 +115,59 @@
       font-weight: 500;
       transition: all 0.3s ease;
       border-bottom: 3px solid transparent;
+      font-size: 0.95rem;
     }
 
-    .navbar a:hover {
+    .navbar-link:hover {
       color: var(--primary);
       background-color: #f5f5f5;
     }
 
-    .navbar a.active {
+    .navbar-link.active {
       color: var(--primary);
       border-bottom: 3px solid var(--accent);
+    }
+
+    .book-appointment {
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      margin-left: 1rem;
+    }
+
+    .book-appointment:hover {
+      background-color: #155d8a;
+      color: white;
+    }
+
+    .book-appointment i {
+      margin-right: 8px;
+    }
+
+    .language-toggle {
+      background: none;
+      border: none;
+      color: var(--foreground);
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 1rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+    }
+
+    .language-toggle:hover {
+      background-color: #f5f5f5;
+    }
+
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--foreground);
+      cursor: pointer;
+      padding: 0.5rem;
     }
 
     /* Main Content Styles */
@@ -114,7 +182,9 @@
     }
 
     .hero-section {
-      background: var(--hero-gradient);
+      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
       color: var(--primary-foreground);
       padding: 4rem 0;
     }
@@ -355,6 +425,67 @@
       background-color: #f8f9fa;
     }
 
+    /* Award Images */
+    .award-image {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 1rem;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Award Links */
+    .award-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .award-link:hover {
+      color: #155d8a;
+      text-decoration: underline;
+    }
+
+    .award-link i {
+      margin-left: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    /* Research Links */
+    .research-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .research-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--foreground);
+      transition: var(--transition-smooth);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background-color: #f5f5f5;
+    }
+
+    .research-link:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .research-link i {
+      margin-right: 8px;
+    }
+
     /* Footer Styles */
     footer {
       background-color: #f5f5f5;
@@ -371,19 +502,43 @@
         font-size: 2rem;
       }
       
-      .navbar ul {
+      .navbar-container {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-toggle {
+        display: block;
+      }
+      
+      .navbar-menu {
+        display: none;
+        width: 100%;
         flex-direction: column;
         padding: 0;
       }
       
-      .navbar a {
+      .navbar-menu.active {
+        display: flex;
+      }
+      
+      .navbar-link {
         padding: 0.8rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border);
       }
       
-      .navbar a.active {
+      .navbar-link.active {
         border-bottom: 3px solid var(--accent);
+      }
+      
+      .book-appointment {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+      
+      .language-toggle {
+        margin-left: 0;
+        margin-top: 0.5rem;
       }
 
       .flex.space-x-4 {
@@ -410,26 +565,46 @@
         padding: 1rem;
       }
     }
+
+    /* Nepali Language Styles */
+    .nepali {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="biography.html">Biography</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="awards.html" class="active">Awards</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">Dr. Vikash Paudel</a>
+      <button class="navbar-toggle" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+        <li class="navbar-item"><a href="services.html" class="navbar-link">Services</a></li>
+        <li class="navbar-item"><a href="research.html" class="navbar-link">Research</a></li>
+        <li class="navbar-item"><a href="award.html" class="navbar-link active">Awards</a></li>
+        <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+        <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
+        <li class="navbar-item"><a href="appointment.html" class="navbar-link book-appointment"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+        <li class="navbar-item">
+          <button class="language-toggle" id="language-toggle">
+            <i class="fas fa-globe"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 
   <main>
     <!-- Header -->
     <section class="hero-section">
       <div class="container">
-        <h1>Awards & Recognition</h1>
-        <p>Honored for excellence in dermatological care, research, and academic achievements</p>
+        <h1 class="english">Awards & Recognition</h1>
+        <h1 class="nepali">पुरस्कार र मान्यता</h1>
+        <p class="english">Honored for excellence in dermatological care, research, and academic achievements</p>
+        <p class="nepali">त्वचा चिकित्सा, अनुसन्धान, र शैक्षिक उपलब्धिहरूमा उत्कृष्टताको लागि सम्मानित</p>
       </div>
     </section>
 
@@ -439,9 +614,13 @@
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Introduction -->
           <div>
-            <h2>Professional Achievements</h2>
-            <p class="text-lg text-muted-foreground leading-relaxed">
+            <h2 class="english">Professional Achievements</h2>
+            <h2 class="nepali">व्यावसायिक उपलब्धिहरू</h2>
+            <p class="text-lg text-muted-foreground leading-relaxed english">
               Dr. Vikash Paudel's dedication to dermatology and pediatric infectious diseases has been recognized through numerous prestigious awards, fellowships, and scholarships from national and international organizations.
+            </p>
+            <p class="text-lg text-muted-foreground leading-relaxed nepali">
+              डा. विकास पौडेलको त्वचा रोग र बाल संक्रामक रोगहरूमा समर्पण राष्ट्रिय र अन्तर्राष्ट्रिय संस्थाहरूद्वारा धेरै प्रतिष्ठित पुरस्कार, फेलोशिप, र छात्रवृत्तिहरूद्वारा मान्यता प्राप्त भएको छ।
             </p>
           </div>
 
@@ -460,7 +639,14 @@
                       <span class="year-badge">2023</span>
                     </div>
                     <p class="text-primary font-medium mb-2">EADV Symposium, Seville, Spain</p>
-                    <p class="text-muted-foreground">Awarded the prestigious Imrich Sarkany Non-European Memorial Scholarship to attend the EADV Symposium in Seville, Spain.</p>
+                    <p class="text-muted-foreground english">Awarded the prestigious Imrich Sarkany Non-European Memorial Scholarship to attend the EADV Symposium in Seville, Spain.</p>
+                    <p class="text-muted-foreground nepali">स्पेनको सेभिलमा EADV सम्मेलनमा भाग लिन प्रतिष्ठित इम्रिच सार्कानी गैर-युरोपेली स्मारक छात्रवृत्ति प्रदान गरिएको।</p>
+                    <a href="https://www.eadv.org/congress-and-events/scholarships" target="_blank" class="award-link english">
+                      Learn more about this award <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.eadv.org/congress-and-events/scholarships" target="_blank" class="award-link nepali">
+                      यस पुरस्कारको बारेमा थप जान्नुहोस् <i class="fas fa-external-link-alt"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -479,7 +665,14 @@
                       <span class="year-badge">2019, 2023</span>
                     </div>
                     <p class="text-primary font-medium mb-2">ILDS, World Congress of Dermatology - Milan and Singapore</p>
-                    <p class="text-muted-foreground">Recognized as a Rising Star at the World Congress of Dermatology in both Milan (2019) and Singapore (2023), an honor by the International League of Dermatological Societies.</p>
+                    <p class="text-muted-foreground english">Recognized as a Rising Star at the World Congress of Dermatology in both Milan (2019) and Singapore (2023), an honor by the International League of Dermatological Societies.</p>
+                    <p class="text-muted-foreground nepali">मिलान (२०१९) र सिंगापुर (२०२३) मा आयोजित विश्व त्वचा रोग कांग्रेसमा राइजिङ स्टारको रूपमा मान्यता प्राप्त, अन्तर्राष्ट्रिय त्वचा रोग सोसाइटी लिगद्वारा सम्मानित।</p>
+                    <a href="https://www.wcd2023singapore.org/" target="_blank" class="award-link english">
+                      Learn more about WCD <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.wcd2023singapore.org/" target="_blank" class="award-link nepali">
+                      WCD को बारेमा थप जान्नुहोस् <i class="fas fa-external-link-alt"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -498,7 +691,14 @@
                       <span class="year-badge">2020</span>
                     </div>
                     <p class="text-primary font-medium mb-2">European Society of Paediatric Infectious Disease, Netherlands</p>
-                    <p class="text-muted-foreground">Received the ESPID Fellowship Award at WSPID Amsterdam, Netherlands, recognizing excellence in pediatric infectious disease research.</p>
+                    <p class="text-muted-foreground english">Received the ESPID Fellowship Award at WSPID Amsterdam, Netherlands, recognizing excellence in pediatric infectious disease research.</p>
+                    <p class="text-muted-foreground nepali">नेदरल्याण्ड्सको एम्स्टर्डममा आयोजित WSPID मा ESPID फेलोशिप पुरस्कार प्राप्त, बाल संक्रामक रोग अनुसन्धानमा उत्कृष्टताको लागि मान्यता।</p>
+                    <a href="https://www.espid.org/" target="_blank" class="award-link english">
+                      Visit ESPID website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.espid.org/" target="_blank" class="award-link nepali">
+                      ESPID वेबसाइट भ्रमण गर्नुहोस् <i class="fas fa-external-link-alt"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -517,7 +717,14 @@
                       <span class="year-badge">2022</span>
                     </div>
                     <p class="text-primary font-medium mb-2">EADV (European Academy of Dermatology and Venereology)</p>
-                    <p class="text-muted-foreground">Awarded the Health Care Professional Scholarship by EADV in 2022.</p>
+                    <p class="text-muted-foreground english">Awarded the Health Care Professional Scholarship by EADV in 2022.</p>
+                    <p class="text-muted-foreground nepali">EADV द्वारा २०२२ मा स्वास्थ्य सेवा पेशेवर छात्रवृत्ति प्रदान गरिएको।</p>
+                    <a href="https://www.eadv.org/education/scholarships" target="_blank" class="award-link english">
+                      EADV Scholarships <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.eadv.org/education/scholarships" target="_blank" class="award-link nepali">
+                      EADV छात्रवृत्तिहरू <i class="fas fa-external-link-alt"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -536,7 +743,8 @@
                       <span class="year-badge">2018</span>
                     </div>
                     <p class="text-primary font-medium mb-2">Joint International Tropical Medicine Meetings Travel Award, Bangkok</p>
-                    <p class="text-muted-foreground">Received the JITMM Travel Scholarship Award to attend the Joint International Tropical Medicine Meetings in Bangkok, Thailand.</p>
+                    <p class="text-muted-foreground english">Received the JITMM Travel Scholarship Award to attend the Joint International Tropical Medicine Meetings in Bangkok, Thailand.</p>
+                    <p class="text-muted-foreground nepali">थाइल्याण्डको बैंकककमा आयोजित संयुक्त अन्तर्राष्ट्रिय उष्णप्रदेशीय चिकित्सा सम्मेलनमा भाग लिन JITMM यात्रा छात्रवृत्ति पुरस्कार प्राप्त।</p>
                   </div>
                 </div>
               </div>
@@ -555,7 +763,8 @@
                       <span class="year-badge">2015</span>
                     </div>
                     <p class="text-primary font-medium mb-2">Lanka Derma, Sri Lanka</p>
-                    <p class="text-muted-foreground">Received the SARAD Scholarship Award from the Joint Organization of Sri Lanka College of Dermatologists.</p>
+                    <p class="text-muted-foreground english">Received the SARAD Scholarship Award from the Joint Organization of Sri Lanka College of Dermatologists.</p>
+                    <p class="text-muted-foreground nepali">श्रीलंका कलेज अफ डर्माटोलोजिस्टको संयुक्त संगठनद्वारा SARAD छात्रवृत्ति पुरस्कार प्राप्त।</p>
                   </div>
                 </div>
               </div>
@@ -574,7 +783,8 @@
                       <span class="year-badge">2019</span>
                     </div>
                     <p class="text-primary font-medium mb-2">World Society of Paediatric Infectious Disease, Manila</p>
-                    <p class="text-muted-foreground">Awarded the WSPID Fellowship at the World Society of Paediatric Infectious Disease conference in Manila.</p>
+                    <p class="text-muted-foreground english">Awarded the WSPID Fellowship at the World Society of Paediatric Infectious Disease conference in Manila.</p>
+                    <p class="text-muted-foreground nepali">मनिलामा आयोजित विश्व बाल संक्रामक रोग सोसाइटी सम्मेलनमा WSPID फेलोशिप प्राप्त।</p>
                   </div>
                 </div>
               </div>
@@ -593,7 +803,67 @@
                       <span class="year-badge">2020</span>
                     </div>
                     <p class="text-primary font-medium mb-2">Dubai Dermatology and Aesthetics Conference, Dubai Derma-2020</p>
-                    <p class="text-muted-foreground">Participated in the prestigious Dubai Dermatology and Aesthetics conference held in Dubai, United Arab Emirates.</p>
+                    <p class="text-muted-foreground english">Participated in the prestigious Dubai Dermatology and Aesthetics conference held in Dubai, United Arab Emirates.</p>
+                    <p class="text-muted-foreground nepali">संयुक्त अरब इमिरेट्सको दुबईमा आयोजित प्रतिष्ठित दुबई त्वचा रोग र सौन्दर्य सम्मेलनमा सहभागी।</p>
+                    <a href="https://www.dermaconference.org/" target="_blank" class="award-link english">
+                      Dubai Derma Conference <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.dermaconference.org/" target="_blank" class="award-link nepali">
+                      दुबई डर्मा सम्मेलन <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Award 9: Padma Bahadur Prativa Padak -->
+            <div class="card">
+              <div class="card-content">
+                <div class="flex items-start space-x-4">
+                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
+                    <i class="fas fa-medal text-primary w-7 h-7"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="award-header">
+                      <h3 class="text-xl font-semibold text-foreground">Padma Bahadur Prativa Padak (SLC Gold Medal)</h3>
+                      <span class="year-badge">2057 BS</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">School Leaving Certificate Examination</p>
+                    <p class="text-muted-foreground english">Awarded the prestigious Padma Bahadur Prativa Padak (SLC Gold Medal) for outstanding academic performance in the School Leaving Certificate examination.</p>
+                    <p class="text-muted-foreground nepali">विद्यालय लिभिंग सर्टिफिकेट परीक्षामा उत्कृष्ट शैक्षिक प्रदर्शनको लागि प्रतिष्ठित पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक) प्राप्त।</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Award Images Section -->
+          <div class="card">
+            <div class="card-content">
+              <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Highlights</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार हाइलाइट्स</h2>
+              <div class="space-y-4">
+                <p class="text-muted-foreground english">
+                  Some of the prestigious awards and recognitions received by Dr. Paudel throughout his career.
+                </p>
+                <p class="text-muted-foreground nepali">
+                  डा. पौडेलले आफ्नो करियरभरि प्राप्त गरेका केही प्रतिष्ठित पुरस्कार र मान्यताहरू।
+                </p>
+                <div class="flex space-x-4" style="flex-wrap: wrap; gap: 1rem;">
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Award Medal" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Medal of Excellence</p>
+                    <p class="text-sm text-muted-foreground nepali">उत्कृष्टताको पदक</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1518531933037-8b63f6baef89?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Scholarship Certificate" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Scholarship Certificate</p>
+                    <p class="text-sm text-muted-foreground nepali">छात्रवृत्ति प्रमाणपत्र</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trophy" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Achievement Trophy</p>
+                    <p class="text-sm text-muted-foreground nepali">उपलब्धि ट्रफी</p>
                   </div>
                 </div>
               </div>
@@ -603,46 +873,77 @@
           <!-- Timeline Overview -->
           <div class="card mt-12">
             <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">Award Timeline</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Timeline</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार समयरेखा</h2>
               <div class="space-y-4">
-                <p class="text-muted-foreground">
+                <p class="text-muted-foreground english">
                   Dr. Paudel's achievements span nearly a decade, demonstrating consistent excellence across dermatology, pediatric infectious diseases, and medical education.
+                </p>
+                <p class="text-muted-foreground nepali">
+                  डा. पौडेलको उपलब्धिहरू लगभग एक दशकसम्म फैलिएका छन्, जसले त्वचा रोग, बाल संक्रामक रोग, र चिकित्सा शिक्षामा लगातार उत्कृष्टता देखाउँछ।
                 </p>
                 <ul class="recognition-list space-y-4">
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
+                      <strong>2057 BS:</strong> Padma Bahadur Prativa Padak (SLC Gold Medal)
+                    </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०५७ BS:</strong> पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक)
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground english">
                       <strong>2015:</strong> SARAD Scholarship Award, Lanka Derma, Sri Lanka
                     </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०१५:</strong> SARAD छात्रवृत्ति पुरस्कार, लंका डर्मा, श्रीलंका
+                    </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
                       <strong>2018:</strong> JITMM Travel Scholarship Award, Bangkok, Thailand
                     </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०१८:</strong> JITMM यात्रा छात्रवृत्ति पुरस्कार, बैंककक, थाइल्याण्ड
+                    </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
                       <strong>2019:</strong> WSPID Fellowship Award, Manila & World Congress of Dermatology Rising Star, Milan
                     </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०१९:</strong> WSPID फेलोशिप पुरस्कार, मनिला र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, मिलान
+                    </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
                       <strong>2020:</strong> ESPID Fellowship Award, Amsterdam & Dubai Derma Conference, UAE
                     </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      <strong>2022:</strong> Health Care Professional Scholarship, EADV
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०२०:</strong> ESPID फेलोशिप पुरस्कार, एम्स्टर्डम र दुबई डर्मा सम्मेलन, UAE
                     </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
+                      <strong>2022:</strong> Health Care Professional Scholarship, EADV
+                    </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०२२:</strong> स्वास्थ्य सेवा पेशेवर छात्रवृत्ति, EADV
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground english">
                       <strong>2023:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV Symposium, Seville & World Congress of Dermatology Rising Star, Singapore
+                    </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>२०२३:</strong> इम्रिच सार्कानी गैर-युरोपेली स्मारक छात्रवृत्ति, EADV सम्मेलन, सेभिल र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, सिंगापुर
                     </span>
                   </li>
                 </ul>
@@ -653,34 +954,50 @@
           <!-- Geographic Reach -->
           <div class="card community-impact">
             <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">International Recognition</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-6 english">International Recognition</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">अन्तर्राष्ट्रिय मान्यता</h2>
               <div class="space-y-4">
-                <p class="text-muted-foreground">
+                <p class="text-muted-foreground english">
                   Dr. Paudel's work has been recognized across multiple continents, demonstrating global impact in dermatology and pediatric infectious diseases.
+                </p>
+                <p class="text-muted-foreground nepali">
+                  डा. पौडेलको काम धेरै महाद्वीपहरूमा मान्यता प्राप्त भएको छ, जसले त्वचा रोग र बाल संक्रामक रोगहरूमा वैश्विक प्रभाव देखाउँछ।
                 </p>
                 <ul class="recognition-list space-y-3">
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
                       <strong>Asia:</strong> Sri Lanka, Thailand, Philippines, UAE, Singapore
                     </span>
+                    <span class="text-muted-foreground nepali">
+                      <strong>एशिया:</strong> श्रीलंका, थाइल्याण्ड, फिलिपिन्स, UAE, सिंगापुर
+                    </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
                       <strong>Europe:</strong> Italy, Netherlands, Spain
                     </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      Recognition from both dermatology and pediatric infectious disease societies
+                    <span class="text-muted-foreground nepali">
+                      <strong>युरोप:</strong> इटाली, नेदरल्याण्ड्स, स्पेन
                     </span>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
+                    <span class="text-muted-foreground english">
+                      Recognition from both dermatology and pediatric infectious disease societies
+                    </span>
+                    <span class="text-muted-foreground nepali">
+                      त्वचा रोग र बाल संक्रामक रोग दुवै सोसाइटीहरूबाट मान्यता
+                    </span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <span class="text-muted-foreground english">
                       Awards spanning academic, clinical, and research excellence
+                    </span>
+                    <span class="text-muted-foreground nepali">
+                      शैक्षिक, नैदानिक, र अनुसन्धान उत्कृष्टताको लागि पुरस्कारहरू
                     </span>
                   </li>
                 </ul>
@@ -690,10 +1007,105 @@
         </div>
       </div>
     </section>
+
+    <!-- Research Links Section -->
+    <section class="content-section" style="padding-top: 0;">
+      <div class="container">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center english">Research Profiles</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center nepali">अनुसन्धान प्रोफाइलहरू</h2>
+          <div class="research-links">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="research-link">
+              <i class="fas fa-book-medical"></i>
+              <span class="english">PubMed</span>
+              <span class="nepali">PubMed</span>
+            </a>
+            <a href="https://www.researchgate.net/" target="_blank" class="research-link">
+              <i class="fab fa-researchgate"></i>
+              <span class="english">ResearchGate</span>
+              <span class="nepali">ResearchGate</span>
+            </a>
+            <a href="https://orcid.org/" target="_blank" class="research-link">
+              <i class="fab fa-orcid"></i>
+              <span class="english">ORCID</span>
+              <span class="nepali">ORCID</span>
+            </a>
+            <a href="https://scholar.google.com/" target="_blank" class="research-link">
+              <i class="fas fa-graduation-cap"></i>
+              <span class="english">Google Scholar</span>
+              <span class="nepali">Google Scholar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Dr. Vikash Paudel </p>
+    <p>&copy; 2025 Dr. Vikash Paudel</p>
+    <div class="research-links" style="margin-top: 1rem;">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="research-link">
+        <i class="fas fa-book-medical"></i>
+        <span>PubMed</span>
+      </a>
+      <a href="https://www.researchgate.net/" target="_blank" class="research-link">
+        <i class="fab fa-researchgate"></i>
+        <span>ResearchGate</span>
+      </a>
+      <a href="https://orcid.org/" target="_blank" class="research-link">
+        <i class="fab fa-orcid"></i>
+        <span>ORCID</span>
+      </a>
+      <a href="https://scholar.google.com/" target="_blank" class="research-link">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Google Scholar</span>
+      </a>
+    </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const navbarToggle = document.getElementById('navbar-toggle');
+      const navbarMenu = document.getElementById('navbar-menu');
+      
+      if (navbarToggle && navbarMenu) {
+        navbarToggle.addEventListener('click', function() {
+          navbarMenu.classList.toggle('active');
+        });
+      }
+      
+      // Language toggle functionality
+      const languageToggle = document.getElementById('language-toggle');
+      let currentLanguage = 'english';
+      
+      if (languageToggle) {
+        languageToggle.addEventListener('click', function() {
+          const englishElements = document.querySelectorAll('.english');
+          const nepaliElements = document.querySelectorAll('.nepali');
+          
+          if (currentLanguage === 'english') {
+            // Switch to Nepali
+            englishElements.forEach(el => {
+              el.style.display = 'none';
+            });
+            nepaliElements.forEach(el => {
+              el.style.display = 'block';
+            });
+            currentLanguage = 'nepali';
+          } else {
+            // Switch to English
+            englishElements.forEach(el => {
+              el.style.display = 'block';
+            });
+            nepaliElements.forEach(el => {
+              el.style.display = 'none';
+            });
+            currentLanguage = 'english';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
