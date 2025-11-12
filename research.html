@@ -3,8 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research - Dr. Vikash Paudel | Dermatology & Research</title>
-  <meta name="description" content="Explore Dr. Vikash Paudel's research publications, presentations, and editorial work in dermatology, teledermatology, and leprosy.">
+  <title>Research Publications - Dr. Vikash Paudel | Dermatology & Research</title>
+  <meta name="description" content="Explore Dr. Vikash Paudel's extensive research in dermatology, teledermatology, leprosy, and infectious diseases. Publications in JAAD International, Psychiatry Research, and more.">
+  <meta name="keywords" content="dermatology research, teledermatology, leprosy, Nepal dermatology, Dr. Vikash Paudel, JAAD International, PubMed publications, dermatology case reports">
+  <meta name="author" content="Dr. Vikash Paudel">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Research Publications - Dr. Vikash Paudel | Dermatology & Research">
+  <meta property="og:description" content="Explore Dr. Vikash Paudel's extensive research in dermatology, teledermatology, leprosy, and infectious diseases.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.drvikashpaudel.com/research.html">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research Publications - Dr. Vikash Paudel">
+  <meta name="twitter:description" content="Dermatology research publications in teledermatology, leprosy, and infectious diseases.">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Vikash Paudel",
+    "jobTitle": "Associate Professor of Dermatology",
+    "affiliation": "Tribhuvan University",
+    "url": "https://www.drvikashpaudel.com",
+    "sameAs": [
+      "https://orcid.org/0000-0001-8729-052X",
+      "https://www.researchgate.net/profile/Vikash_Paudel",
+      "https://www.linkedin.com/in/dr-vikash-paudel"
+    ],
+    "knowsAbout": [
+      "Dermatology",
+      "Teledermatology",
+      "Leprosy",
+      "Infectious Diseases",
+      "Medical Education"
+    ],
+    "hasCredential": "MD Dermatology"
+  }
+  </script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -852,6 +891,58 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Statistics Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 3rem 0;
+      margin: 2rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Publication Filter */
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -931,6 +1022,10 @@
       .content-section {
         padding: 2rem 0;
       }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 480px) {
@@ -944,6 +1039,10 @@
       
       .card-content {
         padding: 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -979,6 +1078,30 @@
       <div class="container">
         <h1 class="fade-in">Publications & Research</h1>
         <p class="fade-in">Contributing to dermatological knowledge through research and academic publications</p>
+      </div>
+    </section>
+
+    <!-- Research Statistics -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid stagger-delay">
+          <div class="stat-item">
+            <div class="stat-number" id="publication-count">50+</div>
+            <div class="stat-label">Peer-Reviewed Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="citation-count">100+</div>
+            <div class="stat-label">Citations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="conference-count">20+</div>
+            <div class="stat-label">Conference Presentations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="journal-count">18</div>
+            <div class="stat-label">Peer Reviewer Journals</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1081,6 +1204,21 @@
 
               <div class="card">
                 <div class="card-content">
+                  <h3 class="text-xl font-semibold text-foreground mb-2">Patterns and barriers of teledermatology in resource-limited settings in COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
+                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                    <span class="font-medium">JAAD International</span>
+                    <span>•</span>
+                    <span>2022</span>
+                    <span>•</span>
+                    <span class="pub-tag">Original Research</span>
+                  </div>
+                  <p class="text-muted-foreground">Survey-based analysis of teledermatology implementation during COVID-19 in Nepal.</p>
+                  <a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
                   <h3 class="text-xl font-semibold text-foreground mb-2">Prevalence of Venereophobia among Patients of Non-Venereal Genital Conditions- A Cross-Sectional Hospital Based Study from Nepal</h3>
                   <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
                     <span class="font-medium">Nepal J Dermatol Venereol & Leprol</span>
@@ -1151,6 +1289,21 @@
                   </div>
                   <p class="text-muted-foreground">Cross-sectional study examining the clinical presentation and epidemiological patterns of Herpes Zoster in tertiary care settings.</p>
                   <a href="https://doi.org/10.3126/medphoenix.v3i1.20764" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="text-xl font-semibold text-foreground mb-2">Pattern of patch test reactivity among patients with clinical diagnosis of contact dermatitis: A hospital-based study</h3>
+                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
+                    <span class="font-medium">Our Dermatol Online</span>
+                    <span>•</span>
+                    <span>2017</span>
+                    <span>•</span>
+                    <span class="pub-tag">Original Research</span>
+                  </div>
+                  <p class="text-muted-foreground">Study examining patch test reactivity patterns in patients with contact dermatitis.</p>
+                  <a href="https://doi.org/10.7241/ourd.20174.111" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
                 </div>
               </div>
 
@@ -1824,6 +1977,34 @@
           document.querySelector('.navbar-menu').classList.remove('active');
         });
       });
+
+      // Update statistics with animation
+      function animateCount(element, target) {
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            clearInterval(timer);
+            current = target;
+          }
+          element.textContent = Math.floor(current) + "+";
+        }, 20);
+      }
+
+      // Animate statistics when they come into view
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount(document.getElementById('publication-count'), 50);
+            animateCount(document.getElementById('citation-count'), 100);
+            animateCount(document.getElementById('conference-count'), 20);
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      statsObserver.observe(document.querySelector('.stats-section'));
     });
   </script>
 </body>
