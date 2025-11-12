@@ -219,63 +219,29 @@
       width: 100%;
     }
 
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border-radius: 5px;
-      min-width: 200px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: all 0.3s;
-      z-index: 100;
-    }
-
-    .dropdown li {
-      margin: 0;
-      width: 100%;
-    }
-
-    .dropdown a {
-      display: block;
-      padding: 10px 15px;
-      border-bottom: 1px solid #f1f1f1;
-      color: var(--foreground);
-      text-decoration: none;
-      transition: var(--transition-smooth);
-    }
-
-    .dropdown a:hover {
-      background-color: #f8f9fa;
-      color: var(--primary);
-    }
-
-    .navbar-item:hover .dropdown {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
     .appointment-btn {
-      background-color: var(--accent);
+      background: linear-gradient(135deg, #4db6ac, #1a6aa2);
       color: white;
-      border-radius: 4px;
-      margin-left: 1rem;
-      transition: var(--transition-smooth);
-      border: none;
-      padding: 10px 20px;
+      border-radius: 30px;
+      padding: 0.6rem 1.5rem;
       font-weight: 600;
+      border: none;
       cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-left: 1rem;
     }
 
     .appointment-btn:hover {
-      background-color: var(--accent-dark);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, #1a6aa2, #4db6ac);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .appointment-btn i {
+      margin-right: 0.5rem;
     }
 
     .mobile-toggle {
@@ -297,7 +263,7 @@
     }
 
     .hero-section {
-      background: linear-gradient(rgba(26, 106, 162, 0.8), rgba(26, 106, 162, 0.9)), url('images/hero-research.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(26, 106, 162, 0.8), rgba(26, 106, 162, 0.9)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: var(--primary-foreground);
       padding: 4rem 0;
       position: relative;
@@ -843,6 +809,49 @@
       gap: 1.5rem;
     }
 
+    /* Quick Links Section */
+    .quick-links-section {
+      background-color: #f8f9fa;
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .quick-link-item {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      border: 1px solid #f0f0f0;
+      text-decoration: none;
+      color: var(--foreground);
+    }
+
+    .quick-link-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      color: var(--primary);
+    }
+
+    .quick-link-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .quick-link-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -886,21 +895,10 @@
         border-bottom: 3px solid var(--accent);
       }
 
-      .dropdown {
-        position: static;
-        box-shadow: none;
-        background: #f8f9fa;
-        border-radius: 0;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s;
-      }
-
-      .navbar-item:hover .dropdown {
-        max-height: 200px;
+      .appointment-btn {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
       }
 
       .mobile-toggle {
@@ -920,7 +918,7 @@
         margin-top: 1rem;
       }
 
-      .editorial-grid, .work-experience-grid, .peer-reviewer-grid, .conference-grid {
+      .editorial-grid, .work-experience-grid, .peer-reviewer-grid, .conference-grid, .quick-links-grid {
         grid-template-columns: 1fr;
       }
       
@@ -965,22 +963,12 @@
       
       <ul class="navbar-menu">
         <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">Services</a>
-          <ul class="dropdown">
-            <li><a href="#" class="dropdown-item">Teledermatology</a></li>
-            <li><a href="#" class="dropdown-item">Dermatosurgery</a></li>
-            <li><a href="#" class="dropdown-item">STI Management</a></li>
-            <li><a href="#" class="dropdown-item">Leprosy Care</a></li>
-          </ul>
-        </li>
-        <li class="navbar-item"><a href="research.html" class="navbar-link active">Research</a></li>
-        <li class="navbar-item"><a href="award.html" class="navbar-link">Award</a></li>
-        <li class="navbar-item"><a href="testimonials.html" class="navbar-link">Testimonials</a></li>
         <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
-        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+        <li class="navbar-item"><a href="research.html" class="navbar-link active">Research</a></li>
+        <li class="navbar-item"><a href="award.html" class="navbar-link">Awards</a></li>
         <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
-        <li class="navbar-item"><a href="appointment.html" class="navbar-link appointment-btn">Book Appointment</a></li>
+        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+        <li class="navbar-item"><a href="appointment.html" class="navbar-link appointment-btn"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
       </ul>
     </div>
   </nav>
@@ -1011,6 +999,9 @@
             </a>
             <a href="https://www.researchgate.net/profile/Vikash_Paudel" class="social-link scale-in" aria-label="ResearchGate Profile" target="_blank">
               <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/dr-vikash-paudel" class="social-link scale-in" aria-label="LinkedIn Profile" target="_blank">
+              <i class="fab fa-linkedin"></i>
             </a>
           </div>
         </div>
@@ -1662,6 +1653,136 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links-section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-center mb-6 fade-in">Research Resources & Links</h2>
+          <div class="quick-links-grid stagger-delay">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-book-medical"></i>
+              </div>
+              <div class="quick-link-title">PubMed</div>
+              <p class="text-sm text-muted-foreground">National Library of Medicine</p>
+            </a>
+            <a href="https://www.researchgate.net/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fab fa-researchgate"></i>
+              </div>
+              <div class="quick-link-title">ResearchGate</div>
+              <p class="text-sm text-muted-foreground">Scientific Network</p>
+            </a>
+            <a href="https://orcid.org/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fab fa-orcid"></i>
+              </div>
+              <div class="quick-link-title">ORCID</div>
+              <p class="text-sm text-muted-foreground">Researcher Identifier</p>
+            </a>
+            <a href="https://www.linkedin.com/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="quick-link-title">LinkedIn</div>
+              <p class="text-sm text-muted-foreground">Professional Network</p>
+            </a>
+            <a href="https://nhrc.gov.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-hospital"></i>
+              </div>
+              <div class="quick-link-title">NHRC Nepal</div>
+              <p class="text-sm text-muted-foreground">Health Research Council</p>
+            </a>
+            <a href="https://www.sodvelon.org.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="quick-link-title">SODVELON</div>
+              <p class="text-sm text-muted-foreground">Dermatology Society</p>
+            </a>
+            <a href="https://www.njdvl.org.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="quick-link-title">NJDVL</div>
+              <p class="text-sm text-muted-foreground">Journal of Dermatology</p>
+            </a>
+            <a href="https://jnma.com.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-stethoscope"></i>
+              </div>
+              <div class="quick-link-title">JNMA</div>
+              <p class="text-sm text-muted-foreground">Nepal Medical Association</p>
+            </a>
+            <a href="https://www.ugcnepal.edu.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="quick-link-title">UGC Nepal</div>
+              <p class="text-sm text-muted-foreground">University Grants Commission</p>
+            </a>
+            <a href="https://mohp.gov.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-clinic-medical"></i>
+              </div>
+              <div class="quick-link-title">MoHP</div>
+              <p class="text-sm text-muted-foreground">Ministry of Health</p>
+            </a>
+            <a href="https://www.pahs.edu.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="quick-link-title">PAHS</div>
+              <p class="text-sm text-muted-foreground">Patan Academy of Health Sciences</p>
+            </a>
+            <a href="https://jnahs.org.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-file-medical"></i>
+              </div>
+              <div class="quick-link-title">JPAHS</div>
+              <p class="text-sm text-muted-foreground">Journal of PAHS</p>
+            </a>
+            <a href="https://medphoenix.org.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-feather-alt"></i>
+              </div>
+              <div class="quick-link-title">Medphoenix</div>
+              <p class="text-sm text-muted-foreground">Medical Journal</p>
+            </a>
+            <a href="https://iom.edu.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-school"></i>
+              </div>
+              <div class="quick-link-title">IOM</div>
+              <p class="text-sm text-muted-foreground">Institute of Medicine</p>
+            </a>
+            <a href="https://tribhuvan-university.edu.np/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-landmark"></i>
+              </div>
+              <div class="quick-link-title">TU</div>
+              <p class="text-sm text-muted-foreground">Tribhuvan University</p>
+            </a>
+            <a href="https://www.jeadv.com/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-globe-europe"></i>
+              </div>
+              <div class="quick-link-title">JEADV</div>
+              <p class="text-sm text-muted-foreground">European Academy Journal</p>
+            </a>
+            <a href="https://www.odermatol.com/" class="quick-link-item" target="_blank">
+              <div class="quick-link-icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <div class="quick-link-title">Our Dermatol Online</div>
+              <p class="text-sm text-muted-foreground">Dermatology Journal</p>
+            </a>
           </div>
         </div>
       </div>
