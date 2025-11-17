@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Dr. Vikash Paudel | Best Dermatologist in Kathmandu</title>
+    <meta name="description" content="Comprehensive dermatological services by Dr. Vikash Paudel including medical dermatology, cosmetic procedures, STI treatment, hair restoration, and more.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="dermatology services, skin treatments, cosmetic dermatology, hair treatment, STI treatment, Kathmandu dermatologist">
+    <meta name="author" content="Dr. Vikash Paudel">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Our Services - Dr. Vikash Paudel" />
+    <meta property="og:description" content="Comprehensive dermatological services including medical dermatology, cosmetic procedures, STI treatment, and hair restoration." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vikashpaudel.com.np/services" />
+    <meta property="og:image" content="https://vikashpaudel.com.np/images/services-og-image.jpg" />
+    <meta property="og:image:alt" content="Dr Vikash Paudel - Dermatology Services" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vikashpaudel.com.np/services">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Noto Sans Devanagari for Nepali -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --success: #2ecc71;
+            --gold: #f1c40f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        /* Nepali language styling */
+        body[lang="np"] {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+        }
+
+        body[lang="np"] .hero-title,
+        body[lang="np"] .section-title h2 {
+            font-family: 'Noto Sans Devanagari', 'Playfair Display', serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* Book Now Navigation Tool */
+        .book-now-nav {
+            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-left: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .book-now-nav a {
+            color: white !important;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .book-now-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        /* Language Switcher - Updated */
+        .language-switcher {
+            margin-left: 15px;
+            position: relative;
+        }
+        
+        .language-btn {
+            background: none;
+            border: 1px solid var(--light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            background-color: var(--light);
+            font-weight: 500;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .language-option:hover {
+            background-color: var(--light);
+        }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        
+        .dropdown a:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .nav-menu li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%), url('images/services-hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-subtitle {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            color: var(--accent);
+        }
+        
+        .service-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Detailed Services Section */
+        .detailed-services {
+            background-color: var(--light);
+        }
+        
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .service-detail:nth-child(even) .service-detail-content {
+            direction: ltr;
+        }
+        
+        .service-detail-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .service-detail-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .service-detail-content h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .service-detail-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .service-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-features i {
+            color: var(--success);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-section .section-title {
+            color: white;
+        }
+        
+        .cta-section .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+            
+            .nav-menu.active {
+                max-height: 500px;
+                margin-top: 15px;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: #f8f9fa;
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+            
+            .nav-menu li:hover .dropdown {
+                max-height: 200px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+            
+            .book-now-nav {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .service-detail:nth-child(even) {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="images/logo.png" alt="Dr. Vikash Paudel Logo" loading="lazy">
+                </div>
+                <div class="logo-text">
+                    <i class="fas fa-stethoscope logo-icon"></i>
+                    <h1>Dr. Vikash Paudel</h1>
+                </div>
+            </div>
+            
+            <nav>
+                <div class="mobile-toggle" aria-label="Open navigation menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+                    <li>
+                        <a href="#services" data-en="Services" data-np="सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="acne.html" data-en="Acne Treatment" data-np="डन्डिफोरको उपचार">Acne Treatment</a></li>
+                            <li><a href="peel.html" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
+                            <li><a href="hair.html" data-en="Hair Restoration" data-np="कपाल सम्बन्धि">Hair Restoration</a></li>
+                            <li><a href="laser.html" data-en="LASER Therapy" data-np="लेजर उपचार">LASER Therapy</a></li>
+                            <li><a href="sti.html" data-en="STI Treatment" data-np="यौन संक्रमणको उपचार">STI Treatment</a></li>
+                            <li><a href="cosmetic.html" data-en="Cosmetic Procedures" data-np="कस्मेटिक उपचार">Cosmetic Procedures</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
+                    <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
+                    <li><a href="index.html#testimonials" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
+                    <li><a href="about.html" data-en="About us" data-np="हाम्रो बारेमा">About</a></li>
+                    <li><a href="index.html#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+                    <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                    <li class="book-now-nav">
+                        <a href="appointment.html" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक ">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </a>
+                    </li>
+                    <li class="language-switcher">
+                        <button class="language-btn" id="languageBtn">
+                            <i class="fas fa-globe"></i>
+                            <span>English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjEyIiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjE4IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjI0IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RlMjcyNyIvPjwvc3ZnPg==" alt="US Flag" class="language-flag">
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="np">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Nepal Flag" class="language-flag">
+                                <span>नेपाली</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-en="Our Dermatology Services" data-np="हाम्रा छालारोग सेवाहरू">Our Dermatology Services</h1>
+                <p class="hero-subtitle" data-en="Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns with advanced treatments and personalized approach." data-np="उन्नत उपचार र व्यक्तिगत दृष्टिकोणको साथ तपाईंको छाला, कपाल, नङ, वा यौनरोग सम्बन्धी सबै चिन्ताहरूको लागि सम्पूर्ण छालारोग हेरचाह।">Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns with advanced treatments and personalized approach.</p>
+                <div class="hero-buttons">
+                    <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
+                    <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-np="गृहपृष्ठमा फर्कनुहोस्">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-en="Our Specialized Services" data-np="हाम्रा विशेषीकृत सेवाहरू">Our Specialized Services</h2>
+            <p class="section-subtitle" data-en="Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns." data-np="तपाईंको छाला, कपाल, नङ, वा यौनरोग सम्बन्धी सबै चिन्ताहरूको लागि सम्पूर्ण उपचार।">Comprehensive dermatological care for all your skin, hair, nail, and sexually transmitted disease concerns.</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-allergies service-icon"></i>
+                    <h3 class="service-title" data-en="Medical Dermatology" data-np="साधारण छालारोगहरु">Medical Dermatology</h3>
+                    <p data-en="Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections." data-np="डन्डिफोर, दाद, एक्जिमा, चायापोतो, दुभि,कत्लेरोग (सोरायसिस), घाउ-खटिरा लगायात सबै समस्याहरुको निदान र उपचार।">Diagnosis and treatment of all skin conditions, including acne, eczema, melasma, vitiligo, psoriasis, and skin infections.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-spa service-icon"></i>
+                    <h3 class="service-title" data-en="Cosmetic Dermatology" data-np="कस्मेटिक समस्या">Cosmetic Dermatology</h3>
+                    <p data-en="Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation." data-np="छाला पुनर्योजनको लागि बोटोक्स, फिलर, केमिकल पील, र लेजर उपचार सहित उन्नत कस्मेटिक उपचार।">Advanced cosmetic treatments including Botox, fillers, chemical peels, and laser therapies for skin rejuvenation.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-syringe service-icon"></i>
+                    <h3 class="service-title" data-en="STI Treatment" data-np="यौन संक्रमण। रोगको उपचार">STI Treatment</h3>
+                    <p data-en="Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality." data-np="पूर्ण गोपनीयताको साथ सबै प्रकारका यौन संक्रमित संक्रमणहरूको व्यापक स्क्रिनिंग, निदान, र उपचार।">Comprehensive screening, diagnosis, and treatment of all types of sexually transmitted infections with complete confidentiality.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-procedures service-icon"></i>
+                    <h3 class="service-title" data-en="Surgical Procedures" data-np="सर्जिकल प्रक्रियाहरू">Surgical Procedures</h3>
+                    <p data-en="Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring." data-np="कोठि, मुसा, मासु पलाएको, सिस्ट हटाउने, दाग हटाउने, र कमदागको साथ बायोप्सीको लागि साना सर्जिकल प्रक्रियाहरू।">Minor surgical procedures for skin growths, cysts, removal of warts, scar revision, and biopsies with minimal scarring.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-user-md service-icon"></i>
+                    <h3 class="service-title" data-en="Hair & Scalp Treatments" data-np="कपाल र तालु उपचार">Hair & Scalp Treatments</h3>
+                    <p data-en="Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results." data-np="कपाल झर्ने: एलोपेसिया, कपालको चाया, कपालको ढुसि दाद, सोरायसिस, र अन्य कपाल सम्बन्धी अवस्थाहरूको लागि विशेषीकृत हेरचाह र नतिजाको साथ।">Specialized care for hair loss: Alopecia, dandruff, scalp psoriasis, and other hair-related conditions with proven results.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-laptop-medical service-icon"></i>
+                    <h3 class="service-title" data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</h3>
+                    <p data-en="Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home." data-np="तपाईंको घरबाट छाला सम्बन्धि चि समस्याहरूको लागि जुम वा सामाजिक मिडिया मार्फत परामर्श।">Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section class="section detailed-services">
+        <div class="container">
+            <h2 class="section-title" data-en="Detailed Services Overview" data-np="विस्तृत सेवा अवलोकन">Detailed Services Overview</h2>
+            
+            <div class="service-detail fade-in">
+                <div class="service-detail-image">
+                    <img src="images/medical-dermatology.jpg" alt="Medical Dermatology" loading="lazy">
+                </div>
+                <div class="service-detail-content">
+                    <h3 data-en="Medical Dermatology" data-np="साधारण छालारोगहरु">Medical Dermatology</h3>
+                    <p data-en="Our medical dermatology services focus on diagnosing and treating a wide range of skin conditions using evidence-based approaches and the latest medical advancements." data-np="हाम्रो चिकित्सा त्वचा विज्ञान सेवाहरूले प्रमाण-आधारित दृष्टिकोण र नवीनतम चिकित्सा प्रगतिहरू प्रयोग गरेर छालाको विस्तृत श्रृंखलाको निदान र उपचारमा केन्द्रित गर्दछ।">Our medical dermatology services focus on diagnosing and treating a wide range of skin conditions using evidence-based approaches and the latest medical advancements.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Acne treatment and management" data-np="एक्ने उपचार र व्यवस्थापन">Acne treatment and management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Eczema and dermatitis care" data-np="एक्जिमा र डर्माटाइटिस हेरचाह">Eczema and dermatitis care</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Psoriasis treatment" data-np="सोरायसिस उपचार">Psoriasis treatment</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Skin cancer screening" data-np="छालाको क्यान्सर स्क्रिनिंग">Skin cancer screening</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Vitiligo and pigmentation disorders" data-np="दुभि र रंगत सम्बन्धी विकारहरू">Vitiligo and pigmentation disorders</span></li>
+                    </ul>
+                    <a href="appointment.html" class="btn" data-en="Book Consultation" data-np="परामर्श बुक गर्नुहोस्">Book Consultation</a>
+                </div>
+            </div>
+            
+            <div class="service-detail fade-in">
+                <div class="service-detail-image">
+                    <img src="images/cosmetic-dermatology.jpg" alt="Cosmetic Dermatology" loading="lazy">
+                </div>
+                <div class="service-detail-content">
+                    <h3 data-en="Cosmetic Dermatology" data-np="कस्मेटिक समस्या">Cosmetic Dermatology</h3>
+                    <p data-en="Enhance your natural beauty with our advanced cosmetic procedures designed to address signs of aging, improve skin texture, and restore youthful appearance." data-nn="उमेर बढ्ने संकेतहरूलाई सम्बोधन गर्न, छालाको बनावट सुधार गर्न, र युवा रूप पुनर्स्थापना गर्न डिजाइन गरिएका हाम्रा उन्नत कस्मेटिक प्रक्रियाहरूसँग आफ्नो प्राकृतिक सुन्दरता बढाउनुहोस्।">Enhance your natural beauty with our advanced cosmetic procedures designed to address signs of aging, improve skin texture, and restore youthful appearance.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Botox and dermal fillers" data-np="बोटोक्स र डर्मल फिलर">Botox and dermal fillers</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Chemical peels and microdermabrasion" data-np="केमिकल पील र माइक्रोडर्माब्रेसन">Chemical peels and microdermabrasion</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Laser skin resurfacing" data-np="लेजर छाला रिसर्फेसिंग">Laser skin resurfacing</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="PRP therapy for skin rejuvenation" data-np="छाला पुनर्योजनको लागि पीआरपी थेरेपी">PRP therapy for skin rejuvenation</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Thread lifts and non-surgical facelifts" data-np="थ्रेड लिफ्ट र गैर-सर्जिकल फेसलिफ्ट">Thread lifts and non-surgical facelifts</span></li>
+                    </ul>
+                    <a href="appointment.html" class="btn" data-en="Book Consultation" data-np="परामर्श बुक गर्नुहोस्">Book Consultation</a>
+                </div>
+            </div>
+            
+            <div class="service-detail fade-in">
+                <div class="service-detail-image">
+                    <img src="images/hair-treatment.jpg" alt="Hair & Scalp Treatments" loading="lazy">
+                </div>
+                <div class="service-detail-content">
+                    <h3 data-en="Hair & Scalp Treatments" data-np="कपाल र तालु उपचार">Hair & Scalp Treatments</h3>
+                    <p data-en="Comprehensive solutions for all hair and scalp concerns, from common hair loss to complex scalp conditions, using the latest diagnostic tools and treatment modalities." data-np="नवीनतम नैदानिक उपकरणहरू र उपचार विधिहरू प्रयोग गरेर सामान्य कपाल झर्नेबाट जटिल तालु अवस्थाहरूसम्म सबै कपाल र तालु चिन्ताहरूको लागि व्यापक समाधानहरू।">Comprehensive solutions for all hair and scalp concerns, from common hair loss to complex scalp conditions, using the latest diagnostic tools and treatment modalities.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Hair loss diagnosis and treatment" data-np="कपाल झर्ने निदान र उपचार">Hair loss diagnosis and treatment</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="PRP therapy for hair regrowth" data-np="कपाल पुनर्बृद्धिको लागि पीआरपी थेरेपी">PRP therapy for hair regrowth</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Scalp conditions management" data-np="तालु अवस्था व्यवस्थापन">Scalp conditions management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Hair transplant evaluation" data-np="कपाल प्रत्यारोपण मूल्यांकन">Hair transplant evaluation</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Customized hair care regimens" data-np="अनुकूलित कपाल हेरचाह दिनचर्या">Customized hair care regimens</span></li>
+                    </ul>
+                    <a href="appointment.html" class="btn" data-en="Book Consultation" data-np="परामर्श बुक गर्नुहोस्">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title" data-en="Ready to Transform Your Skin Health?" data-np="तपाईंको छालाको स्वास्थ्य रूपान्तरण गर्न तयार हुनुहुन्छ?">Ready to Transform Your Skin Health?</h2>
+            <p class="section-subtitle" data-en="Book your consultation with Dr. Vikash Paudel today and take the first step towards healthier, more beautiful skin." data-np="आज नै डा. विकास पौडेलसँग आफ्नो परामर्श बुक गर्नुहोस् र स्वस्थ, सुन्दर छालाको लागि पहिलो कदम चाल्नुहोस्।">Book your consultation with Dr. Vikash Paudel today and take the first step towards healthier, more beautiful skin.</p>
+            <div class="hero-buttons">
+                <a href="appointment.html" class="btn" data-en="Book Appointment Now" data-np="अहिले अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment Now</a>
+                <a href="index.html#contact" class="btn btn-outline" data-en="Contact Us" data-np="हामीलाई सम्पर्क गर्नुहोस्">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3 data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</h3>
+                    <p data-en="Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach." data-np="काठमाडौंका अग्रणी छालारोग विशेषज्ञ जसले अत्याधुनिक उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक छालाको हेरचाह प्रदान गर्दछ।">Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/vikashderma" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.x.com/merodesh" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/vikash.paudel" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-en="Quick Links" data-np="द्रुत लिंकहरू">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+                        <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+                        <li><a href="#services" data-en="Services" data-np="सेवाहरू">Services</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+                        <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong data-en="Main Clinic" data-np="मुख्य क्लिनिक">Main Clinic</strong>
+                                <p data-en="Shankhamul Health Care, Shankhamul, Kathmandu" data-np="शंखमुल हेल्थ केयर, शंखमुल, काठमाडौं">Shankhamul Health Care, Shankhamul, Kathmandu</p>
+                                <p data-en="Elite Health Clinic, Mahalaxmisthan, Lalitpur" data-np="एलाइट हेल्थ क्लिनिक, महालक्ष्मीस्थान, ललितपुर">Elite Health Clinic, Mahalaxmisthan, Lalitpur</p>
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong data-en="Satellite Clinic" data-np=" अन्य क्लिनिक">Satellite Clinic</strong>
+                                <p data-en="Shubharambha Skin Centre, Chatakpur, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, चटकपुर, धनगढी">Shubharambha Skin Centre, Chatakpur, Dhangadhi</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong data-en="Phone" data-np="फोन">Phone</strong>
+                                <p>+977-1-5242511 (Shankhamul)</p>
+                                <p>+977-1-5420745 (Elite)</p>
+                                <p>+977-91-410107 (Shubharambha)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong data-en="Email" data-np="इमेल">Email</strong>
+                                <p>vikashpaudel@gmail.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</h3>
+                    <p data-en="Schedule your consultation with Dr. Paudel for personalized skin care solutions." data-np="व्यक्तिगत छालाको हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्शको योजाना बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalized skin care solutions.</p>
+                    <a href="appointment.html" class="btn" style="margin-top: 15px;" data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Dr. Vikash Paudel - Dermatologist",
+      "description": "Leading dermatologist in Kathmandu specializing in skin diseases, cosmetic dermatology, and advanced skin treatments.",
+      "url": "https://www.vikashpaudel.com.np/services",
+      "telephone": "+977-1-5242511",
+      "email": "vikashpaudel@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shankhamul Health Care, Shankhamul",
+        "addressLocality": "Kathmandu",
+        "addressCountry": "NP"
+      },
+      "openingHours": [
+        "Su-Fr 04:00-19:00",
+        "We 09:00-19:00"
+      ],
+      "medicalSpecialty": "Dermatology",
+      "serviceType": "Medical Dermatology, Cosmetic Dermatology, STI Treatment, Hair Restoration, Skin Surgery",
+      "award": "Rising Star Award (WCD 2019, 2023); Imrich Sarkany Award (EADV 2023)",
+      "sameAs": [
+        "https://www.facebook.com/vikashderma",
+        "https://www.instagram.com/vikash.paudel",
+        "https://www.linkedin.com/in/vikash-paudel-89598324"
+      ]
+    }
+    </script>
+
+    <script>
+        // Language Switching Functionality with localStorage
+        let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        
+        // Apply stored language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage(currentLanguage);
+        });
+        
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+        
+        languageBtn.addEventListener('click', () => {
+            languageDropdown.classList.toggle('active');
+        });
+        
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedLang = option.getAttribute('data-lang');
+                switchLanguage(selectedLang);
+                languageDropdown.classList.remove('active');
+            });
+        });
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else if (lang === 'np') {
+                    element.textContent = element.getAttribute('data-np');
+                }
+            });
+            
+            // Update language button
+            const languageText = lang === 'en' ? 'English' : 'नेपाली';
+            
+            languageBtn.innerHTML = `
+                <i class="fas fa-globe"></i>
+                <span>${languageText}</span>
+                <i class="fas fa-chevron-down"></i>
+            `;
+            
+            // Update HTML lang attribute and body class
+            document.documentElement.lang = lang;
+            document.body.lang = lang;
+        }
+        
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageDropdown.classList.remove('active');
+            }
+        });
+        
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check
+        checkFade();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkFade);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '5px 0';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
