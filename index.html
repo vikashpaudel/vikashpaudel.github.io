@@ -45,6 +45,7 @@
             --text-light: #7f8c8d;
             --success: #2ecc71;
             --gold: #f1c40f;
+            --whatsapp: #25D366;
         }
         
         * {
@@ -415,7 +416,7 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
         
@@ -513,7 +514,7 @@
         /* Testimonials Section */
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
         
@@ -772,6 +773,32 @@
             border-color: var(--secondary);
         }
         
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -844,6 +871,14 @@
             background-color: var(--secondary);
         }
         
+        .whatsapp-footer {
+            background-color: var(--whatsapp);
+        }
+        
+        .whatsapp-footer:hover {
+            background-color: #128C7E;
+        }
+        
         .copyright {
             padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -887,6 +922,16 @@
         }
         
         /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -969,6 +1014,18 @@
             .book-now-nav {
                 margin-left: 0;
                 margin-top: 10px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-container {
+                flex-direction: column;
             }
         }
     </style>
@@ -1097,6 +1154,19 @@
                     <h3 class="service-title" data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</h3>
                     <p data-en="Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home." data-np="तपाईंको घरबाट छाला सम्बन्धि चि समस्याहरूको लागि जुम वा सामाजिक मिडिया मार्फत परामर्श।">Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
                 </div>
+                
+                <!-- New Service Cards -->
+                <div class="service-card fade-in">
+                    <i class="fas fa-sneeze service-icon"></i>
+                    <h3 class="service-title" data-en="Allergy Treatment" data-np="एलर्जी उपचार">Allergy Treatment</h3>
+                    <p data-en="Comprehensive diagnosis and management of skin allergies, contact dermatitis, hives, and other allergic skin reactions." data-np="छालाको एलर्जी, सम्पर्क जन्य दाद, पित्ती, र अन्य एलर्जी प्रतिक्रियाहरूको व्यापक निदान र व्यवस्थापन।">Comprehensive diagnosis and management of skin allergies, contact dermatitis, hives, and other allergic skin reactions.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <i class="fas fa-baby service-icon"></i>
+                    <h3 class="service-title" data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</h3>
+                    <p data-en="Specialized skin care for infants, children, and adolescents, including eczema, birthmarks, and genetic skin conditions." data-np="शिशु, बच्चाहरू, र किशोरहरूको लागि विशेषीकृत छालाको हेरचाह, जसमा एक्जिमा, जन्मचिन्ह, र आनुवंशिक छालाको अवस्थाहरू समावेश छन्।">Specialized skin care for infants, children, and adolescents, including eczema, birthmarks, and genetic skin conditions.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1196,6 +1266,19 @@
                     <p class="review-text" data-en="Trusted Skin Specialist" data-np="विश्वसनीय छालारोग विशेषज्ञ">Trusted Skin Specialist</p>
                     <p data-en="Patient Favorite" data-np="रोगीहरूको मनपर्ने">Patient Favorite</p>
                 </div>
+                
+                <div class="review-badge fade-in">
+                    <i class="fab fa-google google-icon"></i>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-en="Professional & Caring" data-np="व्यावसायिक र देखभाल">Professional & Caring</p>
+                    <p data-en="100+ Satisfied Patients" data-np="१००+ सन्तुष्ट रोगी">100+ Satisfied Patients</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1239,6 +1322,17 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text" data-en="&quot;Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout.&quot;" data-np="&quot;मेरो छोराको एक्जिमाको उपचारमा डा. पौडेलको दृष्टिकोण कोमल तर प्रभावकारी थियो। उनले सबै कुरा वर्णन गर्न समय लिए र हामीलाई पूरै प्रक्रियामा सहज महसुस गराए।&quot;">"Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">PB</div>
+                        <div class="author-info">
+                            <h4>P Bhandari</h4>
+                            <p data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1255,6 +1349,7 @@
                         <a href="https://www.x.com/merodesh" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.instagram.com/vikash.paudel" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/9779825207253" class="whatsapp-footer" aria-label="Contact us on WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -1319,6 +1414,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Live Chat Widget -->
     <div class="chat-widget">
