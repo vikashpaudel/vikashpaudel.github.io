@@ -402,8 +402,14 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+        }
+        
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
         .service-card {
@@ -621,6 +627,174 @@
             color: rgba(255,255,255,0.7);
         }
         
+        /* WhatsApp Button Styles */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+
+        /* Live Chat Widget Styles */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 110px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(231, 76, 60, 0.6);
+        }
+
+        .chat-container {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-chat:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.bot {
+            background: #f1f1f1;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            background: var(--secondary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--light);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--light);
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-input input:focus {
+            border-color: var(--secondary);
+        }
+
+        .chat-input button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-input button:hover {
+            background: var(--primary);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -737,6 +911,41 @@
             
             .service-detail:nth-child(even) {
                 direction: ltr;
+            }
+            
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 85px;
+            }
+            
+            .chat-button {
+                width: 55px;
+                height: 55px;
+                font-size: 20px;
+            }
+            
+            .chat-container {
+                width: 280px;
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-widget {
+                right: 80px;
+            }
+            
+            .chat-container {
+                width: 260px;
+                height: 360px;
             }
         }
     </style>
@@ -861,6 +1070,20 @@
                     <i class="fas fa-laptop-medical service-icon"></i>
                     <h3 class="service-title" data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</h3>
                     <p data-en="Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home." data-np="तपाईंको घरबाट छाला सम्बन्धि चि समस्याहरूको लागि जुम वा सामाजिक मिडिया मार्फत परामर्श।">Virtual consultations via Zoom or social media for follow-ups and non-emergency skin concerns from the comfort of your home.</p>
+                </div>
+
+                <!-- New Allergy Treatment Service Box -->
+                <div class="service-card fade-in">
+                    <i class="fas fa-wind service-icon"></i>
+                    <h3 class="service-title" data-en="Allergy Treatment" data-np="एलर्जी उपचार">Allergy Treatment</h3>
+                    <p data-en="Comprehensive diagnosis and management of skin allergies, contact dermatitis, hives, and other allergic skin reactions." data-np="छालाको एलर्जी, सम्पर्क डर्माटाइटिस, पित्ती, र अन्य एलर्जी छाला प्रतिक्रियाहरूको व्यापक निदान र व्यवस्थापन।">Comprehensive diagnosis and management of skin allergies, contact dermatitis, hives, and other allergic skin reactions.</p>
+                </div>
+
+                <!-- New Pediatric Dermatology Service Box -->
+                <div class="service-card fade-in">
+                    <i class="fas fa-baby service-icon"></i>
+                    <h3 class="service-title" data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</h3>
+                    <p data-en="Specialized skin care for infants, children, and adolescents, including eczema, birthmarks, and genetic skin conditions." data-np="शिशु, बच्चा, र किशोरहरूको लागि विशेषीकृत छालाको हेरचाह, जसमा एक्जिमा, जन्मचिन्ह, र आनुवंशिक छालाको अवस्थाहरू समावेश छन्।">Specialized skin care for infants, children, and adolescents, including eczema, birthmarks, and genetic skin conditions.</p>
                 </div>
             </div>
         </div>
@@ -1016,6 +1239,37 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment%20for%20dermatology%20services" class="whatsapp-button" target="_blank" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" id="chatButton" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
+                <button class="close-chat" id="closeChat" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." data-en="Type your message..." data-np="आफ्नो सन्देश टाइप गर्नुहोस्...">
+                <button id="sendMessage" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -1149,6 +1403,71 @@
             } else {
                 header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
                 header.style.padding = '15px 0';
+            }
+        });
+
+        // Live Chat Widget Functionality
+        const chatButton = document.getElementById('chatButton');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        
+        // Toggle chat container
+        chatButton.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+        
+        // Close chat container
+        closeChat.addEventListener('click', function() {
+            chatContainer.classList.remove('active');
+        });
+        
+        // Send message function
+        function sendChatMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user';
+                userMessage.textContent = message;
+                chatMessages.appendChild(userMessage);
+                
+                // Clear input
+                chatInput.value = '';
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate bot response after a delay
+                setTimeout(function() {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot';
+                    
+                    let responseText = '';
+                    if (currentLanguage === 'en') {
+                        responseText = "Thank you for your message. Our team will respond shortly. For immediate assistance regarding our dermatology services, please call us at +977-1-5242511.";
+                    } else {
+                        responseText = "धन्यवाद। हाम्रो टोलीले चाँडै जवाफ दिनेछ। हाम्रा छालारोग सेवाहरूको बारेमा तत्काल सहयोगको लागि कृपया +९७७-१-५२४२५११ मा कल गर्नुहोस्।";
+                    }
+                    
+                    botMessage.innerHTML = `<span data-en="Thank you for your message. Our team will respond shortly. For immediate assistance regarding our dermatology services, please call us at +977-1-5242511." data-np="धन्यवाद। हाम्रो टोलीले चाँडै जवाफ दिनेछ। हाम्रा छालारोग सेवाहरूको बारेमा तत्काल सहयोगको लागि कृपया +९७७-१-५२४२५११ मा कल गर्नुहोस्।">${responseText}</span>`;
+                    chatMessages.appendChild(botMessage);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        // Send message on button click
+        sendMessage.addEventListener('click', sendChatMessage);
+        
+        // Send message on Enter key
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
             }
         });
     </script>
