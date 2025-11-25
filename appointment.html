@@ -496,6 +496,174 @@
       to { transform: rotate(360deg); }
     }
 
+    /* WhatsApp Button Styles */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      color: white;
+    }
+
+    /* Live Chat Widget Styles */
+    .chat-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 110px;
+      z-index: 1000;
+    }
+
+    .chat-button {
+      width: 60px;
+      height: 60px;
+      background: var(--accent-gradient);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(231, 76, 60, 0.6);
+    }
+
+    .chat-container {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 450px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-container.active {
+      display: flex;
+    }
+
+    .chat-header {
+      background: var(--hero-gradient);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      color: white;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .close-chat:hover {
+      transform: scale(1.1);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 10px 15px;
+      border-radius: 18px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .message.bot {
+      background: #f1f1f1;
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+    }
+
+    .message.user {
+      background: var(--primary-light);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .chat-input input:focus {
+      border-color: var(--primary);
+    }
+
+    .chat-input button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-input button:hover {
+      background: var(--primary-dark);
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -530,6 +698,15 @@
       .card-content {
         padding: 1.5rem;
       }
+      
+      .chat-widget {
+        right: 90px;
+      }
+      
+      .chat-container {
+        width: 300px;
+        height: 400px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -547,6 +724,30 @@
       
       .card-content {
         padding: 1.25rem;
+      }
+      
+      .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+      }
+      
+      .chat-widget {
+        bottom: 20px;
+        right: 85px;
+      }
+      
+      .chat-button {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+      }
+      
+      .chat-container {
+        width: 280px;
+        height: 380px;
       }
     }
   </style>
@@ -787,36 +988,6 @@
               </form>
             </div>
           </div>
-   <!-- WhatsApp Button -->
-    <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Live Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-button" id="chatButton">
-            <i class="fas fa-comments"></i>
-        </button>
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
-                <button class="close-chat" id="closeChat">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    <span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Type your message..." data-en="Type your message..." data-np="आफ्नो सन्देश टाइप गर्नुहोस्...">
-                <button id="sendMessage">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
 
           <!-- Contact Information -->
           <div class="card contact-info">
@@ -867,6 +1038,37 @@
   <footer>
     <p>&copy; 2025 Dr. Vikash Paudel. All Rights Reserved.</p>
   </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Live Chat Widget -->
+  <div class="chat-widget">
+      <button class="chat-button" id="chatButton">
+          <i class="fas fa-comments"></i>
+      </button>
+      <div class="chat-container" id="chatContainer">
+          <div class="chat-header">
+              <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
+              <button class="close-chat" id="closeChat">
+                  <i class="fas fa-times"></i>
+              </button>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+              <div class="message bot">
+                  <span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span>
+              </div>
+          </div>
+          <div class="chat-input">
+              <input type="text" id="chatInput" placeholder="Type your message..." data-en="Type your message..." data-np="आफ्नो सन्देश टाइप गर्नुहोस्...">
+              <button id="sendMessage">
+                  <i class="fas fa-paper-plane"></i>
+              </button>
+          </div>
+      </div>
+  </div>
 
   <script>
     // Initialize EmailJS with your Public Key
@@ -1004,6 +1206,63 @@
             });
         });
       }
+      
+      // Live Chat Widget Functionality
+      const chatButton = document.getElementById('chatButton');
+      const chatContainer = document.getElementById('chatContainer');
+      const closeChat = document.getElementById('closeChat');
+      const chatMessages = document.getElementById('chatMessages');
+      const chatInput = document.getElementById('chatInput');
+      const sendMessage = document.getElementById('sendMessage');
+      
+      // Toggle chat container
+      chatButton.addEventListener('click', function() {
+        chatContainer.classList.toggle('active');
+      });
+      
+      // Close chat container
+      closeChat.addEventListener('click', function() {
+        chatContainer.classList.remove('active');
+      });
+      
+      // Send message function
+      function sendChatMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user';
+          userMessage.textContent = message;
+          chatMessages.appendChild(userMessage);
+          
+          // Clear input
+          chatInput.value = '';
+          
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          // Simulate bot response after a delay
+          setTimeout(function() {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot';
+            botMessage.innerHTML = '<span data-en="Thank you for your message. Our team will respond shortly. For immediate assistance, please call us at +977-1-5242511." data-np="धन्यवाद। हाम्रो टोलीले चाँडै जवाफ दिनेछ। तत्काल सहयोगको लागि कृपया +९७७-१-५२४२५११ मा कल गर्नुहोस्।">Thank you for your message. Our team will respond shortly. For immediate assistance, please call us at +977-1-5242511.</span>';
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+      
+      // Send message on button click
+      sendMessage.addEventListener('click', sendChatMessage);
+      
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendChatMessage();
+        }
+      });
     });
   </script>
 </body>
