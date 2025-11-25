@@ -379,35 +379,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Research Links */
-    .research-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .research-link {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: var(--foreground);
-      transition: var(--transition-smooth);
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      background-color: #f5f5f5;
-    }
-
-    .research-link:hover {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    .research-link i {
-      margin-right: 8px;
-    }
-
     /* Button Styles */
     .btn {
       display: inline-flex;
@@ -474,6 +445,174 @@
       border-top: 1px solid #e0e0e0;
     }
 
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-button i {
+      color: white;
+      font-size: 32px;
+    }
+
+    /* Live Chat Widget */
+    .chat-button {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .chat-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .chat-button i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 170px;
+      right: 30px;
+      width: 350px;
+      height: 450px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-container.active {
+      display: flex;
+    }
+
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      color: white;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background-color: #f0f0f0;
+      color: var(--foreground);
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      outline: none;
+    }
+
+    .chat-input button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Map Styles */
+    .map-wrapper {
+      margin-top: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -518,6 +657,16 @@
         margin-left: 0;
         margin-top: 0.5rem;
       }
+      
+      .chat-container {
+        width: 300px;
+        height: 400px;
+        right: 15px;
+      }
+      
+      .whatsapp-button, .chat-button {
+        right: 15px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -531,6 +680,11 @@
       
       .card-content {
         padding: 1.25rem;
+      }
+      
+      .chat-container {
+        width: calc(100% - 30px);
+        right: 15px;
       }
     }
 
@@ -595,10 +749,10 @@
             <h2 class="text-3xl font-bold text-foreground mb-8 text-center english">Our Clinic Locations</h2>
             <h2 class="text-3xl font-bold text-foreground mb-8 text-center nepali">हाम्रा क्लिनिक स्थानहरू</h2>
             <div class="clinics-grid">
-              <!-- Clinic 1: Patan Hospital -->
+              <!-- Clinic 1: Patan Private Clinic -->
               <div class="card">
                 <div class="card-content">
-                  <h3 class="text-xl font-semibold text-primary mb-4">Patan Hospital </h3>
+                  <h3 class="text-xl font-semibold text-primary mb-4">Patan Private Clinic</h3>
                   
                   <div class="space-y-4">
                     <div class="flex items-start space-x-3">
@@ -624,24 +778,37 @@
                       </div>
                       <div class="ml-8 space-y-1">
                         <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Sunday, Monday, Tuesday & Friday:</span>
-                          <span class="font-medium nepali">आइतबार, सोमबार, मंगलबार र शुक्रबार:</span>
-                          <span class="english"> Please contact reception (General OPD)</span>
-                          <span class="nepali"> कृपया रिसेप्सन सम्पर्क गर्नुहोस् (सामान्य OPD)</span>
-                        </div>
-                        <div class="text-sm text-muted-foreground">
                           <span class="font-medium english">Thursday:</span>
                           <span class="font-medium nepali">बिहीबार:</span>
-                          <span class="english"> 9:00 AM - 11:00 AM (Patan Private Clinic)</span>
-                          <span class="nepali"> 9:00 बिहान - 11:00 बिहान (पाटन प्राइवेट क्लिनिक)</span>
+                          <span class="english"> 9:00 AM - 11:00 AM (By appointment only)</span>
+                          <span class="nepali"> 9:00 बिहान - 11:00 बिहान (नियुक्तिमा मात्र)</span>
                         </div>
                         <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Saturday & Wednesday:</span>
-                          <span class="font-medium nepali">शनिबार र बुधबार:</span>
-                          <span class="english"> Closed</span>
-                          <span class="nepali"> बन्द</span>
+                          <span class="font-medium english">Other days:</span>
+                          <span class="font-medium nepali">अन्य दिनहरू:</span>
+                          <span class="english"> Please contact reception for appointment</span>
+                          <span class="nepali"> कृपया नियुक्तिको लागि रिसेप्सन सम्पर्क गर्नुहोस्</span>
                         </div>
                       </div>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-border">
+                      <a href="https://booking.pahs.edu.np" target="_blank" class="btn btn-primary w-full english">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                      </a>
+                      <a href="https://booking.pahs.edu.np" target="_blank" class="btn btn-primary w-full nepali">
+                        <i class="fas fa-calendar-check"></i> नियुक्ति बुक गर्नुहोस्
+                      </a>
+                    </div>
+                    
+                    <!-- Map for Patan Private Clinic -->
+                    <div class="map-wrapper">
+                      <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3212033150561!3d27.666135982794293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19f3b0295f5d%3A0x7a8b4e0b3c5f5b5e!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1647421234567!5m2!1sen!2snp" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                      </iframe>
                     </div>
                   </div>
                 </div>
@@ -695,6 +862,16 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <!-- Map for Elite Health Clinic -->
+                    <div class="map-wrapper">
+                      <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3212033150561!3d27.666135982794293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19f3b0295f5d%3A0x7a8b4e0b3c5f5b5e!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1647421234567!5m2!1sen!2snp" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                      </iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -741,6 +918,16 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <!-- Map for Shankhamul Healthcare -->
+                    <div class="map-wrapper">
+                      <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3212033150561!3d27.666135982794293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19f3b0295f5d%3A0x7a8b4e0b3c5f5b5e!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1647421234567!5m2!1sen!2snp" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                      </iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -774,6 +961,16 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <!-- Map for Shubharambha Skin Centre -->
+                    <div class="map-wrapper">
+                      <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3212033150561!3d27.666135982794293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19f3b0295f5d%3A0x7a8b4e0b3c5f5b5e!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1647421234567!5m2!1sen!2snp" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                      </iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -798,45 +995,48 @@
         </div>
       </div>
     </section>
-
-    <!-- Research Links Section -->
-    <section class="content-section" style="padding-top: 0;">
-      <div class="container">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center english">Research Profiles</h2>
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center nepali">अनुसन्धान प्रोफाइलहरू</h2>
-          <div class="research-links">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="research-link">
-              <i class="fas fa-book-medical"></i>
-              <span class="english">PubMed</span>
-              <span class="nepali">PubMed</span>
-            </a>
-            <a href="https://www.researchgate.net/" target="_blank" class="research-link">
-              <i class="fab fa-researchgate"></i>
-              <span class="english">ResearchGate</span>
-              <span class="nepali">ResearchGate</span>
-            </a>
-            <a href="https://orcid.org/" target="_blank" class="research-link">
-              <i class="fab fa-orcid"></i>
-              <span class="english">ORCID</span>
-              <span class="nepali">ORCID</span>
-            </a>
-            <a href="https://scholar.google.com/" target="_blank" class="research-link">
-              <i class="fas fa-graduation-cap"></i>
-              <span class="english">Google Scholar</span>
-              <span class="nepali">Google Scholar</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Dr. Vikash Paudel</p>
-      </a>
-    </div>
   </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/9779800000000?text=Hi%20Dr.%20Vikash%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" 
+     target="_blank" 
+     class="whatsapp-button">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Live Chat Widget -->
+  <div class="chat-button" id="chat-button">
+    <i class="fas fa-comments"></i>
+  </div>
+
+  <div class="chat-container" id="chat-container">
+    <div class="chat-header">
+      <h3 class="english">Live Chat Support</h3>
+      <h3 class="nepali">लाइभ च्याट समर्थन</h3>
+      <button class="close-chat" id="close-chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message english">
+        Hello! How can I assist you today?
+      </div>
+      <div class="message bot-message nepali">
+        नमस्ते! म तपाईंलाई कसरी सहयोग गर्न सक्छु?
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." class="english">
+      <input type="text" id="chat-input-nepali" placeholder="आफ्नो सन्देश टाइप गर्नुहोस्..." class="nepali">
+      <button id="send-message">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -877,6 +1077,101 @@
               el.style.display = 'none';
             });
             currentLanguage = 'english';
+          }
+        });
+      }
+
+      // Live Chat Widget Functionality
+      const chatButton = document.getElementById('chat-button');
+      const chatContainer = document.getElementById('chat-container');
+      const closeChat = document.getElementById('close-chat');
+      const chatMessages = document.getElementById('chat-messages');
+      const chatInput = document.getElementById('chat-input');
+      const chatInputNepali = document.getElementById('chat-input-nepali');
+      const sendMessage = document.getElementById('send-message');
+
+      // Toggle chat container
+      if (chatButton && chatContainer) {
+        chatButton.addEventListener('click', function() {
+          chatContainer.classList.toggle('active');
+        });
+      }
+
+      // Close chat container
+      if (closeChat && chatContainer) {
+        closeChat.addEventListener('click', function() {
+          chatContainer.classList.remove('active');
+        });
+      }
+
+      // Send message functionality
+      function sendUserMessage() {
+        const messageText = currentLanguage === 'english' ? 
+          chatInput.value.trim() : chatInputNepali.value.trim();
+        
+        if (messageText) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.textContent = messageText;
+          chatMessages.appendChild(userMessage);
+          
+          // Clear input
+          chatInput.value = '';
+          chatInputNepali.value = '';
+          
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          // Simulate bot response after a delay
+          setTimeout(function() {
+            const botResponsesEnglish = [
+              "Thank you for your message. Our team will get back to you shortly.",
+              "I understand your concern. Would you like to schedule an appointment?",
+              "For appointment bookings, please visit our booking page or contact us directly.",
+              "Is there anything specific you'd like to know about our services?"
+            ];
+            
+            const botResponsesNepali = [
+              "तपाईंको सन्देशको लागि धन्यवाद। हाम्रो टीम चाँडै नै तपाईंसँग सम्पर्क गर्नेछ।",
+              "म तपाईंको चिन्ता बुझ्दछु। के तपाईं नियुक्ति तय गर्न चाहनुहुन्छ?",
+              "नियुक्ति बुकिङको लागि, कृपया हाम्रो बुकिङ पृष्ठ भ्रमण गर्नुहोस् वा सिधै सम्पर्क गर्नुहोस्।",
+              "के तपाईं हाम्रो सेवाहरूको बारेमा केहि विशेष जान्न चाहनुहुन्छ?"
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * botResponsesEnglish.length);
+            const botResponse = currentLanguage === 'english' ? 
+              botResponsesEnglish[randomIndex] : botResponsesNepali[randomIndex];
+            
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = botResponse;
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+
+      // Send message on button click
+      if (sendMessage) {
+        sendMessage.addEventListener('click', sendUserMessage);
+      }
+
+      // Send message on Enter key
+      if (chatInput) {
+        chatInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendUserMessage();
+          }
+        });
+      }
+
+      if (chatInputNepali) {
+        chatInputNepali.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendUserMessage();
           }
         });
       }
