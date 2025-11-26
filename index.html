@@ -396,6 +396,147 @@
             transform: scale(1.05);
         }
         
+        /* Welcome Section */
+        .welcome-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .welcome-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .welcome-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .welcome-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .welcome-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .welcome-text h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .welcome-text ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .welcome-text li {
+            margin-bottom: 8px;
+        }
+        
+        .google-search {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .google-search a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .google-search a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-image {
+            text-align: center;
+        }
+        
+        .welcome-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
         /* Section Styles */
         .section {
             padding: 100px 0;
@@ -526,8 +667,24 @@
         /* Testimonials Section */
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 200%;
+        }
+        
+        .testimonial-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 50%;
+            flex-shrink: 0;
         }
         
         .testimonial {
@@ -598,12 +755,24 @@
         }
         
         .reviews-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .reviews-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 200%;
+        }
+        
+        .review-group {
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 30px;
-            margin-top: 40px;
+            width: 50%;
+            flex-shrink: 0;
         }
         
         .review-badge {
@@ -613,6 +782,8 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s;
+            flex: 1;
+            max-width: 350px;
         }
         
         .review-badge:hover {
@@ -922,6 +1093,18 @@
             }
         }
         
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -939,8 +1122,13 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .testimonials-container {
-                grid-template-columns: repeat(2, 1fr);
+            .testimonial-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-group {
+                flex-direction: column;
+                align-items: center;
             }
         }
         
@@ -1005,6 +1193,18 @@
                 flex-wrap: wrap;
             }
             
+            .welcome-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
             .section {
                 padding: 60px 0;
             }
@@ -1032,12 +1232,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .testimonials-container {
+            .testimonial-group {
                 grid-template-columns: 1fr;
-            }
-            
-            .reviews-container {
-                flex-direction: column;
             }
         }
     </style>
@@ -1120,6 +1316,71 @@
             </div>
             <div class="hero-image">
                 <img src="images/Vikash Paudel.jpg" alt="Dr. Vikash Paudel - Best Dermatologist in Kathmandu" class="doctor-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container welcome-container">
+            <div class="welcome-title">
+                <h2 data-en="Top Skin Doctor in Kathmandu, Nepal" data-np="काठमाडौं, नेपालको शीर्ष छाला रोग विशेषज्ञ">Top Skin Doctor in Kathmandu, Nepal</h2>
+                <p data-en="Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health" data-np="डा. विकास स्किन क्लिनिकमा स्वागत छ - तपाईंको छाला र कपाल स्वास्थ्यको लागि विश्वसनीय साझेदार">Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health</p>
+            </div>
+            
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h3 data-en="Mission" data-np="हाम्रो मिशन">Mission</h3>
+                    <p data-en="Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment." data-np="हाम्रो मिशन सबै रोगीहरूको लागि सस्तो, ईमानदार र उच्च गुणस्तरीय छाला र कपाल उपचार प्रदान गर्नु हो। हामी प्रशिक्षित डाक्टर र नर्सहरूद्वारा प्रदान गरिएको विशेषज्ञ हेरचाह मार्फत तपाईंको आत्मविश्वास र आत्मसम्मान निर्माण गर्न काम गर्दछौं। काठमाडौंको उत्कृष्ट छाला र कपाल क्लिनिकहरू मध्ये एकको रूपमा, हामी सुरक्षित, देखभाल र व्यावसायिक वातावरणमा नवीनतम प्रविधि प्रयोग गरेर व्यक्तिगत उपचार प्रदान गर्दछौं।">Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment.</p>
+                    
+                    <h3 data-en="Vision" data-np="हाम्रो दृष्टि">Vision</h3>
+                    <p data-en="Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the best skin doctor in Nepal. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient." data-np="हाम्रो दृष्टि काठमाडौंको सबैभन्दा विश्वसनीय र सिफारिस गरिएको छाला रोग क्लिनिक बन्नु हो। हामी शीर्ष छाला क्लिनिकको रूपमा बेंचमार्क सेट गर्न र नेपालको सबैभन्दा राम्रो छाला डाक्टर भएको लागि चिनिने लक्ष्य राख्दछौं। अग्रणी छाला र कपाल हेरचाह विशेषज्ञको रूपमा, हामी प्राकृतिक सुन्दरता बढाउन र प्रत्येक रोगीको लागि दीर्घकालीन छाला र कपाल स्वास्थ्यलाई बढावा दिन प्रतिबद्ध छौं।">Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the best skin doctor in Nepal. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient.</p>
+                    
+                    <h3 data-en="Goals & Future Projection" data-np="लक्ष्यहरू र भविष्यको प्रक्षेपण">Goals & Future Projection</h3>
+                    <p data-en="We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:" data-np="हामी नेपालमा छाला र कपाल उपचारको लागि उत्कृष्टताको केन्द्रको रूपमा विकास गर्न लक्ष्य राख्दछौं। हाम्रा भविष्यका लक्ष्यहरूमा शामिल छन्:">We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:</p>
+                    <ul>
+                        <li data-en="Expanding advanced dermatology and cosmetic services" data-np="उन्नत छाला रोग र कस्मेटिक सेवाहरू विस्तार गर्दै">Expanding advanced dermatology and cosmetic services</li>
+                        <li data-en="Introducing newer, safer, and more effective technologies" data-np="नयाँ, सुरक्षित र अधिक प्रभावकारी प्रविधिहरू परिचय गर्दै">Introducing newer, safer, and more effective technologies</li>
+                        <li data-en="Strengthening patient education and awareness programs" data-np="रोगी शिक्षा र जागरूकता कार्यक्रमहरू मजबूत गर्दै">Strengthening patient education and awareness programs</li>
+                        <li data-en="Becoming the top choice for referrals and patient recommendations" data-np="सिफारिस र रोगी सिफारिशहरूको लागि शीर्ष विकल्प बन्दै">Becoming the top choice for referrals and patient recommendations</li>
+                        <li data-en="Building a trusted brand known nationwide for ethical and result-oriented care" data-np="नैतिक र नतिजा-केन्द्रित हेरचाहको लागि राष्ट्रव्यापी रूपमा परिचित विश्वसनीय ब्रान्ड निर्माण गर्दै">Building a trusted brand known nationwide for ethical and result-oriented care</li>
+                    </ul>
+                    <p data-en="We are committed to continuous improvement and to delivering the best possible care as we move forward." data-np="हामी निरन्तर सुधार र अगाडि बढ्दा सम्भव उत्तम हेरचाह प्रदान गर्न प्रतिबद्ध छौं।">We are committed to continuous improvement and to delivering the best possible care as we move forward.</p>
+                    
+                    <div class="google-search">
+                        <p data-en="👉 Search us on Google:" data-np="👉 गुगलमा हामीलाई खोज्नुहोस्:">👉 Search us on Google:</p>
+                        <a href="https://www.google.com/search?q=Dr+Vikash+Paudel+Dermatologist+Dr+Vikash+Paudel+Clinic" target="_blank" data-en="Click here to find Dr Vikash Skin Clinic on Google" data-np="गुगलमा डा विकास स्किन क्लिनिक फेला पार्न यहाँ क्लिक गर्नुहोस्">
+                            <i class="fab fa-google"></i> 
+                            <span>best skin doctor</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="welcome-image">
+                    <img src="images/clinic-image.jpg" alt="Dr. Vikash Skin Clinic" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card fade-in">
+                    <div class="stat-number" id="yearsExp">0</div>
+                    <div class="stat-text" data-en="Years of Experience" data-np="वर्षको अनुभव">Years of Experience</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" id="happyPatients">0</div>
+                    <div class="stat-text" data-en="Happy Patients" data-np="सन्तुष्ट रोगीहरू">Happy Patients</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" id="affiliatedInstitutes">0</div>
+                    <div class="stat-text" data-en="Affiliated Institutes" data-np="सम्बद्ध संस्थानहरू">Affiliated Institutes</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1240,56 +1501,62 @@
             <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-en="See what our patients are saying about their experience with Dr. Paudel" data-np="हाम्रा बिरामीहरु डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्छन् हेर्नुहोस्">See what our patients are saying about their experience with Dr. Paudel</p>
             
             <div class="reviews-container">
-                <div class="review-badge fade-in">
-                    <i class="fab fa-google google-icon"></i>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <div class="reviews-slider" id="reviewsSlider">
+                    <div class="review-group">
+                        <div class="review-badge fade-in">
+                            <i class="fab fa-google google-icon"></i>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text" data-en="Excellent Dermatologist" data-np="उत्कृष्ट छालारोग विशेषज्ञ">Excellent Dermatologist</p>
+                            <p data-en="4.9/5 Rating" data-np="४.९/५ रेटिंग">4.9/5 Rating</p>
+                        </div>
+                        
+                        <div class="review-badge fade-in">
+                            <i class="fab fa-google google-icon"></i>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="review-text" data-en="Highly Recommended" data-np="अत्यधिक सिफारिस">Highly Recommended</p>
+                            <p data-en="50+ Reviews" data-np="५०+ समीक्षा">50+ Reviews</p>
+                        </div>
                     </div>
-                    <p class="review-text" data-en="Excellent Dermatologist" data-np="उत्कृष्ट छालारोग विशेषज्ञ">Excellent Dermatologist</p>
-                    <p data-en="4.9/5 Rating" data-np="४.९/५ रेटिंग">4.9/5 Rating</p>
-                </div>
-                
-                <div class="review-badge fade-in">
-                    <i class="fab fa-google google-icon"></i>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    
+                    <div class="review-group">
+                        <div class="review-badge fade-in">
+                            <i class="fab fa-google google-icon"></i>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text" data-en="Trusted Skin Specialist" data-np="विश्वसनीय छालारोग विशेषज्ञ">Trusted Skin Specialist</p>
+                            <p data-en="Patient Favorite" data-np="रोगीहरूको मनपर्ने">Patient Favorite</p>
+                        </div>
+                        
+                        <div class="review-badge fade-in">
+                            <i class="fab fa-google google-icon"></i>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text" data-en="Professional & Caring" data-np="व्यावसायिक र देखभाल">Professional & Caring</p>
+                            <p data-en="100+ Satisfied Patients" data-np="१००+ सन्तुष्ट रोगी">100+ Satisfied Patients</p>
+                        </div>
                     </div>
-                    <p class="review-text" data-en="Highly Recommended" data-np="अत्यधिक सिफारिस">Highly Recommended</p>
-                    <p data-en="50+ Reviews" data-np="५०+ समीक्षा">50+ Reviews</p>
-                </div>
-                
-                <div class="review-badge fade-in">
-                    <i class="fab fa-google google-icon"></i>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text" data-en="Trusted Skin Specialist" data-np="विश्वसनीय छालारोग विशेषज्ञ">Trusted Skin Specialist</p>
-                    <p data-en="Patient Favorite" data-np="रोगीहरूको मनपर्ने">Patient Favorite</p>
-                </div>
-                
-                <div class="review-badge fade-in">
-                    <i class="fab fa-google google-icon"></i>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text" data-en="Professional & Caring" data-np="व्यावसायिक र देखभाल">Professional & Caring</p>
-                    <p data-en="100+ Satisfied Patients" data-np="१००+ सन्तुष्ट रोगी">100+ Satisfied Patients</p>
                 </div>
             </div>
         </div>
@@ -1302,46 +1569,52 @@
             <p class="section-subtitle" data-en="Hear what our patients have to say about their experience with Dr. Paudel." data-np="हाम्रा बिरामीहरु डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्छन् सुन्नुहोस्।">Hear what our patients have to say about their experience with Dr. Paudel.</p>
             
             <div class="testimonials-container">
-                <div class="testimonial fade-in">
-                    <p class="testimonial-text" data-en="&quot;Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence.&quot;" data-np="&quot;मेरो पुरानो डनडिफोरको उपचारमा डा. पौडेलको विशेषज्ञता जीवन परिवर्तनकारी रह्यो। वर्षौंसम्म संघर्ष पछि, अन्ततः सफा अनुहार  र आत्मविश्वास छ।&quot;">"Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">RS</div>
-                        <div class="author-info">
-                            <h4>R. Shrestha</h4>
-                            <p data-en="Acne Treatment Patient" data-np="एक्ने उपचारको रोगी">Acne Treatment Patient</p>
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-group">
+                        <div class="testimonial fade-in">
+                            <p class="testimonial-text" data-en="&quot;Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence.&quot;" data-np="&quot;मेरो पुरानो डनडिफोरको उपचारमा डा. पौडेलको विशेषज्ञता जीवन परिवर्तनकारी रह्यो। वर्षौंसम्म संघर्ष पछि, अन्ततः सफा अनुहार  र आत्मविश्वास छ।&quot;">"Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">RS</div>
+                                <div class="author-info">
+                                    <h4>R. Shrestha</h4>
+                                    <p data-en="Acne Treatment Patient" data-np="एक्ने उपचारको रोगी">Acne Treatment Patient</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial fade-in">
+                            <p class="testimonial-text" data-en="&quot;The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results.&quot;" data-np="&quot;कोठि हटाउने प्रक्रिया छिटो र दुखाइरहित थियो। डा. पौडेलले सबै कुरा पूर्ण रूपमा वर्णन गर्नुभयो र म नतिजासँग अत्यन्त खुसी छु।&quot;">"The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">AK</div>
+                                <div class="author-info">
+                                    <h4>A Kumar</h4>
+                                    <p data-en="Skin Surgery Patient" data-np="त्वचा सर्जरीको रोगी">Skin Surgery Patient</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial fade-in">
-                    <p class="testimonial-text" data-en="&quot;The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results.&quot;" data-np="&quot;कोठि हटाउने प्रक्रिया छिटो र दुखाइरहित थियो। डा. पौडेलले सबै कुरा पूर्ण रूपमा वर्णन गर्नुभयो र म नतिजासँग अत्यन्त खुसी छु।&quot;">"The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">AK</div>
-                        <div class="author-info">
-                            <h4>A Kumar</h4>
-                            <p data-en="Skin Surgery Patient" data-np="त्वचा सर्जरीको रोगी">Skin Surgery Patient</p>
+                    
+                    <div class="testimonial-group">
+                        <div class="testimonial fade-in">
+                            <p class="testimonial-text" data-en="&quot;I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months.&quot;" data-np="&quot;म कपाल झर्नेबारे चिन्तित थिएँ, तर डा. पौडेलको व्यक्तिगत उपचार योजनाले मात्र तीन महिनामा उल्लेखनीय सुधार देखाएको छ।&quot;">"I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months."</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">ST</div>
+                                <div class="author-info">
+                                    <h4>S Thapa</h4>
+                                    <p data-en="Hair Treatment Patient" data-np="कपाल उपचारको रोगी">Hair Treatment Patient</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial fade-in">
-                    <p class="testimonial-text" data-en="&quot;I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months.&quot;" data-np="&quot;म कपाल झर्नेबारे चिन्तित थिएँ, तर डा. पौडेलको व्यक्तिगत उपचार योजनाले मात्र तीन महिनामा उल्लेखनीय सुधार देखाएको छ।&quot;">"I was worried about my hair loss, but Dr. Paudel's personalized treatment plan has shown remarkable improvement in just three months."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">ST</div>
-                        <div class="author-info">
-                            <h4>S Thapa</h4>
-                            <p data-en="Hair Treatment Patient" data-np="कपाल उपचारको रोगी">Hair Treatment Patient</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial fade-in">
-                    <p class="testimonial-text" data-en="&quot;Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout.&quot;" data-np="&quot;मेरो छोराको एक्जिमाको उपचारमा डा. पौडेलको दृष्टिकोण कोमल तर प्रभावकारी थियो। उनले सबै कुरा वर्णन गर्न समय लिए र हामीलाई पूरै प्रक्रियामा सहज महसुस गराए।&quot;">"Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">PB</div>
-                        <div class="author-info">
-                            <h4>P Bhandari</h4>
-                            <p data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</p>
+                        
+                        <div class="testimonial fade-in">
+                            <p class="testimonial-text" data-en="&quot;Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout.&quot;" data-np="&quot;मेरो छोराको एक्जिमाको उपचारमा डा. पौडेलको दृष्टिकोण कोमल तर प्रभावकारी थियो। उनले सबै कुरा वर्णन गर्न समय लिए र हामीलाई पूरै प्रक्रियामा सहज महसुस गराए।&quot;">"Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout."</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">PB</div>
+                                <div class="author-info">
+                                    <h4>P Bhandari</h4>
+                                    <p data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1571,6 +1844,8 @@
         // Apply stored language on page load
         document.addEventListener('DOMContentLoaded', function() {
             switchLanguage(currentLanguage);
+            startSliders();
+            animateStats();
         });
         
         const languageBtn = document.getElementById('languageBtn');
@@ -1808,6 +2083,65 @@
         
         // Initialize chat placeholder
         updateChatPlaceholder();
+        
+        // Testimonial and Review Sliders
+        function startSliders() {
+            const testimonialSlider = document.getElementById('testimonialSlider');
+            const reviewsSlider = document.getElementById('reviewsSlider');
+            let testimonialIndex = 0;
+            let reviewsIndex = 0;
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                testimonialIndex = (testimonialIndex + 1) % 2;
+                testimonialSlider.style.transform = `translateX(-${testimonialIndex * 50}%)`;
+                
+                reviewsIndex = (reviewsIndex + 1) % 2;
+                reviewsSlider.style.transform = `translateX(-${reviewsIndex * 50}%)`;
+            }, 5000);
+        }
+        
+        // Animated Stats Counter
+        function animateStats() {
+            const yearsExp = document.getElementById('yearsExp');
+            const happyPatients = document.getElementById('happyPatients');
+            const affiliatedInstitutes = document.getElementById('affiliatedInstitutes');
+            
+            const targetYears = 10;
+            const targetPatients = 20000;
+            const targetInstitutes = 5;
+            
+            let currentYears = 0;
+            let currentPatients = 0;
+            let currentInstitutes = 0;
+            
+            const yearsInterval = setInterval(() => {
+                currentYears += 1;
+                yearsExp.textContent = currentYears;
+                
+                if (currentYears >= targetYears) {
+                    clearInterval(yearsInterval);
+                }
+            }, 150);
+            
+            const patientsInterval = setInterval(() => {
+                currentPatients += 500;
+                if (currentPatients > targetPatients) {
+                    currentPatients = targetPatients;
+                    clearInterval(patientsInterval);
+                }
+                happyPatients.textContent = currentPatients.toLocaleString();
+            }, 10);
+            
+            const institutesInterval = setInterval(() => {
+                currentInstitutes += 1;
+                affiliatedInstitutes.textContent = currentInstitutes;
+                
+                if (currentInstitutes >= targetInstitutes) {
+                    clearInterval(institutesInterval);
+                }
+            }, 300);
+        }
     </script>
 </body>
 </html>
