@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Vikash Paudel | Best Dermatologist in Kathmandu | Skin & Hair Specialist</title>
-    <meta name="description" content="Book your consultation with Dr. Vikash Paudel, Kathmandu's top dermatologist. Specialized care for acne, melasma, hair loss, allergies, warts and sexually transmitted diases, and skin surgery. Book online now">
+    <meta name="description" content="Book your consultation with Dr. Vikash Paudel, Kathmandu's top dermatologist. Specialized care for acne, melasma, hair loss, allergies, warts and sexually transmitted diseases, and skin surgery. Book online now">
     
     <!-- SEO Meta Tags -->
     <meta name="keywords" content="Best dermatologist Nepal, Best dermatologist Kathmandu, top skin doctor Nepal, dermatologist Kathmandu, skin doctor Nepal, best acne doctor, 
@@ -58,6 +58,7 @@
             --success: #2ecc71;
             --gold: #f1c40f;
             --whatsapp: #25D366;
+            --dark-blue: #1a237e;
         }
         
         * {
@@ -348,6 +349,7 @@
         .hero-buttons {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -380,6 +382,18 @@
             color: var(--primary);
         }
         
+        .btn-google {
+            background-color: white;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-google:hover {
+            background-color: #f0f0f0;
+        }
+        
         .hero-image {
             text-align: center;
             animation: fadeInRight 1s ease-out;
@@ -398,7 +412,7 @@
         
         /* Welcome Section */
         .welcome-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             position: relative;
             overflow: hidden;
@@ -411,11 +425,11 @@
         
         .welcome-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .welcome-title h2 {
-            font-size: 3rem;
+            font-size: 2rem; /* Reduced from 3rem */
             font-weight: 700;
             background: linear-gradient(135deg, var(--accent), var(--secondary));
             -webkit-background-clip: text;
@@ -427,7 +441,7 @@
         }
         
         .welcome-title p {
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reduced from 1.2rem */
             color: var(--text-light);
             max-width: 700px;
             margin: 0 auto;
@@ -436,54 +450,83 @@
         .welcome-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: flex-start;
         }
         
-        .welcome-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .welcome-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        .welcome-text h3 {
+        .welcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid var(--secondary);
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.5s ease;
+        }
+        
+        .welcome-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .welcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .welcome-card h3 {
             color: var(--primary);
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-size: 1.3rem; /* Reduced from 1.5rem */
             font-family: 'Playfair Display', serif;
+        }
+        
+        .welcome-text {
+            font-size: 0.9rem; /* Reduced from 1.1rem */
+            line-height: 1.8;
+            text-align: justify; /* Added text justification */
         }
         
         .welcome-text ul {
             margin-left: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .welcome-text li {
             margin-bottom: 8px;
+            font-size: 0.9rem; /* Reduced font size */
         }
         
-        .google-search {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
+        .highlight-text {
+            color: var(--dark-blue);
+            font-weight: 700;
         }
         
-        .google-search a {
+        .google-search-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: var(--secondary);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            margin-top: 15px;
+            font-size: 0.9rem;
         }
         
-        .google-search a:hover {
+        .google-search-link:hover {
             background: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -519,6 +562,24 @@
             border-radius: 10px;
             backdrop-filter: blur(10px);
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .stat-card:hover::before {
+            transform: translateX(100%);
         }
         
         .stat-card:hover {
@@ -530,6 +591,12 @@
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .stat-number.pulse {
+            animation: statPulse 0.5s ease;
         }
         
         .stat-text {
@@ -539,7 +606,7 @@
         
         /* Section Styles */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: white;
         }
         
@@ -1105,6 +1172,18 @@
             }
         }
         
+        @keyframes statPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -1198,7 +1277,7 @@
             }
             
             .welcome-title h2 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             
             .stats-container {
@@ -1265,7 +1344,7 @@
                             <li><a href="acne.html" data-en="Acne Treatment" data-np="डन्डिफोरको उपचार">Acne Treatment</a></li>
                             <li><a href="peel.html" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
                             <li><a href="hair.html" data-en="Hair Restoration" data-np="कपाल सम्बन्धि">Hair Restoration</a></li>
-                            <li><a href="laser.html" data-en="LASER Therapy" data-np="लेजर उपचार">Hair Restoration</a></li>
+                            <li><a href="laser.html" data-en="LASER Therapy" data-np="लेजर उपचार">LASER Therapy</a></li>
                             <li><a href="sti.html" data-en="STI Treatment" data-np="यौन संक्रमणको उपचार">STI Treatment</a></li>
                             <li><a href="cosmetic.html" data-en="Cosmetic Procedures" data-np="कस्मेटिक उपचार">Cosmetic Procedures</a></li>
                         </ul>
@@ -1308,10 +1387,13 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1 class="hero-title" data-en="Expert Dermatology Care in Kathmandu" data-np="काठमाडौंमा विशेषज्ञद्वारा छाला तथा यौनरोगको उपचार">Expert Dermatology Care in Kathmandu</h1>
-                <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a leading dermatologist in Nepal specializing in advanced treatment of skin diseases, sexually transmitted infections and cosmetic problems" data-np="डा. विकास पौडेल काठमाडौं, नेपालका छाला तथा यौनरोग विशेषज्ञ हुनुहुन्छ जसले छालामा हुने रोगहरुको उपचार, सौन्दर्य सम्बन्धि समस्याहरु र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a leading dermatologist specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
+                <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a leading dermatologist specializing in advanced treatment of skin diseases, sexually transmitted infections and cosmetic problems" data-np="डा. विकास पौडेल काठमाडौंका छाला तथा यौनरोग विशेषज्ञ हुनुहुन्छ जसले छालामा हुने रोगहरुको उपचार, सौन्दर्य सम्बन्धि समस्याहरु र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a <span class="highlight-text">leading dermatologist in Nepal</span> specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
                 <div class="hero-buttons">
                     <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
                     <a href="about.html" class="btn btn-outline" data-en="About Dr. Paudel" data-np="डा. पौडेलको बारेमा">About Dr. Paudel</a>
+                    <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="btn btn-google" data-en="Search Best Dermatologist" data-np="श्रेष्ठ छाला रोग विशेषज्ञ खोज्नुहोस्">
+                        <i class="fab fa-google"></i> Search Best Dermatologist
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1325,34 +1407,41 @@
         <div class="container welcome-container">
             <div class="welcome-title">
                 <h2 data-en="Top Skin Doctor in Kathmandu, Nepal" data-np="काठमाडौं, नेपालको शीर्ष छाला रोग विशेषज्ञ">Top Skin Doctor in Kathmandu, Nepal</h2>
-                <p data-en="Welcome to Dr. Vikash Skin Clinic - we care for your skin" data-np="डा. विकास स्किन क्लिनिकमा स्वागत छ - तपाईंको छालाको हामी ख्ञाल राख्छौं।">Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health</p>
+                <p data-en="Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health" data-np="डा. विकास स्किन क्लिनिकमा स्वागत छ - तपाईंको छाला र कपाल स्वास्थ्यको लागि विश्वसनीय साझेदार">Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health</p>
             </div>
             
             <div class="welcome-content">
-                <div class="welcome-text">
-                    <h3 data-en="Mission" data-np="हाम्रो मिशन">Mission</h3>
-                    <p data-en="Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment." data-np="हाम्रो मिशन सबै रोगीहरूको लागि सस्तो, ईमानदार र उच्च गुणस्तरीय छाला र कपाल उपचार प्रदान गर्नु हो। हामी प्रशिक्षित डाक्टर र नर्सहरूद्वारा प्रदान गरिएको विशेषज्ञ हेरचाह मार्फत तपाईंको आत्मविश्वास र आत्मसम्मान निर्माण गर्न काम गर्दछौं। काठमाडौंको उत्कृष्ट छाला र कपाल क्लिनिकहरू मध्ये एकको रूपमा, हामी सुरक्षित, देखभाल र व्यावसायिक वातावरणमा नवीनतम प्रविधि प्रयोग गरेर व्यक्तिगत उपचार प्रदान गर्दछौं।">Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment.</p>
+                <div class="welcome-cards">
+                    <div class="welcome-card mission-card">
+                        <h3 data-en="Mission" data-np="हाम्रो मिशन">Mission</h3>
+                        <div class="welcome-text">
+                            <p data-en="Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment." data-np="हाम्रो मिशन सबै रोगीहरूको लागि सस्तो, ईमानदार र उच्च गुणस्तरीय छाला र कपाल उपचार प्रदान गर्नु हो। हामी प्रशिक्षित डाक्टर र नर्सहरूद्वारा प्रदान गरिएको विशेषज्ञ हेरचाह मार्फत तपाईंको आत्मविश्वास र आत्मसम्मान निर्माण गर्न काम गर्दछौं। काठमाडौंको उत्कृष्ट छाला र कपाल क्लिनिकहरू मध्ये एकको रूपमा, हामी सुरक्षित, देखभाल र व्यावसायिक वातावरणमा नवीनतम प्रविधि प्रयोग गरेर व्यक्तिगत उपचार प्रदान गर्दछौं।">Our mission is to provide affordable, honest, and high-quality skin and hair treatments for all patients. We work to build your confidence and self-esteem through expert care delivered by trained doctors and nurses. As one of the best skin and hair clinics in Kathmandu, we offer personalized treatments using the latest technology in a safe, caring, and professional environment.</p>
+                        </div>
+                    </div>
                     
-                    <h3 data-en="Vision" data-np="हाम्रो दृष्टि">Vision</h3>
-                    <p data-en="Our vision is to be the most trusted and recommended dermatology expert in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the best dermatologist in Nepal. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient." data-np="हाम्रो दृष्टि काठमाडौंको सबैभन्दा विश्वसनीय र सिफारिस गरिएको छाला रोग क्लिनिक बन्नु हो। हामी शीर्ष छाला क्लिनिकको रूपमा बेंचमार्क सेट गर्न र नेपालको सबैभन्दा राम्रो छाला डाक्टर भएको लागि चिनिने लक्ष्य राख्दछौं। अग्रणी छाला र कपाल हेरचाह विशेषज्ञको रूपमा, हामी प्राकृतिक सुन्दरता बढाउन र प्रत्येक रोगीको लागि दीर्घकालीन छाला र कपाल स्वास्थ्यलाई बढावा दिन प्रतिबद्ध छौं।">Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the best skin doctor in Nepal. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient.</p>
+                    <div class="welcome-card vision-card">
+                        <h3 data-en="Vision" data-np="हाम्रो दृष्टि">Vision</h3>
+                        <div class="welcome-text">
+                            <p data-en="Our vision is to be the most trusted and recommended dermatology expert in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <span class='highlight-text'>best dermatologist in Nepal</span>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient." data-np="हाम्रो दृष्टि काठमाडौंको सबैभन्दा विश्वसनीय र सिफारिस गरिएको छाला रोग क्लिनिक बन्नु हो। हामी शीर्ष छाला क्लिनिकको रूपमा बेंचमार्क सेट गर्न र <span class='highlight-text'>नेपालको सबैभन्दा राम्रो छाला डाक्टर</span> भएको लागि चिनिने लक्ष्य राख्दछौं। अग्रणी छाला र कपाल हेरचाह विशेषज्ञको रूपमा, हामी प्राकृतिक सुन्दरता बढाउन र प्रत्येक रोगीको लागि दीर्घकालीन छाला र कपाल स्वास्थ्यलाई बढावा दिन प्रतिबद्ध छौं।">Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <span class='highlight-text'>best dermatologist in Nepal</span>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient.</p>
+                            <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="google-search-link" data-en="Search Best Dermatologist in Nepal" data-np="नेपालको श्रेष्ठ छाला रोग विशेषज्ञ खोज्नुहोस्">
+                                <i class="fab fa-google"></i> Search Best Dermatologist in Nepal
+                            </a>
+                        </div>
+                    </div>
                     
-                    <h3 data-en="Goals & Future Projection" data-np="लक्ष्यहरू र भविष्यको प्रक्षेपण">Goals & Future Projection</h3>
-                    <p data-en="We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:" data-np="हामी नेपालमा छाला र कपाल उपचारको लागि उत्कृष्टताको केन्द्रको रूपमा विकास गर्न लक्ष्य राख्दछौं। हाम्रा भविष्यका लक्ष्यहरूमा शामिल छन्:">We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:</p>
-                    <ul>
-                        <li data-en="Expanding advanced dermatology and cosmetic services" data-np="उन्नत छाला रोग र कस्मेटिक सेवाहरू विस्तार गर्दै">Expanding advanced dermatology and cosmetic services</li>
-                        <li data-en="Introducing newer, safer, and more effective technologies" data-np="नयाँ, सुरक्षित र अधिक प्रभावकारी प्रविधिहरू परिचय गर्दै">Introducing newer, safer, and more effective technologies</li>
-                        <li data-en="Strengthening patient education and awareness programs" data-np="रोगी शिक्षा र जागरूकता कार्यक्रमहरू मजबूत गर्दै">Strengthening patient education and awareness programs</li>
-                        <li data-en="Becoming the top choice for referrals and patient recommendations" data-np="सिफारिस र रोगी सिफारिशहरूको लागि शीर्ष विकल्प बन्दै">Becoming the top choice for referrals and patient recommendations</li>
-                        <li data-en="Building a trusted brand known nationwide for ethical and result-oriented care" data-np="नैतिक र नतिजा-केन्द्रित हेरचाहको लागि राष्ट्रव्यापी रूपमा परिचित विश्वसनीय ब्रान्ड निर्माण गर्दै">Building a trusted brand known nationwide for ethical and result-oriented care</li>
-                    </ul>
-                    <p data-en="We are committed to continuous improvement and to delivering the best possible care as we move forward." data-np="हामी निरन्तर सुधार र अगाडि बढ्दा सम्भव उत्तम हेरचाह प्रदान गर्न प्रतिबद्ध छौं।">We are committed to continuous improvement and to delivering the best possible care as we move forward.</p>
-                    
-                    <div class="google-search">
-                        <p data-en="👉 Search us on Google:" data-np="👉 गुगलमा हामीलाई खोज्नुहोस्:">👉 Search us on Google:</p>
-                        <a href="https://www.google.com/search?q=Dr+Vikash+Paudel+Dermatologist+Dr+Vikash+Paudel+Clinic" target="_blank" data-en="Click here to find Dr Vikash Skin Clinic on Google" data-np="गुगलमा डा विकास स्किन क्लिनिक फेला पार्न यहाँ क्लिक गर्नुहोस्">
-                            <i class="fab fa-google"></i> 
-                            <span>best skin doctor</span>
-                        </a>
+                    <div class="welcome-card goals-card">
+                        <h3 data-en="Goals & Future Projection" data-np="लक्ष्यहरू र भविष्यको प्रक्षेपण">Goals & Future Projection</h3>
+                        <div class="welcome-text">
+                            <p data-en="We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:" data-np="हामी नेपालमा छाला र कपाल उपचारको लागि उत्कृष्टताको केन्द्रको रूपमा विकास गर्न लक्ष्य राख्दछौं। हाम्रा भविष्यका लक्ष्यहरूमा शामिल छन्:">We aim to grow as a center of excellence for skin and hair treatments in Nepal. Our future goals include:</p>
+                            <ul>
+                                <li data-en="Expanding advanced dermatology and cosmetic services" data-np="उन्नत छाला रोग र कस्मेटिक सेवाहरू विस्तार गर्दै">Expanding advanced dermatology and cosmetic services</li>
+                                <li data-en="Introducing newer, safer, and more effective technologies" data-np="नयाँ, सुरक्षित र अधिक प्रभावकारी प्रविधिहरू परिचय गर्दै">Introducing newer, safer, and more effective technologies</li>
+                                <li data-en="Strengthening patient education and awareness programs" data-np="रोगी शिक्षा र जागरूकता कार्यक्रमहरू मजबूत गर्दै">Strengthening patient education and awareness programs</li>
+                                <li data-en="Becoming the top choice for referrals and patient recommendations" data-np="सिफारिस र रोगी सिफारिशहरूको लागि शीर्ष विकल्प बन्दै">Becoming the top choice for referrals and patient recommendations</li>
+                                <li data-en="Building a trusted brand known nationwide for ethical and result-oriented care" data-np="नैतिक र नतिजा-केन्द्रित हेरचाहको लागि राष्ट्रव्यापी रूपमा परिचित विश्वसनीय ब्रान्ड निर्माण गर्दै">Building a trusted brand known nationwide for ethical and result-oriented care</li>
+                            </ul>
+                            <p data-en="We are committed to continuous improvement and to delivering the best possible care as we move forward." data-np="हामी निरन्तर सुधार र अगाडि बढ्दा सम्भव उत्तम हेरचाह प्रदान गर्न प्रतिबद्ध छौं।">We are committed to continuous improvement and to delivering the best possible care as we move forward.</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -1846,6 +1935,7 @@
             switchLanguage(currentLanguage);
             startSliders();
             animateStats();
+            animateWelcomeCards();
         });
         
         const languageBtn = document.getElementById('languageBtn');
@@ -1927,6 +2017,30 @@
                     element.classList.add('visible');
                 }
             });
+        }
+        
+        // Welcome cards animation
+        function animateWelcomeCards() {
+            const welcomeCards = document.querySelectorAll('.welcome-card');
+            
+            function checkWelcomeCards() {
+                welcomeCards.forEach((card, index) => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const cardVisible = 100;
+                    
+                    if (cardTop < window.innerHeight - cardVisible) {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 200); // Staggered animation
+                    }
+                });
+            }
+            
+            // Initial check
+            checkWelcomeCards();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkWelcomeCards);
         }
         
         // Initial check
@@ -2101,7 +2215,7 @@
             }, 5000);
         }
         
-        // Animated Stats Counter
+        // Animated Stats Counter with enhanced animation
         function animateStats() {
             const yearsExp = document.getElementById('yearsExp');
             const happyPatients = document.getElementById('happyPatients');
@@ -2119,6 +2233,14 @@
                 currentYears += 1;
                 yearsExp.textContent = currentYears;
                 
+                // Add pulse effect when reaching target
+                if (currentYears === targetYears) {
+                    yearsExp.classList.add('pulse');
+                    setTimeout(() => {
+                        yearsExp.classList.remove('pulse');
+                    }, 500);
+                }
+                
                 if (currentYears >= targetYears) {
                     clearInterval(yearsInterval);
                 }
@@ -2129,6 +2251,12 @@
                 if (currentPatients > targetPatients) {
                     currentPatients = targetPatients;
                     clearInterval(patientsInterval);
+                    
+                    // Add pulse effect when reaching target
+                    happyPatients.classList.add('pulse');
+                    setTimeout(() => {
+                        happyPatients.classList.remove('pulse');
+                    }, 500);
                 }
                 happyPatients.textContent = currentPatients.toLocaleString();
             }, 10);
@@ -2136,6 +2264,14 @@
             const institutesInterval = setInterval(() => {
                 currentInstitutes += 1;
                 affiliatedInstitutes.textContent = currentInstitutes;
+                
+                // Add pulse effect when reaching target
+                if (currentInstitutes === targetInstitutes) {
+                    affiliatedInstitutes.classList.add('pulse');
+                    setTimeout(() => {
+                        affiliatedInstitutes.classList.remove('pulse');
+                    }, 500);
+                }
                 
                 if (currentInstitutes >= targetInstitutes) {
                     clearInterval(institutesInterval);
