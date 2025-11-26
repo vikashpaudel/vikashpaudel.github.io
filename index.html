@@ -511,6 +511,18 @@
             font-weight: 700;
         }
         
+        .highlight-link {
+            color: var(--dark-blue);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .highlight-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
         .google-search-link {
             display: inline-flex;
             align-items: center;
@@ -1386,12 +1398,12 @@
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1 class="hero-title" data-en="Expert Dermatology Care in Kathmandu, Nepal" data-np="काठमाडौंमा विशेषज्ञद्वारा छाला तथा यौनरोगको उपचार">Expert Dermatology Care in Kathmandu</h1>
-                <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a leading dermatologist specializing in advanced treatment of skin diseases, sexually transmitted infections and cosmetic problems" data-np="डा. विकास पौडेल काठमाडौंका छाला तथा यौनरोग विशेषज्ञ हुनुहुन्छ जसले छालामा हुने रोगहरुको उपचार, सौन्दर्य सम्बन्धि समस्याहरु र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a <span class="highlight-text">leading dermatologist in Nepal</span> specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
+                <h1 class="hero-title" data-en="Expert Dermatology Care in Kathmandu" data-np="काठमाडौंमा विशेषज्ञद्वारा छाला तथा यौनरोगको उपचार">Expert Dermatology Care in Kathmandu</h1>
+                <p class="hero-subtitle" data-en="Dr. Vikash Paudel is a <a href='https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel' target='_blank' class='highlight-link'>leading dermatologist in Nepal</a> specializing in advanced treatment of skin diseases, sexually transmitted infections and cosmetic problems" data-np="डा. विकास पौडेल <a href='https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel' target='_blank' class='highlight-link'>नेपालका अग्रणी छाला रोग विशेषज्ञ</a> हुनुहुन्छ जसले छालामा हुने रोगहरुको उपचार, सौन्दर्य सम्बन्धि समस्याहरु र यौन संक्रमित रोगहरूको व्यवस्थापनमा विशेषज्ञता राख्नुहुन्छ।">Dr. Vikash Paudel is a <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel" target="_blank" class="highlight-link">leading dermatologist in Nepal</a> specializing in advanced skin treatments, cosmetic dermatology, and the management of sexually transmitted infections.</p>
                 <div class="hero-buttons">
                     <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
                     <a href="about.html" class="btn btn-outline" data-en="About Dr. Paudel" data-np="डा. पौडेलको बारेमा">About Dr. Paudel</a>
-                    <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="btn btn-google" data-en="Search Best Dermatologist" data-np=" विशिष्ट छाला रोग विशेषज्ञ खोज्नुहोस्">
+                    <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="btn btn-google" data-en="Search Best Dermatologist" data-np="श्रेष्ठ छाला रोग विशेषज्ञ खोज्नुहोस्">
                         <i class="fab fa-google"></i> Search Best Dermatologist
                     </a>
                 </div>
@@ -1407,7 +1419,7 @@
         <div class="container welcome-container">
             <div class="welcome-title">
                 <h2 data-en="Top Skin Doctor in Kathmandu, Nepal" data-np="काठमाडौं, नेपालको शीर्ष छाला रोग विशेषज्ञ">Top Skin Doctor in Kathmandu, Nepal</h2>
-                <p data-en="Welcome to Dr. Vikash Skin Clinic - We care for your skin" data-np="डा. विकास छाला क्लिनिकमा स्वागत छ - तपाईंको छालाको हामी ख्याल राख्छौं।">Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health</p>
+                <p data-en="Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health" data-np="डा. विकास स्किन क्लिनिकमा स्वागत छ - तपाईंको छाला र कपाल स्वास्थ्यको लागि विश्वसनीय साझेदार">Welcome to Dr. Vikash Skin Clinic - Your trusted partner for skin and hair health</p>
             </div>
             
             <div class="welcome-content">
@@ -1422,7 +1434,7 @@
                     <div class="welcome-card vision-card">
                         <h3 data-en="Vision" data-np="हाम्रो दृष्टि">Vision</h3>
                         <div class="welcome-text">
-                            <p data-en="Our vision is to be the most trusted and recommended dermatology expert in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <span class='highlight-text'>best dermatologist in Nepal</span>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient." data-np="हाम्रो दृष्टि काठमाडौंको सबैभन्दा विश्वसनीय र सिफारिस गरिएको छाला रोग क्लिनिक बन्नु हो। हामी शीर्ष छाला क्लिनिकको रूपमा बेंचमार्क सेट गर्न र <span class='highlight-text'>नेपालको सबैभन्दा राम्रो छाला डाक्टर</span> भएको लागि चिनिने लक्ष्य राख्दछौं। अग्रणी छाला र कपाल हेरचाह विशेषज्ञको रूपमा, हामी प्राकृतिक सुन्दरता बढाउन र प्रत्येक रोगीको लागि दीर्घकालीन छाला र कपाल स्वास्थ्यलाई बढावा दिन प्रतिबद्ध छौं।">Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <span class='highlight-text'>best dermatologist in Nepal</span>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient.</p>
+                            <p data-en="Our vision is to be the most trusted and recommended dermatology expert in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <a href='https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel' target='_blank' class='highlight-link'>best dermatologist in Nepal</a>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient." data-np="हाम्रो दृष्टि काठमाडौंको सबैभन्दा विश्वसनीय र सिफारिस गरिएको छाला रोग क्लिनिक बन्नु हो। हामी शीर्ष छाला क्लिनिकको रूपमा बेंचमार्क सेट गर्न र <a href='https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel' target='_blank' class='highlight-link'>नेपालको सबैभन्दा राम्रो छाला डाक्टर</a> भएको लागि चिनिने लक्ष्य राख्दछौं। अग्रणी छाला र कपाल हेरचाह विशेषज्ञको रूपमा, हामी प्राकृतिक सुन्दरता बढाउन र प्रत्येक रोगीको लागि दीर्घकालीन छाला र कपाल स्वास्थ्यलाई बढावा दिन प्रतिबद्ध छौं।">Our vision is to be the most trusted and recommended dermatology clinic in Kathmandu. We aim to set the benchmark as the top skin clinic and to be known for having the <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel" target="_blank" class="highlight-link">best dermatologist in Nepal</a>. As a leading skin and hair-care specialist, we are committed to enhancing natural beauty and promoting long-term skin and hair health for every patient.</p>
                             <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="google-search-link" data-en="Search Best Dermatologist in Nepal" data-np="नेपालको श्रेष्ठ छाला रोग विशेषज्ञ खोज्नुहोस्">
                                 <i class="fab fa-google"></i> Search Best Dermatologist in Nepal
                             </a>
@@ -1963,9 +1975,9 @@
             // Update all elements with data attributes
             document.querySelectorAll('[data-en]').forEach(element => {
                 if (lang === 'en') {
-                    element.textContent = element.getAttribute('data-en');
+                    element.innerHTML = element.getAttribute('data-en');
                 } else if (lang === 'np') {
-                    element.textContent = element.getAttribute('data-np');
+                    element.innerHTML = element.getAttribute('data-np');
                 }
             });
             
