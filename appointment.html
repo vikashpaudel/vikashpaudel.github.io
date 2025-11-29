@@ -28,6 +28,7 @@
       --warning: #f39c12;
       --error: #e74c3c;
       --border-radius: 12px;
+      --animation-duration: 0.5s;
     }
 
     /* Base Styles */
@@ -123,6 +124,7 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
 
     .navbar a {
@@ -154,6 +156,31 @@
       height: 3px;
       background: var(--accent);
       border-radius: 3px 3px 0 0;
+    }
+
+    /* Language Toggle */
+    .language-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      background-color: rgba(26, 106, 162, 0.05);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .language-toggle:hover {
+      background-color: rgba(26, 106, 162, 0.1);
+    }
+
+    .language-toggle i {
+      color: var(--primary);
+    }
+
+    .language-toggle span {
+      font-weight: 500;
+      color: var(--foreground);
     }
 
     /* Enhanced Book Now Button */
@@ -264,6 +291,9 @@
       box-shadow: var(--shadow-card);
       overflow: hidden;
       transition: var(--transition-smooth);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp var(--animation-duration) ease forwards;
     }
 
     .card:hover {
@@ -273,6 +303,45 @@
 
     .card-content {
       padding: 2rem;
+    }
+
+    /* Info Grid Styles */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Icon Container */
+    .icon-container {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .icon-container.primary {
+      background-color: rgba(26, 106, 162, 0.1);
+      color: var(--primary);
+    }
+
+    .icon-container.accent {
+      background-color: rgba(231, 76, 60, 0.1);
+      color: var(--accent);
+    }
+
+    .card:hover .icon-container {
+      transform: scale(1.1);
     }
 
     /* Form Styles */
@@ -422,6 +491,7 @@
     .contact-info {
       background: linear-gradient(135deg, #f8fafc, #e9ecef);
       border-left: 4px solid var(--accent);
+      animation-delay: 0.3s;
     }
 
     .contact-grid {
@@ -440,6 +510,37 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .contact-item:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: translateX(5px);
+    }
+
+    .contact-item i {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-details p:first-child {
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-details p:last-child {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+    }
+
+    .contact-divider {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
     }
 
     /* Footer Styles */
@@ -664,6 +765,26 @@
       background: var(--primary-dark);
     }
 
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.2s;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -757,19 +878,23 @@
     <div class="navbar-container">
       <a href="index.html" class="navbar-logo">
         <i class="fas fa-stethoscope"></i>
-        <span>Dr. Vikash Paudel</span>
+        <span data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</span>
       </a>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="biography.html">Biography</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="award.html">Awards</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="appointment.html" class="active">Appointment</a></li>
+        <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+        <li><a href="biography.html" data-en="Biography" data-np="जीवनी">Biography</a></li>
+        <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
+        <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+        <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
+        <li><a href="contact.html" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+        <li><a href="appointment.html" class="active" data-en="Appointment" data-np="अपोइन्टमेन्ट">Appointment</a></li>
+        <li class="language-toggle" id="languageToggle">
+          <i class="fas fa-globe"></i>
+          <span data-en="English" data-np="नेपाली">English</span>
+        </li>
         <li><a href="#appointment-form" class="book-now-btn">
           <i class="fas fa-calendar-alt"></i>
-          Book Now
+          <span data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</span>
         </a></li>
       </ul>
     </div>
@@ -778,8 +903,8 @@
   <main>
     <!-- Header -->
     <header>
-      <h1>Book an Appointment</h1>
-      <p>Schedule your consultation with Dr. Vikash Paudel for dermatological care</p>
+      <h1 data-en="Book an Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book an Appointment</h1>
+      <p data-en="Schedule your consultation with Dr. Vikash Paudel for dermatological care" data-np="डर्माटोलोजिकल हेरचाहको लागि डा. विकास पौडेलसँग आफ्नो परामर्श तालिका बनाउनुहोस्">Schedule your consultation with Dr. Vikash Paudel for dermatological care</p>
     </header>
 
     <!-- Appointment Content -->
@@ -788,25 +913,25 @@
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Appointment Info -->
           <div class="info-grid">
-            <div class="card">
+            <div class="card animate-delay-1">
               <div class="card-content">
-                <div class="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center mb-4">
-                  <i class="fas fa-calendar-check text-primary w-6 h-6"></i>
+                <div class="icon-container primary">
+                  <i class="fas fa-calendar-check"></i>
                 </div>
-                <h3>Flexible Scheduling</h3>
-                <p class="text-muted-foreground">
+                <h3 data-en="Flexible Scheduling" data-np="लचिलो समय तालिका">Flexible Scheduling</h3>
+                <p class="text-muted-foreground" data-en="Choose from multiple clinic locations and time slots that fit your busy schedule. We offer morning, afternoon, and evening appointments." data-np="आफ्नो व्यस्त तालिका अनुकूल गर्ने धेरै क्लिनिक स्थानहरू र समय स्लटहरूबाट छनौट गर्नुहोस्। हामी बिहान, दिउँसो र साँझको अपोइन्टमेन्टहरू प्रदान गर्छौं।">
                   Choose from multiple clinic locations and time slots that fit your busy schedule. We offer morning, afternoon, and evening appointments.
                 </p>
               </div>
             </div>
 
-            <div class="card">
+            <div class="card animate-delay-2">
               <div class="card-content">
-                <div class="w-12 h-12 bg-accent-light rounded-lg flex items-center justify-center mb-4">
-                  <i class="fas fa-clock text-accent w-6 h-6"></i>
+                <div class="icon-container accent">
+                  <i class="fas fa-clock"></i>
                 </div>
-                <h3>Quick Response</h3>
-                <p class="text-muted-foreground">
+                <h3 data-en="Quick Response" data-np="छिटो प्रतिक्रिया">Quick Response</h3>
+                <p class="text-muted-foreground" data-en="We typically respond to appointment requests within 24 hours. For urgent matters, please call us directly." data-np="हामी सामान्यतया २४ घण्टाभित्र अपोइन्टमेन्ट अनुरोधहरूलाई जवाफ दिन्छौं। जरुरी कुराको लागि, कृपया हामीलाई सिधै कल गर्नुहोस्।">
                   We typically respond to appointment requests within 24 hours. For urgent matters, please call us directly.
                 </p>
               </div>
@@ -816,15 +941,15 @@
           <!-- Booking Form -->
           <div class="card" id="appointment-form">
             <div class="card-content">
-              <h2>Request an Appointment</h2>
-              <p class="text-muted-foreground mb-6">Fill out the form below and we'll contact you to confirm your appointment</p>
+              <h2 data-en="Request an Appointment" data-np="अपोइन्टमेन्टको लागि अनुरोध गर्नुहोस्">Request an Appointment</h2>
+              <p class="text-muted-foreground mb-6" data-en="Fill out the form below and we'll contact you to confirm your appointment" data-np="तलको फारम भर्नुहोस् र हामी तपाईंको अपोइन्टमेन्ट पुष्टि गर्न तपाईंलाई सम्पर्क गर्नेछौं">Fill out the form below and we'll contact you to confirm your appointment</p>
               
               <div id="form-status"></div>
               
               <form class="appointment-form" id="appointmentForm">
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="fullName" class="form-label">
+                    <label for="fullName" class="form-label" data-en="Full Name *" data-np="पूरा नाम *">
                       Full Name *
                     </label>
                     <input
@@ -834,11 +959,13 @@
                       required
                       class="form-input"
                       placeholder="Your full name"
+                      data-en-placeholder="Your full name"
+                      data-np-placeholder="तपाईंको पूरा नाम"
                     />
                   </div>
                   
                   <div class="form-group">
-                    <label for="age" class="form-label">
+                    <label for="age" class="form-label" data-en="Age *" data-np="उमेर *">
                       Age *
                     </label>
                     <input
@@ -848,6 +975,8 @@
                       required
                       class="form-input"
                       placeholder="Your age"
+                      data-en-placeholder="Your age"
+                      data-np-placeholder="तपाईंको उमेर"
                       min="1"
                       max="120"
                     />
@@ -856,7 +985,7 @@
 
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="phoneNumber" class="form-label">
+                    <label for="phoneNumber" class="form-label" data-en="Phone Number *" data-np="फोन नम्बर *">
                       Phone Number *
                     </label>
                     <input
@@ -866,11 +995,13 @@
                       required
                       class="form-input"
                       placeholder="+977-XXXXXXXXXX"
+                      data-en-placeholder="+977-XXXXXXXXXX"
+                      data-np-placeholder="+९७७-XXXXXXXXXX"
                     />
                   </div>
                   
                   <div class="form-group">
-                    <label for="emailAddress" class="form-label">
+                    <label for="emailAddress" class="form-label" data-en="Email Address *" data-np="ईमेल ठेगाना *">
                       Email Address *
                     </label>
                     <input
@@ -880,13 +1011,15 @@
                       required
                       class="form-input"
                       placeholder="your.email@example.com"
+                      data-en-placeholder="your.email@example.com"
+                      data-np-placeholder="तपाईंको.ईमेल@example.com"
                     />
                   </div>
                 </div>
 
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="clinicLocation" class="form-label">
+                    <label for="clinicLocation" class="form-label" data-en="Preferred Clinic Location *" data-np="प्राथमिक क्लिनिक स्थान *">
                       Preferred Clinic Location *
                     </label>
                     <select
@@ -895,16 +1028,16 @@
                       required
                       class="form-select"
                     >
-                      <option value="">Select a clinic</option>
-                      <option value="Elite Health Clinic, Lagankhel">Elite Health Clinic</option>
-                      <option value="Shankhamul Healthcare, Shankhamul">Shankhamul Healthcare</option>
-                      <option value=" Shubharambha Skin Centre, Dhangadhi">Shubharambha Skin Clinic, Dhangadhi</option>
-                      <option value="Teledermatology">Online Teledermatology consultation</option>
+                      <option value="" data-en="Select a clinic" data-np="क्लिनिक छनौट गर्नुहोस्">Select a clinic</option>
+                      <option value="Elite Health Clinic, Lagankhel" data-en="Elite Health Clinic, Lagankhel" data-np="एलिट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</option>
+                      <option value="Shankhamul Healthcare, Shankhamul" data-en="Shankhamul Healthcare, Shankhamul" data-np="शंखमुल हेल्थकेयर, शंखमुल">Shankhamul Healthcare, Shankhamul</option>
+                      <option value="Shubharambha Skin Centre, Dhangadhi" data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</option>
+                      <option value="Teledermatology" data-en="Online Teledermatology consultation" data-np="अनलाइन टेलिडर्माटोलोजी परामर्श">Online Teledermatology consultation</option>
                     </select>
                   </div>
                   
                   <div class="form-group">
-                    <label for="preferredDate" class="form-label">
+                    <label for="preferredDate" class="form-label" data-en="Preferred Date *" data-np="प्राथमिक मिति *">
                       Preferred Date *
                     </label>
                     <input
@@ -918,7 +1051,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="preferredTime" class="form-label">
+                  <label for="preferredTime" class="form-label" data-en="Preferred Time *" data-np="प्राथमिक समय *">
                     Preferred Time *
                   </label>
                   <select
@@ -927,16 +1060,16 @@
                     required
                     class="form-select"
                   >
-                    <option value="">Select a time slot</option>
-                    <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-                    <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-                    <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
-                    <option value="Every Saturday (Dhangadhi)(9:00 PM - 5:00 PM)">Every Saturday (Dhangadhi)(9:00 PM - 5:00 PM)</option>
+                    <option value="" data-en="Select a time slot" data-np="समय स्लट छनौट गर्नुहोस्">Select a time slot</option>
+                    <option value="Morning (9:00 AM - 12:00 PM)" data-en="Morning (9:00 AM - 12:00 PM)" data-np="बिहान (९:०० बिहान - १२:०० दिउँसो)">Morning (9:00 AM - 12:00 PM)</option>
+                    <option value="Afternoon (12:00 PM - 4:00 PM)" data-en="Afternoon (12:00 PM - 4:00 PM)" data-np="दिउँसो (१२:०० दिउँसो - ४:०० बेलुका)">Afternoon (12:00 PM - 4:00 PM)</option>
+                    <option value="Evening (4:00 PM - 7:00 PM)" data-en="Evening (4:00 PM - 7:00 PM)" data-np="साँझ (४:०० बेलुका - ७:०० बेलुका)">Evening (4:00 PM - 7:00 PM)</option>
+                    <option value="Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)" data-en="Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)" data-np="हरेक शनिबार (धनगढी)(९:०० बिहान - ५:०० बेलुका)">Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="reasonForVisit" class="form-label">
+                  <label for="reasonForVisit" class="form-label" data-en="Reason for Visit *" data-np="भ्रमणको कारण *">
                     Reason for Visit *
                   </label>
                   <select
@@ -945,20 +1078,20 @@
                     required
                     class="form-select"
                   >
-                    <option value="">Select reason for visit</option>
-                    <option value="Acne Treatment">Acne Treatment</option>
-                    <option value="Aesthetic Dermatology">Aesthetic Dermatology</option>
-                    <option value="Skin Surgery Consultation">Skin Surgery Consultation</option>
-                    <option value="Hair Disorder">Hair Disorder</option>
-                    <option value="Pigmentation Issues">Pigmentation Issues</option>
-                    <option value="Skin Rash or Infection">Skin Rash or Infection</option>
-                    <option value="General Consultation">General Consultation</option>
-                    <option value="Other">Other</option>
+                    <option value="" data-en="Select reason for visit" data-np="भ्रमणको कारण छनौट गर्नुहोस्">Select reason for visit</option>
+                    <option value="Acne Treatment" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</option>
+                    <option value="Aesthetic Dermatology" data-en="Aesthetic Dermatology" data-np="एस्थेटिक डर्माटोलोजी">Aesthetic Dermatology</option>
+                    <option value="Skin Surgery Consultation" data-en="Skin Surgery Consultation" data-np="छाला सर्जरी परामर्श">Skin Surgery Consultation</option>
+                    <option value="Hair Disorder" data-en="Hair Disorder" data-np="कपाल सम्बन्धी समस्या">Hair Disorder</option>
+                    <option value="Pigmentation Issues" data-en="Pigmentation Issues" data-np="रंगत सम्बन्धी समस्या">Pigmentation Issues</option>
+                    <option value="Skin Rash or Infection" data-en="Skin Rash or Infection" data-np="छालाको ददुरा वा संक्रमण">Skin Rash or Infection</option>
+                    <option value="General Consultation" data-en="General Consultation" data-np="सामान्य परामर्श">General Consultation</option>
+                    <option value="Other" data-en="Other" data-np="अन्य">Other</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="additionalInfo" class="form-label">
+                  <label for="additionalInfo" class="form-label" data-en="Additional Information" data-np="थप जानकारी">
                     Additional Information
                   </label>
                   <textarea
@@ -967,6 +1100,8 @@
                     rows="4"
                     class="form-textarea"
                     placeholder="Please provide any additional details about your condition or concerns..."
+                    data-en-placeholder="Please provide any additional details about your condition or concerns..."
+                    data-np-placeholder="कृपया तपाईंको अवस्था वा चिन्ताको बारेमा कुनै थप विवरणहरू प्रदान गर्नुहोस्..."
                   ></textarea>
                 </div>
 
@@ -978,14 +1113,14 @@
                     required
                     class="checkbox-input"
                   />
-                  <label for="consent" class="checkbox-label">
+                  <label for="consent" class="checkbox-label" data-en="I consent to the collection and processing of my personal information for appointment scheduling purposes. *" data-np="म अपोइन्टमेन्ट तालिकाको लागि मेरो व्यक्तिगत जानकारीको संग्रह र प्रशोधनमा सहमत छु। *">
                     I consent to the collection and processing of my personal information for appointment scheduling purposes. *
                   </label>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg w-full md:w-auto" id="submit-btn">
                   <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
-                  Request Appointment
+                  <span data-en="Request Appointment" data-np="अपोइन्टमेन्ट अनुरोध गर्नुहोस्">Request Appointment</span>
                 </button>
               </form>
             </div>
@@ -994,39 +1129,39 @@
           <!-- Contact Information -->
           <div class="card contact-info">
             <div class="card-content">
-              <h2>Need Help Booking?</h2>
-              <p class="text-muted-foreground mb-6">
+              <h2 data-en="Need Help Booking?" data-np="बुकिङ्गमा सहायता चाहिन्छ?">Need Help Booking?</h2>
+              <p class="text-muted-foreground mb-6" data-en="If you prefer to book by phone or have questions about appointments, please contact us directly:" data-np="यदि तपाईं फोनद्वारा बुक गर्न रुचाउनुहुन्छ वा अपोइन्टमेन्टको बारेमा प्रश्नहरू छन् भने, कृपया हामीलाई सिधै सम्पर्क गर्नुहोस्:">
                 If you prefer to book by phone or have questions about appointments, please contact us directly:
               </p>
               <div class="contact-grid">
                 <div class="contact-item">
-                  <i class="fas fa-phone text-primary w-5 h-5 shrink-0 mt-0.5"></i>
-                  <div>
-                    <p class="font-semibold text-foreground mb-1">Shubharambha Skin Centre, Dhangadhi</p>
-                    <p class="text-sm text-muted-foreground">+977-91-410107</p>
+                  <i class="fas fa-phone"></i>
+                  <div class="contact-details">
+                    <p data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</p>
+                    <p>+977-91-410107</p>
                   </div>
                 </div>
                 <div class="contact-item">
-                  <i class="fas fa-phone text-primary w-5 h-5 shrink-0 mt-0.5"></i>
-                  <div>
-                    <p class="font-semibold text-foreground mb-1">Elite Health Clinic, Lagankhel</p>
-                    <p class="text-sm text-muted-foreground">+977-1-5420745</p>
+                  <i class="fas fa-phone"></i>
+                  <div class="contact-details">
+                    <p data-en="Elite Health Clinic, Lagankhel" data-np="एलिट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</p>
+                    <p>+977-1-5420745</p>
                   </div>
                 </div>
                 <div class="contact-item">
-                  <i class="fas fa-phone text-primary w-5 h-5 shrink-0 mt-0.5"></i>
-                  <div>
-                    <p class="font-semibold text-foreground mb-1">Shankhamul Healthcare, Dhangadhi</p>
-                    <p class="text-sm text-muted-foreground">+977-1-5242511</p>
+                  <i class="fas fa-phone"></i>
+                  <div class="contact-details">
+                    <p data-en="Shankhamul Healthcare, Shankhamul" data-np="शंखमुल हेल्थकेयर, शंखमुल">Shankhamul Healthcare, Shankhamul</p>
+                    <p>+977-1-5242511</p>
                   </div>
                 </div>
               </div>
-              <div class="mt-6 pt-6 border-t border-gray-200">
+              <div class="contact-divider">
                 <div class="contact-item">
-                  <i class="fas fa-phone text-primary w-5 h-5 shrink-0 mt-0.5"></i>
-                  <div>
-                    <p class="font-semibold text-foreground mb-1">Teledermatology Consultation</p>
-                    <p class="text-sm text-muted-foreground">977-9825207253</p>
+                  <i class="fas fa-phone"></i>
+                  <div class="contact-details">
+                    <p data-en="Teledermatology Consultation" data-np="टेलिडर्माटोलोजी परामर्श">Teledermatology Consultation</p>
+                    <p>+977-9825207253</p>
                   </div>
                 </div>
               </div>
@@ -1073,6 +1208,35 @@
   </div>
 
   <script>
+    // Language Toggle Functionality
+    let currentLanguage = 'en';
+    const languageToggle = document.getElementById('languageToggle');
+    
+    languageToggle.addEventListener('click', function() {
+      // Toggle between English and Nepali
+      currentLanguage = currentLanguage === 'en' ? 'np' : 'en';
+      
+      // Update all elements with data attributes
+      document.querySelectorAll('[data-en], [data-np]').forEach(element => {
+        const text = element.getAttribute(`data-${currentLanguage}`);
+        if (text) {
+          // Check if it's a placeholder
+          if (element.hasAttribute('data-en-placeholder')) {
+            element.placeholder = element.getAttribute(`data-${currentLanguage}-placeholder`);
+          } else {
+            element.textContent = text;
+          }
+        }
+      });
+      
+      // Update language toggle button text
+      const toggleText = languageToggle.querySelector('span');
+      toggleText.textContent = currentLanguage === 'en' ? 'English' : 'नेपाली';
+      
+      // Update page direction for RTL if needed
+      document.documentElement.dir = currentLanguage === 'np' ? 'rtl' : 'ltr';
+    });
+
     // Initialize EmailJS with your Public Key
     (function() {
       emailjs.init("nPsKsuZlR3ghah6k-");
