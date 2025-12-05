@@ -918,9 +918,9 @@
                 <div class="icon-container primary">
                   <i class="fas fa-calendar-check"></i>
                 </div>
-                <h3 data-en="Flexible Scheduling" data-np="लचिलो समय तालिका">Flexible Scheduling</h3>
-                <p class="text-muted-foreground" data-en="Choose from multiple clinic locations and time slots that fit your busy schedule. We offer morning, afternoon, and evening appointments." data-np="आफ्नो व्यस्त तालिका अनुकूल गर्ने धेरै क्लिनिक स्थानहरू र समय स्लटहरूबाट छनौट गर्नुहोस्। हामी बिहान, दिउँसो र साँझको अपोइन्टमेन्टहरू प्रदान गर्छौं।">
-                  Choose from multiple clinic locations and time slots that fit your busy schedule. We offer morning, afternoon, and evening appointments.
+                <h3 data-en="Updated Clinic Hours" data-np="अद्यावधिक क्लिनिक घण्टा">Updated Clinic Hours</h3>
+                <p class="text-muted-foreground" data-en="Shankhamul Healthcare & Elite Health Clinic: 4 PM - 7 PM only. Shubharambha Skin Centre: Saturdays only. Tele-dermatology: Daily consultations available. No OPD on Saturdays except at Dhangadhi." data-np="शंखमुल हेल्थकेयर र एलिट हेल्थ क्लिनिक: केवल बेलुका ४ बजे - ७ बजे। शुभारम्भ स्किन सेन्टर: केवल शनिबार। टेलिडर्माटोलोजी: दैनिक परामर्श उपलब्ध। धनगढी बाहेक शनिबार कुनै ओपीडी छैन।">
+                  Shankhamul Healthcare & Elite Health Clinic: 4 PM - 7 PM only. Shubharambha Skin Centre: Saturdays only. Tele-dermatology: Daily consultations available. No OPD on Saturdays except at Dhangadhi.
                 </p>
               </div>
             </div>
@@ -1027,6 +1027,7 @@
                       name="clinicLocation"
                       required
                       class="form-select"
+                      onchange="updateTimeSlots()"
                     >
                       <option value="" data-en="Select a clinic" data-np="क्लिनिक छनौट गर्नुहोस्">Select a clinic</option>
                       <option value="Elite Health Clinic, Lagankhel" data-en="Elite Health Clinic, Lagankhel" data-np="एलिट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</option>
@@ -1046,6 +1047,7 @@
                       name="preferredDate"
                       required
                       class="form-input"
+                      onchange="validateDate()"
                     />
                   </div>
                 </div>
@@ -1061,10 +1063,9 @@
                     class="form-select"
                   >
                     <option value="" data-en="Select a time slot" data-np="समय स्लट छनौट गर्नुहोस्">Select a time slot</option>
-                    <option value="Morning (9:00 AM - 12:00 PM)" data-en="Morning (9:00 AM - 12:00 PM)" data-np="बिहान (९:०० बिहान - १२:०० दिउँसो)">Morning (9:00 AM - 12:00 PM)</option>
-                    <option value="Afternoon (12:00 PM - 4:00 PM)" data-en="Afternoon (12:00 PM - 4:00 PM)" data-np="दिउँसो (१२:०० दिउँसो - ४:०० बेलुका)">Afternoon (12:00 PM - 4:00 PM)</option>
                     <option value="Evening (4:00 PM - 7:00 PM)" data-en="Evening (4:00 PM - 7:00 PM)" data-np="साँझ (४:०० बेलुका - ७:०० बेलुका)">Evening (4:00 PM - 7:00 PM)</option>
-                    <option value="Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)" data-en="Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)" data-np="हरेक शनिबार (धनगढी)(९:०० बिहान - ५:०० बेलुका)">Every Saturday (Dhangadhi)(9:00 AM - 5:00 PM)</option>
+                    <option value="Saturday Only (9:00 AM - 5:00 PM)" data-en="Saturday Only (9:00 AM - 5:00 PM)" data-np="शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)">Saturday Only (9:00 AM - 5:00 PM)</option>
+                    <option value="Tele-dermatology (Daily)" data-en="Tele-dermatology (Daily)" data-np="टेलिडर्माटोलोजी (दैनिक)">Tele-dermatology (Daily)</option>
                   </select>
                 </div>
 
@@ -1242,6 +1243,83 @@
       emailjs.init("nPsKsuZlR3ghah6k-");
     })();
 
+    // Function to update time slots based on selected clinic
+    function updateTimeSlots() {
+      const clinicSelect = document.getElementById('clinicLocation');
+      const timeSelect = document.getElementById('preferredTime');
+      const selectedClinic = clinicSelect.value;
+      
+      // Clear current options except the first one
+      while (timeSelect.options.length > 1) {
+        timeSelect.remove(1);
+      }
+      
+      // Add appropriate time slots based on selected clinic
+      if (selectedClinic === 'Elite Health Clinic, Lagankhel' || selectedClinic === 'Shankhamul Healthcare, Shankhamul') {
+        addOption(timeSelect, 'Evening (4:00 PM - 7:00 PM)', 'Evening (4:00 PM - 7:00 PM)', 'साँझ (४:०० बेलुका - ७:०० बेलुका)');
+      } else if (selectedClinic === 'Shubharambha Skin Centre, Dhangadhi') {
+        addOption(timeSelect, 'Saturday Only (9:00 AM - 5:00 PM)', 'Saturday Only (9:00 AM - 5:00 PM)', 'शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)');
+      } else if (selectedClinic === 'Teledermatology') {
+        addOption(timeSelect, 'Tele-dermatology (Daily)', 'Tele-dermatology (Daily)', 'टेलिडर्माटोलोजी (दैनिक)');
+      } else {
+        // Add all options for default/unspecified clinic
+        addOption(timeSelect, 'Evening (4:00 PM - 7:00 PM)', 'Evening (4:00 PM - 7:00 PM)', 'साँझ (४:०० बेलुका - ७:०० बेलुका)');
+        addOption(timeSelect, 'Saturday Only (9:00 AM - 5:00 PM)', 'Saturday Only (9:00 AM - 5:00 PM)', 'शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)');
+        addOption(timeSelect, 'Tele-dermatology (Daily)', 'Tele-dermatology (Daily)', 'टेलिडर्माटोलोजी (दैनिक)');
+      }
+      
+      // Update the language for the new options
+      updateLanguageOptions();
+    }
+    
+    // Helper function to add options to select
+    function addOption(select, value, enText, npText) {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = currentLanguage === 'en' ? enText : npText;
+      option.setAttribute('data-en', enText);
+      option.setAttribute('data-np', npText);
+      select.appendChild(option);
+    }
+    
+    // Function to update language for select options
+    function updateLanguageOptions() {
+      const timeSelect = document.getElementById('preferredTime');
+      for (let i = 0; i < timeSelect.options.length; i++) {
+        const option = timeSelect.options[i];
+        if (option.value) {
+          const text = option.getAttribute(`data-${currentLanguage}`);
+          if (text) {
+            option.textContent = text;
+          }
+        }
+      }
+    }
+    
+    // Function to validate date based on selected clinic
+    function validateDate() {
+      const clinicSelect = document.getElementById('clinicLocation');
+      const dateInput = document.getElementById('preferredDate');
+      const selectedDate = new Date(dateInput.value);
+      const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+      
+      if (clinicSelect.value === 'Shubharambha Skin Centre, Dhangadhi') {
+        if (dayOfWeek !== 6) { // Not Saturday
+          alert('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.');
+          dateInput.value = '';
+        }
+      }
+      
+      // Check if date is Saturday for other clinics (except tele-dermatology)
+      if (clinicSelect.value !== 'Teledermatology' && 
+          clinicSelect.value !== 'Shubharambha Skin Centre, Dhangadhi') {
+        if (dayOfWeek === 6) { // Saturday
+          alert('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.');
+          dateInput.value = '';
+        }
+      }
+    }
+
     // Form validation and submission handling
     document.addEventListener('DOMContentLoaded', function() {
       const appointmentForm = document.getElementById('appointmentForm');
@@ -1318,6 +1396,20 @@
             return;
           }
           
+          // Clinic-specific validation
+          const dayOfWeek = selectedDate.getDay();
+          if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) {
+            showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error');
+            return;
+          }
+          
+          if (clinicLocation !== 'Teledermatology' && 
+              clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && 
+              dayOfWeek === 6) {
+            showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error');
+            return;
+          }
+          
           // Set loading state
           setLoading(true);
           
@@ -1350,6 +1442,8 @@
               showStatus('Thank you for your appointment request! We will contact you within 24 hours to confirm your appointment.', 'success');
               appointmentForm.reset();
               preferredDateInput.min = today;
+              // Reset time slots to default
+              updateTimeSlots();
             }, function(error) {
               console.log('FAILED...', error);
               // More detailed error information
@@ -1372,6 +1466,9 @@
             });
         });
       }
+      
+      // Initialize time slots
+      updateTimeSlots();
       
       // Live Chat Widget Functionality
       const chatButton = document.getElementById('chatButton');
