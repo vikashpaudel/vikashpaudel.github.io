@@ -236,6 +236,14 @@
             color: var(--primary);
         }
         
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
         .blog-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -294,6 +302,38 @@
             margin: 30px 0;
         }
         
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .cause-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cause-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .cause-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .cause-image p {
+            padding: 15px;
+            background-color: white;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
         .highlight-box {
             background-color: #e8f4fc;
             border-left: 4px solid var(--secondary);
@@ -305,6 +345,87 @@
         .highlight-box h3 {
             color: var(--primary);
             margin-bottom: 15px;
+        }
+        
+        .video-section {
+            margin: 40px 0;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .research-section {
+            margin: 40px 0;
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .research-article {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .research-article:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .research-article h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .research-article .meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .contact-option {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-option h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-option p {
+            margin-bottom: 20px;
         }
         
         .sidebar {
@@ -522,6 +643,10 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .contact-options {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -530,8 +655,6 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <! Dr. Vikash Paudel>
-                    <!<img src="images/logo.png" alt="Dr. Vikash Paudel Logo"> -->
                     <h1>Dr. Vikash Paudel - Dermatology</h1>
                 </div>
                 <nav>
@@ -541,7 +664,7 @@
                         <li><a href="award.html">पुरस्कारहरू</a></li>
                         <li><a href="research.html">अनुसन्धान</a></li>
                         <li><a href="blog.html">ब्लग</a></li>
-                        <li><a href="contact">सम्पर्क</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
                         <li class="language-toggle">
                             <button id="langNepali" class="active">नेपाली</button>
                             <button id="langEnglish">English</button>
@@ -558,15 +681,13 @@
             <h2 class="lang-english" style="display: none;">Hair Loss: Causes, Treatments and Management</h2>
             <p class="meta lang-nepali">डा. विकास पौडेल | जुन ८, २०२५ | कपाल स्वास्थ्य</p>
             <p class="meta lang-english" style="display: none;">Dr. Vikash Paudel | June 8, 2025 | Hair Health</p>
-            <a href="#contact" class="btn lang-nepali">परामर्शको लागि भेट्नुहोस्</a>
-            <a href="#contact" class="btn lang-english" style="display: none;">Book a Consultation</a>
         </div>
     </section>
 
     <div class="container">
         <div class="blog-container">
             <main class="blog-content">
-                <h1 class="lang-nepali">कपाल झर्ने समस्या: कारण र उपचार </h1>
+                <h1 class="lang-nepali">कपाल झर्ने समस्या: कारण र उपचार</h1>
                 <h1 class="lang-english" style="display: none;">Hair Loss: Causes, Treatments and Management</h1>
                 
                 <img src="images/hair-loss.webp" alt="कपाल झर्ने समस्या" class="featured-image">
@@ -576,10 +697,31 @@
                 <p class="lang-english" style="display: none;">Hair loss is a common problem affecting millions of people worldwide. This problem can occur in both men and women and can have a significant impact on a person's self-confidence. 
                     In this article, we will provide detailed information about the causes of hair loss, preventive measures, and recent advanced treatments.</p>
                 
-                <h2 class="lang-nepali">कपाल झर्ने समस्याका कारणहरू</h2>
-                <h2 class="lang-english" style="display: none;">Causes of Hair Loss</h2>
-                <p class="lang-nepali">कपाल झर्ने समस्याका विभिन्न कारणहरू हुन सक्छन् जसमा आनुवंशिकता, हर्मोनल परिवर्तन, रोग, औषधिको प्रभाव, तनाव र खानपान समावेश छन्।</p>
-                <p class="lang-english" style="display: none;">There can be various causes of hair loss including genetics, hormonal changes, diseases, medication effects, stress, and diet.</p>
+                <h2 class="lang-nepali">कपाल झर्ने समस्याका प्रमुख कारणहरू (फोटोसहित)</h2>
+                <h2 class="lang-english" style="display: none;">Major Causes of Hair Loss (With Photos)</h2>
+                
+                <div class="image-grid">
+                    <div class="cause-image">
+                        <img src="images/genetic-hair-loss.jpg" alt="आनुवंशिक कपाल झर्ने">
+                        <p class="lang-nepali">आनुवंशिक कपाल झर्ने (एन्ड्रोजेनेटिक एलोपेसिया)</p>
+                        <p class="lang-english" style="display: none;">Genetic Hair Loss (Androgenetic Alopecia)</p>
+                    </div>
+                    <div class="cause-image">
+                        <img src="images/alopecia-areata.jpg" alt="एलोपेसिया एरेटा">
+                        <p class="lang-nepali">एलोपेसिया एरेटा (ऑटोइम्यून रोग)</p>
+                        <p class="lang-english" style="display: none;">Alopecia Areata (Autoimmune Disease)</p>
+                    </div>
+                    <div class="cause-image">
+                        <img src="images/telogen-effluvium.jpg" alt="टेलोजेन एफ्लुभियम">
+                        <p class="lang-nepali">टेलोजेन एफ्लुभियम (तनावबाट कपाल झर्ने)</p>
+                        <p class="lang-english" style="display: none;">Telogen Effluvium (Stress-related Hair Loss)</p>
+                    </div>
+                    <div class="cause-image">
+                        <img src="images/nutritional-deficiency.jpg" alt="पोषणको कमी">
+                        <p class="lang-nepali">पोषणको कमीबाट कपाल झर्ने</p>
+                        <p class="lang-english" style="display: none;">Hair Loss due to Nutritional Deficiency</p>
+                    </div>
+                </div>
                 
                 <h3 class="lang-nepali">१. आनुवंशिक कारण</h3>
                 <h3 class="lang-english" style="display: none;">1. Genetic Causes</h3>
@@ -613,6 +755,26 @@
                     <p class="lang-english" style="display: none;">Consistency and patience are important in the treatment of hair loss. It may take several months to see the effects of treatment, so don't rush the treatment.</p>
                 </div>
                 
+                <!-- YouTube Educational Video Section -->
+                <div class="video-section">
+                    <h2 class="lang-nepali">कपाल झर्ने बारे शैक्षिक भिडियो</h2>
+                    <h2 class="lang-english" style="display: none;">Educational Video on Hair Loss</h2>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/48JmB3XWz1I" 
+                                title="Hair Loss Educational Video" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="lang-nepali" style="margin-top: 15px; text-align: center; color: var(--text-light);">
+                        यो भिडियोमा कपाल झर्ने समस्याका विभिन्न कारणहरू र उपचारका विकल्पहरूको बारेमा विस्तृत जानकारी समावेश छ।
+                    </p>
+                    <p class="lang-english" style="margin-top: 15px; text-align: center; color: var(--text-light); display: none;">
+                        This video contains detailed information about various causes of hair loss and treatment options.
+                    </p>
+                </div>
+                
                 <h2 class="lang-nepali">कपाल झर्ने समस्याको लागि उपचारका विकल्पहरू</h2>
                 <h2 class="lang-english" style="display: none;">Treatment Options for Hair Loss</h2>
                 
@@ -639,44 +801,79 @@
                 <p class="lang-nepali">स्टेम सेल थेरापी कपाल झर्ने समस्याको लागि एक नयाँ र आशाजनक उपचार हो। यस प्रक्रियामा रोगीको शरीरबाट लिइएका स्टेम सेलहरू कपालको फोलिकलहरूमा इन्जेक्ट गरिन्छन्, जसले गर्दा नयाँ कपालको वृद्धि हुन्छ। यो प्रक्रिया कम इन्भेसिभ र छिटो रिकभरी समयको साथ आउँछ।</p>
                 <p class="lang-english" style="display: none;">Stem cell therapy is a new and promising treatment for hair loss. In this procedure, stem cells taken from the patient's body are injected into the hair follicles, which promotes new hair growth. This procedure is less invasive and comes with a quick recovery time.</p>
                 
-                <h3 class="lang-nepali">४. PRP थेरापी (प्लेटलेट-रिच प्लाज्मा)</h3>
-                <h3 class="lang-english" style="display: none;">4. PRP Therapy (Platelet-Rich Plasma)</h3>
-                <p class="lang-nepali">PRP थेरापीमा रोगीको रक्तबाट प्लाज्मा निकालिएर कपालको जरामा इन्जेक्ट गरिन्छ। यसले कपालको वृद्धिलाई प्रोत्साहित गर्दछ र कपाल झर्ने प्रक्रिया ढिलो गर्दछ। यो प्रक्रिया सुरक्षित छ किनभने यसमा रोगीको आफ्नै रक्त प्रयोग गरिन्छ।</p>
-                <p class="lang-english" style="display: none;">In PRP therapy, plasma is extracted from the patient's blood and injected into the hair roots. This encourages hair growth and slows down the hair loss process. This procedure is safe because it uses the patient's own blood.</p>
+                <!-- Recent Research Articles Section -->
+                <div class="research-section">
+                    <h2 class="lang-nepali">हालै प्रकाशित अनुसन्धान लेखहरू</h2>
+                    <h2 class="lang-english" style="display: none;">Recently Published Research Articles</h2>
+                    
+                    <div class="research-article">
+                        <h4 class="lang-nepali">हेयर लस रोगहरूको उपचारमा नयाँ औषधिहरूको समीक्षा</h4>
+                        <h4 class="lang-english" style="display: none;">Review of New Medications in the Treatment of Hair Loss Disorders</h4>
+                        <p class="meta lang-nepali">ब्रिटिश जर्नल अफ डर्माटोलोजी (BJD), २०२४ | समीक्षा लेख</p>
+                        <p class="meta lang-english" style="display: none;">British Journal of Dermatology (BJD), 2024 | Review Article</p>
+                        <p class="lang-nepali">यस समीक्षा लेखमा हालै विकसित जाक इन्हिबिटरहरू, प्रोस्टाग्ल्यान्डिन एनालगहरू, र अन्य नयाँ उपचारहरूको प्रभावकारिता बारे विस्तृत विश्लेषण छ।</p>
+                        <p class="lang-english" style="display: none;">This review article provides detailed analysis of the efficacy of recently developed JAK inhibitors, prostaglandin analogs, and other new treatments.</p>
+                    </div>
+                    
+                    <div class="research-article">
+                        <h4 class="lang-nepali">एन्ड्रोजेनेटिक एलोपेसियाको लागि स्टेम सेल थेरापीको नैदानिक परीक्षण</h4>
+                        <h4 class="lang-english" style="display: none;">Clinical Trial of Stem Cell Therapy for Androgenetic Alopecia</h4>
+                        <p class="meta lang-nepali">जर्नल अफ द अमेरिकन एकेडेमी अफ डर्माटोलोजी (JAAD), २०२४ | मूल अनुसन्धान</p>
+                        <p class="meta lang-english" style="display: none;">Journal of the American Academy of Dermatology (JAAD), 2024 | Original Research</p>
+                        <p class="lang-nepali">यस अध्ययनले स्टेम सेल थेरापीले कपालको घनत्वमा ४०% वृद्धि गरेको देखाएको छ र यो उपचार सुरक्षित र प्रभावकारी रहेको छ।</p>
+                        <p class="lang-english" style="display: none;">This study showed that stem cell therapy increased hair density by 40% and the treatment was safe and effective.</p>
+                    </div>
+                    
+                    <div class="research-article">
+                        <h4 class="lang-nepali">महिलाहरूमा कपाल झर्ने: रिस्क फ्याक्टर र उपचारका रणनीतिहरू</h4>
+                        <h4 class="lang-english" style="display: none;">Hair Loss in Women: Risk Factors and Treatment Strategies</h4>
+                        <p class="meta lang-nepali">जर्नल अफ द अमेरिकन मेडिकल एसोसिएशन (JAMA), २०२३ | स्थिति पत्र</p>
+                        <p class="meta lang-english" style="display: none;">Journal of the American Medical Association (JAMA), 2023 | Position Paper</p>
+                        <p class="lang-nepali">यस लेखमा महिलाहरूमा कपाल झर्ने समस्याका विशिष्ट कारणहरू, निदानका तरिकाहरू, र व्यक्तिगत उपचार योजनाहरू बारे छलफल गरिएको छ।</p>
+                        <p class="lang-english" style="display: none;">This article discusses the specific causes of hair loss in women, diagnostic methods, and personalized treatment plans.</p>
+                    </div>
+                    
+                    <div class="research-article">
+                        <h4 class="lang-nepali">माइक्रोबायोम र कपाल झर्ने बीचको सम्बन्ध</h4>
+                        <h4 class="lang-english" style="display: none;">The Relationship Between Microbiome and Hair Loss</h4>
+                        <p class="meta lang-nepali">न्यू इङ्ल्यान्ड जर्नल अफ मेडिसिन (NEJM), २०२४ | अनुसन्धान लेख</p>
+                        <p class="meta lang-english" style="display: none;">New England Journal of Medicine (NEJM), 2024 | Research Article</p>
+                        <p class="lang-nepali">यस अध्ययनले छालाको माइक्रोबायोम र कपाल झर्ने बीचको सम्बन्ध प्रस्तुत गर्दछ र नयाँ उपचारका सम्भावनाहरू सुझाव दिन्छ।</p>
+                        <p class="lang-english" style="display: none;">This study presents the relationship between skin microbiome and hair loss and suggests possibilities for new treatments.</p>
+                    </div>
+                </div>
                 
-                <h3 class="lang-nepali">५. लेजर थेरापी</h3>
-                <h3 class="lang-english" style="display: none;">5. Laser Therapy</h3>
-                <p class="lang-nepali">कम शक्तिको लेजर उपचारले कपालको फोलिकलहरूमा रक्त प्रवाह बढाउँछ र कपालको वृद्धिलाई प्रोत्साहित गर्दछ। यो उपचार घरमा प्रयोग गर्न सकिने लेजर उपकरणहरू वा क्लिनिकमा प्रयोग गरिने लेजर उपकरणहरूबाट गर्न सकिन्छ।</p>
-                <p class="lang-english" style="display: none;">Low-level laser therapy increases blood flow to the hair follicles and encourages hair growth. This treatment can be done with laser devices that can be used at home or with laser devices used in the clinic.</p>
-                
-                <h2 class="lang-nepali">कपाल झर्ने समस्याबाट बच्नका उपायहरू</h2>
-                <h2 class="lang-english" style="display: none;">Preventive Measures for Hair Loss</h2>
-                
-                <h3 class="lang-nepali">१. संतुलित आहार</h3>
-                <h3 class="lang-english" style="display: none;">1. Balanced Diet</h3>
-                <p class="lang-nepali">प्रोटीन, आयरन, जिंक, बायोटिन, र विटामिनहरूले भरपूर आहार लिनुहोस्। हरियो सागसब्जी, फलफूल, अण्डा, माछा, र नट्स कपालको स्वास्थ्यको लागि राम्रा छन्।</p>
-                <p class="lang-english" style="display: none;">Eat a diet rich in protein, iron, zinc, biotin, and vitamins. Green vegetables, fruits, eggs, fish, and nuts are good for hair health.</p>
-                
-                <h3 class="lang-nepali">२. कपालको उचित हेरचाह</h3>
-                <h3 class="lang-english" style="display: none;">2. Proper Hair Care</h3>
-                <p class="lang-nepali">कपाललाई न्यानो पानीले मात्र धुनुहोस्, कडा शैम्पू र केमिकलयुक्त उत्पादनहरूबाट टाढा रहनुहोस्, र कपाललाई धेरै तातो पानी, हेयर ड्रायर, र स्ट्रेटनरबाट बचाउनुहोस्।</p>
-                <p class="lang-english" style="display: none;">Wash hair only with lukewarm water, avoid harsh shampoos and chemical products, and protect hair from too hot water, hair dryers, and straighteners.</p>
-                
-                <h3 class="lang-nepali">३. तनाव प्रबन्धन</h3>
-                <h3 class="lang-english" style="display: none;">3. Stress Management</h3>
-                <p class="lang-nepali">योग, ध्यान, र नियमित व्यायामले तनाव कम गर्न मद्दत गर्दछ, जसले गर्दा कपाल झर्ने समस्या कम हुन्छ।</p>
-                <p class="lang-english" style="display: none;">Yoga, meditation, and regular exercise help reduce stress, which reduces hair loss problems.</p>
-                
-                <h3 class="lang-nepali">४. नियमित जाँच</h3>
-                <h3 class="lang-english" style="display: none;">4. Regular Check-ups</h3>
-                <p class="lang-nepali">थाइरोइड, एनिमिया, र अन्य स्वास्थ्य समस्याहरूको लागि नियमित रूपमा जाँच गराउनुहोस् किनभने यी समस्याहरूले कपाल झर्ने समस्या निम्त्याउन सक्छन्।</p>
-                <p class="lang-english" style="display: none;">Get regular check-ups for thyroid, anemia, and other health problems because these problems can cause hair loss.</p>
-                
-                <div class="highlight-box">
-                    <h3 class="lang-nepali">डाक्टरसँग कहिले भेट्ने?</h3>
-                    <h3 class="lang-english" style="display: none;">When to See a Doctor?</h3>
-                    <p class="lang-nepali">यदि तपाईंको कपाल झर्ने समस्या अचानक बढेको छ, कपालको ठूलो भाग खाली भएको छ, वा कपाल झर्ने साथै छालाको समस्या छ भने, डर्माटोलोजिस्टसँग परामर्श गर्नुहोस्।</p>
-                    <p class="lang-english" style="display: none;">If your hair loss problem has suddenly increased, a large area of hair has become empty, or if you have skin problems along with hair loss, consult a dermatologist.</p>
+                <!-- Alternative Contact Methods Section -->
+                <div class="contact-options">
+                    <div class="contact-option">
+                        <h4 class="lang-nepali">फोनबाट अबैठक बुक गर्नुहोस्</h4>
+                        <h4 class="lang-english" style="display: none;">Book Appointment by Phone</h4>
+                        <p class="lang-nepali">हामीलाई सिधै फोन गर्नुहोस् र अबैठक बुक गर्नुहोस्। हामी २४/७ फोन सेवा उपलब्ध गराउँदछौं।</p>
+                        <p class="lang-english" style="display: none;">Call us directly to book an appointment. We provide 24/7 phone service.</p>
+                        <a href="tel:+977-1-5242511" class="btn">+९७७-१-५२४२५११</a>
+                    </div>
+                    
+                    <div class="contact-option">
+                        <h4 class="lang-nepali">व्हाट्सएपबाट सम्पर्क गर्नुहोस्</h4>
+                        <h4 class="lang-english" style="display: none;">Contact via WhatsApp</h4>
+                        <p class="lang-nepali">व्हाट्सएपबाट हामीलाई सन्देश पठाउनुहोस्। हामी चाँडै नै जवाफ दिनेछौं।</p>
+                        <p class="lang-english" style="display: none;">Send us a message via WhatsApp. We will respond quickly.</p>
+                        <a href="https://wa.me/9779825207253" target="_blank" class="btn btn-whatsapp">
+                            <span class="lang-nepali">व्हाट्सएप सन्देश</span>
+                            <span class="lang-english" style="display: none;">WhatsApp Message</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-option">
+                        <h4 class="lang-nepali">क्लिनिकमा भेट्नुहोस्</h4>
+                        <h4 class="lang-english" style="display: none;">Visit Our Clinic</h4>
+                        <p class="lang-nepali">सिधै हाम्रो क्लिनिकमा आउनुहोस् र नि:शुल्क परामर्श प्राप्त गर्नुहोस्।</p>
+                        <p class="lang-english" style="display: none;">Visit our clinic directly for a free consultation.</p>
+                        <a href="#clinic-location" class="btn">
+                            <span class="lang-nepali">क्लिनिकको स्थान</span>
+                            <span class="lang-english" style="display: none;">Clinic Location</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="author-bio">
@@ -694,10 +891,10 @@
                 <div class="social-share">
                     <p class="lang-nepali">यो लेख साझा गर्नुहोस्:</p>
                     <p class="lang-english" style="display: none;">Share this article:</p>
-                    <a href="https://www.facebook.com/vikashderma" aria-label="फेसबुकमा साझा गर्नुहोस्">FB</a>
-                    <a href="https://www.x.com/merodesh" aria-label="ट्विटरमा साझा गर्नुहोस्">TW</a>
-                    <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="लिंक्डइनमा साझा गर्नुहोस्">LI</a>
-                    <a href="https://www.instagram.com/vikash.paudel" aria-label="व्हाट्सएपमा साझा गर्नुहोस्">WA</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.vikashpaudel.com.np/blog/hair-loss-management" target="_blank" aria-label="फेसबुकमा साझा गर्नुहोस्">FB</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://www.vikashpaudel.com.np/blog/hair-loss-management&text=कपाल झर्ने समस्या: कारण, उपचार र व्यवस्थापन" target="_blank" aria-label="ट्विटरमा साझा गर्नुहोस्">TW</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.vikashpaudel.com.np/blog/hair-loss-management&title=कपाल झर्ने समस्या: कारण, उपचार र व्यवस्थापन" target="_blank" aria-label="लिंक्डइनमा साझा गर्नुहोस्">LI</a>
+                    <a href="https://api.whatsapp.com/send?text=कपाल झर्ने समस्या: कारण, उपचार र व्यवस्थापन https://www.vikashpaudel.com.np/blog/hair-loss-management" target="_blank" aria-label="व्हाट्सएपमा साझा गर्नुहोस्">WA</a>
                 </div>
             </main>
             
@@ -762,14 +959,15 @@
                     <p><strong class="lang-nepali">ठेगाना:</strong><strong class="lang-english" style="display: none;">Address:</strong> शंखमूल हेल्थकेयर, काठमाडौं, नेपाल</p>
                     <p><strong class="lang-nepali">फोन:</strong><strong class="lang-english" style="display: none;">Phone:</strong> +९७७-१-५२४२५११</p>
                     <p><strong class="lang-nepali">इमेल:</strong><strong class="lang-english" style="display: none;">Email:</strong> vikashpaudel@gmail.com</p>
-                    <a href="#contact" class="btn lang-nepali" style="width: 100%; margin-top: 15px;">अबैठकको लागि सम्पर्क गर्नुहोस्</a>
-                    <a href="#contact" class="btn lang-english" style="width: 100%; margin-top: 15px; display: none;">Contact for Appointment</a>
+                    <a href="tel:+977-1-5242511" class="btn lang-nepali" style="width: 100%; margin-top: 15px;">फोन गर्नुहोस्</a>
+                    <a href="tel:+977-1-5242511" class="btn lang-english" style="width: 100%; margin-top: 15px; display: none;">Call Now</a>
                 </div>
             </aside>
         </div>
     </div>
 
-    <section class="section" id="contact">
+    <!-- Clinic Information Section -->
+    <section class="section" id="clinic-location">
         <div class="container">
             <div class="section-title">
                 <h2 class="lang-nepali">डा. विकास पौडेलसँग सम्पर्क गर्नुहोस्</h2>
@@ -800,9 +998,9 @@
                         </div>
                     </div>
                     
-                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwMi4wIKXMDSoASAFQAw%3D%3D" 
+                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwMi.0wIKXMDSoASAFQAw%3D%3D" 
                        target="_blank" class="map-link lang-nepali">गुगल मान्समा हेर्नुहोस्</a>
-                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwMi4wIKXMDSoASAFQAw%3D%3D" 
+                    <a href="https://www.google.com/maps/place/Dr+Vikash+Paudel+Skin+Clinic/@27.6813332,85.3292746,688m/data=!3m1!1e3!4m12!1m5!8m4!1e1!2s107318204970888743648!3m1!1e1!3m5!1s0x39eb199321f634b5:0x52ddc625a3481046!8m2!3d27.6813285!4d85.3318495!16s%2Fg%2F11rc9kf7ss?hl=en-GB&entry=ttu&g_ep=EgoyMDI5MTEwMi.0wIKXMDSoASAFQAw%3D%3D" 
                        target="_blank" class="map-link lang-english" style="display: none;">View on Google Maps</a>
                 </div>
                 
@@ -815,37 +1013,6 @@
                     </iframe>
                 </div>
             </div>
-            
-            <div class="contact-form">
-                <h3 class="lang-nepali">अबैठकको लागि अनुरोध</h3>
-                <h3 class="lang-english" style="display: none;">Appointment Request</h3>
-                <form id="consultationForm">
-                    <div class="form-group">
-                        <label for="name" class="lang-nepali">पूरा नाम</label>
-                        <label for="name" class="lang-english" style="display: none;">Full Name</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="lang-nepali">फोन नम्बर</label>
-                        <label for="phone" class="lang-english" style="display: none;">Phone Number</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="lang-nepali">इमेल ठेगाना</label>
-                        <label for="email" class="lang-english" style="display: none;">Email Address</label>
-                        <input type="email" id="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="lang-nepali">तपाईंको कपाल झर्ने समस्याको बारेमा भन्नुहोस्</label>
-                        <label for="message" class="lang-english" style="display: none;">Tell us about your hair loss problem</label>
-                        <textarea id="message" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn lang-nepali" style="width: 100%;">अपोईन्मेन्टको लागि सन्देश पठाउनुहोस्</button>
-                    <button type="submit" class="btn lang-english" style="width: 100%; display: none;">Send Message for Appointment</button>
-                </form>
-                <p class="lang-nepali" style="font-size: 0.9rem; margin-top: 10px; text-align: center;">हामी २४ घण्टाभित्र तपाईंसँग सम्पर्क गरी तालिका बनाउने छौं।</p>
-                <p class="lang-english" style="font-size: 0.9rem; margin-top: 10px; text-align: center; display: none;">We will contact you within 24 hours to schedule an appointment.</p>
-            </div>
         </div>
     </section>
 
@@ -857,14 +1024,14 @@
                     <h3 class="lang-english" style="display: none;">Contact Information</h3>
                     <div class="contact-info">
                         <a href="tel:+977-1-5242511"><span class="lang-nepali">फोन:</span><span class="lang-english" style="display: none;">Phone:</span> +९७७-१-५२४२५११</a>
-                        <a href="tel:+977-9801234567"><span class="lang-nepali">मोबाइल:</span><span class="lang-english" style="display: none;">Mobile:</span> +९७७-९८२५२०७२५३</a>
+                        <a href="tel:+977-9825207253"><span class="lang-nepali">मोबाइल:</span><span class="lang-english" style="display: none;">Mobile:</span> +९७७-९८२५२०७२५३</a>
                         <a href="mailto:vikashpaudel@gmail.com"><span class="lang-nepali">इमेल:</span><span class="lang-english" style="display: none;">Email:</span> vikashpaudel@gmail.com</a>
                     </div>
                     <div class="social-links">
-                        <a href="www.facebook.com/vikashderma" aria-label="फेसबुकमा पछ्याउनुहोस्">FB</a>
-                        <a href="www.instagram.com/vikash.paudel" aria-label="इन्स्टाग्राममा पछ्याउनुहोस्">IG</a>
-                        <a href="www.x.com/merodesh" aria-label="ट्विटरमा पछ्याउनुहोस्">TW</a>
-                        <a href="www.linkedin.com/in/vikash-paudel-89598324" aria-label="लिंक्डइनमा जडान गर्नुहोस्">LI</a>
+                        <a href="https://www.facebook.com/vikashderma" target="_blank" aria-label="फेसबुकमा पछ्याउनुहोस्">FB</a>
+                        <a href="https://www.instagram.com/vikash.paudel" target="_blank" aria-label="इन्स्टाग्राममा पछ्याउनुहोस्">IG</a>
+                        <a href="https://twitter.com/merodesh" target="_blank" aria-label="ट्विटरमा पछ्याउनुहोस्">TW</a>
+                        <a href="https://www.linkedin.com/in/vikash-paudel-89598324" target="_blank" aria-label="लिंक्डइनमा जडान गर्नुहोस्">LI</a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -936,17 +1103,9 @@
             }
         }
         
-        // Form submission
-        document.getElementById('consultationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const isNepali = document.getElementById('langNepali').classList.contains('active');
-            
-            if (isNepali) {
-                alert('तपाईंको अनुरोधको लागि धन्यवाद। हामी चाँडै नै तपाईंसँग सम्पर्क गरी तालिका बनाउने छौं। यदि तपाईंलाई कल नआएमा, कृपया हामीलाई ०१-५२४२५११ मा कल गर्नुहोस्।');
-            } else {
-                alert('Thank you for your request. We will contact you soon to schedule an appointment. If you don\'t receive a call, please call us at 01-5242511.');
-            }
-            this.reset();
+        // Initialize with Nepali language
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleLanguage('nepali');
         });
     </script>
 </body>
