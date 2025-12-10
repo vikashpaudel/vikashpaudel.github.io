@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awards - Dr. Vikash Paudel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +15,10 @@
     /* CSS Variables */
     :root {
       --primary: #1a6aa2;
+      --primary-dark: #155d8a;
       --primary-foreground: #ffffff;
       --accent: #4db6ac;
+      --accent-dark: #3a8a82;
       --background: #ffffff;
       --foreground: #333333;
       --muted-foreground: #666666;
@@ -23,6 +27,8 @@
       --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
       --transition-smooth: all 0.3s ease;
+      --header-height: 80px;
+      --header-scroll-height: 60px;
     }
 
     /* Base Styles */
@@ -40,6 +46,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      padding-top: var(--header-height);
     }
 
     h1, h2, h3, h4, h5 {
@@ -47,37 +54,22 @@
       font-weight: 600;
     }
 
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--primary-foreground);
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Navigation Styles */
+    /* Fixed Header with Scroll Animation */
     .navbar {
       background-color: var(--background);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      height: var(--header-height);
+    }
+
+    .navbar.scrolled {
+      height: var(--header-scroll-height);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     .navbar-container {
@@ -87,20 +79,34 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
-      position: relative;
+      height: 100%;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.scrolled .navbar-container {
+      padding: 0 1.5rem;
     }
 
     .navbar-brand {
-      font-weight: 600;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.4rem;
       color: var(--primary);
       text-decoration: none;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar.scrolled .navbar-brand {
+      font-size: 1.2rem;
     }
 
     .navbar-menu {
       display: flex;
       list-style: none;
       flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
     }
 
     .navbar-item {
@@ -113,14 +119,18 @@
       text-decoration: none;
       color: var(--foreground);
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: var(--transition-smooth);
       border-bottom: 3px solid transparent;
       font-size: 0.95rem;
+      position: relative;
+    }
+
+    .navbar.scrolled .navbar-link {
+      padding: 0.8rem 1.2rem;
     }
 
     .navbar-link:hover {
       color: var(--primary);
-      background-color: #f5f5f5;
     }
 
     .navbar-link.active {
@@ -128,36 +138,52 @@
       border-bottom: 3px solid var(--accent);
     }
 
+    /* Enhanced Button Hover Effects */
     .book-appointment {
-      background-color: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       border-radius: 4px;
       margin-left: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      border: none;
+      cursor: pointer;
     }
 
     .book-appointment:hover {
-      background-color: #155d8a;
-      color: white;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(26, 106, 162, 0.3);
+    }
+
+    .book-appointment:active {
+      transform: translateY(0);
     }
 
     .book-appointment i {
       margin-right: 8px;
     }
 
+    /* Language Toggle */
     .language-toggle {
       background: none;
-      border: none;
+      border: 1px solid var(--border);
       color: var(--foreground);
-      font-size: 1.2rem;
+      font-size: 1rem;
       cursor: pointer;
       margin-left: 1rem;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 4px;
       transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .language-toggle:hover {
       background-color: #f5f5f5;
+      border-color: var(--primary);
     }
 
     .navbar-toggle {
@@ -173,6 +199,7 @@
     /* Main Content Styles */
     main {
       flex: 1;
+      position: relative;
     }
 
     .container {
@@ -181,24 +208,55 @@
       padding: 0 1rem;
     }
 
+    /* Floating Hero Section with Pattern */
     .hero-section {
-      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background: linear-gradient(135deg, rgba(26, 106, 162, 0.85), rgba(44, 138, 201, 0.85)), 
+                  url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
       color: var(--primary-foreground);
-      padding: 4rem 0;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+      animation: floatBackground 20s ease-in-out infinite;
+    }
+
+    @keyframes floatBackground {
+      0%, 100% { background-position: center center; }
+      50% { background-position: center 30px; }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+      animation: patternMove 30s linear infinite;
+    }
+
+    @keyframes patternMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(100px, 100px); }
     }
 
     .hero-section h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-section p {
       font-size: 1.125rem;
       opacity: 0.9;
       max-width: 600px;
+      position: relative;
+      z-index: 1;
     }
 
     .content-section {
@@ -250,7 +308,7 @@
       line-height: 1.625;
     }
 
-    /* Card Styles */
+    /* Card Styles with AOS */
     .card {
       background-color: var(--background);
       border: 1px solid var(--border);
@@ -258,6 +316,13 @@
       box-shadow: var(--shadow-card);
       overflow: hidden;
       transition: var(--transition-smooth);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
@@ -445,6 +510,8 @@
       font-weight: 500;
       margin-top: 0.5rem;
       transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
     }
 
     .award-link:hover {
@@ -457,33 +524,227 @@
       font-size: 0.875rem;
     }
 
-    /* Research Links */
-    .research-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+    /* Search Section */
+    .search-section {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
     }
 
-    .research-link {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: var(--foreground);
+    .search-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem 1rem 3rem;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      font-size: 1rem;
       transition: var(--transition-smooth);
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      background-color: #f5f5f5;
+      background-color: white;
     }
 
-    .research-link:hover {
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 106, 162, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted-foreground);
+    }
+
+    /* Category Filter Buttons */
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      background-color: white;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      color: var(--foreground);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-btn.active {
       background-color: var(--primary);
+      border-color: var(--primary);
       color: white;
     }
 
-    .research-link i {
-      margin-right: 8px;
+    .filter-btn.ripple {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-btn.ripple::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+
+    .filter-btn.ripple:focus:not(:active)::after {
+      animation: ripple 1s ease-out;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(20, 20);
+        opacity: 0;
+      }
+    }
+
+    /* Sticky Sidebar */
+    .sidebar-container {
+      position: fixed;
+      right: 20px;
+      top: calc(var(--header-height) + 20px);
+      width: 300px;
+      z-index: 900;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.scrolled ~ main .sidebar-container {
+      top: calc(var(--header-scroll-height) + 20px);
+    }
+
+    .sidebar-content {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .sidebar-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .fb-page-container {
+      padding: 1rem;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 12px rgba(26, 106, 162, 0.3);
+      border: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(26, 106, 162, 0.4);
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      text-decoration: none;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .whatsapp-button:hover {
+      animation: none;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-button i {
+      font-size: 28px;
     }
 
     /* Footer Styles */
@@ -497,6 +758,12 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1200px) {
+      .sidebar-container {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero-section h1 {
         font-size: 2rem;
@@ -515,6 +782,11 @@
         width: 100%;
         flex-direction: column;
         padding: 0;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
       
       .navbar-menu.active {
@@ -534,11 +806,15 @@
       .book-appointment {
         margin-left: 0;
         margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
       }
       
       .language-toggle {
         margin-left: 0;
         margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
       }
 
       .flex.space-x-4 {
@@ -550,11 +826,29 @@
         margin-left: 0;
         margin-top: 1rem;
       }
+
+      .whatsapp-button {
+        left: 20px;
+        bottom: 20px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .whatsapp-button i {
+        font-size: 24px;
+      }
+
+      .back-to-top {
+        right: 20px;
+        bottom: 20px;
+        width: 45px;
+        height: 45px;
+      }
     }
 
     @media (max-width: 480px) {
       .hero-section {
-        padding: 2rem 0;
+        padding: 4rem 0;
       }
       
       .hero-section h1 {
@@ -564,11 +858,35 @@
       .card-content {
         padding: 1rem;
       }
+
+      body {
+        padding-top: 60px;
+      }
+
+      .navbar {
+        height: 60px;
+      }
+
+      .navbar.scrolled {
+        height: 50px;
+      }
     }
 
     /* Nepali Language Styles */
     .nepali {
       display: none;
+    }
+
+    /* No Results Message */
+    .no-results {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted-foreground);
+      display: none;
+    }
+
+    .no-results.show {
+      display: block;
     }
   </style>
 </head>
@@ -591,6 +909,8 @@
         <li class="navbar-item">
           <button class="language-toggle" id="language-toggle">
             <i class="fas fa-globe"></i>
+            <span class="english">नेपाली</span>
+            <span class="nepali">English</span>
           </button>
         </li>
       </ul>
@@ -598,13 +918,30 @@
   </nav>
 
   <main>
-    <!-- Header -->
+    <!-- Floating Hero Section -->
     <section class="hero-section">
       <div class="container">
-        <h1 class="english">Awards & Recognition</h1>
-        <h1 class="nepali">पुरस्कार र मान्यता</h1>
-        <p class="english">Honored for excellence in dermatological care, research, and academic achievements</p>
-        <p class="nepali">चर्मरोग, अनुसन्धान, र शैक्षिक उपलब्धिहरूमा उत्कृष्टताको लागि सम्मानित</p>
+        <h1 class="english" data-aos="fade-up">Awards & Recognition</h1>
+        <h1 class="nepali" data-aos="fade-up">पुरस्कार र मान्यता</h1>
+        <p class="english" data-aos="fade-up" data-aos-delay="100">Honored for excellence in dermatological care, research, and academic achievements</p>
+        <p class="nepali" data-aos="fade-up" data-aos-delay="100">चर्मरोग, अनुसन्धान, र शैक्षिक उपलब्धिहरूमा उत्कृष्टताको लागि सम्मानित</p>
+      </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+      <div class="search-container">
+        <div class="search-box" data-aos="fade-up">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" id="award-search" placeholder="Search awards by title, year, or organization...">
+        </div>
+        <div class="category-filters" data-aos="fade-up" data-aos-delay="100">
+          <button class="filter-btn ripple active" data-filter="all">All Awards</button>
+          <button class="filter-btn ripple" data-filter="international">International</button>
+          <button class="filter-btn ripple" data-filter="scholarship">Scholarships</button>
+          <button class="filter-btn ripple" data-filter="fellowship">Fellowships</button>
+          <button class="filter-btn ripple" data-filter="academic">Academic</button>
+        </div>
       </div>
     </section>
 
@@ -613,7 +950,7 @@
       <div class="container">
         <div class="max-w-4xl mx-auto space-y-12">
           <!-- Introduction -->
-          <div>
+          <div data-aos="fade-up">
             <h2 class="english">Professional Achievements</h2>
             <h2 class="nepali">व्यावसायिक उपलब्धिहरू</h2>
             <p class="text-lg text-muted-foreground leading-relaxed english">
@@ -625,9 +962,9 @@
           </div>
 
           <!-- Awards Grid -->
-          <div class="space-y-6">
+          <div class="space-y-6" id="awards-container">
             <!-- Award 1 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="100" data-category="international scholarship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -653,7 +990,7 @@
             </div>
 
             <!-- Award 2 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="150" data-category="international">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -679,7 +1016,7 @@
             </div>
 
             <!-- Award 3 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="200" data-category="international fellowship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -705,7 +1042,7 @@
             </div>
 
             <!-- Award 4 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="250" data-category="scholarship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -731,7 +1068,7 @@
             </div>
 
             <!-- Award 5 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="300" data-category="scholarship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -751,7 +1088,7 @@
             </div>
 
             <!-- Award 6 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="350" data-category="scholarship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -771,7 +1108,7 @@
             </div>
 
             <!-- Award 7 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="400" data-category="fellowship">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -791,7 +1128,7 @@
             </div>
 
             <!-- Award 8 -->
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="450" data-category="international">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -816,8 +1153,8 @@
               </div>
             </div>
 
-            <!-- New Award 9: Padma Bahadur Prativa Padak -->
-            <div class="card">
+            <!-- Award 9: Padma Bahadur Prativa Padak -->
+            <div class="card" data-aos="fade-up" data-aos-delay="500" data-category="academic">
               <div class="card-content">
                 <div class="flex items-start space-x-4">
                   <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
@@ -837,8 +1174,17 @@
             </div>
           </div>
 
+          <!-- No Results Message -->
+          <div class="no-results" id="no-results">
+            <i class="fas fa-search fa-3x mb-4" style="color: #ccc;"></i>
+            <h3 class="english">No awards found</h3>
+            <h3 class="nepali">कुनै पुरस्कार फेला परेन</h3>
+            <p class="english">Try adjusting your search or filter criteria</p>
+            <p class="nepali">आफ्नो खोज वा फिल्टर मापदण्ड समायोजन गर्नुहोस्</p>
+          </div>
+
           <!-- Award Images Section -->
-          <div class="card">
+          <div class="card" data-aos="fade-up">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Highlights</h2>
               <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार हाइलाइट्स</h2>
@@ -871,7 +1217,7 @@
           </div>
 
           <!-- Timeline Overview -->
-          <div class="card mt-12">
+          <div class="card mt-12" data-aos="fade-up">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Timeline</h2>
               <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार समयरेखा</h2>
@@ -952,7 +1298,7 @@
           </div>
 
           <!-- Geographic Reach -->
-          <div class="card community-impact">
+          <div class="card community-impact" data-aos="fade-up">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6 english">International Recognition</h2>
               <h2 class="text-2xl font-bold text-foreground mb-6 nepali">अन्तर्राष्ट्रिय मान्यता</h2>
@@ -1008,45 +1354,60 @@
       </div>
     </section>
 
-    <!-- Research Links Section -->
-    <section class="content-section" style="padding-top: 0;">
-      <div class="container">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center english">Research Profiles</h2>
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center nepali">अनुसन्धान प्रोफाइलहरू</h2>
-          <div class="research-links">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="research-link">
-              <i class="fas fa-book-medical"></i>
-              <span class="english">PubMed</span>
-              <span class="nepali">PubMed</span>
-            </a>
-            <a href="https://www.researchgate.net/" target="_blank" class="research-link">
-              <i class="fab fa-researchgate"></i>
-              <span class="english">ResearchGate</span>
-              <span class="nepali">ResearchGate</span>
-            </a>
-            <a href="https://orcid.org/" target="_blank" class="research-link">
-              <i class="fab fa-orcid"></i>
-              <span class="english">ORCID</span>
-              <span class="nepali">ORCID</span>
-            </a>
-            <a href="https://scholar.google.com/" target="_blank" class="research-link">
-              <i class="fas fa-graduation-cap"></i>
-              <span class="english">Google Scholar</span>
-              <span class="nepali">Google Scholar</span>
-            </a>
+    <!-- Sticky Sidebar with Facebook Plugin -->
+    <div class="sidebar-container">
+      <div class="sidebar-content">
+        <div class="sidebar-header english">Follow Us</div>
+        <div class="sidebar-header nepali">हामीलाई पछ्याउनुहोस्</div>
+        <div class="fb-page-container">
+          <div class="fb-page" 
+               data-href="https://www.facebook.com/vikashderma"
+               data-tabs="timeline"
+               data-width="300" 
+               data-height="400"
+               data-small-header="false"
+               data-adapt-container-width="true"
+               data-hide-cover="false"
+               data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/vikashderma" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/vikashderma">Dr. Vikash Paudel</a>
+            </blockquote>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/9779841234567?text=Hello%20Dr.%20Vikash%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
   <footer>
     <p>&copy; 2025 Dr. Vikash Paudel, Dermatologist</p>
   </footer>
 
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE_VALUE"></script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+      });
+
       // Mobile menu toggle
       const navbarToggle = document.getElementById('navbar-toggle');
       const navbarMenu = document.getElementById('navbar-menu');
@@ -1075,6 +1436,8 @@
               el.style.display = 'block';
             });
             currentLanguage = 'nepali';
+            languageToggle.querySelector('.english').textContent = 'English';
+            languageToggle.querySelector('.nepali').textContent = 'English';
           } else {
             // Switch to English
             englishElements.forEach(el => {
@@ -1084,9 +1447,131 @@
               el.style.display = 'none';
             });
             currentLanguage = 'english';
+            languageToggle.querySelector('.english').textContent = 'नेपाली';
+            languageToggle.querySelector('.nepali').textContent = 'नेपाली';
           }
         });
       }
+
+      // Fixed Header Scroll Animation
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Award Search Functionality
+      const searchInput = document.getElementById('award-search');
+      const awardCards = document.querySelectorAll('.card[data-category]');
+      const noResults = document.getElementById('no-results');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      let activeFilter = 'all';
+      let searchTerm = '';
+      
+      function filterAwards() {
+        let visibleCount = 0;
+        
+        awardCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const year = card.querySelector('.year-badge').textContent.toLowerCase();
+          const description = card.querySelector('.text-muted-foreground.english').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+          
+          const matchesSearch = searchTerm === '' || 
+            title.includes(searchTerm) || 
+            year.includes(searchTerm) || 
+            description.includes(searchTerm);
+          
+          const matchesFilter = activeFilter === 'all' || category.includes(activeFilter);
+          
+          if (matchesSearch && matchesFilter) {
+            card.style.display = 'block';
+            visibleCount++;
+            // Trigger AOS animation for newly shown cards
+            card.classList.add('visible');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.add('show');
+        } else {
+          noResults.classList.remove('show');
+        }
+      }
+      
+      // Search input event
+      searchInput.addEventListener('input', function() {
+        searchTerm = this.value.toLowerCase();
+        filterAwards();
+      });
+      
+      // Filter button events
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Set active filter
+          activeFilter = this.getAttribute('data-filter');
+          
+          // Apply filter
+          filterAwards();
+          
+          // Add ripple effect
+          this.classList.add('ripple');
+          setTimeout(() => {
+            this.classList.remove('ripple');
+          }, 1000);
+        });
+      });
+
+      // Back to Top Button
+      const backToTop = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Enhanced button hover effects
+      const buttons = document.querySelectorAll('.book-appointment, .award-link, .research-link');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Initialize Facebook plugin
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml: true,
+          version: 'v18.0'
+        });
+      };
     });
   </script>
 </body>
