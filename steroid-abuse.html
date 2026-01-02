@@ -125,19 +125,21 @@
             color: white;
         }
         
+        /* Minimized Header */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 10px 0;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 5px 0;
         }
         
         .logo {
@@ -146,12 +148,12 @@
         }
         
         .logo img {
-            height: 50px;
+            height: 40px;
             margin-right: 10px;
         }
         
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
         }
@@ -163,13 +165,14 @@
         }
         
         nav li {
-            margin-left: 25px;
+            margin-left: 15px;
         }
         
         nav a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s;
             position: relative;
         }
@@ -193,23 +196,42 @@
             width: 100%;
         }
         
+        /* Hero Section with Image */
         .hero {
-            background: linear-gradient(rgba(231, 76, 60, 0.85), rgba(192, 57, 43, 0.85)), url('images/steroid-hero.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.85)), url('images/hero-image.jpg') center/cover no-repeat;
             color: white;
-            padding: 100px 0;
+            padding: 120px 0 100px;
             text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 25px;
             font-family: 'Playfair Display', serif;
+            line-height: 1.2;
         }
         
         .hero p {
             font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -248,6 +270,44 @@
         
         .btn-whatsapp:hover {
             background-color: #128C7E;
+        }
+        
+        /* Scroll Arrow */
+        .scroll-arrow {
+            position: fixed;
+            right: 30px;
+            z-index: 999;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+        
+        .scroll-arrow.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-arrow.top {
+            bottom: 100px;
+        }
+        
+        .scroll-arrow.bottom {
+            bottom: 40px;
+        }
+        
+        .scroll-arrow:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
         }
         
         .section {
@@ -329,72 +389,6 @@
             padding: 20px;
             margin: 25px 0;
             border-radius: 0 5px 5px 0;
-        }
-        
-        .before-after-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            height: 450px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .before-img, .after-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .before-img {
-            background-image: url('images/steroid-before.jpg');
-            z-index: 1;
-        }
-        
-        .after-img {
-            background-image: url('images/steroid-after.jpg');
-            width: 50%;
-            z-index: 2;
-            border-right: 2px solid white;
-        }
-        
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            height: 100%;
-            width: 4px;
-            background-color: white;
-            z-index: 3;
-            cursor: ew-resize;
-        }
-        
-        .slider-handle::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        
-        .slider-handle::before {
-            content: "↔";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 16px;
-            color: var(--primary);
         }
         
         .faq-item {
@@ -602,7 +596,7 @@
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -837,77 +831,6 @@
             cursor: pointer;
         }
         
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            nav li {
-                margin: 5px 10px;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .before-after-container {
-                height: 300px;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .chat-container {
-                width: 300px;
-            }
-            
-            .whatsapp-button, .chat-button {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .chat-widget {
-                bottom: 80px;
-                right: 20px;
-            }
-            
-            .language-toggle {
-                margin-top: 10px;
-                justify-content: center;
-            }
-        }
-        
-        /* Animation for cards on scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
         /* Steroid specific styling */
         .steroid-tip {
             background-color: #ffebee;
@@ -947,6 +870,100 @@
         .lang-content.active {
             display: block;
         }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 10px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 5px 8px;
+            }
+            
+            .logo h1 {
+                font-size: 1.1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .chat-container {
+                width: 300px;
+            }
+            
+            .whatsapp-button, .chat-button {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-widget {
+                bottom: 80px;
+                right: 20px;
+            }
+            
+            .language-toggle {
+                margin-top: 10px;
+                margin-left: 0;
+                justify-content: center;
+            }
+            
+            .scroll-arrow {
+                width: 45px;
+                height: 45px;
+                right: 20px;
+                bottom: 90px;
+            }
+            
+            .scroll-arrow.bottom {
+                bottom: 30px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+        
+        /* Animation for cards on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -954,8 +971,6 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <!-- Add your logo image here -->
-                    <!-- <img src="images/logo.png" alt="डा. विकास पौडेल लोगो"> -->
                     <h1>डा. विकास पौडेल - डर्माटोलोजी</h1>
                 </div>
                 <nav>
@@ -977,18 +992,30 @@
         </div>
     </header>
 
-    <section class="hero">
+    <!-- Hero Section with Image -->
+    <section class="hero" id="top">
         <div class="container">
-            <h2 class="lang-content ne active">स्टेरोइड दुरुपयोगको खतरा</h2>
-            <h2 class="lang-content en">Dangers of Steroid Abuse</h2>
-            <p class="lang-content ne active">छालाको रोगमा स्टेरोइडको गलत प्रयोगबाट हुने हानिहरू। डर्माटोलोजिस्ट डा. विकास पौडेलबाट व्यक्तिगत उपचार योजना प्राप्त गर्नुहोस्।</p>
-            <p class="lang-content en">Harmful effects of steroid misuse in skin diseases. Get personalized treatment plans from dermatologist Dr. Vikash Paudel.</p>
-            <a href="#contact" class="btn lang-content ne active">परामर्श बुक गर्नुहोस्</a>
-            <a href="#contact" class="btn lang-content en">Book a Consultation</a>
-            <a href="#treatment" class="btn btn-secondary lang-content ne active">उपचार बारे जान्नुहोस्</a>
-            <a href="#treatment" class="btn btn-secondary lang-content en">Learn About Treatments</a>
+            <div class="hero-content">
+                <h2 class="lang-content ne active">स्टेरोइड दुरुपयोगको खतरा</h2>
+                <h2 class="lang-content en">Dangers of Steroid Abuse</h2>
+                <p class="lang-content ne active">छालाको रोगमा स्टेरोइडको गलत प्रयोगबाट हुने हानिहरू। डर्माटोलोजिस्ट डा. विकास पौडेलबाट व्यक्तिगत उपचार योजना प्राप्त गर्नुहोस्।</p>
+                <p class="lang-content en">Harmful effects of steroid misuse in skin diseases. Get personalized treatment plans from dermatologist Dr. Vikash Paudel.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn lang-content ne active">परामर्श बुक गर्नुहोस्</a>
+                    <a href="#contact" class="btn lang-content en">Book a Consultation</a>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Scroll Arrow -->
+    <div class="scroll-arrow top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <div class="scroll-arrow bottom" id="scrollToBottom">
+        <i class="fas fa-arrow-down"></i>
+    </div>
 
     <section class="section" id="overview">
         <div class="container">
@@ -1132,24 +1159,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </section>
-
-    <!-- Before & After Comparison Section (Added) -->
-    <section class="section" id="before-after">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="lang-content ne active">अघि पछिको तुलना</h2>
-                <h2 class="lang-content en">Before & After Comparison</h2>
-                <p class="lang-content ne active">स्टेरोइड दुरुपयोगबाट भएको क्षति र उपचारपछिको सुधार</p>
-                <p class="lang-content en">Damage from steroid abuse and improvement after treatment</p>
-            </div>
-            
-            <div class="before-after-container" id="beforeAfterSlider">
-                <div class="before-img"></div>
-                <div class="after-img"></div>
-                <div class="slider-handle"></div>
-            </div>
         </div>
     </section>
 
@@ -1395,7 +1404,6 @@
             
             <div class="video-container fade-in">
                 <div class="video-wrapper">
-                    <!-- YouTube Video Embed - CORRECTED URL -->
                     <iframe src="https://www.youtube.com/embed/IdAA73Bkfxg?si=KjWmyiyaHOS3Nu04" 
                             title="Educational Video on Steroid Abuse and Skin Health" 
                             frameborder="0" 
@@ -1419,7 +1427,6 @@
                 <p class="lang-content ne active">स्टेरोइड दुरुपयोग, रोकथाम, र उपचार रणनीतिहरू बारे सामान्य प्रश्नहरू।</p>
                 <p class="lang-content en">Common questions about steroid abuse, prevention, and treatment strategies.</p>
             </div>
-            <!-- FAQ List Container Added -->
             <div class="faq-list">
                 <div class="faq-item fade-in">
                     <div class="faq-question lang-content ne active">स्टेरोइड क्रिम किन नराम्रो हुन्छ?</div>
@@ -1624,7 +1631,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer id="bottom">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -1755,56 +1762,6 @@
                 }
             }
             
-            // Before/After Slider Functionality
-            const slider = document.getElementById('beforeAfterSlider');
-            if (slider) {
-                const handle = slider.querySelector('.slider-handle');
-                const afterImg = slider.querySelector('.after-img');
-                let isDragging = false;
-                
-                function updateSliderPosition(clientX) {
-                    const sliderRect = slider.getBoundingClientRect();
-                    let position = ((clientX - sliderRect.left) / sliderRect.width) * 100;
-                    
-                    // Constrain between 0 and 100
-                    position = Math.max(0, Math.min(100, position));
-                    
-                    afterImg.style.width = position + '%';
-                    handle.style.left = position + '%';
-                }
-                
-                handle.addEventListener('mousedown', function(e) {
-                    isDragging = true;
-                    e.preventDefault();
-                });
-                
-                document.addEventListener('mousemove', function(e) {
-                    if (isDragging) {
-                        updateSliderPosition(e.clientX);
-                    }
-                });
-                
-                document.addEventListener('mouseup', function() {
-                    isDragging = false;
-                });
-                
-                // Touch events for mobile
-                handle.addEventListener('touchstart', function(e) {
-                    isDragging = true;
-                    e.preventDefault();
-                });
-                
-                document.addEventListener('touchmove', function(e) {
-                    if (isDragging && e.touches.length > 0) {
-                        updateSliderPosition(e.touches[0].clientX);
-                    }
-                });
-                
-                document.addEventListener('touchend', function() {
-                    isDragging = false;
-                });
-            }
-            
             // FAQ toggle functionality
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
@@ -1841,6 +1798,52 @@
             
             // Check on scroll
             window.addEventListener('scroll', checkFade);
+            
+            // Scroll arrow functionality
+            const scrollToTop = document.getElementById('scrollToTop');
+            const scrollToBottom = document.getElementById('scrollToBottom');
+            
+            function toggleScrollArrows() {
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Show/hide top arrow
+                if (scrollPosition > 300) {
+                    scrollToTop.classList.add('show');
+                } else {
+                    scrollToTop.classList.remove('show');
+                }
+                
+                // Show/hide bottom arrow (hide when near bottom)
+                if (scrollPosition + windowHeight < documentHeight - 300) {
+                    scrollToBottom.classList.add('show');
+                } else {
+                    scrollToBottom.classList.remove('show');
+                }
+            }
+            
+            // Initial check
+            toggleScrollArrows();
+            
+            // Check on scroll
+            window.addEventListener('scroll', toggleScrollArrows);
+            
+            // Scroll to bottom
+            scrollToBottom.addEventListener('click', function() {
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll to top
+            scrollToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
             
             // Chat functionality
             const chatButton = document.getElementById('chatButton');
@@ -1916,7 +1919,7 @@
             }
         });
         
-        // Facebook SDK initialization (Simplified)
+        // Facebook SDK initialization
         window.fbAsyncInit = function() {
             FB.init({
                 xfbml: true,
