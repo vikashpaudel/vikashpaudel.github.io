@@ -428,10 +428,11 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             text-align: center;
+            margin-bottom: 20px;
         }
         
         .stat-card {
-            padding: 30px;
+            padding: 25px;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
             backdrop-filter: blur(10px);
@@ -443,15 +444,59 @@
         }
         
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--gold);
         }
         
         .stat-text {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
+        }
+        
+        /* International Patients Section */
+        .international-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .international-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .country-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
+        
+        .country-group span {
+            color: white;
+            font-size: 1rem;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .country-group span:last-child {
+            border-bottom: none;
         }
         
         /* Section Styles */
@@ -1163,6 +1208,10 @@
             .facebook-box {
                 width: 280px;
             }
+            
+            .country-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -1282,6 +1331,18 @@
                 left: 20px;
                 right: auto;
             }
+            
+            .country-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .international-section h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -1393,7 +1454,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section with International Patients -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-container">
@@ -1410,6 +1471,41 @@
                 <div class="stat-card fade-in">
                     <div class="stat-number" id="affiliatedInstitutes">0</div>
                     <div class="stat-text" data-en="Affiliated Institutes" data-np="सम्बद्ध संस्थानहरू">Affiliated Institutes</div>
+                </div>
+            </div>
+            
+            <!-- International Patients Section -->
+            <div class="international-section fade-in">
+                <h3 data-en="Our practice is honored to have welcomed patients from:" data-np="हाम्रो अभ्यासमा यी देशहरूबाट रोगीहरू आउनु भएकोमा गर्व गर्दछौं:">Our practice is honored to have welcomed patients from:</h3>
+                <div class="country-grid">
+                    <div class="country-group">
+                        <span>🇮🇳 India</span>
+                        <span>🇨🇳 China</span>
+                        <span>🇰🇷 South Korea</span>
+                        <span>🇯🇵 Japan</span>
+                        <span>🇨🇦 Canada</span>
+                    </div>
+                    <div class="country-group">
+                        <span>🇺🇸 USA</span>
+                        <span>🇧🇩 Bangladesh</span>
+                        <span>🇧🇹 Bhutan</span>
+                        <span>🇵🇰 Pakistan</span>
+                        <span>🇪🇸 Spain</span>
+                    </div>
+                    <div class="country-group">
+                        <span>🇦🇺 Australia</span>
+                        <span>🇬🇧 UK</span>
+                        <span>🇵🇹 Portugal</span>
+                        <span>🇦🇪 UAE</span>
+                        <span>🇸🇦 Saudi Arabia</span>
+                    </div>
+                    <div class="country-group">
+                        <span>🇵🇱 Poland</span>
+                        <span>🇺🇦 Ukraine</span>
+                        <span>🇫🇷 France</span>
+                        <span>🇧🇬 Bulgaria</span>
+                        <span>🇩🇪 Germany</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1460,7 +1556,7 @@
                 
                 <!-- New Service Cards -->
                 <div class="service-card fade-in">
-                    <i class="fas fa-sneeze service-icon"></i>
+                    <i class="fas fa-allergies service-icon"></i>
                     <h3 class="service-title" data-en="Allergy Treatment" data-np="एलर्जी उपचार">Allergy Treatment</h3>
                     <p data-en="Best diagnosis and management of skin allergies, urticaria, atopic eczema, contact dermatitis, hives, etc." data-np="छालाको एलर्जी, दाद, डाबर , र अन्य एलर्जी प्रतिक्रियाहरूको निदान र व्यवस्थापन।">Comprehensive diagnosis and management of skin allergies, contact dermatitis, hives, and other allergic skin reactions.</p>
                 </div>
