@@ -58,6 +58,7 @@
             --success: #2ecc71;
             --gold: #f1c40f;
             --whatsapp: #25D366;
+            --facebook: #1877F2;
             --dark-blue: #1a237e;
         }
         
@@ -554,7 +555,7 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        /* Stats Section */
+        /* Stats Section - Updated for 4 boxes */
         .stats-section {
             padding: 80px 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -563,13 +564,13 @@
         
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             text-align: center;
         }
         
         .stat-card {
-            padding: 30px;
+            padding: 25px 20px;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
             backdrop-filter: blur(10px);
@@ -599,7 +600,7 @@
         }
         
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--gold);
@@ -612,8 +613,9 @@
         }
         
         .stat-text {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
+            line-height: 1.4;
         }
         
         /* Section Styles */
@@ -1061,6 +1063,33 @@
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
         }
         
+        /* Facebook Button */
+        .facebook-button {
+            position: fixed;
+            bottom: 160px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: var(--facebook);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .facebook-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.6);
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -1221,6 +1250,11 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1326,6 +1360,47 @@
             .testimonial-group {
                 grid-template-columns: 1fr;
             }
+            
+            .facebook-button {
+                bottom: 160px;
+            }
+            
+            .whatsapp-button {
+                bottom: 90px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .facebook-button {
+                bottom: 160px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .whatsapp-button {
+                bottom: 100px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -1403,9 +1478,6 @@
                 <div class="hero-buttons">
                     <a href="appointment.html" class="btn" data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</a>
                     <a href="about.html" class="btn btn-outline" data-en="About Dr. Vikash Paudel" data-np="डा. विकास पौडेलको बारेमा">About Dr. Vikash Paudel</a>
-                    <a href="https://www.google.com/search?q=Best Dermatologist in Nepal: Dr Vikash Paudel Skin Clinic" target="_blank" class="btn btn-google" data-en="Search Best Dermatologist" data-np="श्रेष्ठ छाला रोग विशेषज्ञ खोज्नुहोस्">
-                        <i class="fab fa-google"></i> Search Best Dermatologist
-                    </a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1464,7 +1536,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section - Updated with 4 boxes -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-container">
@@ -1481,6 +1553,11 @@
                 <div class="stat-card fade-in">
                     <div class="stat-number" id="affiliatedInstitutes">0</div>
                     <div class="stat-text" data-en="Affiliated Institutes" data-np="सम्बद्ध संस्थानहरू">Affiliated Institutes</div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-number" id="countriesServed">0</div>
+                    <div class="stat-text" data-en="Countries Served" data-np="सेवा गरिएका देशहरू">Countries Served</div>
                 </div>
             </div>
         </div>
@@ -1800,6 +1877,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Facebook Button -->
+    <a href="https://www.facebook.com/vikashderma" class="facebook-button" target="_blank" aria-label="Visit our Facebook page">
+        <i class="fab fa-facebook-f"></i>
+    </a>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
@@ -2227,19 +2309,22 @@
             }, 5000);
         }
         
-        // Animated Stats Counter with enhanced animation
+        // Animated Stats Counter with enhanced animation - Updated for 4 stats
         function animateStats() {
             const yearsExp = document.getElementById('yearsExp');
             const happyPatients = document.getElementById('happyPatients');
             const affiliatedInstitutes = document.getElementById('affiliatedInstitutes');
+            const countriesServed = document.getElementById('countriesServed');
             
             const targetYears = 10;
             const targetPatients = 20000;
             const targetInstitutes = 5;
+            const targetCountries = 20;
             
             let currentYears = 0;
             let currentPatients = 0;
             let currentInstitutes = 0;
+            let currentCountries = 0;
             
             const yearsInterval = setInterval(() => {
                 currentYears += 1;
@@ -2289,6 +2374,23 @@
                     clearInterval(institutesInterval);
                 }
             }, 300);
+            
+            const countriesInterval = setInterval(() => {
+                currentCountries += 1;
+                countriesServed.textContent = currentCountries + '+';
+                
+                // Add pulse effect when reaching target
+                if (currentCountries === targetCountries) {
+                    countriesServed.classList.add('pulse');
+                    setTimeout(() => {
+                        countriesServed.classList.remove('pulse');
+                    }, 500);
+                }
+                
+                if (currentCountries >= targetCountries) {
+                    clearInterval(countriesInterval);
+                }
+            }, 150);
         }
     </script>
 </body>
