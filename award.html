@@ -490,15 +490,28 @@
       background-color: #f8f9fa;
     }
 
-    /* Award Images */
+    /* Award Images - Updated for smaller size in grid */
     .award-image {
       width: 100%;
-      max-width: 200px;
+      max-width: 150px;
       height: auto;
       border-radius: 8px;
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.5rem;
       display: block;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .award-image:hover {
+      transform: scale(1.03);
+    }
+
+    /* Award Highlights Grid */
+    .award-highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      justify-items: center;
     }
 
     /* Award Links */
@@ -844,6 +857,11 @@
         width: 45px;
         height: 45px;
       }
+
+      .award-highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -869,6 +887,15 @@
 
       .navbar.scrolled {
         height: 50px;
+      }
+
+      .award-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .award-image {
+        max-width: 180px;
       }
     }
 
@@ -1183,7 +1210,7 @@
             <p class="nepali">आफ्नो खोज वा फिल्टर मापदण्ड समायोजन गर्नुहोस्</p>
           </div>
 
-          <!-- Award Images Section -->
+          <!-- Award Images Section - Compact 2x3 Grid -->
           <div class="card" data-aos="fade-up">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Highlights</h2>
@@ -1195,28 +1222,43 @@
                 <p class="text-muted-foreground nepali">
                   डा. पौडेलले आफ्नो करियरभरि प्राप्त गरेका केही प्रतिष्ठित पुरस्कार र मान्यताहरू।
                 </p>
-                <div class="flex space-x-4" style="flex-wrap: wrap; gap: 1rem;">
+                <div class="award-highlights-grid">
                   <div style="text-align: center;">
-                    <img src="images/award.jpg" alt="Imrich Sarkany Award - Best Dermatologist in Kathmandu" class="award-img">
-                    <p class="text-sm text-muted-foreground english">Medal of Excellence</p>
-                    <p class="text-sm text-muted-foreground nepali">उत्कृष्टताको पदक</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="images/award.jpg" alt="WCD Rising Star - Best Dermatologist in Kathmandu" class="award-img">                    
+                    <img src="images/award.jpg" alt="Imrich Sarkany Award Certificate" class="award-image">
                     <p class="text-sm text-muted-foreground english">Scholarship Certificate</p>
                     <p class="text-sm text-muted-foreground nepali">छात्रवृत्ति प्रमाणपत्र</p>
                   </div>
                   <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Trophy" class="award-image">
+                    <img src="images/award.jpg" alt="WCD Rising Star Award" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Rising Star Award</p>
+                    <p class="text-sm text-muted-foreground nepali">उदयमान स्टार पुरस्कार</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Conference Medal" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Conference Medal</p>
+                    <p class="text-sm text-muted-foreground nepali">सम्मेलन पदक</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1515224526905-51c7d77c7bb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fellowship Plaque" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Fellowship Plaque</p>
+                    <p class="text-sm text-muted-foreground nepali">फेलोशिप प्लाक</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Achievement Trophy" class="award-image">
                     <p class="text-sm text-muted-foreground english">Achievement Trophy</p>
                     <p class="text-sm text-muted-foreground nepali">उपलब्धि ट्रफी</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gold Medal" class="award-image">
+                    <p class="text-sm text-muted-foreground english">Gold Medal</p>
+                    <p class="text-sm text-muted-foreground nepali">स्वर्ण पदक</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Timeline Overview -->
+          <!-- Timeline Overview - Enhanced with AD years -->
           <div class="card mt-12" data-aos="fade-up">
             <div class="card-content">
               <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Timeline</h2>
@@ -1226,71 +1268,85 @@
                   Dr. Paudel's achievements span nearly a decade, demonstrating consistent excellence across dermatology, pediatric infectious diseases, and medical education.
                 </p>
                 <p class="text-muted-foreground nepali">
-                  डा. पौडेलको उपलब्धिहरू लगभग एक दशकसम्म फैलिएका छन्, जसले चर्मरोग, यौनरोग बाल संक्रामक रोग, र चिकित्सा शिक्षामा लगातार उत्कृष्टता देखाउँछ।
+                  डा. पौडेलको उपलब्धिहरू लगभग एक दशकसम्म फैलिएका छन्, जसले चर्मरोग, बाल संक्रामक रोग, र चिकित्सा शिक्षामा लगातार उत्कृष्टता देखाउँछ।
                 </p>
                 <ul class="recognition-list space-y-4">
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2057 BS:</strong> Padma Bahadur Prativa Padak (SLC Gold Medal)
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०५७ BS:</strong> पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक)
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2057 BS (2000 AD):</strong> Padma Bahadur Prativa Padak (SLC Gold Medal)
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०५७ BS (२००० AD):</strong> पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक)
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2015:</strong> SARAD Scholarship Award, Lanka Derma, Sri Lanka
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०१५:</strong> SARAD छात्रवृत्ति पुरस्कार, लंका डर्मा, श्रीलंका
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2015:</strong> SARAD Scholarship Award, Lanka Derma, Sri Lanka
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०१५:</strong> SARAD छात्रवृत्ति पुरस्कार, लंका डर्मा, श्रीलंका
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2018:</strong> JITMM Travel Scholarship Award, Bangkok, Thailand
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०१८:</strong> JITMM यात्रा छात्रवृत्ति पुरस्कार, बैंककक, थाइल्याण्ड
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2018:</strong> JITMM Travel Scholarship Award, Bangkok, Thailand
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०१८:</strong> JITMM यात्रा छात्रवृत्ति पुरस्कार, बैंककक, थाइल्याण्ड
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2019:</strong> WSPID Fellowship Award, Manila & World Congress of Dermatology Rising Star, Milan
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०१९:</strong> WSPID फेलोशिप पुरस्कार, मनिला र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, मिलान
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2019:</strong> WSPID Fellowship Award, Manila & World Congress of Dermatology Rising Star, Milan
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०१९:</strong> WSPID फेलोशिप पुरस्कार, मनिला र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, मिलान
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2020:</strong> ESPID Fellowship Award, Amsterdam & Dubai Derma Conference, UAE
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०२०:</strong> ESPID फेलोशिप पुरस्कार, एम्स्टर्डम र दुबई डर्मा सम्मेलन, UAE
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2020:</strong> ESPID Fellowship Award, Amsterdam & Dubai Derma Conference, UAE
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०२०:</strong> ESPID फेलोशिप पुरस्कार, एम्स्टर्डम र दुबई डर्मा सम्मेलन, UAE
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2022:</strong> Health Care Professional Scholarship, EADV
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०२२:</strong> Health Care Professional Scholarship, EADV
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2022:</strong> Health Care Professional Scholarship, EADV
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०२२:</strong> स्वास्थ्य सेवा व्यावसायिक छात्रवृत्ति, EADV
+                      </span>
+                    </div>
                   </li>
                   <li class="flex items-start space-x-3">
                     <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>2023:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV Symposium, Seville & World Congress of Dermatology Rising Star, Singapore
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>२०२३:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV सम्मेलन, सेभिल र World Congress of Dermatology, राइजिङ स्टार, सिंगापुर
-                    </span>
+                    <div>
+                      <span class="text-muted-foreground english">
+                        <strong>2023:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV Symposium, Seville & World Congress of Dermatology Rising Star, Singapore
+                      </span>
+                      <span class="text-muted-foreground nepali">
+                        <strong>२०२३:</strong> इम्रिच सर्कानी गैर-युरोपेली स्मारक छात्रवृत्ति, EADV सम्मेलन, सेभिल र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, सिंगापुर
+                      </span>
+                    </div>
                   </li>
                 </ul>
               </div>
