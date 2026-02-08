@@ -270,13 +270,6 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
     p {
       margin-bottom: 1rem;
       color: var(--muted-foreground);
@@ -414,18 +407,8 @@
     /* Checkbox Styles */
     .checkbox-group {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .checkbox-label {
-      display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      font-size: 0.9rem;
-      color: var(--muted-foreground);
-      line-height: 1.4;
-      cursor: pointer;
     }
 
     .checkbox-input {
@@ -433,119 +416,12 @@
       width: 1.25rem;
       height: 1.25rem;
       accent-color: var(--accent);
-      flex-shrink: 0;
     }
 
-    /* Radio Button Styles */
-    .radio-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
+    .checkbox-label {
       font-size: 0.9rem;
-    }
-
-    .radio-label input[type="radio"],
-    .radio-label input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--accent);
-    }
-
-    /* Checkbox Grid */
-    .checkbox-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .checkbox-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Tele-dermatology specific styles */
-    .telederm-section {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-left: 4px solid var(--primary);
-    }
-
-    .form-section-divider {
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--border);
-    }
-
-    /* Image upload styles */
-    .image-upload-container {
-      border: 2px dashed var(--border);
-      border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      background: white;
-      transition: var(--transition-smooth);
-    }
-
-    .image-upload-container:hover {
-      border-color: var(--primary);
-    }
-
-    .image-upload-input {
-      display: none;
-    }
-
-    .image-upload-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
       color: var(--muted-foreground);
-    }
-
-    .image-upload-label i {
-      font-size: 2rem;
-      color: var(--primary);
-    }
-
-    .image-upload-hint {
-      font-size: 0.85rem;
-      color: var(--muted-foreground);
-      margin-top: 0.5rem;
-    }
-
-    .image-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .preview-image {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-    }
-
-    .image-guidelines {
-      font-size: 0.85rem;
-      color: var(--muted-foreground);
-      margin-top: 0.5rem;
-      font-style: italic;
+      line-height: 1.4;
     }
 
     /* Enhanced Button Styles */
@@ -1073,7 +949,7 @@
               
               <div id="form-status"></div>
               
-              <form class="appointment-form" id="appointmentForm" enctype="multipart/form-data">
+              <form class="appointment-form" id="appointmentForm">
                 <div class="form-grid">
                   <div class="form-group">
                     <label for="fullName" class="form-label" data-en="Full Name *" data-np="पूरा नाम *">
@@ -1144,327 +1020,96 @@
                   </div>
                 </div>
 
-                <!-- Consultation Type Selection -->
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="clinicLocation" class="form-label" data-en="Preferred Clinic Location *" data-np="प्राथमिक क्लिनिक स्थान *">
+                      Preferred Clinic Location *
+                    </label>
+                    <select
+                      id="clinicLocation"
+                      name="clinicLocation"
+                      required
+                      class="form-select"
+                      onchange="updateTimeSlots()"
+                    >
+                      <option value="" data-en="Select a clinic" data-np="क्लिनिक छनौट गर्नुहोस्">Select a clinic</option>
+                      <option value="Elite Health Clinic, Lagankhel" data-en="Elite Health Clinic, Lagankhel" data-np="एलिट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</option>
+                      <option value="Shankhamul Healthcare, Shankhamul" data-en="Shankhamul Healthcare, Shankhamul" data-np="शंखमुल हेल्थकेयर, शंखमुल">Shankhamul Healthcare, Shankhamul</option>
+                      <option value="Shubharambha Skin Centre, Dhangadhi" data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</option>
+                      <option value="Teledermatology" data-en="Online Teledermatology consultation" data-np="अनलाइन टेलिडर्माटोलोजी परामर्श">Online Teledermatology consultation</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="preferredDate" class="form-label" data-en="Preferred Date *" data-np="प्राथमिक मिति *">
+                      Preferred Date *
+                    </label>
+                    <input
+                      type="date"
+                      id="preferredDate"
+                      name="preferredDate"
+                      required
+                      class="form-input"
+                      onchange="validateDate()"
+                    />
+                  </div>
+                </div>
+
                 <div class="form-group">
-                  <label for="clinicLocation" class="form-label" data-en="Consultation Type *" data-np="परामर्श प्रकार *">
-                    Consultation Type *
+                  <label for="preferredTime" class="form-label" data-en="Preferred Time *" data-np="प्राथमिक समय *">
+                    Preferred Time *
                   </label>
                   <select
-                    id="clinicLocation"
-                    name="clinicLocation"
+                    id="preferredTime"
+                    name="preferredTime"
                     required
                     class="form-select"
-                    onchange="updateFormType()"
                   >
-                    <option value="" data-en="Select consultation type" data-np="परामर्श प्रकार छनौट गर्नुहोस्">Select consultation type</option>
-                    <option value="Elite Health Clinic, Lagankhel" data-en="In-Person: Elite Health Clinic, Lagankhel" data-np="व्यक्तिगत: एलिट हेल्थ क्लिनिक, लगनखेल">In-Person: Elite Health Clinic, Lagankhel</option>
-                    <option value="Shankhamul Healthcare, Shankhamul" data-en="In-Person: Shankhamul Healthcare, Shankhamul" data-np="व्यक्तिगत: शंखमुल हेल्थकेयर, शंखमुल">In-Person: Shankhamul Healthcare, Shankhamul</option>
-                    <option value="Shubharambha Skin Centre, Dhangadhi" data-en="In-Person: Shubharambha Skin Centre, Dhangadhi" data-np="व्यक्तिगत: शुभारम्भ स्किन सेन्टर, धनगढी">In-Person: Shubharambha Skin Centre, Dhangadhi</option>
-                    <option value="Teledermatology" data-en="Online Tele-Dermatology Consultation" data-np="अनलाइन टेलिडर्माटोलोजी परामर्श">Online Tele-Dermatology Consultation</option>
+                    <option value="" data-en="Select a time slot" data-np="समय स्लट छनौट गर्नुहोस्">Select a time slot</option>
+                    <option value="Evening (4:00 PM - 7:00 PM)" data-en="Evening (4:00 PM - 7:00 PM)" data-np="साँझ (४:०० बेलुका - ७:०० बेलुका)">Evening (4:00 PM - 7:00 PM)</option>
+                    <option value="Saturday Only (9:00 AM - 5:00 PM)" data-en="Saturday Only (9:00 AM - 5:00 PM)" data-np="शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)">Saturday Only (9:00 AM - 5:00 PM)</option>
+                    <option value="Tele-dermatology (Daily)" data-en="Tele-dermatology (Daily)" data-np="टेलिडर्माटोलोजी (दैनिक)">Tele-dermatology (Daily)</option>
                   </select>
                 </div>
 
-                <!-- Regular Appointment Fields (shown by default) -->
-                <div id="regularFields">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="preferredDate" class="form-label" data-en="Preferred Date *" data-np="प्राथमिक मिति *">
-                        Preferred Date *
-                      </label>
-                      <input
-                        type="date"
-                        id="preferredDate"
-                        name="preferredDate"
-                        required
-                        class="form-input"
-                        onchange="validateDate()"
-                      />
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="preferredTime" class="form-label" data-en="Preferred Time *" data-np="प्राथमिक समय *">
-                        Preferred Time *
-                      </label>
-                      <select
-                        id="preferredTime"
-                        name="preferredTime"
-                        required
-                        class="form-select"
-                      >
-                        <option value="" data-en="Select a time slot" data-np="समय स्लट छनौट गर्नुहोस्">Select a time slot</option>
-                        <option value="Evening (4:00 PM - 7:00 PM)" data-en="Evening (4:00 PM - 7:00 PM)" data-np="साँझ (४:०० बेलुका - ७:०० बेलुका)">Evening (4:00 PM - 7:00 PM)</option>
-                        <option value="Saturday Only (9:00 AM - 5:00 PM)" data-en="Saturday Only (9:00 AM - 5:00 PM)" data-np="शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)">Saturday Only (9:00 AM - 5:00 PM)</option>
-                        <option value="Tele-dermatology (Daily)" data-en="Tele-dermatology (Daily)" data-np="टेलिडर्माटोलोजी (दैनिक)">Tele-dermatology (Daily)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="reasonForVisit" class="form-label" data-en="Reason for Visit *" data-np="भ्रमणको कारण *">
-                      Reason for Visit *
-                    </label>
-                    <select
-                      id="reasonForVisit"
-                      name="reasonForVisit"
-                      required
-                      class="form-select"
-                    >
-                      <option value="" data-en="Select reason for visit" data-np="भ्रमणको कारण छनौट गर्नुहोस्">Select reason for visit</option>
-                      <option value="Acne Treatment" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</option>
-                      <option value="Aesthetic Dermatology" data-en="Aesthetic Dermatology" data-np="एस्थेटिक डर्माटोलोजी">Aesthetic Dermatology</option>
-                      <option value="Skin Surgery Consultation" data-en="Skin Surgery Consultation" data-np="छाला सर्जरी परामर्श">Skin Surgery Consultation</option>
-                      <option value="Hair Disorder" data-en="Hair Disorder" data-np="कपाल सम्बन्धी समस्या">Hair Disorder</option>
-                      <option value="Pigmentation Issues" data-en="Pigmentation Issues" data-np="रंगत सम्बन्धी समस्या">Pigmentation Issues</option>
-                      <option value="Skin Rash or Infection" data-en="Skin Rash or Infection" data-np="छालाको ददुरा वा संक्रमण">Skin Rash or Infection</option>
-                      <option value="General Consultation" data-en="General Consultation" data-np="सामान्य परामर्श">General Consultation</option>
-                      <option value="Other" data-en="Other" data-np="अन्य">Other</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="additionalInfo" class="form-label" data-en="Additional Information" data-np="थप जानकारी">
-                      Additional Information
-                    </label>
-                    <textarea
-                      id="additionalInfo"
-                      name="additionalInfo"
-                      rows="4"
-                      class="form-textarea"
-                      placeholder="Please provide any additional details about your condition or concerns..."
-                      data-en-placeholder="Please provide any additional details about your condition or concerns..."
-                      data-np-placeholder="कृपया तपाईंको अवस्था वा चिन्ताको बारेमा कुनै थप विवरणहरू प्रदान गर्नुहोस्..."
-                    ></textarea>
-                  </div>
+                <div class="form-group">
+                  <label for="reasonForVisit" class="form-label" data-en="Reason for Visit *" data-np="भ्रमणको कारण *">
+                    Reason for Visit *
+                  </label>
+                  <select
+                    id="reasonForVisit"
+                    name="reasonForVisit"
+                    required
+                    class="form-select"
+                  >
+                    <option value="" data-en="Select reason for visit" data-np="भ्रमणको कारण छनौट गर्नुहोस्">Select reason for visit</option>
+                    <option value="Acne Treatment" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</option>
+                    <option value="Aesthetic Dermatology" data-en="Aesthetic Dermatology" data-np="एस्थेटिक डर्माटोलोजी">Aesthetic Dermatology</option>
+                    <option value="Skin Surgery Consultation" data-en="Skin Surgery Consultation" data-np="छाला सर्जरी परामर्श">Skin Surgery Consultation</option>
+                    <option value="Hair Disorder" data-en="Hair Disorder" data-np="कपाल सम्बन्धी समस्या">Hair Disorder</option>
+                    <option value="Pigmentation Issues" data-en="Pigmentation Issues" data-np="रंगत सम्बन्धी समस्या">Pigmentation Issues</option>
+                    <option value="Skin Rash or Infection" data-en="Skin Rash or Infection" data-np="छालाको ददुरा वा संक्रमण">Skin Rash or Infection</option>
+                    <option value="General Consultation" data-en="General Consultation" data-np="सामान्य परामर्श">General Consultation</option>
+                    <option value="Other" data-en="Other" data-np="अन्य">Other</option>
+                  </select>
                 </div>
 
-                <!-- Tele-dermatology Form (hidden by default) -->
-                <div id="teledermForm" style="display: none;" class="telederm-section">
-                  <div class="form-section-divider">
-                    <h4 data-en="Tele-Dermatology Patient Details" data-np="टेलिडर्माटोलोजी रोगी विवरण">Tele-Dermatology Patient Details</h4>
-                  </div>
-
-                  <!-- A. Patient Identification Details -->
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" data-en="Sex *" data-np="लिङ्ग *">Sex *</label>
-                      <div class="radio-group">
-                        <label class="radio-label">
-                          <input type="radio" name="gender" value="Male" required>
-                          <span data-en="Male" data-np="पुरुष">Male</span>
-                        </label>
-                        <label class="radio-label">
-                          <input type="radio" name="gender" value="Female" required>
-                          <span data-en="Female" data-np="महिला">Female</span>
-                        </label>
-                        <label class="radio-label">
-                          <input type="radio" name="gender" value="Other" required>
-                          <span data-en="Other / Prefer not to say" data-np="अन्य / भन्न चाहन्न">Other / Prefer not to say</span>
-                        </label>
-                      </div>
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="dob" class="form-label" data-en="Date of Birth (Optional)" data-np="जन्म मिति (वैकल्पिक)">Date of Birth (Optional)</label>
-                      <input type="date" id="dob" name="dob" class="form-input">
-                    </div>
-                  </div>
-
-                  <!-- B. Contact & Location Details -->
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="country" class="form-label" data-en="Country of Residence *" data-np="बासस्थान देश *">Country of Residence *</label>
-                      <select id="country" name="country" class="form-select" required>
-                        <option value="" data-en="Select country" data-np="देश छनौट गर्नुहोस्">Select country</option>
-                        <option value="Nepal" data-en="Nepal" data-np="नेपाल">Nepal</option>
-                        <option value="India" data-en="India" data-np="भारत">India</option>
-                        <option value="USA" data-en="USA" data-np="संयुक्त राज्य अमेरिका">USA</option>
-                        <option value="UK" data-en="United Kingdom" data-np="संयुक्त अधिराज्य">United Kingdom</option>
-                        <option value="Australia" data-en="Australia" data-np="अष्ट्रेलिया">Australia</option>
-                        <option value="Canada" data-en="Canada" data-np="क्यानाडा">Canada</option>
-                        <option value="Other" data-en="Other" data-np="अन्य">Other</option>
-                      </select>
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="city" class="form-label" data-en="City / District *" data-np="शहर / जिल्ला *">City / District *</label>
-                      <input type="text" id="city" name="city" class="form-input" placeholder="Your current city or district" data-en-placeholder="Your current city or district" data-np-placeholder="तपाईंको हालको शहर वा जिल्ला">
-                    </div>
-                  </div>
-
-                  <!-- C. Clinical Information -->
-                  <div class="form-group">
-                    <label for="problemDescription" class="form-label" data-en="Skin / Hair / Nail Problem Description *" data-np="छाला / कपाल / नङ समस्या विवरण *">Skin / Hair / Nail Problem Description *</label>
-                    <textarea id="problemDescription" name="problemDescription" rows="3" class="form-textarea" required placeholder="Example: itching and red patches over arms for 2 months" data-en-placeholder="Example: itching and red patches over arms for 2 months" data-np-placeholder="उदाहरण: २ महिनादेखि हातमा खजल्टी र रातो दागहरू"></textarea>
-                  </div>
-
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label for="problemDuration" class="form-label" data-en="Duration of Problem *" data-np="समस्याको अवधि *">Duration of Problem *</label>
-                      <input type="text" id="problemDuration" name="problemDuration" class="form-input" required placeholder="Example: 10 days / 3 months" data-en-placeholder="Example: 10 days / 3 months" data-np-placeholder="उदाहरण: १० दिन / ३ महिना">
-                    </div>
-                    
-                    <div class="form-group">
-                      <label class="form-label" data-en="Associated Symptoms" data-np="सम्बन्धित लक्षणहरू">Associated Symptoms</label>
-                      <div class="checkbox-grid">
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Itching">
-                          <span data-en="Itching" data-np="खजल्टी">Itching</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Pain">
-                          <span data-en="Pain" data-np="दुखाइ">Pain</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Burning">
-                          <span data-en="Burning" data-np="जलन">Burning</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Discharge">
-                          <span data-en="Discharge" data-np="स्राव">Discharge</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Fever">
-                          <span data-en="Fever" data-np="ज्वरो">Fever</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Hair fall">
-                          <span data-en="Hair fall" data-np="कपाल झर्ने">Hair fall</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="Nail changes">
-                          <span data-en="Nail changes" data-np="नङ परिवर्तन">Nail changes</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="symptoms[]" value="None">
-                          <span data-en="None" data-np="कुनै पनि होइन">None</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Previous History -->
-                  <div class="form-group">
-                    <label class="form-label" data-en="Previous treatment for this problem?" data-np="यो समस्याको लागि पहिले उपचार लिनुभयो?">Previous treatment for this problem? *</label>
-                    <div class="radio-group">
-                      <label class="radio-label">
-                        <input type="radio" name="previousTreatment" value="Yes" required onclick="toggleTreatmentDetails(true)">
-                        <span data-en="Yes" data-np="हो">Yes</span>
-                      </label>
-                      <label class="radio-label">
-                        <input type="radio" name="previousTreatment" value="No" required onclick="toggleTreatmentDetails(false)">
-                        <span data-en="No" data-np="होइन">No</span>
-                      </label>
-                    </div>
-                    <div id="treatmentDetails" style="display: none; margin-top: 1rem;">
-                      <label for="previousMedicines" class="form-label" data-en="Previous medicines/treatment (if known)" data-np="पहिलेको औषधि/उपचार (थाहा भएमा)">Previous medicines/treatment (if known)</label>
-                      <input type="text" id="previousMedicines" name="previousMedicines" class="form-input" placeholder="Medicine names or treatment details">
-                    </div>
-                  </div>
-
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" data-en="Known Medical Illness" data-np="थाहा भएको चिकित्सकीय रोग">Known Medical Illness</label>
-                      <div class="checkbox-grid">
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="illness[]" value="Diabetes">
-                          <span data-en="Diabetes" data-np="मधुमेह">Diabetes</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="illness[]" value="Hypertension">
-                          <span data-en="Hypertension" data-np="उच्च रक्तचाप">Hypertension</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="illness[]" value="Thyroid disorder">
-                          <span data-en="Thyroid disorder" data-np="थाइरोइड विकार">Thyroid disorder</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="illness[]" value="None">
-                          <span data-en="None" data-np="कुनै पनि होइन">None</span>
-                        </label>
-                      </div>
-                      <input type="text" id="otherIllness" name="otherIllness" class="form-input" style="margin-top: 0.5rem;" placeholder="Other illnesses (please specify)" data-en-placeholder="Other illnesses (please specify)" data-np-placeholder="अन्य रोगहरू (कृपया उल्लेख गर्नुहोस्)">
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="drugAllergy" class="form-label" data-en="Drug Allergy (if any)" data-np="औषधि एलर्जी (यदि छ भने)">Drug Allergy (if any)</label>
-                      <input type="text" id="drugAllergy" name="drugAllergy" class="form-input" placeholder="Any known drug allergies">
-                    </div>
-                  </div>
-
-                  <!-- E. Upload Images -->
-                  <div class="form-group">
-                    <label class="form-label" data-en="Upload Photographs of Affected Area *" data-np="प्रभावित क्षेत्रको तस्विरहरू अपलोड गर्नुहोस् *">Upload Photographs of Affected Area *</label>
-                    <div class="image-upload-container">
-                      <input type="file" id="medicalImages" name="medicalImages[]" accept="image/*" multiple required class="image-upload-input">
-                      <label for="medicalImages" class="image-upload-label">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <span data-en="Click to upload images" data-np="तस्विरहरू अपलोड गर्न क्लिक गर्नुहोस्">Click to upload images</span>
-                        <span class="image-upload-hint" data-en="(Multiple images allowed, max 5MB each)" data-np="(धेरै तस्विरहरू अनुमति छ, प्रत्येक अधिकतम ५ एमबी)">(Multiple images allowed, max 5MB each)</span>
-                      </label>
-                      <div id="imagePreview" class="image-preview"></div>
-                    </div>
-                    <p class="image-guidelines" data-en="Image guidelines: Good lighting • Close-up and one distant photo • No filters • Private parts: upload only if necessary and with consent" data-np="तस्विर दिशानिर्देश: राम्रो प्रकाश • नजिकको र एउटा टाढाको तस्विर • कुनै फिल्टर हुँदैन • निजी अङ्गहरू: आवश्यक भएमा र सहमति सहित मात्र अपलोड गर्नुहोस्">
-                      Image guidelines: Good lighting • Close-up and one distant photo • No filters • Private parts: upload only if necessary and with consent
-                    </p>
-                  </div>
-
-                  <!-- F. Consent & G. Preferred Consultation Mode -->
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" data-en="Consent for Tele-Consultation *" data-np="टेलि-परामर्शको लागि सहमति *">Consent for Tele-Consultation *</label>
-                      <div class="checkbox-group">
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="consent1" value="understand" required>
-                          <span data-en="I understand that this is an online tele-dermatology consultation." data-np="म बुझ्छु कि यो अनलाइन टेलिडर्माटोलोजी परामर्श हो।">I understand that this is an online tele-dermatology consultation.</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="consent2" value="share" required>
-                          <span data-en="I consent to share my medical details and images for diagnosis and treatment." data-np="म निदान र उपचारको लागि मेरो चिकित्सकीय विवरण र तस्विरहरू साझा गर्न सहमत छु।">I consent to share my medical details and images for diagnosis and treatment.</span>
-                        </label>
-                        <label class="checkbox-label">
-                          <input type="checkbox" name="consent3" value="physical" required>
-                          <span data-en="I understand that physical examination may be required if advised." data-np="म बुझ्छु कि सल्लाह दिइएमा शारीरिक परीक्षण आवश्यक हुन सक्छ।">I understand that physical examination may be required if advised.</span>
-                        </label>
-                      </div>
-                    </div>
-                    
-                    <div class="form-group">
-                      <label class="form-label" data-en="Preferred Consultation Mode *" data-np="प्राथमिक परामर्श मोड *">Preferred Consultation Mode *</label>
-                      <div class="radio-group">
-                        <label class="radio-label">
-                          <input type="radio" name="consultationMode" value="WhatsApp" required>
-                          <span data-en="WhatsApp" data-np="व्हाट्सएप">WhatsApp</span>
-                        </label>
-                        <label class="radio-label">
-                          <input type="radio" name="consultationMode" value="Video call" required>
-                          <span data-en="Video call" data-np="भिडियो कल">Video call</span>
-                        </label>
-                        <label class="radio-label">
-                          <input type="radio" name="consultationMode" value="Audio call" required>
-                          <span data-en="Audio call" data-np="अडियो कल">Audio call</span>
-                        </label>
-                        <label class="radio-label">
-                          <input type="radio" name="consultationMode" value="Text-based" required>
-                          <span data-en="Text-based consultation" data-np="पाठ-आधारित परामर्श">Text-based consultation</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- H. Declaration -->
-                  <div class="form-group">
-                    <label class="form-label" data-en="Declaration *" data-np="घोषणा *">Declaration *</label>
-                    <div class="checkbox-group">
-                      <label class="checkbox-label">
-                        <input type="checkbox" name="declaration" value="true" required>
-                        <span data-en="I confirm that the information provided is true to the best of my knowledge." data-np="म पुष्टि गर्दछु कि प्रदान गरिएको जानकारी मेरो ज्ञानको अनुसार सत्य हो।">I confirm that the information provided is true to the best of my knowledge.</span>
-                      </label>
-                    </div>
-                  </div>
+                <div class="form-group">
+                  <label for="additionalInfo" class="form-label" data-en="Additional Information" data-np="थप जानकारी">
+                    Additional Information
+                  </label>
+                  <textarea
+                    id="additionalInfo"
+                    name="additionalInfo"
+                    rows="4"
+                    class="form-textarea"
+                    placeholder="Please provide any additional details about your condition or concerns..."
+                    data-en-placeholder="Please provide any additional details about your condition or concerns..."
+                    data-np-placeholder="कृपया तपाईंको अवस्था वा चिन्ताको बारेमा कुनै थप विवरणहरू प्रदान गर्नुहोस्..."
+                  ></textarea>
                 </div>
 
-                <!-- Regular Consent Checkbox -->
-                <div id="regularConsent" class="checkbox-group">
+                <div class="checkbox-group">
                   <input
                     type="checkbox"
                     id="consent"
@@ -1588,9 +1233,6 @@
         }
       });
       
-      // Update language for select options
-      updateLanguageOptions();
-      
       // Update language toggle button text
       const toggleText = languageToggle.querySelector('span');
       toggleText.textContent = currentLanguage === 'en' ? 'English' : 'नेपाली';
@@ -1604,54 +1246,11 @@
       emailjs.init("nPsKsuZlR3ghah6k-");
     })();
 
-    // Function to toggle between regular and teledermatology forms
-    function updateFormType() {
-      const clinicSelect = document.getElementById('clinicLocation');
-      const teledermForm = document.getElementById('teledermForm');
-      const regularFields = document.getElementById('regularFields');
-      const regularConsent = document.getElementById('regularConsent');
-      const preferredTime = document.getElementById('preferredTime');
-      const preferredDate = document.getElementById('preferredDate');
-      
-      if (clinicSelect.value === 'Teledermatology') {
-        // Show teledermatology form, hide regular fields
-        teledermForm.style.display = 'block';
-        regularFields.style.display = 'none';
-        regularConsent.style.display = 'none';
-        
-        // Remove required attribute from regular fields
-        preferredTime.required = false;
-        preferredDate.required = false;
-        
-        // Make teledermatology fields required
-        const teledermRequired = teledermForm.querySelectorAll('[required]');
-        teledermRequired.forEach(field => {
-          field.required = true;
-        });
-        
-        // Update time slots to tele-dermatology
-        updateTimeSlots('teledermatology');
-      } else {
-        // Show regular form, hide teledermatology fields
-        teledermForm.style.display = 'none';
-        regularFields.style.display = 'block';
-        regularConsent.style.display = 'block';
-        
-        // Add required attribute back to regular fields
-        preferredTime.required = true;
-        preferredDate.required = true;
-        
-        // Update time slots based on clinic selection
-        updateTimeSlots(clinicSelect.value);
-      }
-      
-      // Update language for form elements
-      updateLanguageOptions();
-    }
-    
     // Function to update time slots based on selected clinic
-    function updateTimeSlots(selectedClinic) {
+    function updateTimeSlots() {
+      const clinicSelect = document.getElementById('clinicLocation');
       const timeSelect = document.getElementById('preferredTime');
+      const selectedClinic = clinicSelect.value;
       
       // Clear current options except the first one
       while (timeSelect.options.length > 1) {
@@ -1663,7 +1262,7 @@
         addOption(timeSelect, 'Evening (4:00 PM - 7:00 PM)', 'Evening (4:00 PM - 7:00 PM)', 'साँझ (४:०० बेलुका - ७:०० बेलुका)');
       } else if (selectedClinic === 'Shubharambha Skin Centre, Dhangadhi') {
         addOption(timeSelect, 'Saturday Only (9:00 AM - 5:00 PM)', 'Saturday Only (9:00 AM - 5:00 PM)', 'शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)');
-      } else if (selectedClinic === 'teledermatology') {
+      } else if (selectedClinic === 'Teledermatology') {
         addOption(timeSelect, 'Tele-dermatology (Daily)', 'Tele-dermatology (Daily)', 'टेलिडर्माटोलोजी (दैनिक)');
       } else {
         // Add all options for default/unspecified clinic
@@ -1688,96 +1287,15 @@
     
     // Function to update language for select options
     function updateLanguageOptions() {
-      const selects = document.querySelectorAll('select');
-      selects.forEach(select => {
-        for (let i = 0; i < select.options.length; i++) {
-          const option = select.options[i];
-          if (option.value) {
-            const text = option.getAttribute(`data-${currentLanguage}`);
-            if (text) {
-              option.textContent = text;
-            }
+      const timeSelect = document.getElementById('preferredTime');
+      for (let i = 0; i < timeSelect.options.length; i++) {
+        const option = timeSelect.options[i];
+        if (option.value) {
+          const text = option.getAttribute(`data-${currentLanguage}`);
+          if (text) {
+            option.textContent = text;
           }
         }
-      });
-    }
-    
-    // Function to toggle treatment details
-    function toggleTreatmentDetails(show) {
-      const treatmentDetails = document.getElementById('treatmentDetails');
-      const previousMedicines = document.getElementById('previousMedicines');
-      
-      if (show) {
-        treatmentDetails.style.display = 'block';
-        previousMedicines.required = true;
-      } else {
-        treatmentDetails.style.display = 'none';
-        previousMedicines.required = false;
-        previousMedicines.value = '';
-      }
-    }
-    
-    // Function to handle image preview
-    function handleImagePreview(event) {
-      const preview = document.getElementById('imagePreview');
-      preview.innerHTML = '';
-      
-      const files = event.target.files;
-      for (let i = 0; i < Math.min(files.length, 5); i++) { // Limit to 5 images
-        const file = files[i];
-        
-        // Check file size (5MB limit)
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`File "${file.name}" exceeds 5MB limit. Please choose a smaller file.`);
-          continue;
-        }
-        
-        const reader = new FileReader();
-        
-        reader.onload = function(e) {
-          const imgContainer = document.createElement('div');
-          imgContainer.style.position = 'relative';
-          imgContainer.style.display = 'inline-block';
-          
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          img.classList.add('preview-image');
-          img.style.width = '80px';
-          img.style.height = '80px';
-          img.style.objectFit = 'cover';
-          
-          const removeBtn = document.createElement('button');
-          removeBtn.innerHTML = '×';
-          removeBtn.style.position = 'absolute';
-          removeBtn.style.top = '-5px';
-          removeBtn.style.right = '-5px';
-          removeBtn.style.background = 'var(--accent)';
-          removeBtn.style.color = 'white';
-          removeBtn.style.border = 'none';
-          removeBtn.style.borderRadius = '50%';
-          removeBtn.style.width = '20px';
-          removeBtn.style.height = '20px';
-          removeBtn.style.cursor = 'pointer';
-          removeBtn.style.fontSize = '12px';
-          removeBtn.onclick = function() {
-            imgContainer.remove();
-            // Remove file from input
-            const dataTransfer = new DataTransfer();
-            const input = document.getElementById('medicalImages');
-            for (let j = 0; j < input.files.length; j++) {
-              if (j !== i) {
-                dataTransfer.items.add(input.files[j]);
-              }
-            }
-            input.files = dataTransfer.files;
-          };
-          
-          imgContainer.appendChild(img);
-          imgContainer.appendChild(removeBtn);
-          preview.appendChild(imgContainer);
-        }
-        
-        reader.readAsDataURL(file);
       }
     }
     
@@ -1811,18 +1329,10 @@
       const preferredDateInput = document.getElementById('preferredDate');
       const submitBtn = document.getElementById('submit-btn');
       const formStatus = document.getElementById('form-status');
-      const imageUpload = document.getElementById('medicalImages');
       
       // Set minimum date to today
       const today = new Date().toISOString().split('T')[0];
-      if (preferredDateInput) {
-        preferredDateInput.min = today;
-      }
-      
-      // Add event listener for image upload
-      if (imageUpload) {
-        imageUpload.addEventListener('change', handleImagePreview);
-      }
+      preferredDateInput.min = today;
       
       // Show status message
       function showStatus(message, type) {
@@ -1845,165 +1355,62 @@
         }
       }
       
-      // Function to validate tele-dermatology form
-      function validateTeledermatologyForm() {
-        const clinicSelect = document.getElementById('clinicLocation');
-        
-        if (clinicSelect.value !== 'Teledermatology') {
-          return true; // Not tele-dermatology, use regular validation
-        }
-        
-        // Check all required tele-dermatology fields
-        const requiredFields = [
-          { id: 'fullName', name: 'Full Name' },
-          { id: 'age', name: 'Age' },
-          { id: 'phoneNumber', name: 'Phone Number' },
-          { id: 'emailAddress', name: 'Email Address' },
-          { id: 'country', name: 'Country' },
-          { id: 'city', name: 'City/District' },
-          { id: 'problemDescription', name: 'Problem Description' },
-          { id: 'problemDuration', name: 'Problem Duration' }
-        ];
-        
-        for (const field of requiredFields) {
-          const element = document.getElementById(field.id);
-          if (element && !element.value.trim()) {
-            showStatus(`Please fill in ${field.name}.`, 'error');
-            element.focus();
-            return false;
-          }
-        }
-        
-        // Check gender selection
-        const genderSelected = document.querySelector('input[name="gender"]:checked');
-        if (!genderSelected) {
-          showStatus('Please select your gender.', 'error');
-          return false;
-        }
-        
-        // Check previous treatment selection
-        const treatmentSelected = document.querySelector('input[name="previousTreatment"]:checked');
-        if (!treatmentSelected) {
-          showStatus('Please indicate if you have had previous treatment.', 'error');
-          return false;
-        }
-        
-        // Check consultation mode selection
-        const consultationModeSelected = document.querySelector('input[name="consultationMode"]:checked');
-        if (!consultationModeSelected) {
-          showStatus('Please select your preferred consultation mode.', 'error');
-          return false;
-        }
-        
-        // Check consent checkboxes
-        const consent1 = document.querySelector('input[name="consent1"]');
-        const consent2 = document.querySelector('input[name="consent2"]');
-        const consent3 = document.querySelector('input[name="consent3"]');
-        const declaration = document.querySelector('input[name="declaration"]');
-        
-        if (!consent1 || !consent1.checked) {
-          showStatus('Please acknowledge that you understand this is an online tele-dermatology consultation.', 'error');
-          return false;
-        }
-        
-        if (!consent2 || !consent2.checked) {
-          showStatus('Please consent to share your medical details and images.', 'error');
-          return false;
-        }
-        
-        if (!consent3 || !consent3.checked) {
-          showStatus('Please acknowledge that physical examination may be required if advised.', 'error');
-          return false;
-        }
-        
-        if (!declaration || !declaration.checked) {
-          showStatus('Please confirm that the information provided is true.', 'error');
-          return false;
-        }
-        
-        // Check image upload
-        const medicalImages = document.getElementById('medicalImages');
-        if (!medicalImages.files || medicalImages.files.length === 0) {
-          showStatus('Please upload at least one photograph of the affected area.', 'error');
-          return false;
-        }
-        
-        // Validate image file sizes
-        for (let i = 0; i < medicalImages.files.length; i++) {
-          if (medicalImages.files[i].size > 5 * 1024 * 1024) {
-            showStatus(`Image "${medicalImages.files[i].name}" exceeds 5MB limit. Please upload smaller files.`, 'error');
-            return false;
-          }
-        }
-        
-        return true;
-      }
-      
       if (appointmentForm) {
         appointmentForm.addEventListener('submit', function(e) {
           e.preventDefault();
           
-          const clinicSelect = document.getElementById('clinicLocation');
-          const isTeledermatology = clinicSelect.value === 'Teledermatology';
+          // Get form values
+          const fullName = document.getElementById('fullName').value;
+          const age = document.getElementById('age').value;
+          const phoneNumber = document.getElementById('phoneNumber').value;
+          const emailAddress = document.getElementById('emailAddress').value;
+          const clinicLocation = document.getElementById('clinicLocation').value;
+          const preferredDate = document.getElementById('preferredDate').value;
+          const preferredTime = document.getElementById('preferredTime').value;
+          const reasonForVisit = document.getElementById('reasonForVisit').value;
+          const additionalInfo = document.getElementById('additionalInfo').value;
+          const consent = document.getElementById('consent').checked;
           
-          // Validate form based on consultation type
-          if (isTeledermatology) {
-            if (!validateTeledermatologyForm()) {
-              return;
-            }
-          } else {
-            // Regular form validation
-            const fullName = document.getElementById('fullName').value;
-            const age = document.getElementById('age').value;
-            const phoneNumber = document.getElementById('phoneNumber').value;
-            const emailAddress = document.getElementById('emailAddress').value;
-            const clinicLocation = document.getElementById('clinicLocation').value;
-            const preferredDate = document.getElementById('preferredDate').value;
-            const preferredTime = document.getElementById('preferredTime').value;
-            const reasonForVisit = document.getElementById('reasonForVisit').value;
-            const consent = document.getElementById('consent').checked;
-            
-            // Simple validation
-            if (!fullName || !age || !phoneNumber || !emailAddress || 
-                !clinicLocation || !preferredDate || !preferredTime || 
-                !reasonForVisit || !consent) {
-              showStatus('Please fill in all required fields and provide consent.', 'error');
-              return;
-            }
-            
-            // Age validation
-            if (age < 1 || age > 120) {
-              showStatus('Please enter a valid age (1-120).', 'error');
-              return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailAddress)) {
-              showStatus('Please enter a valid email address.', 'error');
-              return;
-            }
-            
-            // Date validation
-            const selectedDate = new Date(preferredDate);
-            if (selectedDate < new Date(today)) {
-              showStatus('Please select a future date for your appointment.', 'error');
-              return;
-            }
-            
-            // Clinic-specific validation
-            const dayOfWeek = selectedDate.getDay();
-            if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) {
-              showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error');
-              return;
-            }
-            
-            if (clinicLocation !== 'Teledermatology' && 
-                clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && 
-                dayOfWeek === 6) {
-              showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error');
-              return;
-            }
+          // Simple validation
+          if (!fullName || !age || !phoneNumber || !emailAddress || 
+              !clinicLocation || !preferredDate || !preferredTime || 
+              !reasonForVisit || !consent) {
+            showStatus('Please fill in all required fields and provide consent.', 'error');
+            return;
+          }
+          
+          // Age validation
+          if (age < 1 || age > 120) {
+            showStatus('Please enter a valid age (1-120).', 'error');
+            return;
+          }
+          
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(emailAddress)) {
+            showStatus('Please enter a valid email address.', 'error');
+            return;
+          }
+          
+          // Date validation
+          const selectedDate = new Date(preferredDate);
+          if (selectedDate < new Date(today)) {
+            showStatus('Please select a future date for your appointment.', 'error');
+            return;
+          }
+          
+          // Clinic-specific validation
+          const dayOfWeek = selectedDate.getDay();
+          if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) {
+            showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error');
+            return;
+          }
+          
+          if (clinicLocation !== 'Teledermatology' && 
+              clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && 
+              dayOfWeek === 6) {
+            showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error');
+            return;
           }
           
           // Set loading state
@@ -2011,12 +1418,15 @@
           
           // Prepare template parameters for EmailJS
           const templateParams = {
-            from_name: document.getElementById('fullName').value,
-            age: document.getElementById('age').value,
-            phone_number: document.getElementById('phoneNumber').value,
-            reply_to: document.getElementById('emailAddress').value,
-            clinic_location: document.getElementById('clinicLocation').value,
-            consultation_type: isTeledermatology ? 'Tele-dermatology' : 'In-person',
+            from_name: fullName,
+            age: age,
+            phone_number: phoneNumber,
+            reply_to: emailAddress,
+            clinic_location: clinicLocation,
+            preferred_date: preferredDate,
+            preferred_time: preferredTime,
+            reason_for_visit: reasonForVisit,
+            additional_info: additionalInfo || 'No additional information provided',
             submitted_at: new Date().toLocaleString('en-US', { 
               year: 'numeric', 
               month: 'long', 
@@ -2026,22 +1436,6 @@
             })
           };
           
-          // Add additional fields based on consultation type
-          if (isTeledermatology) {
-            templateParams.gender = document.querySelector('input[name="gender"]:checked').value;
-            templateParams.country = document.getElementById('country').value;
-            templateParams.city = document.getElementById('city').value;
-            templateParams.problem_description = document.getElementById('problemDescription').value;
-            templateParams.problem_duration = document.getElementById('problemDuration').value;
-            templateParams.consultation_mode = document.querySelector('input[name="consultationMode"]:checked').value;
-            templateParams.declaration = 'Confirmed';
-          } else {
-            templateParams.preferred_date = document.getElementById('preferredDate').value;
-            templateParams.preferred_time = document.getElementById('preferredTime').value;
-            templateParams.reason_for_visit = document.getElementById('reasonForVisit').value;
-            templateParams.additional_info = document.getElementById('additionalInfo').value || 'No additional information provided';
-          }
-          
           console.log('Sending email with params:', templateParams);
           
           // Send email using EmailJS with the correct Service ID and Template ID
@@ -2050,11 +1444,9 @@
               console.log('SUCCESS!', response.status, response.text);
               showStatus('Thank you for your appointment request! We will contact you within 24 hours to confirm your appointment.', 'success');
               appointmentForm.reset();
-              if (preferredDateInput) {
-                preferredDateInput.min = today;
-              }
-              // Reset form type
-              updateFormType();
+              preferredDateInput.min = today;
+              // Reset time slots to default
+              updateTimeSlots();
             }, function(error) {
               console.log('FAILED...', error);
               // More detailed error information
@@ -2090,18 +1482,14 @@
       const sendMessage = document.getElementById('sendMessage');
       
       // Toggle chat container
-      if (chatButton) {
-        chatButton.addEventListener('click', function() {
-          chatContainer.classList.toggle('active');
-        });
-      }
+      chatButton.addEventListener('click', function() {
+        chatContainer.classList.toggle('active');
+      });
       
       // Close chat container
-      if (closeChat) {
-        closeChat.addEventListener('click', function() {
-          chatContainer.classList.remove('active');
-        });
-      }
+      closeChat.addEventListener('click', function() {
+        chatContainer.classList.remove('active');
+      });
       
       // Send message function
       function sendChatMessage() {
@@ -2133,18 +1521,14 @@
       }
       
       // Send message on button click
-      if (sendMessage) {
-        sendMessage.addEventListener('click', sendChatMessage);
-      }
+      sendMessage.addEventListener('click', sendChatMessage);
       
       // Send message on Enter key
-      if (chatInput) {
-        chatInput.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') {
-            sendChatMessage();
-          }
-        });
-      }
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendChatMessage();
+        }
+      });
     });
   </script>
 </body>
