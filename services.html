@@ -129,7 +129,7 @@
             padding: 0 2rem;
         }
 
-        /* Navigation */
+        /* Navigation - Updated with Dropdown */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -171,6 +171,10 @@
             align-items: center;
         }
 
+        .navbar li {
+            position: relative;
+        }
+
         .navbar a {
             text-decoration: none;
             color: var(--foreground);
@@ -179,6 +183,9 @@
             border-radius: 30px;
             transition: var(--transition);
             font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .navbar a:hover {
@@ -190,6 +197,48 @@
             color: var(--primary);
             background: var(--primary-soft);
             font-weight: 600;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius-md);
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            border: 1px solid var(--border);
+            padding: 0.5rem 0;
+        }
+
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown a {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0;
+            color: var(--foreground);
+            font-size: 0.9rem;
+        }
+
+        .dropdown a:hover {
+            background: var(--primary-soft);
+            color: var(--primary);
+            padding-left: 2rem;
+        }
+
+        .navbar li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
         /* Language Toggle */
@@ -228,6 +277,14 @@
             background: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
         }
 
         /* Hero Section */
@@ -284,6 +341,16 @@
             object-fit: cover;
         }
 
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            display: inline-flex;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         /* Stats Bar */
         .stats-bar {
             background: white;
@@ -336,7 +403,7 @@
             font-size: 1.1rem;
         }
 
-        /* Service Categories */
+        /* Service Categories Filter */
         .service-categories {
             display: flex;
             flex-wrap: wrap;
@@ -369,10 +436,10 @@
             border-color: var(--primary);
         }
 
-        /* Services Grid */
+        /* Services Grid - 4x3 Layout */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -387,6 +454,9 @@
             position: relative;
             overflow: hidden;
             animation: fadeInUp 0.5s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -440,6 +510,7 @@
             color: var(--foreground-light);
             margin-bottom: 1.5rem;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .service-features {
@@ -469,6 +540,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
+            margin-top: auto;
         }
 
         .service-link:hover {
@@ -918,6 +990,9 @@
 
         .footer-links li {
             margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .footer-links a {
@@ -986,17 +1061,6 @@
             }
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -1009,6 +1073,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 1024px) {
             .services-hero {
                 flex-direction: column;
@@ -1021,7 +1091,7 @@
             }
             
             .services-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1031,9 +1101,51 @@
                 gap: 1rem;
             }
             
+            .mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
             .navbar ul {
-                flex-wrap: wrap;
+                flex-direction: column;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .navbar ul.active {
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            
+            .navbar li {
+                width: 100%;
+                margin: 0.25rem 0;
+            }
+            
+            .navbar a {
+                width: 100%;
                 justify-content: center;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 0.5rem;
+                display: none;
+            }
+            
+            .navbar li:hover .dropdown {
+                display: block;
             }
             
             h1 {
@@ -1110,16 +1222,33 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation with Dropdown -->
     <nav class="navbar">
         <div class="navbar-container">
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
             <a href="index.html" class="navbar-logo">
                 <i class="fas fa-stethoscope"></i>
                 <span data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</span>
             </a>
-            <ul>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
-                <li><a href="services.html" class="active" data-en="Services" data-np="सेवाहरू">Services</a></li>
+                <li>
+                    <a href="services.html" class="active" data-en="Services" data-np="सेवाहरू">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="acne.html" data-en="Acne Treatment" data-np="डन्डिफोर उपचार">Acne Treatment</a></li>
+                        <li><a href="peel.html" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
+                        <li><a href="hair.html" data-en="Hair Restoration" data-np="कपाल पुनर्स्थापना">Hair Restoration</a></li>
+                        <li><a href="laser.html" data-en="LASER Therapy" data-np="लेजर उपचार">LASER Therapy</a></li>
+                        <li><a href="sti.html" data-en="STI Treatment" data-np="यौन संक्रमण उपचार">STI Treatment</a></li>
+                        <li><a href="cosmetic.html" data-en="Cosmetic Procedures" data-np="कस्मेटिक उपचार">Cosmetic Procedures</a></li>
+                    </ul>
+                </li>
                 <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
                 <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
                 <li><a href="about.html" data-en="About" data-np="हाम्रो बारेमा">About</a></li>
@@ -1145,36 +1274,36 @@
                     Specialized Dermatology Services
                 </h1>
                 <p data-en="Comprehensive care for all your skin, hair, and nail concerns by one of the best dermatologists in Nepal: Dr. Vikash Paudel (leading dermatologist in Kathmandu)." data-np="काठमाडौंका अग्रणी छालारोग विशेषज्ञ डा. विकास पौडेलद्वारा तपाईंको छाला, कपाल र नङ सम्बन्धी सबै समस्याहरूको व्यापक हेरचाह।">
-                    Comprehensive care for all your skin, hair, and nail concerns by one of the best dermatologists in Nepal: Dr. Vikash Paudel.
+                    Comprehensive care for all your skin, hair, and nail concerns by one of the best dermatologists in Nepal: Dr. Vikash Paudel (leading dermatologist in Kathmandu).
                 </p>
                 <div style="margin-top: 2rem;">
-                    <span class="trust-badge" style="background: rgba(255,255,255,0.15); color: white; display: inline-flex; padding: 0.5rem 1rem; border-radius: 30px; align-items: center; gap: 0.5rem;">
+                    <span class="trust-badge">
                         <i class="fas fa-star" style="color: var(--gold);"></i>
                         <span data-en="5.0 ★ (94+ patient reviews)" data-np="५.० ★ (९४+ रोगी समीक्षा)">5.0 ★ (94+ patient reviews)</span>
                     </span>
                 </div>
             </div>
             <div class="doctor-photo">
-                  <img src="dr-vikash-paudel-profile.webp" alt="Dr. Vikash Paudel - Consultant Dermatologist">
-        </div>
+              <img src="dr-vikash-paudel-profile.webp" alt="Dr. Vikash Paudel - Consultant Dermatologist">
+            </div>
         </section>
 
         <!-- Stats Bar -->
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-number" id="yearsExp">10+</div>
+                <div class="stat-number">10+</div>
                 <div class="stat-label" data-en="Years Experience" data-np="वर्ष अनुभव">Years Experience</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" id="happyPatients">20,000+</div>
+                <div class="stat-number">20,000+</div>
                 <div class="stat-label" data-en="Happy Patients" data-np="सन्तुष्ट रोगी">Happy Patients</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" id="services">50+</div>
+                <div class="stat-number">50+</div>
                 <div class="stat-label" data-en="Treatments" data-np="उपचार">Treatments</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" id="locations">4</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label" data-en="Clinic Locations" data-np="क्लिनिक स्थान">Clinic Locations</div>
             </div>
         </div>
@@ -1189,27 +1318,21 @@
             <button class="category-btn" data-category="sti" data-en="STI Treatment" data-np="यौन संक्रमण">STI Treatment</button>
         </div>
 
-        <!-- Services Grid -->
+        <!-- Services Grid - 4x3 Layout -->
         <section class="section">
-            <div class="section-header">
-                <h2 data-en="Our Specialized Treatments" data-np="हाम्रा विशेषीकृत उपचारहरू">Our Specialized Treatments</h2>
-                <p data-en="Evidence-based treatments with proven results, tailored to your unique needs." data-np="तपाईंको विशेष आवश्यकताहरू अनुरूप प्रमाणित नतिजा सहितको उपचार।">Evidence-based treatments with proven results, tailored to your unique needs.</p>
-            </div>
-
             <div class="services-grid" id="servicesGrid">
-                <!-- Medical Dermatology Services -->
+                <!-- Medical Dermatology Services (6 cards) -->
                 <div class="service-card" data-category="medical">
                     <div class="service-icon">
                         <i class="fas fa-allergies"></i>
                     </div>
                     <h3 class="service-title" data-en="Acne Treatment" data-np="डन्डिफोर उपचार">Acne Treatment</h3>
-                    <p class="service-description" data-en="Comprehensive acne management for all ages, from teenagers to adults." data-np="किशोरदेखि वयस्कसम्म सबै उमेरका लागि व्यापक डन्डिफोर उपचार।">Comprehensive acne management for all ages, from teenagers to adults.</p>
+                    <p class="service-description" data-en="Comprehensive acne management for all ages, from teenagers to adults." data-np="किशोरदेखि वयस्कसम्म सबै उमेरका लागि व्यापक डन्डिफोर उपचार।">Comprehensive acne management for all ages.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Personalized treatment plans" data-np="व्यक्तिगत उपचार योजना">Personalized treatment plans</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Medical and cosmetic approaches" data-np="चिकित्सा र कस्मेटिक दृष्टिकोण">Medical and cosmetic approaches</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Scar prevention and treatment" data-np="दाग रोकथाम र उपचार">Scar prevention and treatment</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Personalized treatment plans" data-np="व्यक्तिगत उपचार योजना">Personalized treatment</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Scar prevention" data-np="दाग रोकथाम">Scar prevention</span></li>
                     </ul>
-                    <a href="acne-treatment.html" class="service-link">
+                    <a href="acne.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -1220,13 +1343,12 @@
                         <i class="fas fa-wind"></i>
                     </div>
                     <h3 class="service-title" data-en="Eczema & Psoriasis" data-np="एक्जिमा र सोरायसिस">Eczema & Psoriasis</h3>
-                    <p class="service-description" data-en="Advanced management of chronic skin conditions with proven therapies." data-np="प्रमाणित उपचारका साथ पुरानो छाला रोगहरूको उन्नत व्यवस्थापन।">Advanced management of chronic skin conditions with proven therapies.</p>
+                    <p class="service-description" data-en="Advanced management of chronic skin conditions with proven therapies." data-np="प्रमाणित उपचारका साथ पुरानो छाला रोगहरूको उन्नत व्यवस्थापन।">Advanced management of chronic skin conditions.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Latest treatment options" data-np="नवीनतम उपचार विकल्प">Latest treatment options</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Long-term management" data-np="दीर्घकालीन व्यवस्थापन">Long-term management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Latest treatment options" data-np="नवीनतम उपचार">Latest treatments</span></li>
                         <li><i class="fas fa-check"></i> <span data-en="Symptom relief" data-np="लक्षण राहत">Symptom relief</span></li>
                     </ul>
-                    <a href="eczema-treatment.html" class="service-link">
+                    <a href="eczema.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -1237,137 +1359,28 @@
                         <i class="fas fa-tint"></i>
                     </div>
                     <h3 class="service-title" data-en="Melasma & Pigmentation" data-np="मेलाज्मा र रंगत समस्या">Melasma & Pigmentation</h3>
-                    <p class="service-description" data-en="Effective treatment for uneven skin tone and hyperpigmentation." data-np="असमान छालाको रंग र हाइपरपिग्मेन्टेसनको लागि प्रभावकारी उपचार।">Effective treatment for uneven skin tone and hyperpigmentation.</p>
+                    <p class="service-description" data-en="Effective treatment for uneven skin tone and hyperpigmentation." data-np="असमान छालाको रंग र हाइपरपिग्मेन्टेसनको लागि प्रभावकारी उपचार।">Effective treatment for uneven skin tone.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Customized treatment plans" data-np="अनुकूलित उपचार योजना">Customized treatment plans</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Medical and laser options" data-np="चिकित्सा र लेजर विकल्प">Medical and laser options</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Customized plans" data-np="अनुकूलित योजना">Customized plans</span></li>
                         <li><i class="fas fa-check"></i> <span data-en="Sun damage reversal" data-np="घामको क्षति उल्टाउने">Sun damage reversal</span></li>
                     </ul>
-                    <a href="pigmentation-treatment.html" class="service-link">
+                    <a href="pigmentation.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
 
-                <!-- Cosmetic Services -->
-                <div class="service-card" data-category="cosmetic">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3 class="service-title" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</h3>
-                    <p class="service-description" data-en="Skin rejuvenation with advanced chemical peels for various concerns." data-np="विभिन्न समस्याहरूको लागि उन्नत केमिकल पीलको साथ छाला पुनर्योजन।">Skin rejuvenation with advanced chemical peels for various concerns.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Multiple peel types" data-np="विभिन्न प्रकारका पील">Multiple peel types</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Safe and effective" data-np="सुरक्षित र प्रभावकारी">Safe and effective</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Minimal downtime" data-np="न्यूनतम डाउनटाइम">Minimal downtime</span></li>
-                    </ul>
-                    <a href="chemical-peel.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="service-card" data-category="cosmetic">
-                    <div class="service-icon">
-                        <i class="fas fa-syringe"></i>
-                    </div>
-                    <h3 class="service-title" data-en="Botox & Fillers" data-np="बोटोक्स र फिलर">Botox & Fillers</h3>
-                    <p class="service-description" data-en="Non-surgical facial rejuvenation for a refreshed, youthful appearance." data-np="ताजा र युवा उपस्थितिको लागि गैर-सर्जिकल अनुहार पुनर्योजन।">Non-surgical facial rejuvenation for a refreshed, youthful appearance.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Wrinkle reduction" data-np="चाउरी कम गर्ने">Wrinkle reduction</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Volume restoration" data-np="भोल्युम पुनर्स्थापना">Volume restoration</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Natural results" data-np="प्राकृतिक नतिजा">Natural results</span></li>
-                    </ul>
-                    <a href="botox-fillers.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="service-card" data-category="cosmetic">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="service-title" data-en="Laser Therapy" data-np="लेजर उपचार">Laser Therapy</h3>
-                    <p class="service-description" data-en="Advanced laser treatments for various skin concerns and hair removal." data-np="विभिन्न छाला समस्या र कपाल हटाउनको लागि उन्नत लेजर उपचार।">Advanced laser treatments for various skin concerns and hair removal.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Hair reduction" data-np="कपाल कम गर्ने">Hair reduction</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Scar revision" data-np="दाग हटाउने">Scar revision</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Skin tightening" data-np="छाला टाइटनिङ">Skin tightening</span></li>
-                    </ul>
-                    <a href="laser-therapy.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Surgical Services -->
-                <div class="service-card" data-category="surgical">
-                    <div class="service-icon">
-                        <i class="fas fa-procedures"></i>
-                    </div>
-                    <h3 class="service-title" data-en="Skin Surgery" data-np="छाला सर्जरी">Skin Surgery</h3>
-                    <p class="service-description" data-en="Minor surgical procedures with minimal scarring for various skin conditions." data-np="विभिन्न छाला समस्याहरूको लागि न्यूनतम दाग सहितको साना सर्जिकल प्रक्रियाहरू।">Minor surgical procedures with minimal scarring for various skin conditions.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Mole & cyst removal" data-np="कोठि र सिस्ट हटाउने">Mole & cyst removal</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Wart treatment" data-np="मुसा उपचार">Wart treatment</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Skin biopsies" data-np="छाला बायोप्सी">Skin biopsies</span></li>
-                    </ul>
-                    <a href="skin-surgery.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Hair Services -->
-                <div class="service-card" data-category="hair">
-                    <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3 class="service-title" data-en="Hair Restoration" data-np="कपाल पुनर्स्थापना">Hair Restoration</h3>
-                    <p class="service-description" data-en="Comprehensive treatment for all types of hair loss and scalp conditions." data-np="सबै प्रकारको कपाल झर्ने र तालु समस्याहरूको लागि व्यापक उपचार।">Comprehensive treatment for all types of hair loss and scalp conditions.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Male & female pattern baldness" data-np="पुरुष र महिला ढाँचा गंजोपन">Male & female pattern baldness</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Alopecia treatment" data-np="एलोपेसिया उपचार">Alopecia treatment</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Scalp treatments" data-np="तालु उपचार">Scalp treatments</span></li>
-                    </ul>
-                    <a href="hair-restoration.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- STI Services -->
-                <div class="service-card" data-category="sti">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="service-title" data-en="STI Treatment" data-np="यौन संक्रमण उपचार">STI Treatment</h3>
-                    <p class="service-description" data-en="Confidential diagnosis and treatment of sexually transmitted infections." data-np="यौन संक्रमित संक्रमणहरूको गोप्य निदान र उपचार।">Confidential diagnosis and treatment of sexually transmitted infections.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Complete privacy" data-np="पूर्ण गोपनीयता">Complete privacy</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Comprehensive testing" data-np="व्यापक परीक्षण">Comprehensive testing</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Partner counseling" data-np="पार्टनर परामर्श">Partner counseling</span></li>
-                    </ul>
-                    <a href="sti-treatment.html" class="service-link">
-                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Additional Services -->
                 <div class="service-card" data-category="medical">
                     <div class="service-icon">
                         <i class="fas fa-allergies"></i>
                     </div>
                     <h3 class="service-title" data-en="Allergy Treatment" data-np="एलर्जी उपचार">Allergy Treatment</h3>
-                    <p class="service-description" data-en="Diagnosis and management of skin allergies, urticaria, and contact dermatitis." data-np="छाला एलर्जी, दाद, र सम्पर्क जिल्ला को निदान र व्यवस्थापन।">Diagnosis and management of skin allergies, urticaria, and contact dermatitis.</p>
+                    <p class="service-description" data-en="Diagnosis and management of skin allergies, urticaria, and contact dermatitis." data-np="छाला एलर्जी, दाद, र सम्पर्क जिल्ला को निदान र व्यवस्थापन।">Diagnosis and management of skin allergies.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> <span data-en="Allergy testing" data-np="एलर्जी परीक्षण">Allergy testing</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Symptom relief" data-np="लक्षण राहत">Symptom relief</span></li>
                         <li><i class="fas fa-check"></i> <span data-en="Prevention strategies" data-np="रोकथाम रणनीति">Prevention strategies</span></li>
                     </ul>
-                    <a href="allergy-treatment.html" class="service-link">
+                    <a href="allergy.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -1378,28 +1391,143 @@
                         <i class="fas fa-baby"></i>
                     </div>
                     <h3 class="service-title" data-en="Pediatric Dermatology" data-np="बाल छालारोग">Pediatric Dermatology</h3>
-                    <p class="service-description" data-en="Specialized skin care for infants, children, and adolescents." data-np="शिशु, बच्चाहरू, र किशोरहरूको लागि विशेषीकृत छाला हेरचाह।">Specialized skin care for infants, children, and adolescents.</p>
+                    <p class="service-description" data-en="Specialized skin care for infants, children, and adolescents." data-np="शिशु, बच्चाहरू, र किशोरहरूको लागि विशेषीकृत छाला हेरचाह।">Specialized care for children's skin.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Child-friendly approach" data-np="बच्चा-अनुकूल दृष्टिकोण">Child-friendly approach</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Common childhood conditions" data-np="सामान्य बाल्यकाल अवस्था">Common childhood conditions</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Child-friendly approach" data-np="बच्चा-अनुकूल दृष्टिकोण">Child-friendly</span></li>
                         <li><i class="fas fa-check"></i> <span data-en="Gentle treatments" data-np="कोमल उपचार">Gentle treatments</span></li>
                     </ul>
-                    <a href="pediatric-dermatology.html" class="service-link">
+                    <a href="childhood-skin.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
 
+                <!-- Cosmetic Services (3 cards) -->
+                <div class="service-card" data-category="cosmetic">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</h3>
+                    <p class="service-description" data-en="Skin rejuvenation with advanced chemical peels for various concerns." data-np="विभिन्न समस्याहरूको लागि उन्नत केमिकल पीलको साथ छाला पुनर्योजन।">Advanced chemical peels for rejuvenation.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Multiple peel types" data-np="विभिन्न पील प्रकार">Multiple peel types</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Minimal downtime" data-np="न्यूनतम डाउनटाइम">Minimal downtime</span></li>
+                    </ul>
+                    <a href="peel.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card" data-category="cosmetic">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Botox & Fillers" data-np="बोटोक्स र फिलर">Botox & Fillers</h3>
+                    <p class="service-description" data-en="Non-surgical facial rejuvenation for a refreshed, youthful appearance." data-np="ताजा र युवा उपस्थितिको लागि गैर-सर्जिकल अनुहार पुनर्योजन।">Non-surgical facial rejuvenation.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Wrinkle reduction" data-np="चाउरी कम गर्ने">Wrinkle reduction</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Natural results" data-np="प्राकृतिक नतिजा">Natural results</span></li>
+                    </ul>
+                    <a href="cosmetic.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card" data-category="cosmetic">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Laser Therapy" data-np="लेजर उपचार">Laser Therapy</h3>
+                    <p class="service-description" data-en="Advanced laser treatments for various skin concerns and hair removal." data-np="विभिन्न छाला समस्या र कपाल हटाउनको लागि उन्नत लेजर उपचार।">Advanced laser treatments for skin.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Hair reduction" data-np="कपाल कम गर्ने">Hair reduction</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Scar revision" data-np="दाग हटाउने">Scar revision</span></li>
+                    </ul>
+                    <a href="laser.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Surgical Services (2 cards) -->
+                <div class="service-card" data-category="surgical">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Skin Surgery" data-np="छाला सर्जरी">Skin Surgery</h3>
+                    <p class="service-description" data-en="Minor surgical procedures with minimal scarring for various skin conditions." data-np="विभिन्न छाला समस्याहरूको लागि न्यूनतम दाग सहितको साना सर्जिकल प्रक्रियाहरू।">Minor surgical procedures, minimal scarring.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Mole & cyst removal" data-np="कोठि र सिस्ट हटाउने">Mole & cyst removal</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Wart treatment" data-np="मुसा उपचार">Wart treatment</span></li>
+                    </ul>
+                    <a href="surgery.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card" data-category="surgical">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Wart Removal" data-np="मुसा हटाउने">Wart Removal</h3>
+                    <p class="service-description" data-en="Effective removal of warts with advanced techniques." data-np="उन्नत प्रविधिहरूको साथ मुसा हटाउने।">Effective wart removal procedures.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Multiple methods" data-np="विभिन्न विधिहरू">Multiple methods</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Minimal discomfort" data-np="न्यूनतम असुविधा">Minimal discomfort</span></li>
+                    </ul>
+                    <a href="laser.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Hair Services (1 card) -->
+                <div class="service-card" data-category="hair">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="service-title" data-en="Hair Restoration" data-np="कपाल पुनर्स्थापना">Hair Restoration</h3>
+                    <p class="service-description" data-en="Comprehensive treatment for all types of hair loss and scalp conditions." data-np="सबै प्रकारको कपाल झर्ने र तालु समस्याहरूको लागि व्यापक उपचार।">Complete hair and scalp care.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Pattern baldness" data-np="गंजोपन">Pattern baldness</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Alopecia treatment" data-np="एलोपेसिया उपचार">Alopecia treatment</span></li>
+                    </ul>
+                    <a href="hair.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- STI Services (1 card) -->
+                <div class="service-card" data-category="sti">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title" data-en="STI Treatment" data-np="यौन संक्रमण उपचार">STI Treatment</h3>
+                    <p class="service-description" data-en="Confidential diagnosis and treatment of sexually transmitted infections." data-np="यौन संक्रमित संक्रमणहरूको गोप्य निदान र उपचार।">Confidential STI care and treatment.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Complete privacy" data-np="पूर्ण गोपनीयता">Complete privacy</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Comprehensive testing" data-np="व्यापक परीक्षण">Comprehensive testing</span></li>
+                    </ul>
+                    <a href="sti.html" class="service-link">
+                        <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Additional Medical (1 card to complete 12) -->
                 <div class="service-card" data-category="medical">
                     <div class="service-icon">
                         <i class="fas fa-laptop-medical"></i>
                     </div>
                     <h3 class="service-title" data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</h3>
-                    <p class="service-description" data-en="Virtual consultations for follow-ups and non-emergency skin concerns." data-np="फलो-अप र गैर-आपतकालीन छाला समस्याहरूको लागि भर्चुअल परामर्श।">Virtual consultations for follow-ups and non-emergency skin concerns.</p>
+                    <p class="service-description" data-en="Virtual consultations for follow-ups and non-emergency skin concerns." data-np="फलो-अप र गैर-आपतकालीन छाला समस्याहरूको लागि भर्चुअल परामर्श।">Virtual consultations from home.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <span data-en="Convenient online visits" data-np="सुविधाजनक अनलाइन भ्रमण">Convenient online visits</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Convenient online visits" data-np="सुविधाजनक अनलाइन भ्रमण">Online visits</span></li>
                         <li><i class="fas fa-check"></i> <span data-en="Secure platform" data-np="सुरक्षित प्लेटफर्म">Secure platform</span></li>
-                        <li><i class="fas fa-check"></i> <span data-en="Prescription services" data-np="प्रिस्क्रिप्शन सेवाहरू">Prescription services</span></li>
                     </ul>
                     <a href="teledermatology.html" class="service-link">
                         <span data-en="Learn More" data-np="थप जान्नुहोस्">Learn More</span>
@@ -1629,6 +1757,14 @@
     </div>
 
     <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
         // Language Toggle
         let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
         const languageToggle = document.getElementById('languageToggle');
@@ -1641,7 +1777,7 @@
             document.querySelectorAll('[data-en], [data-np]').forEach(element => {
                 const text = element.getAttribute(`data-${lang}`);
                 if (text) {
-                    if (element.hasAttribute('placeholder')) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = text;
                     } else {
                         element.textContent = text;
@@ -1658,9 +1794,8 @@
             document.body.lang = lang;
 
             // Update chat placeholder
-            document.getElementById('chatInput').placeholder = lang === 'en' 
-                ? "Type your message..." 
-                : "आफ्नो सन्देश टाइप गर्नुहोस्...";
+            const chatInput = document.getElementById('chatInput');
+            chatInput.placeholder = lang === 'en' ? 'Type your message...' : 'आफ्नो सन्देश टाइप गर्नुहोस्...';
         }
 
         languageToggle.addEventListener('click', () => {
@@ -1683,7 +1818,7 @@
                 // Filter cards
                 serviceCards.forEach(card => {
                     if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                         setTimeout(() => {
                             card.style.opacity = '1';
                             card.style.transform = 'translateY(0)';
@@ -1746,27 +1881,19 @@
                 addMessage(message, true);
                 chatInput.value = '';
 
-                // Simulate bot response based on keywords
+                // Simulate bot response
                 setTimeout(() => {
                     let response;
                     const lowerMessage = message.toLowerCase();
 
                     if (lowerMessage.includes('appointment') || lowerMessage.includes('book')) {
                         response = currentLanguage === 'en' 
-                            ? "You can book an appointment through our online form or call us at +977-1-5242511. Would you like me to direct you to the booking page?"
-                            : "तपाईं हाम्रो अनलाइन फारम मार्फत वा +९७७-१-५२४२५११ मा कल गरेर अपोइन्टमेन्ट बुक गर्न सक्नुहुन्छ। के म तपाईंलाई बुकिङ पृष्ठमा निर्देशन दिन सक्छु?";
-                    } else if (lowerMessage.includes('acne')) {
+                            ? "You can book an appointment through our online form or call us at +977-1-5242511."
+                            : "तपाईं हाम्रो अनलाइन फारम मार्फत वा +९७७-१-५२४२५११ मा कल गरेर अपोइन्टमेन्ट बुक गर्न सक्नुहुन्छ।";
+                    } else if (lowerMessage.includes('acne') || lowerMessage.includes('hair') || lowerMessage.includes('skin')) {
                         response = currentLanguage === 'en'
-                            ? "Dr. Paudel offers comprehensive acne treatments including medical therapy, chemical peels, and laser treatments. Would you like more details?"
-                            : "डा. पौडेलले चिकित्सा उपचार, केमिकल पील, र लेजर उपचार सहित व्यापक डन्डिफोर उपचार प्रदान गर्दछन्। के तपाईं थप विवरण चाहनुहुन्छ?";
-                    } else if (lowerMessage.includes('hair')) {
-                        response = currentLanguage === 'en'
-                            ? "We treat all types of hair loss including male/female pattern baldness, alopecia, and scalp conditions. Each treatment is personalized."
-                            : "हामी पुरुष/महिला ढाँचा गंजोपन, एलोपेसिया, र तालु अवस्था सहित सबै प्रकारको कपाल झर्ने उपचार गर्दछौं। प्रत्येक उपचार व्यक्तिगत हुन्छ।";
-                    } else if (lowerMessage.includes('cost') || lowerMessage.includes('price')) {
-                        response = currentLanguage === 'en'
-                            ? "Treatment costs vary based on the procedure. Please call us directly for specific pricing or schedule a consultation."
-                            : "उपचार लागत प्रक्रियाको आधारमा फरक हुन्छ। कृपया विशिष्ट मूल्य निर्धारणको लागि हामीलाई सिधै कल गर्नुहोस् वा परामर्श तालिका बनाउनुहोस्।";
+                            ? "We offer comprehensive treatments for this concern. Would you like more details or to schedule a consultation?"
+                            : "हामी यस समस्याको लागि व्यापक उपचार प्रदान गर्दछौं। के तपाईं थप विवरण चाहनुहुन्छ वा परामर्श तालिका बनाउन चाहनुहुन्छ?";
                     } else {
                         response = currentLanguage === 'en'
                             ? "Thank you for your message. One of our team members will respond shortly. For immediate assistance, please call +977-1-5242511."
@@ -1785,10 +1912,53 @@
             }
         });
 
-        // Close chat when clicking outside
+        // Close chat when clicking outside<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Vikash Paudel | Best Dermatologist in Kathmandu | Skin & Hair Specialist Services</title>
+    <meta name="description" content="Discover specialized dermatology services by Dr. Vikash Paudel in Kathmandu. Expert care for acne, hair loss, STI treatment, cosmetic dermatology, and skin surgery.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="dermatology services Kathmandu, skin treatment Nepal, acne treatment, cosmetic dermatology, hair loss treatment, STI treatment Nepal, skin surgery, laser treatment, chemical peel, botox Nepal">
+    <meta name="author" content="Dr. Vikash Paudel">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Dr. Vikash Paudel — Dermatology Services in Kathmandu">
+    <meta property="og:description" content="Comprehensive dermatology services including medical, cosmetic, and surgical treatments by Dr. Vikash Paudel, leading dermatologist in Kathmandu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vikashpaudel.com.np/services">
+    <meta property="og:image" content="https://vikashpaudel.com.np/images/og-image.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Vikash Paudel — Dermatology Services">
+    <meta name="twitter:description" content="Expert dermatology services in Kathmandu for all skin, hair, and nail concerns.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vikashpaudel.com.np/services">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+
         document.addEventListener('click', (e) => {
             if (!chatContainer.contains(e.target) && !chatButton.contains(e.target)) {
                 chatContainer.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
             }
         });
 
