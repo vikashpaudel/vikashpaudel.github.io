@@ -15,7 +15,7 @@
     <meta property="og:description" content="Consultant Gynecologist and Obstetrician specializing in infertility, laparoscopic surgery, high-risk pregnancy, and women's health. Clinics at Nepal Police Hospital & Shankhamul Health Care." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://drdeepachudal.com.np/" />
-    <meta property="og:image" content="https://drdeepachudal.com.np/images/og-image.png" />
+    <meta property="og:image" content="https://drdeepachudal.com.np/images/deepa.jpg" />
     <meta property="og:image:alt" content="Dr. Deepa Chudal - Gynecologist and Infertility Expert" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ne_NP" />
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Deepa Chudal — Best Gynecologist & Infertility Specialist in Kathmandu">
     <meta name="twitter:description" content="Expert gynecological care, infertility treatments, laparoscopic surgery, and high-risk pregnancy management. Book your appointment today.">
-    <meta name="twitter:image" content="https://drdeepachudal.com.np/images/twitter-card.png">
+    <meta name="twitter:image" content="https://drdeepachudal.com.np/images/deepa.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://drdeepachudal.com.np">
@@ -300,15 +300,57 @@
             color: var(--secondary);
         }
         
+        /* Animated Doctor Image Container */
+        .hero-image {
+            text-align: center;
+            perspective: 1000px;
+        }
+        
         .doctor-img {
             max-width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.25);
-            transition: transform 0.5s;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 30px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: floatImage 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
+            border: 4px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(2px);
+            object-fit: cover;
+            aspect-ratio: 400 / 500;
+        }
+        
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(1deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+        
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 25px 45px rgba(0,0,0,0.25), 0 0 0 0 rgba(233, 30, 99, 0.4);
+                border-color: rgba(255,255,255,0.3);
+            }
+            50% {
+                box-shadow: 0 30px 55px rgba(0,0,0,0.3), 0 0 0 12px rgba(233, 30, 99, 0.2);
+                border-color: rgba(233, 30, 99, 0.6);
+            }
+            100% {
+                box-shadow: 0 25px 45px rgba(0,0,0,0.25), 0 0 0 0 rgba(233, 30, 99, 0);
+                border-color: rgba(255,255,255,0.3);
+            }
         }
         
         .doctor-img:hover {
-            transform: scale(1.02);
+            transform: scale(1.02) translateY(-5px);
+            animation-play-state: paused;
+            box-shadow: 0 35px 60px rgba(0,0,0,0.35);
         }
         
         /* Welcome Section */
@@ -343,6 +385,12 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             margin-bottom: 25px;
             border-left: 5px solid var(--secondary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .welcome-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
         
         .welcome-card h3 {
@@ -360,6 +408,11 @@
             max-width: 100%;
             border-radius: 15px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: transform 0.4s;
+        }
+        
+        .welcome-image img:hover {
+            transform: scale(1.02);
         }
         
         /* Stats Section */
@@ -462,6 +515,11 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .qual-card:hover {
+            transform: translateY(-5px);
         }
         
         .qual-card h3 {
@@ -501,6 +559,12 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             position: relative;
+            transition: all 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         
         .testimonial::before {
@@ -538,6 +602,10 @@
             color: var(--secondary);
         }
         
+        .footer-contact {
+            list-style: none;
+        }
+        
         .footer-contact li {
             display: flex;
             margin-bottom: 15px;
@@ -545,6 +613,25 @@
         
         .footer-contact i {
             margin-right: 15px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
             color: var(--secondary);
         }
         
@@ -563,11 +650,13 @@
             align-items: center;
             justify-content: center;
             color: white;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
         }
         
         .social-links a:hover {
             background: var(--secondary);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -607,6 +696,7 @@
         
         .facebook-button:hover, .whatsapp-button:hover {
             transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         /* Responsive */
@@ -642,6 +732,9 @@
             }
             .hero-title {
                 font-size: 2rem;
+            }
+            .doctor-img {
+                max-width: 280px;
             }
         }
         
@@ -704,7 +797,8 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23fce4ec'/%3E%3Ccircle cx='200' cy='180' r='70' fill='%23e91e63' opacity='0.3'/%3E%3Cpath d='M200 250 L200 350 M170 290 L230 290 M200 350 L170 400 M200 350 L230 400' stroke='%23e91e63' stroke-width='4' stroke-linecap='round' fill='none' opacity='0.5'/%3E%3Ctext x='200' y='200' text-anchor='middle' fill='%23e91e63' font-size='30' font-family='Arial'%3E👩‍⚕️%3C/text%3E%3Ctext x='200' y='450' text-anchor='middle' fill='%23333' font-size='16'%3EDr. Deepa Chudal%3C/text%3E%3C/svg%3E" alt="Dr. Deepa Chudal" class="doctor-img">
+                <!-- REPLACE "deepa.jpg" WITH YOUR ACTUAL IMAGE PATH -->
+                <img src="deepa.jpg" alt="Dr. Deepa Chudal - Gynecologist and Infertility Expert in Kathmandu" class="doctor-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 500\'%3E%3Crect width=\'400\' height=\'500\' fill=\'%23fce4ec\'/%3E%3Ccircle cx=\'200\' cy=\'180\' r=\'70\' fill=\'%23e91e63\' opacity=\'0.3\'/%3E%3Cpath d=\'M200 250 L200 350 M170 290 L230 290 M200 350 L170 400 M200 350 L230 400\' stroke=\'%23e91e63\' stroke-width=\'4\' stroke-linecap=\'round\' fill=\'none\' opacity=\'0.5\'/%3E%3Ctext x=\'200\' y=\'200\' text-anchor=\'middle\' fill=\'%23e91e63\' font-size=\'30\' font-family=\'Arial\'%3E👩‍⚕️%3C/text%3E%3Ctext x=\'200\' y=\'450\' text-anchor=\'middle\' fill=\'%23333\' font-size=\'16\'%3EDr. Deepa Chudal%3C/text%3E%3C/svg%3E';">
             </div>
         </div>
     </section>
@@ -727,12 +821,12 @@
             <div class="stat-card"><div class="stat-number" id="yearsExp">0</div><div>Years Experience</div></div>
             <div class="stat-card"><div class="stat-number" id="happyPatients">0</div><div>Happy Patients</div></div>
             <div class="stat-card"><div class="stat-number" id="publications">0</div><div>Research Publications</div></div>
-            <div class="stat-card"><div class="stat-number" id="affiliations">0</div><div>Professional Affiliations</div></div>
+            <div class="stat-card"><div class="stat-number" id="affiliations">0</div><div>Affiliations</div></div>
         </div>
     </section>
 
     <section class="section" id="services">
-        <div class="container"><h2 class="section-title"><h2>Specialized Services</h2></h2>
+        <div class="container"><div class="section-title"><h2>Specialized Services</h2></div>
             <div class="services-grid">
                 <div class="service-card fade-in"><i class="fas fa-baby-carriage service-icon"></i><h3 class="service-title">Infertility Treatment</h3><p>Comprehensive fertility evaluation, ovulation induction, IUI, and advanced reproductive health management for couples.</p></div>
                 <div class="service-card fade-in"><i class="fas fa-cut service-icon"></i><h3 class="service-title">Laparoscopic Surgery</h3><p>Minimally invasive gynecological surgeries including ovarian cyst removal, hysterectomy, and endometriosis treatment.</p></div>
@@ -745,9 +839,9 @@
     </section>
 
     <section class="section qualifications" id="qualifications">
-        <div class="container"><h2 class="section-title"><h2>Education & Affiliations</h2></h2>
+        <div class="container"><div class="section-title"><h2>Education & Affiliations</h2></div>
             <div class="qual-grid">
-                <div class="qual-card"><h3><i class="fas fa-graduation-cap"></i> Medical Degrees</h3><ul style="list-style:none"><li>MBBS - College of Medical Sciences (KU) - Distinction</li><li>MD Obstetrics & Gynecology - IOM, TU - Distinction</li><li>SLC: 78% (1st Div) | 10+2: 82.2% (College Topper)</li>li><li>Fellowship in Reproductive Medicine 2025 ()IHR</li></ul></div>
+                <div class="qual-card"><h3><i class="fas fa-graduation-cap"></i> Medical Degrees</h3><ul style="list-style:none"><li>✅ MBBS - College of Medical Sciences (KU) - Distinction</li><li>✅ MD Obstetrics & Gynecology - IOM, TU - Distinction</li><li>✅ SLC: 78% (1st Div) | 10+2: 82.2% (College Topper)</li></ul></div>
                 <div class="qual-card"><h3><i class="fas fa-trophy"></i> Awards & Scholarships</h3><ul><li>🏆 Government Scholar (MOE) for MBBS</li><li>🏆 IAS International Fellowship Award (Netherlands)</li><li>🏆 Imrich Sarkany Award (EADV 2023) - Co-author</li></ul></div>
                 <div class="qual-card"><h3><i class="fas fa-users"></i> Professional Memberships</h3><ul><li>Nepal Society of Obstetricians & Gynecologists (NESOG)</li><li>Nepal Medical Council (NMC No. 9110)</li><li>German Nepal Society of OB/GYN (GNESOG)</li><li>International AIDS Society</li></ul></div>
             </div>
@@ -755,7 +849,7 @@
     </section>
 
     <section class="section" id="publications">
-        <div class="container"><h2 class="section-title"><h2>Research & Publications</h2></h2>
+        <div class="container"><div class="section-title"><h2>Research & Publications</h2></div>
             <div class="qual-grid">
                 <div class="qual-card"><h3><i class="fas fa-file-alt"></i> Key Publications</h3><ul class="publication-list"><li>Rupture Uterus in a Tertiary Care Centre (JNMA 2021)</li><li>Perinatal outcome with oligohydramnios (Nepal Med J 2018)</li><li>Gynecological Laparoscopic Surgery in Nepal Police Hospital</li><li>Factors influencing dengue knowledge in police personnel (J Occup Health 2023)</li><li>Post Caesarian Pelvic Abscess (Nepal Med J 2020)</li><li>Tuberculosis and HIV co-infection in vulva (Indian J Tuberculosis)</li></ul></div>
                 <div class="qual-card"><h3><i class="fas fa-chalkboard"></i> Conference Speaker</h3><ul><li>Assessment of Perinatal outcome in Rupture Uterus - NESOG 2017</li><li>Role of conservative surgery in Obstetrics - ICS 2014</li><li>Management of abruptio placenta - NMA Farwest 2013</li><li>WCD Milan 2019 - Poster Presentation</li></ul></div>
@@ -764,7 +858,7 @@
     </section>
 
     <section class="section" id="testimonials">
-        <div class="container"><h2 class="section-title"><h2>Patient Testimonials</h2></h2>
+        <div class="container"><div class="section-title"><h2>Patient Testimonials</h2></div>
             <div class="testimonials-container">
                 <div class="testimonial fade-in"><p class="testimonial-text">"Dr. Deepa's expertise and compassionate care made my high-risk pregnancy journey smooth. She was available at every step and ensured a healthy delivery. Highly recommend her!"</p><div class="testimonial-author"><strong>- S. Sharma</strong>, Kathmandu</div></div>
                 <div class="testimonial fade-in"><p class="testimonial-text">"After years of struggling with infertility, Dr. Chudal guided us with the right treatment. We are now proud parents. Forever grateful for her dedication."</p><div class="testimonial-author"><strong>- R. & A. Karki</strong></div></div>
@@ -779,8 +873,8 @@
             <div class="footer-container">
                 <div class="footer-column"><h3>Dr. Deepa Chudal</h3><p>MBBS, MD (Obs/Gyne)<br>Consultant Obstetrician & Gynecologist<br>Infertility & Laparoscopic Surgeon</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
                 <div class="footer-column"><h3>Clinic Locations</h3><ul class="footer-contact"><li><i class="fas fa-hospital"></i><div><strong>Nepal Police Hospital</strong><br>Maharajgunj, Kathmandu<br>Sunday-Friday: 9am-4pm</div></li><li><i class="fas fa-clinic-medical"></i><div><strong>Shankhamul Health Care</strong><br>Shankhamul, Lalitpur<br>Evening: 5pm-7pm (Wed, Fri)</div></li></ul></div>
-                <div class="footer-column"><h3>Contact Info</h3><ul class="footer-contact"><li><i class="fas fa-phone"></i> <div>+977-9840057830</div></li><li><i class="fas fa-envelope"></i> <div>deepa_smile@hotmail.com</div></li><li><i class="fas fa-map-marker-alt"></i> <div>Permanent: Lamatar, Lalitpur<br>Temporary: Shankhamul-9, Lalitpur</div></li></ul></div>
-                <div class="footer-column"><h3>Quick Links</h3><ul class="footer-links" style="list-style:none"><li><a href="#home" style="color:white">Home</a></li><li><a href="#services" style="color:white">Services</a></li><li><a href="#qualifications" style="color:white">Qualifications</a></li><li><a href="#appointment" style="color:white">Book Appointment</a></li></ul></div>
+                <div class="footer-column"><h3>Contact Info</h3><ul class="footer-contact"><li><i class="fas fa-phone"></i> <div>+977-9840057830</div></li><li><i class="fas fa-envelope"></i> <div>deepa_smile@hotmail.com</div></li><li><i class="fas fa-map-marker-alt"></i> <div>Lamatar, Lalitpur / Shankhamul-9</div></li></ul></div>
+                <div class="footer-column"><h3>Quick Links</h3><ul class="footer-links"><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#qualifications">Qualifications</a></li><li><a href="#appointment">Book Appointment</a></li></ul></div>
             </div>
             <div class="copyright"><p>&copy; 2025 Dr. Deepa Chudal. All Rights Reserved. NMC No. 9110</p></div>
         </div>
@@ -790,12 +884,16 @@
     <a href="#" class="facebook-button" target="_blank"><i class="fab fa-facebook-f"></i></a>
 
     <script>
-        // Language switching simplified
+        // Language switching
         let currentLang = 'en';
         const langBtn = document.getElementById('languageBtn');
         const dropdown = document.getElementById('languageDropdown');
         langBtn.addEventListener('click', () => dropdown.classList.toggle('active'));
-        document.querySelectorAll('.language-option').forEach(opt => opt.addEventListener('click', (e) => { currentLang = opt.getAttribute('data-lang'); dropdown.classList.remove('active'); langBtn.innerHTML = `<i class="fas fa-globe"></i> <span>${currentLang === 'en' ? 'English' : 'नेपाली'}</span> <i class="fas fa-chevron-down"></i>`; }));
+        document.querySelectorAll('.language-option').forEach(opt => opt.addEventListener('click', (e) => { 
+            currentLang = opt.getAttribute('data-lang'); 
+            dropdown.classList.remove('active'); 
+            langBtn.innerHTML = `<i class="fas fa-globe"></i> <span>${currentLang === 'en' ? 'English' : 'नेपाली'}</span> <i class="fas fa-chevron-down"></i>`;
+        }));
         document.addEventListener('click', (e) => { if(!langBtn.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.remove('active'); });
         
         // Mobile menu toggle
@@ -803,17 +901,35 @@
         
         // Stats animation
         function animateStats() {
-            const targets = { yearsExp: 12, happyPatients: 18000, publications: 12, affiliations: 6 };
-            Object.keys(targets).forEach(id => { let el = document.getElementById(id), current = 0, target = targets[id]; let interval = setInterval(() => { current += Math.ceil(target/50); if(current >= target) { el.textContent = target.toLocaleString(); clearInterval(interval); } else el.textContent = current; }, 30); });
+            const targets = { yearsExp: 12, happyPatients: 18500, publications: 12, affiliations: 6 };
+            Object.keys(targets).forEach(id => { 
+                let el = document.getElementById(id), current = 0, target = targets[id]; 
+                let interval = setInterval(() => { 
+                    current += Math.ceil(target/50); 
+                    if(current >= target) { 
+                        el.textContent = target.toLocaleString(); 
+                        clearInterval(interval); 
+                    } else el.textContent = current; 
+                }, 30); 
+            });
         }
+        
         // Fade in animation
         const faders = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.2 });
+        const observer = new IntersectionObserver((entries) => { 
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); 
+        }, { threshold: 0.2 });
         faders.forEach(f => observer.observe(f));
         animateStats();
         
         // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); let target = document.querySelector(this.getAttribute('href')); if(target) target.scrollIntoView({ behavior: 'smooth' }); }); });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
+            anchor.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                let target = document.querySelector(this.getAttribute('href')); 
+                if(target) target.scrollIntoView({ behavior: 'smooth' }); 
+            }); 
+        });
     </script>
 </body>
 </html>
