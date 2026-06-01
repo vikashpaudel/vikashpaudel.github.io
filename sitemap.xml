@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://vikashpaudel.com.np/</loc>
     <priority>1.00</priority>
   </url>
+  
+  <!-- Major navigation & informational pages -->
   <url>
     <loc>https://vikashpaudel.com.np/about.html</loc>
     <priority>0.80</priority>
@@ -14,10 +17,120 @@
   </url>
   <url>
     <loc>https://vikashpaudel.com.np/blog.html</loc>
-    <priority>0.64</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://vikashpaudel.com.np/appointment.html</loc>
-    <priority>0.64</priority>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/contact.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/biography.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Common skin conditions (high relevance) -->
+  <url>
+    <loc>https://vikashpaudel.com.np/acne.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/allergy.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/eczema.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/Eczema.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/fungus.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/hair.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/melasma.html</loc>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/hand-eczema.html</loc>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- Cosmetic & treatment procedures -->
+  <url>
+    <loc>https://vikashpaudel.com.np/cosmetic.html</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/bluelight.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/botox.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/peel.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/surgery.html</loc>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- Seasonal & preventative skincare -->
+  <url>
+    <loc>https://vikashpaudel.com.np/sunscreen.html</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/summer-skin.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/winter-skin.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/winter.html</loc>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- Specialized dermatology pages -->
+  <url>
+    <loc>https://vikashpaudel.com.np/childhood-skin.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/elderly.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/teledermatology.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/deepainfertility.html</loc>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://vikashpaudel.com.np/sti.html</loc>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- Research & additional resources -->
+  <url>
+    <loc>https://vikashpaudel.com.np/research.html</loc>
+    <priority>0.50</priority>
   </url>
 </urlset>
