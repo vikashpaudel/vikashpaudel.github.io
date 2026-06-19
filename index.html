@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Best Dermatologist in Kathmandu| Dr. Vikash Paudel | Skin & Hair Specialist</title>
     <meta name="description" content="Book your consultation with Dr. Vikash Paudel, Kathmandu's top dermatologist. Specialized care for acne, melasma, hair loss, allergies, warts and sexually transmitted diseases, and skin surgery. Book online now" />
 
@@ -224,7 +224,7 @@
             --accessibility-control-hover: #1a237e;
         }
 
-        /* ===== COLOR BLIND MODE (Protanopia/Deuteranopia friendly) ===== */
+        /* ===== COLOR BLIND MODE ===== */
         body.color-blind-mode {
             --accent: #e67e22;
             --secondary: #2980b9;
@@ -270,11 +270,15 @@
             --gold: #f39c12;
         }
 
-        /* ===== BASE RESET ===== */
+        /* ===== BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -284,6 +288,7 @@
             background-color: var(--bg-body);
             overflow-x: hidden;
             transition: background-color 0.4s ease, color 0.4s ease;
+            cursor: none;
         }
 
         body[lang="np"] {
@@ -299,6 +304,57 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* ===== CUSTOM CURSOR ===== */
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.12);
+            border: 1px solid rgba(52, 152, 219, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+            will-change: transform, left, top;
+        }
+
+        .custom-cursor .dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #3498db;
+            box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+            transition: width 0.2s, height 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .custom-cursor.is-moving {
+            width: 40px;
+            height: 40px;
+            background: rgba(52, 152, 219, 0.2);
+            border-color: rgba(52, 152, 219, 0.7);
+        }
+
+        .custom-cursor.is-moving .dot {
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 24px rgba(52, 152, 219, 0.9);
+            background: #4fc3f7;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
         }
 
         /* ===== HEADER ===== */
@@ -606,8 +662,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: var(--card-bg);
             color: var(--text);
@@ -649,10 +705,10 @@
             border-color: #0A66C2;
         }
 
-        /* ===== ACCESSIBILITY TOGGLE (middle) ===== */
+        /* ===== ACCESSIBILITY TOGGLE (middle - color blind) ===== */
         .accessibility-toggle-wrap {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 999;
@@ -1481,70 +1537,73 @@
             transition: border 0.4s, color 0.4s;
         }
 
-        /* ===== FIXED WHATSAPP & FACEBOOK ===== */
-        .whatsapp-button {
+        /* ===== FIXED WHATSAPP, FACEBOOK & A11Y TOGGLE ===== */
+        .whatsapp-button,
+        .facebook-button,
+        .accessibility-widget-toggle {
             position: fixed;
-            bottom: 90px;
-            right: 20px;
+            right: 16px;
             z-index: 1000;
-            width: 60px;
-            height: 60px;
-            background: var(--whatsapp);
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
             transition: all 0.3s;
             border: none;
             text-decoration: none;
+            background: var(--secondary);
         }
 
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        .whatsapp-button {
+            background: var(--whatsapp);
+            bottom: 76px;
         }
 
         .facebook-button {
-            position: fixed;
-            bottom: 160px;
-            right: 20px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
             background: var(--facebook);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
+            bottom: 136px;
         }
 
-        .facebook-button:hover {
+        .accessibility-widget-toggle {
+            background: var(--secondary);
+            bottom: 196px;
+            font-size: 1.6rem;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .whatsapp-button:hover,
+        .facebook-button:hover,
+        .accessibility-widget-toggle:hover {
             transform: scale(1.1);
+        }
+
+        .whatsapp-button:hover {
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+        .facebook-button:hover {
             box-shadow: 0 8px 20px rgba(24, 119, 242, 0.6);
+        }
+        .accessibility-widget-toggle:hover {
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
         }
 
         /* ===== CHAT WIDGET ===== */
         .chat-widget {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 16px;
+            right: 16px;
             z-index: 1000;
         }
 
         .chat-button {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             background: var(--secondary);
             border-radius: 50%;
             display: flex;
@@ -1553,7 +1612,7 @@
             color: #fff;
             font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
             transition: all 0.3s;
             border: none;
         }
@@ -1692,30 +1751,6 @@
         /* ============================================================
            ACCESSIBILITY WIDGET (floating panel)
            ============================================================ */
-        .accessibility-widget-toggle {
-            position: fixed;
-            bottom: 230px; /* above facebook and whatsapp */
-            right: 20px;
-            z-index: 1100;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: #fff;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s, background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .accessibility-widget-toggle:hover {
-            transform: scale(1.1);
-            background: var(--primary);
-        }
-
         .accessibility-panel {
             position: fixed;
             top: 50%;
@@ -1727,7 +1762,7 @@
             background: var(--accessibility-panel-bg);
             color: var(--accessibility-panel-text);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             z-index: 1200;
             padding: 30px 25px;
             overflow-y: auto;
@@ -1736,6 +1771,7 @@
             transition: all 0.3s ease;
             border: 1px solid var(--accessibility-panel-border);
         }
+
         .accessibility-panel.open {
             opacity: 1;
             visibility: visible;
@@ -1762,6 +1798,7 @@
             border-bottom: 2px solid var(--accessibility-panel-border);
             padding-bottom: 15px;
         }
+
         .accessibility-panel .panel-header h2 {
             font-size: 1.6rem;
             font-weight: 600;
@@ -1770,9 +1807,11 @@
             gap: 12px;
             color: var(--accessibility-panel-text);
         }
+
         .accessibility-panel .panel-header h2 i {
             color: var(--secondary);
         }
+
         .accessibility-panel .close-panel {
             background: transparent;
             border: none;
@@ -1782,6 +1821,7 @@
             transition: transform 0.2s;
             padding: 0 8px;
         }
+
         .accessibility-panel .close-panel:hover {
             transform: rotate(90deg);
         }
@@ -1802,6 +1842,7 @@
             transition: background 0.2s;
             border: 1px solid transparent;
         }
+
         .accessibility-panel .tool-item:hover {
             background: var(--accessibility-control-hover);
             border-color: var(--secondary);
@@ -1818,6 +1859,7 @@
             align-items: center;
             gap: 6px;
         }
+
         .accessibility-panel .tool-item label i {
             width: 20px;
             text-align: center;
@@ -1834,6 +1876,7 @@
             color: var(--accessibility-panel-text);
             font-size: 0.85rem;
         }
+
         .accessibility-panel .tool-item select:focus {
             outline: 2px solid var(--secondary);
         }
@@ -1843,6 +1886,7 @@
             gap: 4px;
             flex-wrap: wrap;
         }
+
         .accessibility-panel .tool-item .btn-group button {
             flex: 1;
             min-width: 40px;
@@ -1855,11 +1899,13 @@
             font-size: 0.75rem;
             transition: all 0.2s;
         }
+
         .accessibility-panel .tool-item .btn-group button.active {
             background: var(--secondary);
             color: #fff;
             border-color: var(--secondary);
         }
+
         .accessibility-panel .tool-item .btn-group button:hover:not(.active) {
             background: var(--accessibility-control-hover);
         }
@@ -1875,9 +1921,11 @@
             transition: background 0.2s;
             flex-shrink: 0;
         }
+
         .accessibility-panel .tool-item .toggle-btn.active {
             background: var(--secondary);
         }
+
         .accessibility-panel .tool-item .toggle-btn::after {
             content: '';
             position: absolute;
@@ -1888,8 +1936,9 @@
             background: white;
             border-radius: 50%;
             transition: transform 0.2s;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .accessibility-panel .tool-item .toggle-btn.active::after {
             transform: translateX(20px);
         }
@@ -1901,28 +1950,559 @@
             margin-left: 4px;
         }
 
-        /* responsive tweaks */
-        @media (max-width: 600px) {
-            .accessibility-panel {
-                width: 95%;
-                padding: 20px 15px;
-                max-height: 90vh;
+        /* ============================================================
+           RESPONSIVE DESIGN
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .accessibility-panel .tools-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 10px;
+            .testimonial-group {
+                grid-template-columns: 1fr;
+            }
+            .review-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            .header-container {
+                flex-wrap: wrap;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 4px;
+            }
+            .nav-menu a {
+                font-size: 0.78rem;
+                padding: 4px 6px;
+            }
+            .book-now-nav {
+                padding: 4px 12px;
+            }
+            .book-now-nav a {
+                font-size: 0.75rem;
+            }
+            .language-btn {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+            .theme-toggle-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* ---- Navigation ---- */
+            .header-container {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px 0;
+                position: relative;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            .mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 18px;
+                right: 20px;
+                z-index: 101;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                align-items: stretch;
+                gap: 0;
+                background: var(--nav-bg);
+                border-radius: 0 0 12px 12px;
+                padding: 0 10px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                max-height: 600px;
+                padding: 15px 10px;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-menu li {
+                margin: 3px 0;
+                text-align: center;
+                white-space: normal;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+                padding: 8px 0;
+                display: block;
+            }
+
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: var(--bg-alt);
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0;
+                min-width: unset;
+            }
+
+            .nav-menu li:hover .dropdown {
+                max-height: 300px;
+            }
+
+            .dropdown a {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+
+            .book-now-nav {
+                margin-left: 0;
+                margin-top: 6px;
+                text-align: center;
+                border-radius: 30px;
+                padding: 8px 16px;
+            }
+
+            .book-now-nav a {
+                justify-content: center;
+            }
+
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 6px;
+                text-align: center;
+            }
+
+            .language-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .theme-toggle-nav {
+                margin: 6px auto 0;
+                width: 40px;
+                height: 40px;
+            }
+
+            /* ---- Hero ---- */
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            /* ---- Welcome ---- */
+            .welcome-content {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-title h2 {
+                font-size: 1.8rem;
+            }
+
+            /* ---- Stats ---- */
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            /* ---- Sections ---- */
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .service-card {
+                padding: 20px 15px;
+            }
+
+            .service-title {
+                font-size: 1.1rem;
+            }
+
+            .testimonial-group {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* ---- Chat ---- */
+            .chat-container {
+                width: 300px;
+                height: 400px;
+                right: -20px;
+            }
+
+            /* ---- Fixed Widgets (Mobile) ---- */
+            .left-social-widget {
+                left: 6px;
+                gap: 6px;
+            }
+
+            .social-left-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-button,
+            .facebook-button,
+            .accessibility-widget-toggle {
+                width: 46px;
+                height: 46px;
+                font-size: 1.2rem;
+                right: 12px;
+            }
+
+            .whatsapp-button {
+                bottom: 72px;
+            }
+            .facebook-button {
+                bottom: 126px;
             }
             .accessibility-widget-toggle {
-                width: 48px;
-                height: 48px;
-                font-size: 1.4rem;
-                bottom: 210px;
-                right: 14px;
+                bottom: 180px;
             }
+
+            .chat-widget {
+                bottom: 12px;
+                right: 12px;
+            }
+            .chat-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .accessibility-toggle-wrap {
+                bottom: 80px;
+                padding: 5px 14px 5px 10px;
+                gap: 8px;
+                font-size: 0.7rem;
+            }
+
+            .accessibility-toggle-wrap .toggle-label {
+                font-size: 0.65rem;
+            }
+
+            .toggle-switch {
+                width: 36px;
+                height: 20px;
+            }
+
+            .toggle-slider::before {
+                height: 14px;
+                width: 14px;
+                left: 3px;
+                bottom: 3px;
+            }
+
+            .toggle-switch input:checked+.toggle-slider::before {
+                transform: translateX(16px);
+            }
+
+            /* ---- Accessibility Panel (Mobile) ---- */
+            .accessibility-panel {
+                width: 95%;
+                max-width: 420px;
+                max-height: 90vh;
+                padding: 20px 12px;
+            }
+
+            .accessibility-panel .panel-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .accessibility-panel .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .accessibility-panel .tool-item {
+                padding: 10px 8px;
+            }
+
+            .accessibility-panel .tool-item label {
+                font-size: 0.65rem;
+            }
+
+            .accessibility-panel .tool-item .btn-group button {
+                font-size: 0.6rem;
+                padding: 2px 4px;
+                min-width: 30px;
+            }
+
+            .accessibility-panel .tool-item select {
+                font-size: 0.7rem;
+            }
+
+            .accessibility-panel .tool-item .toggle-btn {
+                width: 36px;
+                height: 20px;
+            }
+
+            .accessibility-panel .tool-item .toggle-btn::after {
+                width: 16px;
+                height: 16px;
+                top: 2px;
+                left: 2px;
+            }
+
+            .accessibility-panel .tool-item .toggle-btn.active::after {
+                transform: translateX(16px);
+            }
+
+            .accessibility-panel .close-panel {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .logo-name {
+                font-size: 1.1rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.55rem;
+            }
+
+            .logo .logo-icon {
+                font-size: 1.4rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .left-social-widget {
+                left: 4px;
+                gap: 4px;
+            }
+
+            .social-left-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.7rem;
+            }
+
+            .whatsapp-button,
+            .facebook-button,
+            .accessibility-widget-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                right: 8px;
+            }
+
+            .whatsapp-button {
+                bottom: 64px;
+            }
+            .facebook-button {
+                bottom: 112px;
+            }
+            .accessibility-widget-toggle {
+                bottom: 160px;
+            }
+
+            .chat-button {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+            .chat-container {
+                width: 280px;
+                height: 360px;
+                right: -10px;
+            }
+
+            .accessibility-toggle-wrap {
+                bottom: 60px;
+                padding: 4px 10px 4px 8px;
+                gap: 6px;
+                border-radius: 30px;
+            }
+
+            .accessibility-toggle-wrap .toggle-label {
+                font-size: 0.55rem;
+                gap: 4px;
+            }
+
+            .accessibility-toggle-wrap .toggle-label i {
+                font-size: 0.8rem;
+            }
+
+            .toggle-switch {
+                width: 30px;
+                height: 16px;
+            }
+
+            .toggle-slider::before {
+                height: 10px;
+                width: 10px;
+                left: 3px;
+                bottom: 3px;
+            }
+
+            .toggle-switch input:checked+.toggle-slider::before {
+                transform: translateX(14px);
+            }
+
+            .accessibility-panel {
+                padding: 15px 10px;
+                max-height: 92vh;
+            }
+
+            .accessibility-panel .tools-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .accessibility-panel .tool-item {
+                padding: 8px 6px;
+            }
+
+            .accessibility-panel .tool-item label {
+                font-size: 0.55rem;
+            }
+
+            .accessibility-panel .tool-item .btn-group button {
+                font-size: 0.5rem;
+                padding: 2px 3px;
+                min-width: 24px;
+            }
+
+            .accessibility-panel .tool-item select {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes statPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="dot"></div>
+    </div>
 
     <!-- ===== LEFT SOCIAL WIDGET ===== -->
     <div class="left-social-widget">
@@ -2427,6 +3007,11 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- ===== ACCESSIBILITY WIDGET TOGGLE (floating) ===== -->
+    <button class="accessibility-widget-toggle" id="accessibilityToggle" aria-label="Open accessibility tools">
+        <i class="fas fa-universal-access"></i>
+    </button>
+
     <!-- ===== CHAT WIDGET ===== -->
     <div class="chat-widget">
         <button class="chat-button" id="chatButton" aria-label="Open chat">
@@ -2454,14 +3039,8 @@
     </div>
 
     <!-- ============================================================
-         ACCESSIBILITY WIDGET – Floating Toggle & Panel
+         ACCESSIBILITY PANEL
          ============================================================ -->
-    <!-- Toggle button -->
-    <button class="accessibility-widget-toggle" id="accessibilityToggle" aria-label="Open accessibility tools">
-        <i class="fas fa-universal-access"></i>
-    </button>
-
-    <!-- Panel -->
     <div class="accessibility-panel" id="accessibilityPanel">
         <div class="panel-header">
             <h2><i class="fas fa-universal-access"></i> Accessibility Tools</h2>
@@ -2631,11 +3210,36 @@
     </script>
 
     <!-- ============================================================
-         JAVASCRIPT – includes core + accessibility widget
+         JAVASCRIPT
          ============================================================ -->
     <script>
         // ============================================================
-        // 1. LANGUAGE SWITCHING (existing)
+        // 1. CUSTOM CURSOR
+        // ============================================================
+        (function initCursor() {
+            const cursor = document.getElementById('customCursor');
+            if (!cursor) return;
+            let moveTimeout;
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursor.classList.add('is-moving');
+                clearTimeout(moveTimeout);
+                moveTimeout = setTimeout(() => {
+                    cursor.classList.remove('is-moving');
+                }, 150);
+            });
+
+            // Hide on touch devices
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                cursor.style.display = 'none';
+                document.body.style.cursor = 'auto';
+            }
+        })();
+
+        // ============================================================
+        // 2. LANGUAGE SWITCHING
         // ============================================================
         let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
@@ -2646,7 +3250,7 @@
             animateWelcomeCards();
             applyThemePreference();
             applyColorBlindPreference();
-            initAccessibilityWidget(); // initialize accessibility widget
+            initAccessibilityWidget();
         });
 
         const languageBtn = document.getElementById('languageBtn');
@@ -2662,7 +3266,6 @@
                 const selectedLang = option.getAttribute('data-lang');
                 switchLanguage(selectedLang);
                 languageDropdown.classList.remove('active');
-                // sync the accessibility panel language select
                 const accLang = document.getElementById('accLang');
                 if (accLang) accLang.value = selectedLang;
             });
@@ -2696,7 +3299,7 @@
         });
 
         // ============================================================
-        // 2. MOBILE NAV
+        // 3. MOBILE NAV
         // ============================================================
         document.querySelector('.mobile-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
@@ -2709,7 +3312,7 @@
         });
 
         // ============================================================
-        // 3. FADE-IN ON SCROLL
+        // 4. FADE-IN ON SCROLL
         // ============================================================
         const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -2741,7 +3344,7 @@
         window.addEventListener('scroll', checkFade);
 
         // ============================================================
-        // 4. HEADER SCROLL EFFECT
+        // 5. HEADER SCROLL EFFECT
         // ============================================================
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -2755,7 +3358,7 @@
         });
 
         // ============================================================
-        // 5. CHAT (existing)
+        // 6. CHAT
         // ============================================================
         const chatResponses = {
             en: {
@@ -2936,7 +3539,7 @@
         updateChatPlaceholder();
 
         // ============================================================
-        // 6. SLIDERS
+        // 7. SLIDERS
         // ============================================================
         function startSliders() {
             const testimonialSlider = document.getElementById('testimonialSlider');
@@ -2952,7 +3555,7 @@
         }
 
         // ============================================================
-        // 7. STATS ANIMATION
+        // 8. STATS ANIMATION
         // ============================================================
         function animateStats() {
             const yearsExp = document.getElementById('yearsExp');
@@ -3007,7 +3610,7 @@
         }
 
         // ============================================================
-        // 8. DAY / NIGHT THEME
+        // 9. DAY / NIGHT THEME
         // ============================================================
         const themeToggle = document.getElementById('themeToggleNav');
         const themeIcon = document.getElementById('themeIcon');
@@ -3031,7 +3634,7 @@
         });
 
         // ============================================================
-        // 9. COLOR BLIND MODE (middle toggle)
+        // 10. COLOR BLIND MODE (middle toggle)
         // ============================================================
         const colorBlindToggle = document.getElementById('colorBlindToggle');
 
@@ -3057,21 +3660,19 @@
         });
 
         // ============================================================
-        // 10. ACCESSIBILITY WIDGET (new)
+        // 11. ACCESSIBILITY WIDGET (full panel)
         // ============================================================
         function initAccessibilityWidget() {
             const toggleBtn = document.getElementById('accessibilityToggle');
             const panel = document.getElementById('accessibilityPanel');
             const closeBtn = document.getElementById('closeAccessibilityPanel');
 
-            // Open/close panel
             toggleBtn.addEventListener('click', () => {
                 panel.classList.toggle('open');
             });
             closeBtn.addEventListener('click', () => {
                 panel.classList.remove('open');
             });
-            // Click outside to close
             document.addEventListener('click', (e) => {
                 if (panel.classList.contains('open') &&
                     !panel.contains(e.target) &&
@@ -3081,17 +3682,13 @@
                 }
             });
 
-            // ----- Load saved settings from localStorage -----
             const savedSettings = JSON.parse(localStorage.getItem('accessibilitySettings') || '{}');
 
-            // Helper: apply a setting and update UI
             function applySetting(key, value) {
                 savedSettings[key] = value;
                 localStorage.setItem('accessibilitySettings', JSON.stringify(savedSettings));
-                // Apply to DOM
                 switch (key) {
                     case 'lang':
-                        // sync with main language switcher
                         const langOpt = document.querySelector(`.language-option[data-lang="${value}"]`);
                         if (langOpt) langOpt.click();
                         break;
@@ -3107,45 +3704,18 @@
                         document.body.style.filter = `contrast(${contrastVal})`;
                         break;
                     case 'textAlign':
-                        document.querySelectorAll('.container, .hero-content, .welcome-content, .services-grid, .why-choose-grid, .testimonials-container, .footer-container')
+                        document.querySelectorAll(
+                                '.container, .hero-content, .welcome-content, .services-grid, .why-choose-grid, .testimonials-container, .footer-container'
+                                )
                             .forEach(el => {
                                 el.style.textAlign = value;
                             });
                         break;
                     case 'colorFilter':
-                        let filterVal = '';
-                        switch (value) {
-                            case 'grayscale':
-                                filterVal = 'grayscale(100%)';
-                                break;
-                            case 'sepia':
-                                filterVal = 'sepia(100%)';
-                                break;
-                            case 'invert':
-                                filterVal = 'invert(100%)';
-                                break;
-                            case 'protanopia':
-                                filterVal = 'url(#protanopia)'; // not implemented, fallback
-                                break;
-                            case 'deuteranopia':
-                                filterVal = 'url(#deuteranopia)';
-                                break;
-                            case 'tritanopia':
-                                filterVal = 'url(#tritanopia)';
-                                break;
-                            default:
-                                filterVal = 'none';
-                        }
-                        // apply filter to body (keep contrast separate? combine?)
-                        // We'll combine with existing contrast filter using a wrapper? Better to use a separate filter.
-                        // We'll apply to a wrapper? For simplicity, we'll set a custom filter on body.
-                        // But we already use contrast on body filter. We'll combine by using a CSS variable? 
-                        // We'll just set a class on body for each filter.
                         document.body.classList.remove('filter-grayscale', 'filter-sepia', 'filter-invert');
                         if (value === 'grayscale') document.body.classList.add('filter-grayscale');
                         else if (value === 'sepia') document.body.classList.add('filter-sepia');
                         else if (value === 'invert') document.body.classList.add('filter-invert');
-                        // For protanopia etc. we could use SVG filters but we'll skip for simplicity.
                         break;
                     case 'textSpacing':
                         let spacing = parseFloat(value);
@@ -3159,13 +3729,12 @@
                         break;
                     case 'saturation':
                         let sat = parseFloat(value);
-                        // combine with existing filter: we'll set saturate on body filter but keep contrast
-                        // We'll use a separate filter property with !important? Better to use a class.
                         document.body.style.filter = `saturate(${sat})`;
                         break;
                     case 'cursor':
                         if (value === 'big') {
-                            document.body.style.cursor = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=") 16 16, auto';
+                            document.body.style.cursor =
+                                'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=") 16 16, auto';
                         } else {
                             document.body.style.cursor = '';
                         }
@@ -3183,7 +3752,6 @@
                         break;
                     case 'screenReader':
                         if (value) {
-                            // read the main content aloud
                             const text = document.body.innerText;
                             const utterance = new SpeechSynthesisUtterance(text);
                             utterance.lang = currentLanguage === 'np' ? 'ne-NP' : 'en-US';
@@ -3194,20 +3762,17 @@
                         break;
                     case 'voiceCommand':
                         if (value) {
-                            // start listening
                             const recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
                             recognition.lang = currentLanguage === 'np' ? 'ne-NP' : 'en-US';
                             recognition.continuous = true;
                             recognition.interimResults = false;
                             recognition.onresult = function(event) {
                                 const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
-                                // simple commands
                                 if (command.includes('scroll down')) {
                                     window.scrollBy(0, 300);
                                 } else if (command.includes('scroll up')) {
                                     window.scrollBy(0, -300);
                                 } else if (command.includes('click')) {
-                                    // find first button and click
                                     const btn = document.querySelector('button');
                                     if (btn) btn.click();
                                 } else if (command.includes('hello')) {
@@ -3215,7 +3780,6 @@
                                 }
                             };
                             recognition.start();
-                            // store recognition instance to stop later
                             window.voiceRecognition = recognition;
                         } else {
                             if (window.voiceRecognition) {
@@ -3227,18 +3791,15 @@
                 }
             }
 
-            // Load saved settings and apply
             Object.keys(savedSettings).forEach(key => {
                 applySetting(key, savedSettings[key]);
             });
 
-            // ----- Event listeners for each control -----
-            // Language
+            // Event listeners
             document.getElementById('accLang').addEventListener('change', function() {
                 applySetting('lang', this.value);
             });
 
-            // Text Size
             document.querySelectorAll('#textSizeGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#textSizeGroup button').forEach(b => b.classList.remove('active'));
@@ -3247,7 +3808,6 @@
                 });
             });
 
-            // Contrast
             document.querySelectorAll('#contrastGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#contrastGroup button').forEach(b => b.classList.remove('active'));
@@ -3256,7 +3816,6 @@
                 });
             });
 
-            // Text Align
             document.querySelectorAll('#textAlignGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#textAlignGroup button').forEach(b => b.classList.remove('active'));
@@ -3265,12 +3824,10 @@
                 });
             });
 
-            // Color Filter
             document.getElementById('colorFilter').addEventListener('change', function() {
                 applySetting('colorFilter', this.value);
             });
 
-            // Text Spacing
             document.querySelectorAll('#textSpacingGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#textSpacingGroup button').forEach(b => b.classList.remove('active'));
@@ -3279,7 +3836,6 @@
                 });
             });
 
-            // Line Height
             document.querySelectorAll('#lineHeightGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#lineHeightGroup button').forEach(b => b.classList.remove('active'));
@@ -3288,12 +3844,10 @@
                 });
             });
 
-            // Font
             document.getElementById('fontSelect').addEventListener('change', function() {
                 applySetting('font', this.value);
             });
 
-            // Saturation
             document.querySelectorAll('#saturationGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#saturationGroup button').forEach(b => b.classList.remove('active'));
@@ -3302,7 +3856,6 @@
                 });
             });
 
-            // Cursor
             document.querySelectorAll('#cursorGroup button').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('#cursorGroup button').forEach(b => b.classList.remove('active'));
@@ -3311,43 +3864,34 @@
                 });
             });
 
-            // Hide Images (toggle button)
             const hideImagesToggle = document.getElementById('hideImagesToggle');
             hideImagesToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                const isActive = this.classList.contains('active');
-                applySetting('hideImages', isActive);
+                applySetting('hideImages', this.classList.contains('active'));
             });
             if (savedSettings.hideImages) hideImagesToggle.classList.add('active');
 
-            // Pause Animations
             const pauseAnimToggle = document.getElementById('pauseAnimationsToggle');
             pauseAnimToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                const isActive = this.classList.contains('active');
-                applySetting('pauseAnimations', isActive);
+                applySetting('pauseAnimations', this.classList.contains('active'));
             });
             if (savedSettings.pauseAnimations) pauseAnimToggle.classList.add('active');
 
-            // Screen Reader (read aloud)
             const screenReaderToggle = document.getElementById('screenReaderToggle');
             screenReaderToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                const isActive = this.classList.contains('active');
-                applySetting('screenReader', isActive);
+                applySetting('screenReader', this.classList.contains('active'));
             });
             if (savedSettings.screenReader) screenReaderToggle.classList.add('active');
 
-            // Voice Command
             const voiceCommandToggle = document.getElementById('voiceCommandToggle');
             voiceCommandToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                const isActive = this.classList.contains('active');
-                applySetting('voiceCommand', isActive);
+                applySetting('voiceCommand', this.classList.contains('active'));
             });
             if (savedSettings.voiceCommand) voiceCommandToggle.classList.add('active');
 
-            // Set initial active states for button groups based on saved settings
             function setActiveGroup(selector, value, dataAttr) {
                 const btns = document.querySelectorAll(selector);
                 btns.forEach(btn => {
@@ -3368,7 +3912,7 @@
         }
 
         // ============================================================
-        // 11. CLOSE DROPDOWN ON OUTSIDE CLICK (language)
+        // 12. CLOSE DROPDOWN ON OUTSIDE CLICK (language)
         // ============================================================
         document.addEventListener('click', (e) => {
             if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
@@ -3376,6 +3920,5 @@
             }
         });
     </script>
-
 </body>
 </html>
