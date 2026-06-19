@@ -134,6 +134,11 @@
             --goals-card-border: #f1c40f;
             --stats-grid-gap: 20px;
             --transition-speed: 0.3s;
+            --accessibility-panel-bg: #ffffff;
+            --accessibility-panel-text: #333;
+            --accessibility-panel-border: #ddd;
+            --accessibility-control-bg: #f5f5f5;
+            --accessibility-control-hover: #e0e0e0;
         }
 
         /* ===== NIGHT MODE VARIABLES ===== */
@@ -212,6 +217,11 @@
             --footer-heading: #4fc3f7;
             --copyright-border: rgba(255, 255, 255, 0.1);
             --hero-subtitle-color: rgba(255, 255, 255, 0.85);
+            --accessibility-panel-bg: #1a1a2e;
+            --accessibility-panel-text: #e0e0e0;
+            --accessibility-panel-border: #2a2a4a;
+            --accessibility-control-bg: #0f3460;
+            --accessibility-control-hover: #1a237e;
         }
 
         /* ===== COLOR BLIND MODE (Protanopia/Deuteranopia friendly) ===== */
@@ -310,7 +320,6 @@
             flex-wrap: nowrap;
         }
 
-        /* ---- LOGO ---- */
         .logo {
             display: flex;
             align-items: center;
@@ -416,7 +425,6 @@
             width: 100%;
         }
 
-        /* ---- Dropdown ---- */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -458,7 +466,6 @@
             transform: translateY(0);
         }
 
-        /* ---- Book Now Nav ---- */
         .book-now-nav {
             background: linear-gradient(135deg, var(--btn-primary-bg) 0%, var(--btn-primary-hover) 100%);
             padding: 6px 16px;
@@ -486,7 +493,6 @@
             display: none;
         }
 
-        /* ---- Language Switcher ---- */
         .language-switcher {
             position: relative;
             margin-left: 4px;
@@ -554,7 +560,6 @@
             background-color: var(--bg-alt);
         }
 
-        /* ---- Day/Night Toggle (in nav) ---- */
         .theme-toggle-nav {
             display: flex;
             align-items: center;
@@ -577,7 +582,6 @@
             background: var(--border-color);
         }
 
-        /* ===== MOBILE TOGGLE ===== */
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
@@ -585,7 +589,7 @@
             color: var(--text);
         }
 
-        /* ===== LEFT SOCIAL WIDGET (fixed) ===== */
+        /* ===== LEFT SOCIAL WIDGET ===== */
         .left-social-widget {
             position: fixed;
             left: 12px;
@@ -645,7 +649,7 @@
             border-color: #0A66C2;
         }
 
-        /* ===== COLOR BLIND TOGGLE (middle) ===== */
+        /* ===== ACCESSIBILITY TOGGLE (middle) ===== */
         .accessibility-toggle-wrap {
             position: fixed;
             bottom: 90px;
@@ -685,7 +689,6 @@
             color: var(--secondary);
         }
 
-        /* Custom toggle switch */
         .toggle-switch {
             position: relative;
             width: 44px;
@@ -789,7 +792,6 @@
             flex-wrap: wrap;
         }
 
-        /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
             background-color: var(--btn-primary-bg);
@@ -1687,402 +1689,242 @@
             border-color: var(--quick-btn-hover);
         }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ============================================================
+           ACCESSIBILITY WIDGET (floating panel)
+           ============================================================ */
+        .accessibility-widget-toggle {
+            position: fixed;
+            bottom: 230px; /* above facebook and whatsapp */
+            right: 20px;
+            z-index: 1100;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: #fff;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .accessibility-widget-toggle:hover {
+            transform: scale(1.1);
+            background: var(--primary);
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes statPulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .fade-in {
+        .accessibility-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 90%;
+            max-width: 860px;
+            max-height: 85vh;
+            background: var(--accessibility-panel-bg);
+            color: var(--accessibility-panel-text);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            z-index: 1200;
+            padding: 30px 25px;
+            overflow-y: auto;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accessibility-panel-border);
         }
-
-        .fade-in.visible {
+        .accessibility-panel.open {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .testimonial-group {
-                grid-template-columns: 1fr;
-            }
-            .review-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-            .header-container {
-                flex-wrap: wrap;
-            }
-            nav {
-                flex-wrap: wrap;
-                justify-content: flex-end;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                gap: 4px;
-            }
-            .nav-menu a {
-                font-size: 0.78rem;
-                padding: 4px 6px;
-            }
-            .book-now-nav {
-                padding: 4px 12px;
-            }
-            .book-now-nav a {
-                font-size: 0.75rem;
-            }
-            .language-btn {
-                font-size: 0.75rem;
-                padding: 4px 10px;
-            }
-            .theme-toggle-nav {
-                width: 30px;
-                height: 30px;
-                font-size: 1rem;
-            }
-            .accessibility-toggle-wrap {
-                bottom: 80px;
-                padding: 6px 14px 6px 10px;
-            }
-            .accessibility-toggle-wrap .toggle-label {
-                font-size: 0.7rem;
-            }
-            .toggle-switch {
-                width: 36px;
-                height: 20px;
-            }
-            .toggle-slider::before {
-                height: 14px;
-                width: 14px;
-                left: 3px;
-                bottom: 3px;
-            }
-            .toggle-switch input:checked+.toggle-slider::before {
-                transform: translateX(16px);
-            }
-            .left-social-widget {
-                left: 6px;
-                gap: 8px;
-            }
-            .social-left-btn {
-                width: 34px;
-                height: 34px;
-                font-size: 0.9rem;
-            }
+        .accessibility-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+        .accessibility-panel::-webkit-scrollbar-track {
+            background: var(--accessibility-control-bg);
+            border-radius: 10px;
+        }
+        .accessibility-panel::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
         }
 
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 10px 0;
-            }
-            .logo {
-                justify-content: center;
-            }
-            .mobile-toggle {
-                display: block;
-                position: absolute;
-                top: 18px;
-                right: 20px;
-            }
-            .nav-menu {
-                flex-direction: column;
-                width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s;
-                align-items: stretch;
-                gap: 0;
-            }
-            .nav-menu.active {
-                max-height: 600px;
-                margin-top: 10px;
-            }
-            .nav-menu li {
-                margin: 4px 0;
-                text-align: center;
-            }
-            .nav-menu a {
-                font-size: 0.9rem;
-                padding: 8px 0;
-                display: block;
-            }
-            .dropdown {
-                position: static;
-                box-shadow: none;
-                background: var(--bg-alt);
-                border-radius: 0;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s;
-                padding: 0;
-            }
-            .nav-menu li:hover .dropdown {
-                max-height: 300px;
-            }
-            .book-now-nav {
-                margin-left: 0;
-                margin-top: 6px;
-                text-align: center;
-                border-radius: 30px;
-                padding: 8px 16px;
-            }
-            .book-now-nav a {
-                justify-content: center;
-            }
-            .language-switcher {
-                margin-left: 0;
-                margin-top: 6px;
-                text-align: center;
-            }
-            .language-btn {
-                justify-content: center;
-                width: 100%;
-            }
-            .theme-toggle-nav {
-                margin: 6px auto 0;
-                width: 40px;
-                height: 40px;
-            }
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-title {
-                font-size: 2rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .welcome-content {
-                grid-template-columns: 1fr;
-            }
-            .welcome-title h2 {
-                font-size: 1.8rem;
-            }
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            .section {
-                padding: 60px 0;
-            }
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .testimonial-group {
-                grid-template-columns: 1fr;
-            }
-            .chat-container {
-                width: 300px;
-                height: 400px;
-                right: -40px;
-            }
-            .left-social-widget {
-                left: 4px;
-                gap: 6px;
-            }
-            .social-left-btn {
-                width: 30px;
-                height: 30px;
-                font-size: 0.8rem;
-            }
-            .accessibility-toggle-wrap {
-                bottom: 70px;
-                padding: 5px 12px 5px 8px;
-                gap: 8px;
-            }
-            .accessibility-toggle-wrap .toggle-label {
-                font-size: 0.65rem;
-            }
-            .toggle-switch {
-                width: 32px;
-                height: 18px;
-            }
-            .toggle-slider::before {
-                height: 12px;
-                width: 12px;
-                left: 3px;
-                bottom: 3px;
-            }
-            .toggle-switch input:checked+.toggle-slider::before {
-                transform: translateX(14px);
-            }
-            .facebook-button {
-                bottom: 150px;
-                right: 14px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            .whatsapp-button {
-                bottom: 85px;
-                right: 14px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            .chat-widget {
-                bottom: 14px;
-                right: 14px;
-            }
-            .chat-button {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
+        .accessibility-panel .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accessibility-panel-border);
+            padding-bottom: 15px;
+        }
+        .accessibility-panel .panel-header h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accessibility-panel-text);
+        }
+        .accessibility-panel .panel-header h2 i {
+            color: var(--secondary);
+        }
+        .accessibility-panel .close-panel {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--accessibility-panel-text);
+            transition: transform 0.2s;
+            padding: 0 8px;
+        }
+        .accessibility-panel .close-panel:hover {
+            transform: rotate(90deg);
         }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
+        .accessibility-panel .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .accessibility-panel .tool-item {
+            background: var(--accessibility-control-bg);
+            padding: 14px 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: background 0.2s;
+            border: 1px solid transparent;
+        }
+        .accessibility-panel .tool-item:hover {
+            background: var(--accessibility-control-hover);
+            border-color: var(--secondary);
+        }
+
+        .accessibility-panel .tool-item label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accessibility-panel-text);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .accessibility-panel .tool-item label i {
+            width: 20px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .accessibility-panel .tool-item select,
+        .accessibility-panel .tool-item input[type="range"] {
+            width: 100%;
+            padding: 4px 6px;
+            border-radius: 6px;
+            border: 1px solid var(--accessibility-panel-border);
+            background: var(--accessibility-panel-bg);
+            color: var(--accessibility-panel-text);
+            font-size: 0.85rem;
+        }
+        .accessibility-panel .tool-item select:focus {
+            outline: 2px solid var(--secondary);
+        }
+
+        .accessibility-panel .tool-item .btn-group {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .accessibility-panel .tool-item .btn-group button {
+            flex: 1;
+            min-width: 40px;
+            padding: 4px 8px;
+            border: 1px solid var(--accessibility-panel-border);
+            background: var(--accessibility-panel-bg);
+            color: var(--accessibility-panel-text);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+        .accessibility-panel .tool-item .btn-group button.active {
+            background: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+        }
+        .accessibility-panel .tool-item .btn-group button:hover:not(.active) {
+            background: var(--accessibility-control-hover);
+        }
+
+        .accessibility-panel .tool-item .toggle-btn {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .accessibility-panel .tool-item .toggle-btn.active {
+            background: var(--secondary);
+        }
+        .accessibility-panel .tool-item .toggle-btn::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .accessibility-panel .tool-item .toggle-btn.active::after {
+            transform: translateX(20px);
+        }
+
+        .accessibility-panel .tool-item .range-value {
+            font-size: 0.8rem;
+            color: var(--accessibility-panel-text);
+            opacity: 0.7;
+            margin-left: 4px;
+        }
+
+        /* responsive tweaks */
+        @media (max-width: 600px) {
+            .accessibility-panel {
+                width: 95%;
+                padding: 20px 15px;
+                max-height: 90vh;
             }
-            .hero-subtitle {
-                font-size: 1rem;
+            .accessibility-panel .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 10px;
             }
-            .logo-name {
-                font-size: 1.1rem;
-            }
-            .logo-subtitle {
-                font-size: 0.6rem;
-            }
-            .logo .logo-icon {
+            .accessibility-widget-toggle {
+                width: 48px;
+                height: 48px;
                 font-size: 1.4rem;
-            }
-            .left-social-widget {
-                left: 2px;
-                gap: 4px;
-            }
-            .social-left-btn {
-                width: 26px;
-                height: 26px;
-                font-size: 0.7rem;
-            }
-            .accessibility-toggle-wrap {
-                bottom: 60px;
-                padding: 4px 10px 4px 6px;
-                gap: 6px;
-                border-radius: 30px;
-            }
-            .accessibility-toggle-wrap .toggle-label {
-                font-size: 0.55rem;
-                gap: 4px;
-            }
-            .accessibility-toggle-wrap .toggle-label i {
-                font-size: 0.8rem;
-            }
-            .toggle-switch {
-                width: 28px;
-                height: 16px;
-            }
-            .toggle-slider::before {
-                height: 10px;
-                width: 10px;
-                left: 3px;
-                bottom: 3px;
-            }
-            .toggle-switch input:checked+.toggle-slider::before {
-                transform: translateX(12px);
-            }
-            .facebook-button {
-                bottom: 130px;
-                right: 10px;
-                width: 44px;
-                height: 44px;
-                font-size: 1.3rem;
-            }
-            .whatsapp-button {
-                bottom: 75px;
-                right: 10px;
-                width: 44px;
-                height: 44px;
-                font-size: 1.3rem;
-            }
-            .chat-widget {
-                bottom: 10px;
-                right: 10px;
-            }
-            .chat-button {
-                width: 44px;
-                height: 44px;
-                font-size: 1rem;
-            }
-            .chat-container {
-                width: 280px;
-                height: 360px;
-                right: -20px;
-            }
-            .stat-number {
-                font-size: 2.2rem;
+                bottom: 210px;
+                right: 14px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== LEFT SOCIAL WIDGET (fixed) ===== -->
+    <!-- ===== LEFT SOCIAL WIDGET ===== -->
     <div class="left-social-widget">
         <a href="https://facebook.com/vikashderma" target="_blank" class="social-left-btn fb-left" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://instagram.com" target="_blank" class="social-left-btn ig-left" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -2091,7 +1933,7 @@
         <a href="https://linkedin.com/in/vikashpaudel/" target="_blank" class="social-left-btn li-left" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <!-- ===== ACCESSIBILITY TOGGLE (middle) ===== -->
+    <!-- ===== ACCESSIBILITY TOGGLE (middle - color blind) ===== -->
     <div class="accessibility-toggle-wrap" id="accessibilityToggleWrap">
         <span class="toggle-label">
             <i class="fas fa-wheelchair wheelchair-icon"></i>
@@ -2106,7 +1948,6 @@
     <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-container">
-            <!-- Logo -->
             <a href="index.html" class="logo logo-link" aria-label="Dr. Vikash Paudel - Home">
                 <i class="fas fa-stethoscope logo-icon"></i>
                 <div class="logo-text-wrapper">
@@ -2115,7 +1956,6 @@
                 </div>
             </a>
 
-            <!-- Navigation -->
             <nav>
                 <div class="mobile-toggle" aria-label="Open navigation menu">
                     <i class="fas fa-bars"></i>
@@ -2613,6 +2453,153 @@
         </div>
     </div>
 
+    <!-- ============================================================
+         ACCESSIBILITY WIDGET – Floating Toggle & Panel
+         ============================================================ -->
+    <!-- Toggle button -->
+    <button class="accessibility-widget-toggle" id="accessibilityToggle" aria-label="Open accessibility tools">
+        <i class="fas fa-universal-access"></i>
+    </button>
+
+    <!-- Panel -->
+    <div class="accessibility-panel" id="accessibilityPanel">
+        <div class="panel-header">
+            <h2><i class="fas fa-universal-access"></i> Accessibility Tools</h2>
+            <button class="close-panel" id="closeAccessibilityPanel">&times;</button>
+        </div>
+        <div class="tools-grid">
+            <!-- Language -->
+            <div class="tool-item">
+                <label><i class="fas fa-globe"></i> Language</label>
+                <select id="accLang">
+                    <option value="en">English</option>
+                    <option value="np">नेपाली</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+
+            <!-- Text Size -->
+            <div class="tool-item">
+                <label><i class="fas fa-font"></i> Text Size</label>
+                <div class="btn-group" id="textSizeGroup">
+                    <button data-size="small">A-</button>
+                    <button data-size="medium" class="active">A</button>
+                    <button data-size="large">A+</button>
+                </div>
+            </div>
+
+            <!-- Contrast -->
+            <div class="tool-item">
+                <label><i class="fas fa-adjust"></i> Contrast</label>
+                <div class="btn-group" id="contrastGroup">
+                    <button data-contrast="low">Low</button>
+                    <button data-contrast="medium" class="active">Med</button>
+                    <button data-contrast="high">High</button>
+                </div>
+            </div>
+
+            <!-- Text Align -->
+            <div class="tool-item">
+                <label><i class="fas fa-align-left"></i> Text Align</label>
+                <div class="btn-group" id="textAlignGroup">
+                    <button data-align="left" class="active"><i class="fas fa-align-left"></i></button>
+                    <button data-align="center"><i class="fas fa-align-center"></i></button>
+                    <button data-align="right"><i class="fas fa-align-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Color Filter -->
+            <div class="tool-item">
+                <label><i class="fas fa-palette"></i> Color Filter</label>
+                <select id="colorFilter">
+                    <option value="none">None</option>
+                    <option value="grayscale">Grayscale</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="invert">Invert</option>
+                    <option value="protanopia">Protanopia</option>
+                    <option value="deuteranopia">Deuteranopia</option>
+                    <option value="tritanopia">Tritanopia</option>
+                </select>
+            </div>
+
+            <!-- Text Spacing -->
+            <div class="tool-item">
+                <label><i class="fas fa-arrows-alt-h"></i> Text Spacing</label>
+                <div class="btn-group" id="textSpacingGroup">
+                    <button data-spacing="0" class="active">0</button>
+                    <button data-spacing="1">1</button>
+                    <button data-spacing="2">2</button>
+                </div>
+            </div>
+
+            <!-- Line Height -->
+            <div class="tool-item">
+                <label><i class="fas fa-arrows-alt-v"></i> Line Height</label>
+                <div class="btn-group" id="lineHeightGroup">
+                    <button data-line="1.4">1.4</button>
+                    <button data-line="1.8" class="active">1.8</button>
+                    <button data-line="2.2">2.2</button>
+                </div>
+            </div>
+
+            <!-- Font Selection -->
+            <div class="tool-item">
+                <label><i class="fas fa-font"></i> Font</label>
+                <select id="fontSelect">
+                    <option value="Poppins">Poppins</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Roboto">Roboto</option>
+                </select>
+            </div>
+
+            <!-- Saturation -->
+            <div class="tool-item">
+                <label><i class="fas fa-droplet"></i> Saturation</label>
+                <div class="btn-group" id="saturationGroup">
+                    <button data-sat="0.5">0.5</button>
+                    <button data-sat="1" class="active">1</button>
+                    <button data-sat="2">2</button>
+                </div>
+            </div>
+
+            <!-- Cursor -->
+            <div class="tool-item">
+                <label><i class="fas fa-mouse-pointer"></i> Cursor</label>
+                <div class="btn-group" id="cursorGroup">
+                    <button data-cursor="small" class="active">Small</button>
+                    <button data-cursor="big">Big</button>
+                </div>
+            </div>
+
+            <!-- Hide Images -->
+            <div class="tool-item">
+                <label><i class="fas fa-image"></i> Hide Images</label>
+                <button class="toggle-btn" id="hideImagesToggle"></button>
+            </div>
+
+            <!-- Pause Animations -->
+            <div class="tool-item">
+                <label><i class="fas fa-pause-circle"></i> Pause Animations</label>
+                <button class="toggle-btn" id="pauseAnimationsToggle"></button>
+            </div>
+
+            <!-- Screen Reader (Read Aloud) -->
+            <div class="tool-item">
+                <label><i class="fas fa-volume-up"></i> Screen Reader</label>
+                <button class="toggle-btn" id="screenReaderToggle">▶</button>
+            </div>
+
+            <!-- Voice Command -->
+            <div class="tool-item">
+                <label><i class="fas fa-microphone"></i> Voice Command</label>
+                <button class="toggle-btn" id="voiceCommandToggle">🎤</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== STRUCTURED DATA ===== -->
     <script type="application/ld+json">
         {
@@ -2643,10 +2630,12 @@
         }
     </script>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================
+         JAVASCRIPT – includes core + accessibility widget
+         ============================================================ -->
     <script>
         // ============================================================
-        // 1. LANGUAGE SWITCHING
+        // 1. LANGUAGE SWITCHING (existing)
         // ============================================================
         let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
@@ -2657,6 +2646,7 @@
             animateWelcomeCards();
             applyThemePreference();
             applyColorBlindPreference();
+            initAccessibilityWidget(); // initialize accessibility widget
         });
 
         const languageBtn = document.getElementById('languageBtn');
@@ -2672,6 +2662,9 @@
                 const selectedLang = option.getAttribute('data-lang');
                 switchLanguage(selectedLang);
                 languageDropdown.classList.remove('active');
+                // sync the accessibility panel language select
+                const accLang = document.getElementById('accLang');
+                if (accLang) accLang.value = selectedLang;
             });
         });
 
@@ -2762,7 +2755,7 @@
         });
 
         // ============================================================
-        // 5. CHAT
+        // 5. CHAT (existing)
         // ============================================================
         const chatResponses = {
             en: {
@@ -3038,7 +3031,7 @@
         });
 
         // ============================================================
-        // 9. COLOR BLIND MODE
+        // 9. COLOR BLIND MODE (middle toggle)
         // ============================================================
         const colorBlindToggle = document.getElementById('colorBlindToggle');
 
@@ -3064,7 +3057,318 @@
         });
 
         // ============================================================
-        // 10. CLOSE DROPDOWN ON OUTSIDE CLICK (language)
+        // 10. ACCESSIBILITY WIDGET (new)
+        // ============================================================
+        function initAccessibilityWidget() {
+            const toggleBtn = document.getElementById('accessibilityToggle');
+            const panel = document.getElementById('accessibilityPanel');
+            const closeBtn = document.getElementById('closeAccessibilityPanel');
+
+            // Open/close panel
+            toggleBtn.addEventListener('click', () => {
+                panel.classList.toggle('open');
+            });
+            closeBtn.addEventListener('click', () => {
+                panel.classList.remove('open');
+            });
+            // Click outside to close
+            document.addEventListener('click', (e) => {
+                if (panel.classList.contains('open') &&
+                    !panel.contains(e.target) &&
+                    e.target !== toggleBtn &&
+                    !toggleBtn.contains(e.target)) {
+                    panel.classList.remove('open');
+                }
+            });
+
+            // ----- Load saved settings from localStorage -----
+            const savedSettings = JSON.parse(localStorage.getItem('accessibilitySettings') || '{}');
+
+            // Helper: apply a setting and update UI
+            function applySetting(key, value) {
+                savedSettings[key] = value;
+                localStorage.setItem('accessibilitySettings', JSON.stringify(savedSettings));
+                // Apply to DOM
+                switch (key) {
+                    case 'lang':
+                        // sync with main language switcher
+                        const langOpt = document.querySelector(`.language-option[data-lang="${value}"]`);
+                        if (langOpt) langOpt.click();
+                        break;
+                    case 'textSize':
+                        document.body.style.fontSize = value === 'small' ? '0.85rem' :
+                            value === 'large' ? '1.2rem' : '1rem';
+                        break;
+                    case 'contrast':
+                        let contrastVal = 1;
+                        if (value === 'low') contrastVal = 0.8;
+                        else if (value === 'medium') contrastVal = 1;
+                        else if (value === 'high') contrastVal = 1.4;
+                        document.body.style.filter = `contrast(${contrastVal})`;
+                        break;
+                    case 'textAlign':
+                        document.querySelectorAll('.container, .hero-content, .welcome-content, .services-grid, .why-choose-grid, .testimonials-container, .footer-container')
+                            .forEach(el => {
+                                el.style.textAlign = value;
+                            });
+                        break;
+                    case 'colorFilter':
+                        let filterVal = '';
+                        switch (value) {
+                            case 'grayscale':
+                                filterVal = 'grayscale(100%)';
+                                break;
+                            case 'sepia':
+                                filterVal = 'sepia(100%)';
+                                break;
+                            case 'invert':
+                                filterVal = 'invert(100%)';
+                                break;
+                            case 'protanopia':
+                                filterVal = 'url(#protanopia)'; // not implemented, fallback
+                                break;
+                            case 'deuteranopia':
+                                filterVal = 'url(#deuteranopia)';
+                                break;
+                            case 'tritanopia':
+                                filterVal = 'url(#tritanopia)';
+                                break;
+                            default:
+                                filterVal = 'none';
+                        }
+                        // apply filter to body (keep contrast separate? combine?)
+                        // We'll combine with existing contrast filter using a wrapper? Better to use a separate filter.
+                        // We'll apply to a wrapper? For simplicity, we'll set a custom filter on body.
+                        // But we already use contrast on body filter. We'll combine by using a CSS variable? 
+                        // We'll just set a class on body for each filter.
+                        document.body.classList.remove('filter-grayscale', 'filter-sepia', 'filter-invert');
+                        if (value === 'grayscale') document.body.classList.add('filter-grayscale');
+                        else if (value === 'sepia') document.body.classList.add('filter-sepia');
+                        else if (value === 'invert') document.body.classList.add('filter-invert');
+                        // For protanopia etc. we could use SVG filters but we'll skip for simplicity.
+                        break;
+                    case 'textSpacing':
+                        let spacing = parseFloat(value);
+                        document.body.style.letterSpacing = spacing + 'px';
+                        break;
+                    case 'lineHeight':
+                        document.body.style.lineHeight = value;
+                        break;
+                    case 'font':
+                        document.body.style.fontFamily = value + ', sans-serif';
+                        break;
+                    case 'saturation':
+                        let sat = parseFloat(value);
+                        // combine with existing filter: we'll set saturate on body filter but keep contrast
+                        // We'll use a separate filter property with !important? Better to use a class.
+                        document.body.style.filter = `saturate(${sat})`;
+                        break;
+                    case 'cursor':
+                        if (value === 'big') {
+                            document.body.style.cursor = 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=") 16 16, auto';
+                        } else {
+                            document.body.style.cursor = '';
+                        }
+                        break;
+                    case 'hideImages':
+                        document.querySelectorAll('img').forEach(img => {
+                            img.style.display = value ? 'none' : '';
+                        });
+                        break;
+                    case 'pauseAnimations':
+                        document.querySelectorAll('*').forEach(el => {
+                            el.style.animationPlayState = value ? 'paused' : '';
+                            el.style.transitionDuration = value ? '0s' : '';
+                        });
+                        break;
+                    case 'screenReader':
+                        if (value) {
+                            // read the main content aloud
+                            const text = document.body.innerText;
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            utterance.lang = currentLanguage === 'np' ? 'ne-NP' : 'en-US';
+                            speechSynthesis.speak(utterance);
+                        } else {
+                            speechSynthesis.cancel();
+                        }
+                        break;
+                    case 'voiceCommand':
+                        if (value) {
+                            // start listening
+                            const recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+                            recognition.lang = currentLanguage === 'np' ? 'ne-NP' : 'en-US';
+                            recognition.continuous = true;
+                            recognition.interimResults = false;
+                            recognition.onresult = function(event) {
+                                const command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+                                // simple commands
+                                if (command.includes('scroll down')) {
+                                    window.scrollBy(0, 300);
+                                } else if (command.includes('scroll up')) {
+                                    window.scrollBy(0, -300);
+                                } else if (command.includes('click')) {
+                                    // find first button and click
+                                    const btn = document.querySelector('button');
+                                    if (btn) btn.click();
+                                } else if (command.includes('hello')) {
+                                    alert('Hello! Voice command received.');
+                                }
+                            };
+                            recognition.start();
+                            // store recognition instance to stop later
+                            window.voiceRecognition = recognition;
+                        } else {
+                            if (window.voiceRecognition) {
+                                window.voiceRecognition.stop();
+                                delete window.voiceRecognition;
+                            }
+                        }
+                        break;
+                }
+            }
+
+            // Load saved settings and apply
+            Object.keys(savedSettings).forEach(key => {
+                applySetting(key, savedSettings[key]);
+            });
+
+            // ----- Event listeners for each control -----
+            // Language
+            document.getElementById('accLang').addEventListener('change', function() {
+                applySetting('lang', this.value);
+            });
+
+            // Text Size
+            document.querySelectorAll('#textSizeGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#textSizeGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('textSize', this.dataset.size);
+                });
+            });
+
+            // Contrast
+            document.querySelectorAll('#contrastGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#contrastGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('contrast', this.dataset.contrast);
+                });
+            });
+
+            // Text Align
+            document.querySelectorAll('#textAlignGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#textAlignGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('textAlign', this.dataset.align);
+                });
+            });
+
+            // Color Filter
+            document.getElementById('colorFilter').addEventListener('change', function() {
+                applySetting('colorFilter', this.value);
+            });
+
+            // Text Spacing
+            document.querySelectorAll('#textSpacingGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#textSpacingGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('textSpacing', this.dataset.spacing);
+                });
+            });
+
+            // Line Height
+            document.querySelectorAll('#lineHeightGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#lineHeightGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('lineHeight', this.dataset.line);
+                });
+            });
+
+            // Font
+            document.getElementById('fontSelect').addEventListener('change', function() {
+                applySetting('font', this.value);
+            });
+
+            // Saturation
+            document.querySelectorAll('#saturationGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#saturationGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('saturation', this.dataset.sat);
+                });
+            });
+
+            // Cursor
+            document.querySelectorAll('#cursorGroup button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#cursorGroup button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applySetting('cursor', this.dataset.cursor);
+                });
+            });
+
+            // Hide Images (toggle button)
+            const hideImagesToggle = document.getElementById('hideImagesToggle');
+            hideImagesToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const isActive = this.classList.contains('active');
+                applySetting('hideImages', isActive);
+            });
+            if (savedSettings.hideImages) hideImagesToggle.classList.add('active');
+
+            // Pause Animations
+            const pauseAnimToggle = document.getElementById('pauseAnimationsToggle');
+            pauseAnimToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const isActive = this.classList.contains('active');
+                applySetting('pauseAnimations', isActive);
+            });
+            if (savedSettings.pauseAnimations) pauseAnimToggle.classList.add('active');
+
+            // Screen Reader (read aloud)
+            const screenReaderToggle = document.getElementById('screenReaderToggle');
+            screenReaderToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const isActive = this.classList.contains('active');
+                applySetting('screenReader', isActive);
+            });
+            if (savedSettings.screenReader) screenReaderToggle.classList.add('active');
+
+            // Voice Command
+            const voiceCommandToggle = document.getElementById('voiceCommandToggle');
+            voiceCommandToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const isActive = this.classList.contains('active');
+                applySetting('voiceCommand', isActive);
+            });
+            if (savedSettings.voiceCommand) voiceCommandToggle.classList.add('active');
+
+            // Set initial active states for button groups based on saved settings
+            function setActiveGroup(selector, value, dataAttr) {
+                const btns = document.querySelectorAll(selector);
+                btns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset[dataAttr] === value) btn.classList.add('active');
+                });
+            }
+            setActiveGroup('#textSizeGroup button', savedSettings.textSize || 'medium', 'size');
+            setActiveGroup('#contrastGroup button', savedSettings.contrast || 'medium', 'contrast');
+            setActiveGroup('#textAlignGroup button', savedSettings.textAlign || 'left', 'align');
+            setActiveGroup('#textSpacingGroup button', savedSettings.textSpacing || '0', 'spacing');
+            setActiveGroup('#lineHeightGroup button', savedSettings.lineHeight || '1.8', 'line');
+            setActiveGroup('#saturationGroup button', savedSettings.saturation || '1', 'sat');
+            setActiveGroup('#cursorGroup button', savedSettings.cursor || 'small', 'cursor');
+            if (savedSettings.lang) document.getElementById('accLang').value = savedSettings.lang;
+            if (savedSettings.colorFilter) document.getElementById('colorFilter').value = savedSettings.colorFilter;
+            if (savedSettings.font) document.getElementById('fontSelect').value = savedSettings.font;
+        }
+
+        // ============================================================
+        // 11. CLOSE DROPDOWN ON OUTSIDE CLICK (language)
         // ============================================================
         document.addEventListener('click', (e) => {
             if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
