@@ -1,1634 +1,2238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awards - Dr. Vikash Paudel</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary: #1a6aa2;
-      --primary-dark: #155d8a;
-      --primary-foreground: #ffffff;
-      --accent: #4db6ac;
-      --accent-dark: #3a8a82;
-      --background: #ffffff;
-      --foreground: #333333;
-      --muted-foreground: #666666;
-      --border: #e0e0e0;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
-      --transition-smooth: all 0.3s ease;
-      --header-height: 80px;
-      --header-scroll-height: 60px;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--foreground);
-      background-color: var(--background);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding-top: var(--header-height);
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-
-    /* Fixed Header with Scroll Animation */
-    .navbar {
-      background-color: var(--background);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transition: var(--transition-smooth);
-      height: var(--header-height);
-    }
-
-    .navbar.scrolled {
-      height: var(--header-scroll-height);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      height: 100%;
-      transition: var(--transition-smooth);
-    }
-
-    .navbar.scrolled .navbar-container {
-      padding: 0 1.5rem;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--primary);
-      text-decoration: none;
-      transition: var(--transition-smooth);
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar.scrolled .navbar-brand {
-      font-size: 1.2rem;
-    }
-
-    .navbar-menu {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar-item {
-      margin: 0;
-    }
-
-    .navbar-link {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: var(--foreground);
-      font-weight: 500;
-      transition: var(--transition-smooth);
-      border-bottom: 3px solid transparent;
-      font-size: 0.95rem;
-      position: relative;
-    }
-
-    .navbar.scrolled .navbar-link {
-      padding: 0.8rem 1.2rem;
-    }
-
-    .navbar-link:hover {
-      color: var(--primary);
-    }
-
-    .navbar-link.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-    }
-
-    /* Enhanced Button Hover Effects */
-    .book-appointment {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border-radius: 4px;
-      margin-left: 1rem;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition-smooth);
-      border: none;
-      cursor: pointer;
-    }
-
-    .book-appointment:hover {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(26, 106, 162, 0.3);
-    }
-
-    .book-appointment:active {
-      transform: translateY(0);
-    }
-
-    .book-appointment i {
-      margin-right: 8px;
-    }
-
-    /* Language Toggle */
-    .language-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--foreground);
-      font-size: 1rem;
-      cursor: pointer;
-      margin-left: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: var(--transition-smooth);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .language-toggle:hover {
-      background-color: #f5f5f5;
-      border-color: var(--primary);
-    }
-
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--foreground);
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    /* Main Content Styles */
-    main {
-      flex: 1;
-      position: relative;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* Floating Hero Section with Pattern */
-    .hero-section {
-      background: linear-gradient(135deg, rgba(26, 106, 162, 0.85), rgba(44, 138, 201, 0.85)), 
-                  url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--primary-foreground);
-      padding: 6rem 0;
-      position: relative;
-      overflow: hidden;
-      animation: floatBackground 20s ease-in-out infinite;
-    }
-
-    @keyframes floatBackground {
-      0%, 100% { background-position: center center; }
-      50% { background-position: center 30px; }
-    }
-
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-      opacity: 0.3;
-      animation: patternMove 30s linear infinite;
-    }
-
-    @keyframes patternMove {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(100px, 100px); }
-    }
-
-    .hero-section h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-section p {
-      font-size: 1.125rem;
-      opacity: 0.9;
-      max-width: 600px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .content-section {
-      padding: 4rem 0;
-      background-color: var(--background);
-    }
-
-    .max-w-4xl {
-      max-width: 56rem;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .space-y-12 > * + * {
-      margin-top: 3rem;
-    }
-
-    /* Typography */
-    h2 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--foreground);
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .text-lg {
-      font-size: 1.125rem;
-    }
-
-    .text-muted-foreground {
-      color: var(--muted-foreground);
-    }
-
-    .leading-relaxed {
-      line-height: 1.625;
-    }
-
-    /* Card Styles with AOS */
-    .card {
-      background-color: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: var(--transition-smooth);
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-medical);
-      transform: translateY(-5px);
-    }
-
-    .card-content {
-      padding: 1.5rem;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .items-start {
-      align-items: flex-start;
-    }
-
-    .space-x-3 > * + * {
-      margin-left: 0.75rem;
-    }
-
-    .space-x-4 > * + * {
-      margin-left: 1rem;
-    }
-
-    .w-14 {
-      width: 3.5rem;
-    }
-
-    .h-14 {
-      height: 3.5rem;
-    }
-
-    .w-7 {
-      width: 1.75rem;
-    }
-
-    .h-7 {
-      height: 1.75rem;
-    }
-
-    .bg-primary\/10 {
-      background-color: rgba(26, 106, 162, 0.1);
-    }
-
-    .bg-accent\/10 {
-      background-color: rgba(77, 182, 172, 0.1);
-    }
-
-    .rounded-lg {
-      border-radius: 0.5rem;
-    }
-
-    .flex-center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .mb-2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .mb-3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
-
-    .space-y-6 > * + * {
-      margin-top: 1.5rem;
-    }
-
-    .space-y-4 > * + * {
-      margin-top: 1rem;
-    }
-
-    .space-y-3 > * + * {
-      margin-top: 0.75rem;
-    }
-
-    /* Award Year Badge */
-    .year-badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background-color: rgba(77, 182, 172, 0.1);
-      color: var(--accent);
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    .shrink-0 {
-      flex-shrink: 0;
-    }
-
-    .flex-1 {
-      flex: 1;
-    }
-
-    /* Flex Layout for Award Title and Year */
-    .award-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    @media (min-width: 768px) {
-      .award-header {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-      }
-    }
-
-    /* Recognition List */
-    .recognition-list {
-      list-style: none;
-    }
-
-    .recognition-list li {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .w-2 {
-      width: 0.5rem;
-    }
-
-    .h-2 {
-      height: 0.5rem;
-    }
-
-    .rounded-full {
-      border-radius: 9999px;
-    }
-
-    .mt-2 {
-      margin-top: 0.5rem;
-    }
-
-    .mt-12 {
-      margin-top: 3rem;
-    }
-
-    /* Community Impact */
-    .community-impact {
-      background-color: #f8f9fa;
-    }
-
-    /* Award Images - Updated for smaller size in grid */
-    .award-image {
-      width: 100%;
-      max-width: 150px;
-      height: auto;
-      border-radius: 8px;
-      margin: 0 auto 0.5rem;
-      display: block;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .award-image:hover {
-      transform: scale(1.03);
-    }
-
-    /* Award Highlights Grid */
-    .award-highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      justify-items: center;
-    }
-
-    /* Award Links */
-    .award-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      margin-top: 0.5rem;
-      transition: var(--transition-smooth);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .award-link:hover {
-      color: #155d8a;
-      text-decoration: underline;
-    }
-
-    .award-link i {
-      margin-left: 0.5rem;
-      font-size: 0.875rem;
-    }
-
-    /* Search Section */
-    .search-section {
-      background-color: #f8f9fa;
-      padding: 2rem 0;
-      margin-bottom: 2rem;
-    }
-
-    .search-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .search-box {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 1rem 1.5rem 1rem 3rem;
-      border: 2px solid var(--border);
-      border-radius: 50px;
-      font-size: 1rem;
-      transition: var(--transition-smooth);
-      background-color: white;
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(26, 106, 162, 0.1);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted-foreground);
-    }
-
-    /* Category Filter Buttons */
-    .category-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1.25rem;
-      background-color: white;
-      border: 2px solid var(--border);
-      border-radius: 50px;
-      color: var(--foreground);
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .filter-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .filter-btn.active {
-      background-color: var(--primary);
-      border-color: var(--primary);
-      color: white;
-    }
-
-    .filter-btn.ripple {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .filter-btn.ripple::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      opacity: 0;
-      border-radius: 100%;
-      transform: scale(1, 1) translate(-50%);
-      transform-origin: 50% 50%;
-    }
-
-    .filter-btn.ripple:focus:not(:active)::after {
-      animation: ripple 1s ease-out;
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(0, 0);
-        opacity: 0.5;
-      }
-      100% {
-        transform: scale(20, 20);
-        opacity: 0;
-      }
-    }
-
-    /* Sticky Sidebar */
-    .sidebar-container {
-      position: fixed;
-      right: 20px;
-      top: calc(var(--header-height) + 20px);
-      width: 300px;
-      z-index: 900;
-      transition: var(--transition-smooth);
-    }
-
-    .navbar.scrolled ~ main .sidebar-container {
-      top: calc(var(--header-scroll-height) + 20px);
-    }
-
-    .sidebar-content {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    .sidebar-header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .fb-page-container {
-      padding: 1rem;
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f5f5f5;
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: var(--transition-smooth);
-      box-shadow: 0 4px 12px rgba(26, 106, 162, 0.3);
-      border: none;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: var(--primary-dark);
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(26, 106, 162, 0.4);
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-      text-decoration: none;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
-    }
-
-    .whatsapp-button:hover {
-      animation: none;
-      transform: scale(1.1);
-    }
-
-    .whatsapp-button i {
-      font-size: 28px;
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      .sidebar-container {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-      
-      .navbar-container {
-        flex-wrap: wrap;
-      }
-      
-      .navbar-toggle {
-        display: block;
-      }
-      
-      .navbar-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        padding: 0;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
-      
-      .navbar-menu.active {
-        display: flex;
-      }
-      
-      .navbar-link {
-        padding: 0.8rem 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border);
-      }
-      
-      .navbar-link.active {
-        border-bottom: 3px solid var(--accent);
-      }
-      
-      .book-appointment {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .language-toggle {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        width: 100%;
-        justify-content: center;
-      }
-
-      .flex.space-x-4 {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .flex.space-x-4 > * + * {
-        margin-left: 0;
-        margin-top: 1rem;
-      }
-
-      .whatsapp-button {
-        left: 20px;
-        bottom: 20px;
-        width: 50px;
-        height: 50px;
-      }
-
-      .whatsapp-button i {
-        font-size: 24px;
-      }
-
-      .back-to-top {
-        right: 20px;
-        bottom: 20px;
-        width: 45px;
-        height: 45px;
-      }
-
-      .award-highlights-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-section {
-        padding: 4rem 0;
-      }
-      
-      .hero-section h1 {
-        font-size: 1.8rem;
-      }
-      
-      .card-content {
-        padding: 1rem;
-      }
-
-      body {
-        padding-top: 60px;
-      }
-
-      .navbar {
-        height: 60px;
-      }
-
-      .navbar.scrolled {
-        height: 50px;
-      }
-
-      .award-highlights-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .award-image {
-        max-width: 180px;
-      }
-    }
-
-    /* Nepali Language Styles */
-    .nepali {
-      display: none;
-    }
-
-    /* No Results Message */
-    .no-results {
-      text-align: center;
-      padding: 3rem;
-      color: var(--muted-foreground);
-      display: none;
-    }
-
-    .no-results.show {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awards & Recognition – Dr. Vikash Paudel | Dermatologist</title>
+    <meta name="description" content="Dr. Vikash Paudel's awards and recognition in dermatology, pediatric infectious diseases, and academic excellence. View prestigious international awards, fellowships, and scholarships." />
+    <link rel="canonical" href="https://drvikashpaudel.com/award.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Awards & Recognition – Dr. Vikash Paudel" />
+    <meta property="og:description" content="Honored for excellence in dermatological care, research, and academic achievements." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://drvikashpaudel.com/award.html" />
+    <meta property="og:image" content="https://drvikashpaudel.com/images/og-awards.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "name": "Awards & Recognition – Dr. Vikash Paudel",
+            "description": "Dr. Vikash Paudel's awards and recognition in dermatology, pediatric infectious diseases, and academic excellence.",
+            "url": "https://drvikashpaudel.com/award.html",
+            "mainEntity": {
+                "@type": "Person",
+                "name": "Dr. Vikash Paudel",
+                "jobTitle": "Dermatologist",
+                "worksFor": {
+                    "@type": "MedicalOrganization",
+                    "name": "Dr. Vikash Paudel Dermatology Clinic"
+                },
+                "award": [
+                    "Imrich Sarkany Non-European Memorial Scholarship",
+                    "World Congress of Dermatology Rising Star",
+                    "ESPID Fellowship Award",
+                    "Health Care Professional Scholarship",
+                    "JITMM Travel Scholarship Award",
+                    "SARAD Scholarship Award",
+                    "WSPID Fellowship Award",
+                    "Padma Bahadur Prativa Padak (SLC Gold Medal)"
+                ]
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+                   ROOT VARIABLES – NEW DYNAMIC COLOR SCHEME
+                   ============================================================ */
+        :root {
+            --primary: #0f4c5c;
+            --primary-dark: #0a3a47;
+            --primary-light: #d9edf2;
+            --primary-glow: rgba(15, 76, 92, 0.25);
+            --secondary: #e67e22;
+            --secondary-light: #fdf0e6;
+            --secondary-glow: rgba(230, 126, 34, 0.25);
+            --accent: #d4a373;
+            --accent-light: #f6ede4;
+            --gold: #c9a84c;
+            --gold-light: #f8f0d6;
+            --background: #ffffff;
+            --background-alt: #f8f6f3;
+            --foreground: #1a1a2e;
+            --muted: #5a6c7d;
+            --muted-light: #b0c0ce;
+            --border: #e8e4de;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 16px 60px rgba(0, 0, 0, 0.14);
+            --radius: 16px;
+            --radius-sm: 8px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --header-height: 76px;
+            --header-scroll-height: 60px;
+            --max-width: 1200px;
+            --focus-ring: 0 0 0 3px rgba(15, 76, 92, 0.5);
+        }
+
+        /* ============================================================
+                   RESET & BASE
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            color: var(--foreground);
+            background: var(--background);
+            padding-top: var(--header-height);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--foreground);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* ============================================================
+                   SKIP LINK
+                   ============================================================ */
+        .skip-link {
+            position: fixed;
+            top: -100%;
+            left: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: #fff;
+            border-radius: var(--radius-sm);
+            z-index: 9999;
+            font-weight: 600;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+            text-decoration: none;
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+
+        /* ============================================================
+                   FOCUS
+                   ============================================================ */
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ============================================================
+                   EMERGENCY BANNER – NEW
+                   ============================================================ */
+        .emergency-banner {
+            background: linear-gradient(135deg, #fef3e8, #fde8d6);
+            border-left: 6px solid var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .emergency-banner .icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .emergency-banner .msg {
+            font-weight: 500;
+            color: var(--primary-dark);
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .emergency-banner .phone {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(230, 126, 34, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .emergency-banner .phone:hover {
+            background: var(--secondary);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ============================================================
+                   NAVBAR
+                   ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            height: var(--header-height);
+            transition: height var(--transition), box-shadow var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            height: var(--header-scroll-height);
+            box-shadow: var(--shadow-md);
+            border-bottom-color: var(--border);
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            height: 100%;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+            transition: font-size var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .navbar-brand:hover {
+            text-decoration: none;
+            color: var(--primary-dark);
+        }
+
+        .navbar.scrolled .navbar-brand {
+            font-size: 1.1rem;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--foreground);
+            cursor: pointer;
+            padding: 0.4rem 0.6rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: var(--foreground);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+
+        .navbar-link:hover {
+            color: var(--primary);
+            text-decoration: none;
+            background: var(--primary-light);
+        }
+
+        .navbar-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+            background: var(--primary-light);
+        }
+
+        .navbar-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .book-appointment {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff !important;
+            border-radius: 50px;
+            padding: 0.5rem 1.4rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .book-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--primary-glow);
+            text-decoration: none;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .book-appointment:active {
+            transform: translateY(0);
+        }
+
+        .language-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--foreground);
+            font-weight: 500;
+            font-family: var(--font-sans);
+        }
+
+        .language-toggle:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* ============================================================
+                   HERO – NEW WARM GRADIENT
+                   ============================================================ */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 76, 92, 0.92), rgba(10, 58, 71, 0.88)),
+                url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: #fff;
+            padding: 5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(230, 126, 34, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(212, 163, 115, 0.10) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.92;
+            max-width: 640px;
+            font-weight: 300;
+        }
+
+        .hero .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero .hero-badge i {
+            margin-right: 0.5rem;
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   CONTAINER & LAYOUT
+                   ============================================================ */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .max-w-4xl {
+            max-width: 56rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+                   SEARCH & FILTERS – NEW STYLING
+                   ============================================================ */
+        .search-section {
+            background: var(--background-alt);
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .search-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold));
+            opacity: 0.4;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 640px;
+            margin: 0 auto 1.25rem;
+        }
+
+        .search-box .fa-search {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted-light);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .search-box:focus-within .fa-search {
+            color: var(--primary);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 1.2rem 0.9rem 3.2rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: #fff;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: var(--focus-ring), var(--shadow-md);
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--muted-light);
+        }
+
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.45rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            background: #fff;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--foreground);
+            font-family: var(--font-sans);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
+        /* ============================================================
+                   AWARD CARDS – NEW DYNAMIC STYLING
+                   ============================================================ */
+        .awards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--primary-light);
+        }
+
+        .card-content {
+            padding: 1.5rem 1.75rem;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+
+        .card-icon {
+            flex-shrink: 0;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.05) rotate(-3deg);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+
+        .card-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .award-title-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .award-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--foreground);
+        }
+
+        .year-badge {
+            display: inline-block;
+            padding: 0.15rem 0.8rem;
+            background: linear-gradient(135deg, var(--secondary-light), var(--gold-light));
+            color: var(--secondary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            border: 1px solid rgba(230, 126, 34, 0.15);
+        }
+
+        .award-org {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .award-org i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .award-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .award-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .award-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+            gap: 0.6rem;
+        }
+
+        .award-link .fa-external-link-alt {
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .award-link:hover .fa-external-link-alt {
+            transform: translateX(3px);
+        }
+
+        /* ============================================================
+                   NO RESULTS
+                   ============================================================ */
+        .no-results {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--muted);
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results .fa-search {
+            font-size: 3rem;
+            color: var(--muted-light);
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* ============================================================
+                   AWARD HIGHLIGHTS – NEW GRID
+                   ============================================================ */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            background: var(--background-alt);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .highlight-item:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-3px);
+        }
+
+        .highlight-item img {
+            width: 100%;
+            max-width: 120px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin: 0 auto 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            background: var(--primary-light);
+        }
+
+        .highlight-item img:hover {
+            transform: scale(1.04);
+            box-shadow: var(--shadow-md);
+        }
+
+        .highlight-item .caption {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* ============================================================
+                   TIMELINE – NEW STYLING
+                   ============================================================ */
+        .timeline-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-item:hover {
+            padding-left: 0.5rem;
+        }
+
+        .timeline-dot {
+            flex-shrink: 0;
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--gold));
+            margin-top: 0.55rem;
+            box-shadow: 0 0 0 3px var(--secondary-light);
+        }
+
+        .timeline-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline-text strong {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+                   GEO LIST – NEW
+                   ============================================================ */
+        .geo-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .geo-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+        }
+
+        .geo-list .dot {
+            flex-shrink: 0;
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================================
+                   SECTION TITLES – NEW
+                   ============================================================ */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--gold));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-top: 0.75rem;
+        }
+
+        /* ============================================================
+                   NEWSLETTER – NEW
+                   ============================================================ */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            margin-top: 2.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(212, 163, 115, 0.08);
+            pointer-events: none;
+        }
+
+        .newsletter-section h3 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            max-width: 480px;
+            margin: 1rem auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-form input {
+            flex: 1 1 220px;
+            padding: 0.75rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            background: #fff;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--primary);
+            box-shadow: var(--focus-ring);
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+
+        /* ============================================================
+                   FOOTER – NEW FULL FOOTER
+                   ============================================================ */
+        footer {
+            background: var(--foreground);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .footer-brand:hover {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .footer-about p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 320px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-social a:hover {
+            background: var(--secondary);
+            color: #fff;
+            transform: translateY(-3px);
+            text-decoration: none;
+            border-color: var(--secondary);
+        }
+
+        .footer-heading {
+            color: #fff;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            text-decoration: none;
+            transform: translateX(4px);
+        }
+
+        .footer-links a i {
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.3rem 0;
+        }
+
+        .footer-contact li i {
+            width: 1.2rem;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   SIDEBAR – Facebook
+                   ============================================================ */
+        .sidebar-container {
+            position: fixed;
+            right: 1.25rem;
+            top: calc(var(--header-height) + 1.25rem);
+            width: 280px;
+            z-index: 900;
+            transition: top var(--transition);
+        }
+
+        .navbar.scrolled~main .sidebar-container {
+            top: calc(var(--header-scroll-height) + 1.25rem);
+        }
+
+        .sidebar-content {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .fb-placeholder {
+            padding: 1rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background-alt);
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* ============================================================
+                   FLOATING BUTTONS
+                   ============================================================ */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+            z-index: 999;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: var(--transition);
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 24px var(--primary-glow);
+        }
+
+        /* ============================================================
+                   BILINGUAL TOGGLE
+                   ============================================================ */
+        .nepali {
+            display: none;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .sidebar-container {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .geo-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 64px;
+                --header-scroll-height: 56px;
+            }
+
+            body {
+                padding-top: var(--header-height);
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #fff;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 0.5rem 1.25rem 1.25rem;
+                box-shadow: var(--shadow-md);
+                border-top: 1px solid var(--border);
+                gap: 0.1rem;
+            }
+
+            .navbar-menu.active {
+                display: flex;
+            }
+
+            .navbar-link {
+                width: 100%;
+                padding: 0.7rem 0.75rem;
+                border-bottom: 1px solid var(--border);
+                border-radius: 0;
+            }
+
+            .navbar-link.active::after {
+                display: none;
+            }
+
+            .navbar-link.active {
+                border-bottom-color: var(--secondary);
+            }
+
+            .book-appointment {
+                width: 100%;
+                justify-content: center;
+                margin-top: 0.25rem;
+            }
+
+            .language-toggle {
+                width: 100%;
+                justify-content: center;
+                margin-top: 0.25rem;
+            }
+
+            .hero {
+                padding: 3.5rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .card-content {
+                padding: 1.25rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+
+            .card-icon {
+                width: 2.8rem;
+                height: 2.8rem;
+                font-size: 1.2rem;
+            }
+
+            .award-title {
+                font-size: 1.05rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .highlight-item img {
+                max-width: 90px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .newsletter-section {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .whatsapp-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+                bottom: 1rem;
+                left: 1rem;
+            }
+
+            .back-to-top {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .emergency-banner {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .emergency-banner .phone {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .highlight-item img {
+                max-width: 75px;
+            }
+
+            .category-filters {
+                gap: 0.4rem;
+            }
+
+            .filter-btn {
+                padding: 0.35rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .search-input {
+                padding: 0.7rem 1rem 0.7rem 2.8rem;
+                font-size: 0.9rem;
+            }
+
+            .search-box .fa-search {
+                left: 1rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ============================================================
+                   REDUCED MOTION
+                   ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .card {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ============================================================
+                   PRINT
+                   ============================================================ */
+        @media print {
+            .navbar,
+            .sidebar-container,
+            .whatsapp-btn,
+            .back-to-top,
+            .search-section,
+            .newsletter-section {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+            }
+
+            .hero {
+                background: var(--primary) !important;
+                padding: 2rem 0 !important;
+                color: #fff !important;
+            }
+
+            .card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            footer {
+                background: #f5f5f5 !important;
+                color: #333 !important;
+                border-top: 1px solid #ddd !important;
+            }
+
+            .footer-brand,
+            .footer-heading {
+                color: #333 !important;
+            }
+
+            .footer-links a,
+            .footer-contact li,
+            .footer-about p {
+                color: #555 !important;
+            }
+
+            .footer-social a {
+                background: #eee !important;
+                color: #333 !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Dr. Vikash Paudel</a>
-      <button class="navbar-toggle" id="navbar-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul class="navbar-menu" id="navbar-menu">
-        <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-        <li class="navbar-item"><a href="services.html" class="navbar-link">Services</a></li>
-        <li class="navbar-item"><a href="research.html" class="navbar-link">Research</a></li>
-        <li class="navbar-item"><a href="award.html" class="navbar-link active">Awards</a></li>
-        <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
-        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-        <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
-        <li class="navbar-item"><a href="appointment.html" class="navbar-link book-appointment"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
-        <li class="navbar-item">
-          <button class="language-toggle" id="language-toggle">
-            <i class="fas fa-globe"></i>
-            <span class="english">नेपाली</span>
-            <span class="nepali">English</span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <!-- SKIP LINK -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main>
-    <!-- Floating Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="english" data-aos="fade-up">Awards & Recognition</h1>
-        <h1 class="nepali" data-aos="fade-up">पुरस्कार र मान्यता</h1>
-        <p class="english" data-aos="fade-up" data-aos-delay="100">Honored for excellence in dermatological care, research, and academic achievements</p>
-        <p class="nepali" data-aos="fade-up" data-aos-delay="100">चर्मरोग, अनुसन्धान, र शैक्षिक उपलब्धिहरूमा उत्कृष्टताको लागि सम्मानित</p>
-      </div>
-    </section>
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand" aria-label="Dr. Vikash Paudel – Home">
+                <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                Dr. Vikash Paudel
+            </a>
 
-    <!-- Search and Filter Section -->
-    <section class="search-section">
-      <div class="search-container">
-        <div class="search-box" data-aos="fade-up">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" class="search-input" id="award-search" placeholder="Search awards by title, year, or organization...">
+            <button class="navbar-toggle" id="navbarToggle" aria-expanded="false" aria-controls="navbarMenu" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu" role="menubar">
+                <li role="none"><a href="index.html" class="navbar-link" role="menuitem">Home</a></li>
+                <li role="none"><a href="services.html" class="navbar-link" role="menuitem">Services</a></li>
+                <li role="none"><a href="research.html" class="navbar-link" role="menuitem">Research</a></li>
+                <li role="none"><a href="award.html" class="navbar-link active" role="menuitem" aria-current="page">Awards</a></li>
+                <li role="none"><a href="about.html" class="navbar-link" role="menuitem">About</a></li>
+                <li role="none"><a href="contact.html" class="navbar-link" role="menuitem">Contact</a></li>
+                <li role="none"><a href="blog.html" class="navbar-link" role="menuitem">Blog</a></li>
+                <li role="none">
+                    <a href="appointment.html" class="navbar-link book-appointment" role="menuitem">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        <span class="english">Book Appointment</span>
+                        <span class="nepali">अपोइन्टमेन्ट बुक गर्नुहोस्</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <button class="language-toggle" id="langToggle" aria-label="Toggle language between English and Nepali">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span class="english">नेपाली</span>
+                        <span class="nepali">English</span>
+                    </button>
+                </li>
+            </ul>
         </div>
-        <div class="category-filters" data-aos="fade-up" data-aos-delay="100">
-          <button class="filter-btn ripple active" data-filter="all">All Awards</button>
-          <button class="filter-btn ripple" data-filter="international">International</button>
-          <button class="filter-btn ripple" data-filter="scholarship">Scholarships</button>
-          <button class="filter-btn ripple" data-filter="fellowship">Fellowships</button>
-          <button class="filter-btn ripple" data-filter="academic">Academic</button>
+    </nav>
+
+    <!-- ============================================================
+    MAIN
+    ============================================================ -->
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-badge" data-aos="fade-down">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    <span class="english">Excellence Recognised Worldwide</span>
+                    <span class="nepali">विश्वव्यापी रूपमा मान्यता प्राप्त उत्कृष्टता</span>
+                </div>
+                <h1 id="hero-title" data-aos="fade-up">
+                    <span class="english">Awards &amp; <span class="highlight">Recognition</span></span>
+                    <span class="nepali">पुरस्कार र <span class="highlight">मान्यता</span></span>
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    <span class="english">Honored for excellence in dermatological care, research, and academic achievements across the globe.</span>
+                    <span class="nepali">छाला रोग, अनुसन्धान, र शैक्षिक उपलब्धिहरूमा उत्कृष्टताको लागि विश्वभर सम्मानित।</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SEARCH & FILTERS ===== -->
+        <section class="search-section" aria-labelledby="search-heading">
+            <div class="container">
+                <h2 id="search-heading" class="sr-only">Search and filter awards</h2>
+
+                <div class="search-box" data-aos="fade-up">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input type="text" class="search-input" id="awardSearch" placeholder="Search awards by title, year, or organisation…" aria-label="Search awards" />
+                </div>
+
+                <div class="category-filters" role="group" aria-label="Filter awards by category" data-aos="fade-up" data-aos-delay="100">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All Awards</button>
+                    <button class="filter-btn" data-filter="international" aria-pressed="false">International</button>
+                    <button class="filter-btn" data-filter="scholarship" aria-pressed="false">Scholarships</button>
+                    <button class="filter-btn" data-filter="fellowship" aria-pressed="false">Fellowships</button>
+                    <button class="filter-btn" data-filter="academic" aria-pressed="false">Academic</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AWARDS LIST ===== -->
+        <section class="section-padding" aria-labelledby="awards-heading">
+            <div class="container">
+                <div class="max-w-4xl mx-auto">
+
+                    <!-- Emergency Banner -->
+                    <div class="emergency-banner" role="alert" data-aos="fade-up">
+                        <span class="icon" aria-hidden="true">🚨</span>
+                        <span class="msg">
+                            <span class="english"><strong>Emergency?</strong> For urgent dermatological care, call us immediately.</span>
+                            <span class="nepali"><strong>आपतकाल?</strong> तत्काल छाला रोग सेवाको लागि हामीलाई सम्पर्क गर्नुहोस्।</span>
+                        </span>
+                        <a href="tel:+9779841234567" class="phone" aria-label="Call emergency number +977 984-1234567">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i> +977 984-1234567
+                        </a>
+                    </div>
+
+                    <div data-aos="fade-up">
+                        <h2 id="awards-heading" class="section-title english">Professional Achievements</h2>
+                        <h2 class="section-title nepali">व्यावसायिक उपलब्धिहरू</h2>
+                        <p class="section-subtitle english">
+                            Dr. Vikash Paudel's dedication to dermatology and pediatric infectious diseases has been recognised through numerous prestigious awards, fellowships, and scholarships from national and international organisations.
+                        </p>
+                        <p class="section-subtitle nepali">
+                            डा. विकास पौडेलको छाला रोग र बाल संक्रामक रोगहरूमा समर्पण राष्ट्रिय र अन्तर्राष्ट्रिय संस्थाहरूद्वारा धेरै प्रतिष्ठित पुरस्कार, फेलोशिप, र छात्रवृत्तिहरूद्वारा मान्यता प्राप्त भएको छ।
+                        </p>
+                    </div>
+
+                    <!-- Awards Container -->
+                    <div class="awards-grid" id="awardsContainer" role="list">
+
+                        <!-- Award 1 -->
+                        <article class="card" data-category="international scholarship" role="listitem" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-trophy"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">Imrich Sarkany Non-European Memorial Scholarship</h3>
+                                            <span class="year-badge">2023</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> EADV Symposium, Seville, Spain</p>
+                                        <p class="award-desc english">Awarded the prestigious Imrich Sarkany Non-European Memorial Scholarship to attend the EADV Symposium in Seville, Spain.</p>
+                                        <p class="award-desc nepali">स्पेनको सेभिलमा EADV सम्मेलनमा भाग लिन प्रतिष्ठित Imrich Sarkany Non-European Memorial Scholarship प्रदान गरिएको।</p>
+                                        <a href="https://www.eadv.org/congress-and-events/scholarships" target="_blank" rel="noopener noreferrer" class="award-link">
+                                            <span class="english">Learn more</span><span class="nepali">थप जान्नुहोस्</span>
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 2 -->
+                        <article class="card" data-category="international" role="listitem" data-aos="fade-up" data-aos-delay="150">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">World Congress of Dermatology – Rising Star</h3>
+                                            <span class="year-badge">2019, 2023</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> ILDS – Milan &amp; Singapore</p>
+                                        <p class="award-desc english">Recognised as a Rising Star at the World Congress of Dermatology in both Milan (2019) and Singapore (2023), an honour by the International League of Dermatological Societies.</p>
+                                        <p class="award-desc nepali">मिलान (२०१९) र सिंगापुर (२०२३) मा आयोजित विश्व चर्म रोग कांग्रेसमा राइजिङ स्टारको रूपमा मान्यता प्राप्त, अन्तर्राष्ट्रिय चर्मरोग सोसाइटी लिगद्वारा सम्मानित।</p>
+                                        <a href="https://www.wcd2023singapore.org/" target="_blank" rel="noopener noreferrer" class="award-link">
+                                            <span class="english">Learn more</span><span class="nepali">थप जान्नुहोस्</span>
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 3 -->
+                        <article class="card" data-category="international fellowship" role="listitem" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-star"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">ESPID Fellowship Award</h3>
+                                            <span class="year-badge">2020</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> European Society of Paediatric Infectious Disease, Netherlands</p>
+                                        <p class="award-desc english">Received the ESPID Fellowship Award at WSPID Amsterdam, Netherlands, recognising excellence in paediatric infectious disease research.</p>
+                                        <p class="award-desc nepali">नेदरल्याण्ड्सको एम्स्टर्डममा आयोजित WSPID मा ESPID फेलोशिप पुरस्कार प्राप्त, बाल संक्रामक रोग अनुसन्धानमा उत्कृष्टताको लागि मान्यता।</p>
+                                        <a href="https://www.espid.org/" target="_blank" rel="noopener noreferrer" class="award-link">
+                                            <span class="english">Visit ESPID</span><span class="nepali">ESPID भ्रमण गर्नुहोस्</span>
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 4 -->
+                        <article class="card" data-category="scholarship" role="listitem" data-aos="fade-up" data-aos-delay="250">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-trophy"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">Health Care Professional Scholarship</h3>
+                                            <span class="year-badge">2022</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> EADV (European Academy of Dermatology and Venereology)</p>
+                                        <p class="award-desc english">Awarded the Health Care Professional Scholarship by EADV in 2022.</p>
+                                        <p class="award-desc nepali">EADV द्वारा २०२२ मा Health Care Professional Scholarship प्रदान गरिएको।</p>
+                                        <a href="https://www.eadv.org/education/scholarships" target="_blank" rel="noopener noreferrer" class="award-link">
+                                            <span class="english">EADV Scholarships</span><span class="nepali">EADV छात्रवृत्तिहरू</span>
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 5 -->
+                        <article class="card" data-category="scholarship" role="listitem" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">JITMM Travel Scholarship Award</h3>
+                                            <span class="year-badge">2018</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> Joint International Tropical Medicine Meetings, Bangkok</p>
+                                        <p class="award-desc english">Received the JITMM Travel Scholarship Award to attend the Joint International Tropical Medicine Meetings in Bangkok, Thailand.</p>
+                                        <p class="award-desc nepali">थाइल्याण्डको बैंककमा आयोजित संयुक्त अन्तर्राष्ट्रिय उष्णप्रदेशीय चिकित्सा सम्मेलनमा भाग लिन JITMM यात्रा छात्रवृत्ति पुरस्कार प्राप्त।</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 6 -->
+                        <article class="card" data-category="scholarship" role="listitem" data-aos="fade-up" data-aos-delay="350">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">SARAD Scholarship Award</h3>
+                                            <span class="year-badge">2015</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> Lanka Derma, Sri Lanka</p>
+                                        <p class="award-desc english">Received the SARAD Scholarship Award from the Joint Organization of Sri Lanka College of Dermatologists.</p>
+                                        <p class="award-desc nepali">श्रीलंका कलेज अफ डर्माटोलोजिस्टको संयुक्त संगठनद्वारा SARAD छात्रवृत्ति पुरस्कार प्राप्त।</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 7 -->
+                        <article class="card" data-category="fellowship" role="listitem" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-medal"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">WSPID Fellowship Award</h3>
+                                            <span class="year-badge">2019</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> World Society of Paediatric Infectious Disease, Manila</p>
+                                        <p class="award-desc english">Awarded the WSPID Fellowship at the World Society of Paediatric Infectious Disease conference in Manila.</p>
+                                        <p class="award-desc nepali">मनिलामा आयोजित विश्व बाल संक्रामक रोग सोसाइटी सम्मेलनमा WSPID फेलोशिप प्राप्त।</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 8 -->
+                        <article class="card" data-category="international" role="listitem" data-aos="fade-up" data-aos-delay="450">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-user-graduate"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">Dubai Derma Conference</h3>
+                                            <span class="year-badge">2020</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> Dubai Dermatology and Aesthetics Conference</p>
+                                        <p class="award-desc english">Participated in the prestigious Dubai Dermatology and Aesthetics conference held in Dubai, United Arab Emirates.</p>
+                                        <p class="award-desc nepali">संयुक्त अरब इमिरेट्सको दुबईमा आयोजित प्रतिष्ठित दुबई चर्मरोग र सौन्दर्य सम्मेलनमा सहभागी।</p>
+                                        <a href="https://www.dermaconference.org/" target="_blank" rel="noopener noreferrer" class="award-link">
+                                            <span class="english">Dubai Derma Conference</span><span class="nepali">दुबई डर्मा सम्मेलन</span>
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Award 9 -->
+                        <article class="card" data-category="academic" role="listitem" data-aos="fade-up" data-aos-delay="500">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-icon" aria-hidden="true"><i class="fas fa-medal"></i></div>
+                                    <div class="card-body">
+                                        <div class="award-title-row">
+                                            <h3 class="award-title">Padma Bahadur Prativa Padak (SLC Gold Medal)</h3>
+                                            <span class="year-badge">2057 BS</span>
+                                        </div>
+                                        <p class="award-org"><i class="fas fa-map-pin" aria-hidden="true"></i> School Leaving Certificate Examination</p>
+                                        <p class="award-desc english">Awarded the prestigious Padma Bahadur Prativa Padak (SLC Gold Medal) for outstanding academic performance in the School Leaving Certificate examination.</p>
+                                        <p class="award-desc nepali">प्रवेशिका परिक्षामा उत्कृष्ट शैक्षिक प्रदर्शनको लागि प्रतिष्ठित पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक) प्राप्त।</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- No Results -->
+                    <div class="no-results" id="noResults" role="status" aria-live="polite">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <h3 class="english">No awards found</h3>
+                        <h3 class="nepali">कुनै पुरस्कार फेला परेन</h3>
+                        <p class="english">Try adjusting your search or filter criteria</p>
+                        <p class="nepali">आफ्नो खोज वा फिल्टर मापदण्ड समायोजन गर्नुहोस्</p>
+                    </div>
+
+                    <!-- ===== AWARD HIGHLIGHTS ===== -->
+                    <div class="card" data-aos="fade-up" style="margin-top:2.5rem;">
+                        <div class="card-content">
+                            <h3 class="section-title english" style="font-size:1.5rem;">Award Highlights</h3>
+                            <h3 class="section-title nepali" style="font-size:1.5rem;">पुरस्कार हाइलाइट्स</h3>
+                            <p class="section-subtitle english">Some of the prestigious awards and recognitions received by Dr. Paudel throughout his career.</p>
+                            <p class="section-subtitle nepali">डा. पौडेलले आफ्नो करियरभरि प्राप्त गरेका केही प्रतिष्ठित पुरस्कार र मान्यताहरू।</p>
+
+                            <div class="highlights-grid">
+                                <div class="highlight-item">
+                                    <img src="images/award.jpg" alt="Imrich Sarkany scholarship certificate" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Scholarship Certificate</p>
+                                    <p class="caption nepali">छात्रवृत्ति प्रमाणपत्र</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <img src="images/award.jpg" alt="Rising Star award certificate" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Rising Star Award</p>
+                                    <p class="caption nepali">उदयमान स्टार पुरस्कार</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=240&q=80" alt="Conference medal" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Conference Medal</p>
+                                    <p class="caption nepali">सम्मेलन पदक</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <img src="https://images.unsplash.com/photo-1515224526905-51c7d77c7bb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=240&q=80" alt="Fellowship plaque" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Fellowship Plaque</p>
+                                    <p class="caption nepali">फेलोशिप प्लाक</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=240&q=80" alt="Achievement trophy" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Achievement Trophy</p>
+                                    <p class="caption nepali">उपलब्धि ट्रफी</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=240&q=80" alt="Gold medal" loading="lazy" width="120" height="120" />
+                                    <p class="caption english">Gold Medal</p>
+                                    <p class="caption nepali">स्वर्ण पदक</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TIMELINE ===== -->
+                    <div class="card" data-aos="fade-up" style="margin-top:2.5rem;">
+                        <div class="card-content">
+                            <h3 class="section-title english" style="font-size:1.5rem;">Award Timeline</h3>
+                            <h3 class="section-title nepali" style="font-size:1.5rem;">पुरस्कार समयरेखा</h3>
+                            <p class="section-subtitle english">Dr. Paudel's achievements span nearly a decade, demonstrating consistent excellence across dermatology, paediatric infectious diseases, and medical education.</p>
+                            <p class="section-subtitle nepali">डा. पौडेलको उपलब्धिहरू लगभग एक दशकसम्म फैलिएका छन्, जसले चर्मरोग, बाल संक्रामक रोग, र चिकित्सा शिक्षामा लगातार उत्कृष्टता देखाउँछ।</p>
+
+                            <ul class="timeline-list">
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2057 BS (2000 AD):</strong> Padma Bahadur Prativa Padak (SLC Gold Medal)</span>
+                                    <span class="timeline-text nepali"><strong>२०५७ BS (२००० AD):</strong> पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक)</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2015:</strong> SARAD Scholarship Award, Lanka Derma, Sri Lanka</span>
+                                    <span class="timeline-text nepali"><strong>२०१५:</strong> SARAD छात्रवृत्ति पुरस्कार, लंका डर्मा, श्रीलंका</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2018:</strong> JITMM Travel Scholarship Award, Bangkok, Thailand</span>
+                                    <span class="timeline-text nepali"><strong>२०१८:</strong> JITMM यात्रा छात्रवृत्ति पुरस्कार, बैंकक, थाइल्याण्ड</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2019:</strong> WSPID Fellowship Award, Manila &amp; World Congress of Dermatology Rising Star, Milan</span>
+                                    <span class="timeline-text nepali"><strong>२०१९:</strong> WSPID फेलोशिप पुरस्कार, मनिला र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, मिलान</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2020:</strong> ESPID Fellowship Award, Amsterdam &amp; Dubai Derma Conference, UAE</span>
+                                    <span class="timeline-text nepali"><strong>२०२०:</strong> ESPID फेलोशिप पुरस्कार, एम्स्टर्डम र दुबई डर्मा सम्मेलन, UAE</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2022:</strong> Health Care Professional Scholarship, EADV</span>
+                                    <span class="timeline-text nepali"><strong>२०२२:</strong> स्वास्थ्य सेवा व्यावसायिक छात्रवृत्ति, EADV</span>
+                                </li>
+                                <li class="timeline-item">
+                                    <span class="timeline-dot" aria-hidden="true"></span>
+                                    <span class="timeline-text english"><strong>2023:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV Symposium, Seville &amp; World Congress of Dermatology Rising Star, Singapore</span>
+                                    <span class="timeline-text nepali"><strong>२०२३:</strong> इम्रिच सर्कानी गैर-युरोपेली स्मारक छात्रवृत्ति, EADV सम्मेलन, सेभिल र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, सिंगापुर</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ===== GEOGRAPHIC REACH ===== -->
+                    <div class="card" data-aos="fade-up" style="margin-top:2.5rem; background:var(--background-alt);">
+                        <div class="card-content">
+                            <h3 class="section-title english" style="font-size:1.5rem;">International Recognition</h3>
+                            <h3 class="section-title nepali" style="font-size:1.5rem;">अन्तर्राष्ट्रिय मान्यता</h3>
+                            <p class="section-subtitle english">Dr. Paudel's work has been recognised across multiple continents, demonstrating global impact in dermatology and paediatric infectious diseases.</p>
+                            <p class="section-subtitle nepali">डा. पौडेलको काम धेरै देशहरूमा मान्यता प्राप्त भएको छ, जसले छालारोग र बाल संक्रामक रोगहरूमा अन्तर्राष्ट्रिय प्रभाव देखाउँछ।</p>
+
+                            <ul class="geo-list">
+                                <li><span class="dot" aria-hidden="true"></span><span class="english"><strong>Asia:</strong> India, Sri Lanka, Thailand, Philippines, UAE, Singapore, South Korea</span><span class="nepali"><strong>एशिया:</strong> भारत, श्रीलंका, थाइल्याण्ड, फिलिपिन्स, संयुक्त अरब ईमिरेट्स, सिंगापुर, दक्षिण कोरिया</span></li>
+                                <li><span class="dot" aria-hidden="true"></span><span class="english"><strong>Europe:</strong> Italy, Spain, Netherlands</span><span class="nepali"><strong>युरोप:</strong> इटाली, स्पेन, नेदरल्यान्ड</span></li>
+                                <li><span class="dot" aria-hidden="true"></span><span class="english">Recognition from both dermatology and paediatric infectious disease societies</span><span class="nepali">छाला रोग र बाल संक्रामक रोग दुवै सोसाइटीहरूबाट मान्यता</span></li>
+                                <li><span class="dot" aria-hidden="true"></span><span class="english">Awards spanning academic, clinical, and research excellence</span><span class="nepali">शैक्षिक, नैदानिक, र अनुसन्धान उत्कृष्टताको लागि पुरस्कारहरू</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ===== NEWSLETTER ===== -->
+                    <div class="newsletter-section" data-aos="fade-up" style="margin-top:2.5rem;">
+                        <h3 class="english">📬 Stay Informed</h3>
+                        <h3 class="nepali">📬 सूचित रहनुहोस्</h3>
+                        <p class="section-subtitle english" style="max-width:480px;margin:0.5rem auto 0;">Subscribe to receive health tips, research updates, and clinic news.</p>
+                        <p class="section-subtitle nepali" style="max-width:480px;margin:0.5rem auto 0;">स्वास्थ्य सुझाव, अनुसन्धान अपडेट, र क्लिनिक समाचार प्राप्त गर्न सदस्यता लिनुहोस्।</p>
+                        <form class="newsletter-form" action="#" method="POST" aria-label="Newsletter signup">
+                            <input type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
+                            <button type="submit"><span class="english">Subscribe</span><span class="nepali">सदस्यता लिनुहोस्</span></button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    SIDEBAR – Facebook
+    ============================================================ -->
+    <aside class="sidebar-container" aria-label="Facebook page">
+        <div class="sidebar-content">
+            <div class="sidebar-header english">Follow Us</div>
+            <div class="sidebar-header nepali">हामीलाई पछ्याउनुहोस्</div>
+            <div class="fb-placeholder" id="fbPlaceholder">
+                <span class="english"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook plugin loads here</span>
+                <span class="nepali"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook प्लगिन यहाँ लोड हुन्छ</span>
+            </div>
         </div>
-      </div>
-    </section>
+    </aside>
 
-    <!-- Awards Section -->
-    <section class="content-section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto space-y-12">
-          <!-- Introduction -->
-          <div data-aos="fade-up">
-            <h2 class="english">Professional Achievements</h2>
-            <h2 class="nepali">व्यावसायिक उपलब्धिहरू</h2>
-            <p class="text-lg text-muted-foreground leading-relaxed english">
-              Dr. Vikash Paudel's dedication to dermatology and pediatric infectious diseases has been recognized through numerous prestigious awards, fellowships, and scholarships from national and international organizations.
-            </p>
-            <p class="text-lg text-muted-foreground leading-relaxed nepali">
-              डा. विकास पौडेलको छालारोग र बाल संक्रामक रोगहरूमा समर्पण राष्ट्रिय र अन्तर्राष्ट्रिय संस्थाहरूद्वारा धेरै प्रतिष्ठित पुरस्कार, फेलोशिप, र छात्रवृत्तिहरूद्वारा मान्यता प्राप्त भएको छ।
-            </p>
-          </div>
+    <!-- ============================================================
+    FLOATING BUTTONS
+    ============================================================ -->
+    <a href="https://wa.me/9779841234567?text=Hello%20Dr.%20Vikash%20Paudel%2C%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
-          <!-- Awards Grid -->
-          <div class="space-y-6" id="awards-container">
-            <!-- Award 1 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="100" data-category="international scholarship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-trophy text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">Imrich Sarkany Non-European Memorial Scholarship</h3>
-                      <span class="year-badge">2023</span>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- ============================================================
+    FOOTER – NEW FULL FOOTER
+    ============================================================ -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-about">
+                    <a href="index.html" class="footer-brand">Dr. Vikash Paudel</a>
+                    <p class="english">Dedicated dermatologist committed to providing compassionate, evidence-based care for all skin conditions. Excellence in dermatology, research, and patient education.</p>
+                    <p class="nepali">समर्पित छाला रोग विशेषज्ञ, सबै छाला रोगहरूको लागि करुणामय, प्रमाण-आधारित हेरचाह प्रदान गर्न प्रतिबद्ध। छाला रोग, अनुसन्धान, र बिरामी शिक्षामा उत्कृष्टता।</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <p class="text-primary font-medium mb-2">EADV Symposium, Seville, Spain</p>
-                    <p class="text-muted-foreground english">Awarded the prestigious Imrich Sarkany Non-European Memorial Scholarship to attend the EADV Symposium in Seville, Spain.</p>
-                    <p class="text-muted-foreground nepali">स्पेनको सेभिलमा EADV सम्मेलनमा भाग लिन प्रतिष्ठित Imrich Sarkany Non-European Memorial Scholarship प्रदान गरिएको।</p>
-                    <a href="https://www.eadv.org/congress-and-events/scholarships" target="_blank" class="award-link english">
-                      Learn more about this award <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="https://www.eadv.org/congress-and-events/scholarships" target="_blank" class="award-link nepali">
-                      यस पुरस्कारको बारेमा थप जान्नुहोस् <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
                 </div>
-              </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading english">Quick Links</h4>
+                    <h4 class="footer-heading nepali">द्रुत लिङ्कहरू</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Home</span><span class="nepali">गृह पृष्ठ</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Services</span><span class="nepali">सेवाहरू</span></a></li>
+                        <li><a href="research.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Research</span><span class="nepali">अनुसन्धान</span></a></li>
+                        <li><a href="award.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Awards</span><span class="nepali">पुरस्कार</span></a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">About</span><span class="nepali">बारे</span></a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Contact</span><span class="nepali">सम्पर्क</span></a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Blog</span><span class="nepali">ब्लग</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="footer-heading english">Our Services</h4>
+                    <h4 class="footer-heading nepali">हाम्रा सेवाहरू</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">General Dermatology</span><span class="nepali">सामान्य छाला रोग</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Pediatric Dermatology</span><span class="nepali">बाल छाला रोग</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Cosmetic Dermatology</span><span class="nepali">कस्मेटिक छाला रोग</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Skin Cancer Screening</span><span class="nepali">छाला क्यान्सर जाँच</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> <span class="english">Laser Therapy</span><span class="nepali">लेजर थेरापी</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-heading english">Get in Touch</h4>
+                    <h4 class="footer-heading nepali">सम्पर्क गर्नुहोस्</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span class="english">Kathmandu, Nepal</span><span class="nepali">काठमाडौं, नेपाल</span></li>
+                        <li><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+9779841234567" style="color:rgba(255,255,255,0.7);">+977 984-1234567</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@drvikashpaudel.com" style="color:rgba(255,255,255,0.7);">info@drvikashpaudel.com</a></li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i> <span class="english">Mon–Sat: 9:00 AM – 6:00 PM</span><span class="nepali">सोम–शनि: बिहान ९ – साँझ ६</span></li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Award 2 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="150" data-category="international">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-award text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">World Congress of Dermatology - Rising Star</h3>
-                      <span class="year-badge">2019, 2023</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">ILDS, World Congress of Dermatology - Milan and Singapore</p>
-                    <p class="text-muted-foreground english">Recognized as a Rising Star at the World Congress of Dermatology in both Milan (2019) and Singapore (2023), an honor by the International League of Dermatological Societies.</p>
-                    <p class="text-muted-foreground nepali">मिलान (२०१९) र सिंगापुर (२०२३) मा आयोजित विश्व चर्रम रोग कांग्रेसमा राइजिङ स्टारको रूपमा मान्यता प्राप्त, अन्तर्राष्ट्रिय चर्मरोग सोसाइटी लिगद्वारा सम्मानित।</p>
-                    <a href="https://www.wcd2023singapore.org/" target="_blank" class="award-link english">
-                      Learn more about WCD <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="https://www.wcd2023singapore.org/" target="_blank" class="award-link nepali">
-                      WCD को बारेमा थप जान्नुहोस् <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 3 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="200" data-category="international fellowship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-star text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">ESPID Fellowship Award</h3>
-                      <span class="year-badge">2020</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">European Society of Paediatric Infectious Disease, Netherlands</p>
-                    <p class="text-muted-foreground english">Received the ESPID Fellowship Award at WSPID Amsterdam, Netherlands, recognizing excellence in pediatric infectious disease research.</p>
-                    <p class="text-muted-foreground nepali">नेदरल्याण्ड्सको एम्स्टर्डममा आयोजित WSPID मा ESPID फेलोशिप पुरस्कार प्राप्त, बाल संक्रामक रोग अनुसन्धानमा उत्कृष्टताको लागि मान्यता।</p>
-                    <a href="https://www.espid.org/" target="_blank" class="award-link english">
-                      Visit ESPID website <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="https://www.espid.org/" target="_blank" class="award-link nepali">
-                      ESPID वेबसाइट भ्रमण गर्नुहोस् <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 4 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="250" data-category="scholarship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-trophy text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">Health Care Professional Scholarship</h3>
-                      <span class="year-badge">2022</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">EADV (European Academy of Dermatology and Venereology)</p>
-                    <p class="text-muted-foreground english">Awarded the Health Care Professional Scholarship by EADV in 2022.</p>
-                    <p class="text-muted-foreground nepali">EADV द्वारा २०२२ मा Health Care Professional Scholarship प्रदान गरिएको।</p>
-                    <a href="https://www.eadv.org/education/scholarships" target="_blank" class="award-link english">
-                      EADV Scholarships <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="https://www.eadv.org/education/scholarships" target="_blank" class="award-link nepali">
-                      EADV छात्रवृत्तिहरू <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 5 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="300" data-category="scholarship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-award text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">JITMM Travel Scholarship Award</h3>
-                      <span class="year-badge">2018</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">Joint International Tropical Medicine Meetings Travel Award, Bangkok</p>
-                    <p class="text-muted-foreground english">Received the JITMM Travel Scholarship Award to attend the Joint International Tropical Medicine Meetings in Bangkok, Thailand.</p>
-                    <p class="text-muted-foreground nepali">थाइल्याण्डको बैंकककमा आयोजित संयुक्त अन्तर्राष्ट्रिय उष्णप्रदेशीय चिकित्सा सम्मेलनमा भाग लिन JITMM यात्रा छात्रवृत्ति पुरस्कार प्राप्त।</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 6 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="350" data-category="scholarship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-graduation-cap text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">SARAD Scholarship Award</h3>
-                      <span class="year-badge">2015</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">Lanka Derma, Sri Lanka</p>
-                    <p class="text-muted-foreground english">Received the SARAD Scholarship Award from the Joint Organization of Sri Lanka College of Dermatologists.</p>
-                    <p class="text-muted-foreground nepali">श्रीलंका कलेज अफ डर्माटोलोजिस्टको संयुक्त संगठनद्वारा SARAD छात्रवृत्ति पुरस्कार प्राप्त।</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 7 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="400" data-category="fellowship">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-medal text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">WSPID Fellowship Award</h3>
-                      <span class="year-badge">2019</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">World Society of Paediatric Infectious Disease, Manila</p>
-                    <p class="text-muted-foreground english">Awarded the WSPID Fellowship at the World Society of Paediatric Infectious Disease conference in Manila.</p>
-                    <p class="text-muted-foreground nepali">मनिलामा आयोजित विश्व बाल संक्रामक रोग सोसाइटी सम्मेलनमा WSPID फेलोशिप प्राप्त।</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 8 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="450" data-category="international">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-user-graduate text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">Dubai Derma Conference</h3>
-                      <span class="year-badge">2020</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">Dubai Dermatology and Aesthetics Conference, Dubai Derma-2020</p>
-                    <p class="text-muted-foreground english">Participated in the prestigious Dubai Dermatology and Aesthetics conference held in Dubai, United Arab Emirates.</p>
-                    <p class="text-muted-foreground nepali">संयुक्त अरब इमिरेट्सको दुबईमा आयोजित प्रतिष्ठित दुबई चर्मरोग र सौन्दर्य सम्मेलनमा सहभागी।</p>
-                    <a href="https://www.dermaconference.org/" target="_blank" class="award-link english">
-                      Dubai Derma Conference <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="https://www.dermaconference.org/" target="_blank" class="award-link nepali">
-                      दुबई डर्मा सम्मेलन <i class="fas fa-external-link-alt"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Award 9: Padma Bahadur Prativa Padak -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500" data-category="academic">
-              <div class="card-content">
-                <div class="flex items-start space-x-4">
-                  <div class="w-14 h-14 bg-primary/10 rounded-lg flex-center shrink-0">
-                    <i class="fas fa-medal text-primary w-7 h-7"></i>
-                  </div>
-                  <div class="flex-1">
-                    <div class="award-header">
-                      <h3 class="text-xl font-semibold text-foreground">Padma Bahadur Prativa Padak (SLC Gold Medal)</h3>
-                      <span class="year-badge">2057 BS</span>
-                    </div>
-                    <p class="text-primary font-medium mb-2">School Leaving Certificate Examination</p>
-                    <p class="text-muted-foreground english">Awarded the prestigious Padma Bahadur Prativa Padak (SLC Gold Medal) for outstanding academic performance in the School Leaving Certificate examination.</p>
-                    <p class="text-muted-foreground nepali">प्रवेशिका परिक्षामा उत्कृष्ट शैक्षिक प्रदर्शनको लागि प्रतिष्ठित पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक) प्राप्त।</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- No Results Message -->
-          <div class="no-results" id="no-results">
-            <i class="fas fa-search fa-3x mb-4" style="color: #ccc;"></i>
-            <h3 class="english">No awards found</h3>
-            <h3 class="nepali">कुनै पुरस्कार फेला परेन</h3>
-            <p class="english">Try adjusting your search or filter criteria</p>
-            <p class="nepali">आफ्नो खोज वा फिल्टर मापदण्ड समायोजन गर्नुहोस्</p>
-          </div>
-
-          <!-- Award Images Section - Compact 2x3 Grid -->
-          <div class="card" data-aos="fade-up">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Highlights</h2>
-              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार हाइलाइट्स</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground english">
-                  Some of the prestigious awards and recognitions received by Dr. Paudel throughout his career.
+            <div class="footer-bottom">
+                <p>&copy; 2025 <a href="index.html">Dr. Vikash Paudel</a>. <span class="english">All rights reserved.</span><span class="nepali">सबै अधिकार सुरक्षित।</span></p>
+                <p style="margin-top:0.25rem;font-size:0.8rem;">
+                    <a href="#"><span class="english">Privacy Policy</span><span class="nepali">गोपनीयता नीति</span></a> &middot;
+                    <a href="#"><span class="english">Terms of Service</span><span class="nepali">सेवा सर्तहरू</span></a> &middot;
+                    <a href="#"><span class="english">Sitemap</span><span class="nepali">साइट नक्सा</span></a>
                 </p>
-                <p class="text-muted-foreground nepali">
-                  डा. पौडेलले आफ्नो करियरभरि प्राप्त गरेका केही प्रतिष्ठित पुरस्कार र मान्यताहरू।
-                </p>
-                <div class="award-highlights-grid">
-                  <div style="text-align: center;">
-                    <img src="images/award.jpg" alt="Imrich Sarkany Award Certificate" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Scholarship Certificate</p>
-                    <p class="text-sm text-muted-foreground nepali">छात्रवृत्ति प्रमाणपत्र</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="images/award.jpg" alt="WCD Rising Star Award" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Rising Star Award</p>
-                    <p class="text-sm text-muted-foreground nepali">उदयमान स्टार पुरस्कार</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Conference Medal" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Conference Medal</p>
-                    <p class="text-sm text-muted-foreground nepali">सम्मेलन पदक</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1515224526905-51c7d77c7bb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fellowship Plaque" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Fellowship Plaque</p>
-                    <p class="text-sm text-muted-foreground nepali">फेलोशिप प्लाक</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Achievement Trophy" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Achievement Trophy</p>
-                    <p class="text-sm text-muted-foreground nepali">उपलब्धि ट्रफी</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gold Medal" class="award-image">
-                    <p class="text-sm text-muted-foreground english">Gold Medal</p>
-                    <p class="text-sm text-muted-foreground nepali">स्वर्ण पदक</p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <!-- Timeline Overview - Enhanced with AD years -->
-          <div class="card mt-12" data-aos="fade-up">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6 english">Award Timeline</h2>
-              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">पुरस्कार समयरेखा</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground english">
-                  Dr. Paudel's achievements span nearly a decade, demonstrating consistent excellence across dermatology, pediatric infectious diseases, and medical education.
-                </p>
-                <p class="text-muted-foreground nepali">
-                  डा. पौडेलको उपलब्धिहरू लगभग एक दशकसम्म फैलिएका छन्, जसले चर्मरोग, बाल संक्रामक रोग, र चिकित्सा शिक्षामा लगातार उत्कृष्टता देखाउँछ।
-                </p>
-                <ul class="recognition-list space-y-4">
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2057 BS (2000 AD):</strong> Padma Bahadur Prativa Padak (SLC Gold Medal)
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०५७ BS (२००० AD):</strong> पद्म बहादुर प्रतिभा पदक (एसएलसी स्वर्ण पदक)
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2015:</strong> SARAD Scholarship Award, Lanka Derma, Sri Lanka
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०१५:</strong> SARAD छात्रवृत्ति पुरस्कार, लंका डर्मा, श्रीलंका
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2018:</strong> JITMM Travel Scholarship Award, Bangkok, Thailand
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०१८:</strong> JITMM यात्रा छात्रवृत्ति पुरस्कार, बैंककक, थाइल्याण्ड
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2019:</strong> WSPID Fellowship Award, Manila & World Congress of Dermatology Rising Star, Milan
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०१९:</strong> WSPID फेलोशिप पुरस्कार, मनिला र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, मिलान
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2020:</strong> ESPID Fellowship Award, Amsterdam & Dubai Derma Conference, UAE
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०२०:</strong> ESPID फेलोशिप पुरस्कार, एम्स्टर्डम र दुबई डर्मा सम्मेलन, UAE
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2022:</strong> Health Care Professional Scholarship, EADV
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०२२:</strong> स्वास्थ्य सेवा व्यावसायिक छात्रवृत्ति, EADV
-                      </span>
-                    </div>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <div>
-                      <span class="text-muted-foreground english">
-                        <strong>2023:</strong> Imrich Sarkany Non-European Memorial Scholarship, EADV Symposium, Seville & World Congress of Dermatology Rising Star, Singapore
-                      </span>
-                      <span class="text-muted-foreground nepali">
-                        <strong>२०२३:</strong> इम्रिच सर्कानी गैर-युरोपेली स्मारक छात्रवृत्ति, EADV सम्मेलन, सेभिल र विश्व त्वचा रोग कांग्रेस राइजिङ स्टार, सिंगापुर
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Geographic Reach -->
-          <div class="card community-impact" data-aos="fade-up">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6 english">International Recognition</h2>
-              <h2 class="text-2xl font-bold text-foreground mb-6 nepali">अन्तर्राष्ट्रिय मान्यता</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground english">
-                  Dr. Paudel's work has been recognized across multiple continents, demonstrating global impact in dermatology and pediatric infectious diseases.
-                </p>
-                <p class="text-muted-foreground nepali">
-                  डा. पौडेलको काम धेरै देशहरुमा मान्यता प्राप्त भएको छ, जसले छालारोग र बाल संक्रामक रोगहरूमा अन्तर्राष्ट्रीय प्रभाव देखाउँछ।
-                </p>
-                <ul class="recognition-list space-y-3">
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>Asia:</strong> India, Sri Lanka, Thailand, Philippines, UAE, Singapore, South Korea
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>एशिया:</strong> भारत, श्रीलंका, थाइल्याण्ड, फिलिपिन्स, संयुक्त अरब ईमिरेट्स, सिंगापुर, द. कोरिया
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      <strong>Europe:</strong> Italy, Spain, Netherlands
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      <strong>युरोप:</strong> इटाली, स्पेन, नेदरल्यान्ड
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      Recognition from both dermatology and pediatric infectious disease societies
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                    छाला रोग र बाल संक्रामक रोग दुवै सोसाइटीहरूबाट मान्यता
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground english">
-                      Awards spanning academic, clinical, and research excellence
-                    </span>
-                    <span class="text-muted-foreground nepali">
-                      शैक्षिक, नैदानिक, र अनुसन्धान उत्कृष्टताको लागि पुरस्कारहरू
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- Sticky Sidebar with Facebook Plugin -->
-    <div class="sidebar-container">
-      <div class="sidebar-content">
-        <div class="sidebar-header english">Follow Us</div>
-        <div class="sidebar-header nepali">हामीलाई पछ्याउनुहोस्</div>
-        <div class="fb-page-container">
-          <div class="fb-page" 
-               data-href="https://www.facebook.com/vikashderma"
-               data-tabs="timeline"
-               data-width="300" 
-               data-height="400"
-               data-small-header="false"
-               data-adapt-container-width="true"
-               data-hide-cover="false"
-               data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/vikashderma" class="fb-xfbml-parse-ignore">
-              <a href="https://www.facebook.com/vikashderma">Dr. Vikash Paudel</a>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/9779841234567?text=Hello%20Dr.%20Vikash%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <footer>
-    <p>&copy; 2025 Dr. Vikash Paudel, Dermatologist</p>
-  </footer>
-
-  <!-- AOS Library -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Facebook SDK -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE_VALUE"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialize AOS
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 100
-      });
-
-      // Mobile menu toggle
-      const navbarToggle = document.getElementById('navbar-toggle');
-      const navbarMenu = document.getElementById('navbar-menu');
-      
-      if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', function() {
-          navbarMenu.classList.toggle('active');
-        });
-      }
-      
-      // Language toggle functionality
-      const languageToggle = document.getElementById('language-toggle');
-      let currentLanguage = 'english';
-      
-      if (languageToggle) {
-        languageToggle.addEventListener('click', function() {
-          const englishElements = document.querySelectorAll('.english');
-          const nepaliElements = document.querySelectorAll('.nepali');
-          
-          if (currentLanguage === 'english') {
-            // Switch to Nepali
-            englishElements.forEach(el => {
-              el.style.display = 'none';
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // AOS
+            AOS.init({
+                duration: 700,
+                easing: 'ease-out',
+                once: true,
+                offset: 80
             });
-            nepaliElements.forEach(el => {
-              el.style.display = 'block';
+
+            // Mobile menu
+            const toggleBtn = document.getElementById('navbarToggle');
+            const menu = document.getElementById('navbarMenu');
+            toggleBtn.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                this.setAttribute('aria-expanded', expanded);
+                menu.classList.toggle('active');
             });
-            currentLanguage = 'nepali';
-            languageToggle.querySelector('.english').textContent = 'English';
-            languageToggle.querySelector('.nepali').textContent = 'English';
-          } else {
-            // Switch to English
-            englishElements.forEach(el => {
-              el.style.display = 'block';
+            menu.querySelectorAll('.navbar-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                });
             });
-            nepaliElements.forEach(el => {
-              el.style.display = 'none';
+
+            // Language toggle
+            const langBtn = document.getElementById('langToggle');
+            let lang = 'english';
+            langBtn.addEventListener('click', function() {
+                const eng = document.querySelectorAll('.english');
+                const nep = document.querySelectorAll('.nepali');
+                if (lang === 'english') {
+                    eng.forEach(el => el.style.display = 'none');
+                    nep.forEach(el => el.style.display = 'block');
+                    lang = 'nepali';
+                    this.querySelector('.english').textContent = 'English';
+                    this.querySelector('.nepali').textContent = 'English';
+                } else {
+                    eng.forEach(el => el.style.display = 'block');
+                    nep.forEach(el => el.style.display = 'none');
+                    lang = 'english';
+                    this.querySelector('.english').textContent = 'नेपाली';
+                    this.querySelector('.nepali').textContent = 'नेपाली';
+                }
             });
-            currentLanguage = 'english';
-            languageToggle.querySelector('.english').textContent = 'नेपाली';
-            languageToggle.querySelector('.nepali').textContent = 'नेपाली';
-          }
-        });
-      }
 
-      // Fixed Header Scroll Animation
-      const navbar = document.querySelector('.navbar');
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
+            // Navbar scroll
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 40);
+            });
 
-      // Award Search Functionality
-      const searchInput = document.getElementById('award-search');
-      const awardCards = document.querySelectorAll('.card[data-category]');
-      const noResults = document.getElementById('no-results');
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      
-      let activeFilter = 'all';
-      let searchTerm = '';
-      
-      function filterAwards() {
-        let visibleCount = 0;
-        
-        awardCards.forEach(card => {
-          const title = card.querySelector('h3').textContent.toLowerCase();
-          const year = card.querySelector('.year-badge').textContent.toLowerCase();
-          const description = card.querySelector('.text-muted-foreground.english').textContent.toLowerCase();
-          const category = card.getAttribute('data-category');
-          
-          const matchesSearch = searchTerm === '' || 
-            title.includes(searchTerm) || 
-            year.includes(searchTerm) || 
-            description.includes(searchTerm);
-          
-          const matchesFilter = activeFilter === 'all' || category.includes(activeFilter);
-          
-          if (matchesSearch && matchesFilter) {
-            card.style.display = 'block';
-            visibleCount++;
-            // Trigger AOS animation for newly shown cards
-            card.classList.add('visible');
-          } else {
-            card.style.display = 'none';
-          }
-        });
-        
-        // Show/hide no results message
-        if (visibleCount === 0) {
-          noResults.classList.add('show');
-        } else {
-          noResults.classList.remove('show');
-        }
-      }
-      
-      // Search input event
-      searchInput.addEventListener('input', function() {
-        searchTerm = this.value.toLowerCase();
-        filterAwards();
-      });
-      
-      // Filter button events
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          
-          // Add active class to clicked button
-          this.classList.add('active');
-          
-          // Set active filter
-          activeFilter = this.getAttribute('data-filter');
-          
-          // Apply filter
-          filterAwards();
-          
-          // Add ripple effect
-          this.classList.add('ripple');
-          setTimeout(() => {
-            this.classList.remove('ripple');
-          }, 1000);
-        });
-      });
+            // Back to top
+            const backBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                backBtn.classList.toggle('visible', window.scrollY > 400);
+            });
+            backBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
 
-      // Back to Top Button
-      const backToTop = document.getElementById('backToTop');
-      
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      
-      backToTop.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
+            // Search & filter
+            const searchInput = document.getElementById('awardSearch');
+            const cards = document.querySelectorAll('#awardsContainer .card');
+            const noResults = document.getElementById('noResults');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            let activeFilter = 'all';
+            let searchTerm = '';
 
-      // Enhanced button hover effects
-      const buttons = document.querySelectorAll('.book-appointment, .award-link, .research-link');
-      buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-2px)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
-        });
-      });
+            function filterAwards() {
+                let visibleCount = 0;
+                cards.forEach(card => {
+                    const title = card.querySelector('.award-title')?.textContent?.toLowerCase() || '';
+                    const year = card.querySelector('.year-badge')?.textContent?.toLowerCase() || '';
+                    const desc = card.querySelector('.award-desc.english')?.textContent?.toLowerCase() || '';
+                    const category = card.getAttribute('data-category') || '';
+                    const matchSearch = searchTerm === '' ||
+                        title.includes(searchTerm) ||
+                        year.includes(searchTerm) ||
+                        desc.includes(searchTerm);
+                    const matchFilter = activeFilter === 'all' || category.includes(activeFilter);
+                    if (matchSearch && matchFilter) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                        card.classList.add('visible');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                noResults.classList.toggle('show', visibleCount === 0);
+            }
 
-      // Initialize Facebook plugin
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml: true,
-          version: 'v18.0'
+            searchInput.addEventListener('input', function() {
+                searchTerm = this.value.toLowerCase();
+                filterAwards();
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
+                    activeFilter = this.getAttribute('data-filter');
+                    filterAwards();
+                });
+            });
+
+            // Facebook lazy load
+            const fbPlaceholder = document.getElementById('fbPlaceholder');
+            if (fbPlaceholder && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const script = document.createElement('script');
+                            script.src =
+                                'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+                            script.async = true;
+                            script.defer = true;
+                            script.crossOrigin = 'anonymous';
+                            document.head.appendChild(script);
+                            fbPlaceholder.innerHTML =
+                                `
+                                <div class="fb-page" 
+                                     data-href="https://www.facebook.com/vikashderma"
+                                     data-tabs="timeline"
+                                     data-width="280" 
+                                     data-height="300"
+                                     data-small-header="false"
+                                     data-adapt-container-width="true"
+                                     data-hide-cover="false"
+                                     data-show-facepile="true">
+                                </div>
+                                `;
+                            observer.unobserve(fbPlaceholder);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(fbPlaceholder);
+            }
+
+            // Reduce motion preference for WhatsApp
+            const whatsapp = document.querySelector('.whatsapp-btn');
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                if (whatsapp) whatsapp.style.animation = 'none';
+            }
+
+            // ESC to close menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.focus();
+                }
+            });
+
+            console.log('✅ Awards page loaded with new dynamic design, full footer, and no Google Maps.');
         });
-      };
-    });
-  </script>
+
+        // Fallback Facebook load
+        setTimeout(function() {
+            const fbPlaceholder = document.getElementById('fbPlaceholder');
+            if (fbPlaceholder && !fbPlaceholder.querySelector('.fb-page')) {
+                const script = document.createElement('script');
+                script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+                script.async = true;
+                script.defer = true;
+                script.crossOrigin = 'anonymous';
+                document.head.appendChild(script);
+                fbPlaceholder.innerHTML =
+                    `
+                    <div class="fb-page" 
+                         data-href="https://www.facebook.com/vikashderma"
+                         data-tabs="timeline"
+                         data-width="280" 
+                         data-height="300"
+                         data-small-header="false"
+                         data-adapt-container-width="true"
+                         data-hide-cover="false"
+                         data-show-facepile="true">
+                    </div>
+                    `;
+            }
+        }, 5000);
+    </script>
+
 </body>
 </html>
