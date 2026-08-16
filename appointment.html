@@ -1245,9 +1245,9 @@
       updateLanguageOptions();
     });
 
-    // EmailJS init
+    // EmailJS init with the provided public key
     (function() {
-      emailjs.init("nPsKsuZlR3ghah6k-");
+      emailjs.init("NpPYGnVdsqxvzVuyg");   // Updated public key
     })();
 
     function updateTimeSlots() {
@@ -1370,15 +1370,24 @@
             submitted_at: new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
           };
           
-          // Using the specified Service ID and Template ID
+          // Using the provided Service ID and Template ID
           emailjs.send('service_vwesyh4', 'template_hqr000g', templateParams)
             .then(function(response) {
               showStatus('Thank you! We will contact you within 24 hours to confirm your appointment.', 'success');
               appointmentForm.reset();
               preferredDateInput.min = today;
               updateTimeSlots();
-            }, function(error) {
-              showStatus('There was an error submitting your request. Please try again or call us directly.', 'error');
+            })
+            .catch(function(error) {
+              // Log full error to browser console for debugging
+              console.error('EmailJS error details:', error);
+              let errorMsg = 'There was an error submitting your request. ';
+              if (error.text) {
+                errorMsg += 'Error: ' + error.text;
+              } else {
+                errorMsg += 'Please try again or call us directly.';
+              }
+              showStatus(errorMsg, 'error');
             })
             .finally(function() { setLoading(false); });
         });
