@@ -41,30 +41,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ----- RESET & modern palette: cream/beige + dark green (authoritative) ----- */
+        /* ----- RESET & modern palette: Deep Navy + Teal + White ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background: #faf6ef;   /* soft cream */
-            color: #1a3b2f;         /* deep forest */
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
+            background: #f8fafc;   /* very light grey */
+            color: #1e2b3c;         /* dark charcoal */
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
         }
         :root {
-            --deep-green: #1a4b3a;
-            --moss: #2c6e54;
+            --navy: #0b2b3d;
+            --navy-light: #1a4055;
+            --teal: #2c7a7b;
+            --teal-soft: #e6f2f2;
             --gold: #c6a15b;
             --cream: #faf6ef;
             --sand: #ede3d7;
-            --charcoal: #1e2b27;
+            --charcoal: #1e2b3c;
             --soft-white: #ffffff;
-            --shadow: 0 20px 35px -15px rgba(26, 75, 58, 0.15);
-            --shadow-hover: 0 25px 45px -15px #0b3325;
-            --accent-soft: #dbb873;
+            --light-grey: #f0f4f8;
+            --shadow: 0 10px 30px -12px rgba(11, 43, 61, 0.15);
+            --shadow-hover: 0 20px 40px -15px rgba(11, 43, 61, 0.25);
+            --accent: #2c7a7b;
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 12px;
         }
         .container {
             max-width: 1300px;
@@ -77,16 +83,16 @@
             letter-spacing: -0.02em;
         }
 
-        /* ----- header (clean sticky) ----- */
+        /* ----- header (clean sticky, navy) ----- */
         header {
-            background: rgba(250, 246, 239, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(11, 43, 61, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 8px 0;
-            border-bottom: 1px solid rgba(26, 75, 58, 0.1);
+            border-bottom: 2px solid rgba(44, 122, 123, 0.3);
         }
         .header-flex {
             display: flex;
@@ -94,12 +100,13 @@
             justify-content: space-between;
         }
         .logo h1 {
-            font-size: 1.4rem;
-            color: var(--deep-green);
+            font-size: 1.3rem;
+            color: white;
             font-family: 'Inter', sans-serif;
             font-weight: 700;
             letter-spacing: -0.3px;
         }
+        .logo h1 span { color: var(--gold); }
         nav ul {
             display: flex;
             list-style: none;
@@ -108,31 +115,34 @@
         }
         nav a {
             text-decoration: none;
-            color: var(--deep-green);
+            color: rgba(255,255,255,0.85);
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s;
         }
         nav a:hover { color: var(--gold); }
+        nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
         .language-toggle button {
-            background: none;
+            background: rgba(255,255,255,0.08);
             border: none;
             font-weight: 600;
             cursor: pointer;
-            color: var(--deep-green);
+            color: white;
             padding: 4px 12px;
             border-radius: 30px;
             transition: 0.2s;
+            font-size: 0.85rem;
         }
         .language-toggle button.active {
-            background: var(--deep-green);
+            background: var(--teal);
             color: white;
         }
-        .mobile-toggle { display: none; }
+        .language-toggle button:hover { background: var(--teal); }
+        .mobile-toggle { display: none; color: white; font-size: 1.4rem; cursor: pointer; }
 
-        /* ----- HERO (minimal, bold, compact) ----- */
+        /* ----- HERO (minimal, bold, compact, navy) ----- */
         .blog-hero-minimal {
-            background: var(--deep-green);
+            background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
             color: white;
             padding: 40px 0 50px;
             margin-bottom: 40px;
@@ -147,7 +157,7 @@
             gap: 30px;
         }
         .hero-text h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             line-height: 1.2;
             margin-bottom: 8px;
             font-weight: 700;
@@ -159,7 +169,7 @@
         }
         .hero-cta .btn-primary {
             background: var(--gold);
-            color: var(--deep-green);
+            color: var(--navy);
             padding: 14px 36px;
             border-radius: 50px;
             font-weight: 700;
@@ -167,7 +177,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
             transition: 0.2s;
         }
         .hero-cta .btn-primary:hover {
@@ -175,12 +185,13 @@
             transform: scale(1.02);
         }
 
-        /* ----- bento grid main layout (asymmetric) ----- */
+        /* ----- bento layout main (asymmetric) with sticky sidebar container ----- */
         .bento-layout {
             display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 30px;
+            grid-template-columns: 1fr 340px;
+            gap: 35px;
             margin: 30px 0 60px;
+            align-items: start;
         }
         /* main area */
         .bento-main {
@@ -189,45 +200,47 @@
             gap: 35px;
         }
 
-        /* category filter pills (elegant) */
+        /* category filter pills (elegant, navy) */
         .filter-pills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 10px;
             background: white;
-            padding: 18px 20px;
+            padding: 16px 24px;
             border-radius: 60px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.05);
         }
         .filter-pills .filter-btn {
-            background: var(--sand);
+            background: var(--light-grey);
             border: none;
-            padding: 8px 22px;
+            padding: 8px 24px;
             border-radius: 40px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
-            color: var(--deep-green);
+            color: var(--navy);
+            font-size: 0.9rem;
         }
         .filter-pills .filter-btn.active {
-            background: var(--deep-green);
+            background: var(--navy);
             color: white;
         }
         .filter-pills .filter-btn:hover {
-            background: var(--gold);
-            color: var(--deep-green);
+            background: var(--teal);
+            color: white;
         }
 
         /* blog cards bento grid (asymmetric) */
         .blog-grid-bento {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
         .blog-card {
             background: white;
-            border-radius: 32px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s;
@@ -237,6 +250,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            border: 1px solid rgba(11, 43, 61, 0.04);
         }
         .blog-card.visible {
             opacity: 1;
@@ -251,42 +265,43 @@
             height: 200px;
             object-fit: cover;
             transition: transform 0.6s;
+            background: var(--light-grey);
         }
         .blog-card:hover .blog-card-image {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         .blog-card-content {
-            padding: 24px 22px 26px;
+            padding: 24px 24px 28px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
         .blog-card-category {
             display: inline-block;
-            background: var(--sand);
+            background: var(--teal-soft);
             padding: 5px 18px;
             border-radius: 30px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 15px;
             align-self: flex-start;
-            color: var(--deep-green);
+            color: var(--teal);
         }
-        .blog-card-category.medical { background: #deedf0; }
-        .blog-card-category.poetry { background: #f3e6f0; }
-        .blog-card-category.literature { background: #e3f0e7; }
-        .blog-card-category.personal { background: #faeade; }
+        .blog-card-category.medical { background: #d4e8ed; color: #1a5a6b; }
+        .blog-card-category.poetry { background: #f0e6f0; color: #6b4a6b; }
+        .blog-card-category.literature { background: #e0eee7; color: #2a6b4a; }
+        .blog-card-category.personal { background: #f5ede4; color: #7a5a3a; }
 
         .blog-card-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 12px;
-            color: var(--deep-green);
+            color: var(--navy);
             line-height: 1.3;
         }
         .blog-card-excerpt {
-            color: #3f5e52;
+            color: #3a4b5a;
             margin-bottom: 20px;
             font-size: 0.95rem;
             line-height: 1.6;
@@ -295,14 +310,14 @@
         .blog-card-meta {
             display: flex;
             gap: 20px;
-            color: #5b7a6b;
+            color: #5b7a8a;
             font-size: 0.85rem;
             margin-bottom: 20px;
         }
         .blog-card .btn-small {
-            background: var(--deep-green);
+            background: var(--navy);
             color: white;
-            padding: 12px 18px;
+            padding: 12px 20px;
             border-radius: 40px;
             text-decoration: none;
             text-align: center;
@@ -310,115 +325,226 @@
             transition: 0.2s;
             border: none;
             cursor: pointer;
+            font-size: 0.9rem;
         }
         .blog-card .btn-small:hover {
-            background: var(--gold);
-            color: var(--deep-green);
+            background: var(--teal);
+            color: white;
         }
 
         /* dedicated list of all blog titles (clickable) — bento style */
         .blog-titles-panel {
             background: white;
-            border-radius: 32px;
-            padding: 30px 28px;
+            border-radius: var(--radius-lg);
+            padding: 32px 30px;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.04);
         }
         .blog-titles-panel h3 {
-            font-size: 1.8rem;
-            color: var(--deep-green);
+            font-size: 1.6rem;
+            color: var(--navy);
             margin-bottom: 25px;
-            border-bottom: 3px solid var(--sand);
-            padding-bottom: 12px;
+            border-bottom: 3px solid var(--teal-soft);
+            padding-bottom: 14px;
         }
         .blog-title-list {
             list-style: none;
+            columns: 2;
+            column-gap: 30px;
         }
         .blog-title-list li {
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #e0d6ca;
-            padding-bottom: 12px;
+            margin-bottom: 12px;
+            break-inside: avoid;
+            border-bottom: 1px dashed #e8edf2;
+            padding-bottom: 10px;
         }
         .blog-title-list a {
             text-decoration: none;
-            color: var(--deep-green);
+            color: var(--navy);
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             transition: 0.2s;
+            font-size: 0.95rem;
         }
         .blog-title-list a:hover {
-            color: var(--gold);
-            transform: translateX(6px);
+            color: var(--teal);
+            transform: translateX(5px);
         }
         .blog-title-list i {
-            color: var(--gold);
-            font-size: 0.9rem;
+            color: var(--teal);
+            font-size: 0.8rem;
         }
 
-        /* sidebar (right rail) */
+        /* sidebar (right rail) - sticky */
         .bento-sidebar {
             display: flex;
             flex-direction: column;
             gap: 30px;
+            position: sticky;
+            top: 100px;
         }
         .sidebar-card {
             background: white;
-            border-radius: 32px;
+            border-radius: var(--radius-lg);
             padding: 28px 22px;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.04);
+            transition: 0.2s;
         }
         .sidebar-card h4 {
-            font-size: 1.4rem;
-            color: var(--deep-green);
+            font-size: 1.2rem;
+            color: var(--navy);
             margin-bottom: 18px;
-            border-left: 6px solid var(--gold);
-            padding-left: 18px;
+            border-left: 5px solid var(--teal);
+            padding-left: 16px;
+            font-weight: 700;
         }
         .fb-page-container {
             background: white;
-            border-radius: 24px;
+            border-radius: var(--radius-md);
             overflow: hidden;
         }
         .recent-posts ul {
             list-style: none;
         }
         .recent-posts li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .recent-posts a {
             text-decoration: none;
-            color: var(--deep-green);
+            color: var(--navy);
             font-weight: 500;
             display: block;
             padding: 5px 0;
-            border-bottom: 1px dotted var(--sand);
+            border-bottom: 1px dotted #e8edf2;
         }
-        .recent-posts a:hover { color: var(--gold); }
+        .recent-posts a:hover { color: var(--teal); }
+
+        /* ----- SOCIAL MEDIA SIDEBAR (dedicated floating/sticky) ----- */
+        .social-sidebar {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px 20px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.04);
+        }
+        .social-sidebar h4 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 18px;
+            border-left: 5px solid var(--gold);
+            padding-left: 16px;
+            font-weight: 700;
+        }
+        .social-widget {
+            margin-bottom: 24px;
+        }
+        .social-widget:last-child { margin-bottom: 0; }
+        .social-widget .widget-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light-grey);
+        }
+        .social-widget .widget-header i {
+            font-size: 1.6rem;
+            width: 36px;
+            text-align: center;
+        }
+        .social-widget .widget-header .fa-tiktok { color: #010101; text-shadow: 0 0 2px #ee1d52; }
+        .social-widget .widget-header .fa-facebook { color: #1877f2; }
+        .social-widget .widget-header span {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+        .social-widget .widget-header .handle {
+            font-weight: 400;
+            color: #5a6b7a;
+            font-size: 0.85rem;
+            margin-left: auto;
+        }
+        .social-card {
+            background: var(--light-grey);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            transition: 0.2s;
+            border: 1px solid rgba(11, 43, 61, 0.04);
+        }
+        .social-card:hover { background: #e8edf2; }
+        .social-card .fallback-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--navy);
+        }
+        .social-card .fallback-link i {
+            font-size: 2.2rem;
+            width: 44px;
+            text-align: center;
+        }
+        .social-card .fallback-link .fa-tiktok { color: #010101; }
+        .social-card .fallback-link .fa-facebook { color: #1877f2; }
+        .social-card .fallback-link .info {
+            display: flex;
+            flex-direction: column;
+        }
+        .social-card .fallback-link .info strong { font-size: 1rem; }
+        .social-card .fallback-link .info small { color: #5a6b7a; font-size: 0.8rem; }
+        .social-card .fb-page-embed, .social-card .tiktok-embed {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            max-height: 350px;
+            min-height: 200px;
+            background: white;
+        }
+        .social-card .fb-page-embed iframe, 
+        .social-card .tiktok-embed iframe {
+            width: 100%;
+            border: none;
+        }
+        .social-card .tiktok-embed {
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .social-card .fb-page-embed {
+            min-height: 200px;
+        }
 
         /* dual video section (bento) */
         .dual-video-bento {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 28px;
             margin: 50px 0;
         }
         .video-card {
             background: white;
-            border-radius: 32px;
-            padding: 25px;
+            border-radius: var(--radius-lg);
+            padding: 28px;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.04);
         }
         .video-card h3 {
             margin-bottom: 18px;
-            color: var(--deep-green);
-            font-size: 1.4rem;
+            color: var(--navy);
+            font-size: 1.2rem;
         }
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
-            border-radius: 24px;
+            border-radius: var(--radius-md);
             overflow: hidden;
         }
         .video-container iframe {
@@ -427,12 +553,14 @@
             width: 100%; height: 100%;
         }
 
-        /* other blogs list (clickable) */
+        /* other blogs bento */
         .other-blogs-bento {
             background: white;
-            border-radius: 32px;
-            padding: 30px;
+            border-radius: var(--radius-lg);
+            padding: 32px 30px;
             margin: 40px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 43, 61, 0.04);
         }
         .other-grid {
             display: grid;
@@ -441,50 +569,74 @@
             margin-top: 25px;
         }
         .other-item {
-            background: var(--sand);
-            border-radius: 22px;
-            padding: 20px;
+            background: var(--light-grey);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
             transition: 0.2s;
         }
         .other-item:hover {
-            background: var(--gold);
+            background: var(--teal-soft);
             transform: translateY(-4px);
         }
         .other-item a {
             text-decoration: none;
-            color: var(--deep-green);
+            color: var(--navy);
             font-weight: 600;
             display: block;
         }
-        .other-item a i { margin-left: 8px; }
+        .other-item a i { margin-left: 8px; color: var(--teal); }
 
         /* newspaper section */
         .newspaper-bento {
             display: grid;
             grid-template-columns: repeat(4,1fr);
-            gap: 20px;
+            gap: 24px;
             margin: 40px 0;
         }
         .newspaper-card {
             background: white;
-            border-radius: 28px;
-            padding: 24px;
+            border-radius: var(--radius-lg);
+            padding: 24px 22px;
             box-shadow: var(--shadow);
             transition: 0.2s;
+            border: 1px solid rgba(11, 43, 61, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         .newspaper-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
         .newspaper-logo {
-            max-height: 35px;
-            margin-bottom: 18px;
+            max-height: 32px;
             object-fit: contain;
+            margin-bottom: 6px;
         }
+        .newspaper-card p {
+            font-size: 0.95rem;
+            color: var(--navy);
+            flex: 1;
+        }
+        .newspaper-card .btn-small {
+            background: var(--navy);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            align-self: flex-start;
+        }
+        .newspaper-card .btn-small:hover { background: var(--teal); }
 
-        /* footer (refined) */
+        /* footer (refined, navy) */
         footer {
-            background: var(--charcoal);
+            background: var(--navy);
             color: #cddad3;
             border-radius: 40px 40px 0 0;
             padding: 60px 0 30px;
@@ -495,8 +647,11 @@
             grid-template-columns: repeat(4,1fr);
             gap: 30px;
         }
+        .footer-grid h3, .footer-grid h4 { color: white; }
+        .footer-grid a { color: #b0c8d4; text-decoration: none; transition: 0.2s; }
+        .footer-grid a:hover { color: var(--gold); }
         .social-circle {
-            background: #2f5848;
+            background: #2a5a6a;
             width: 38px; height: 38px;
             border-radius: 50%;
             display: inline-flex;
@@ -505,8 +660,9 @@
             color: white;
             margin-right: 8px;
             transition: 0.2s;
+            text-decoration: none;
         }
-        .social-circle:hover { background: var(--gold); color: var(--deep-green); }
+        .social-circle:hover { background: var(--gold); color: var(--navy); }
 
         /* animations + helpers */
         .fade-in {
@@ -519,12 +675,15 @@
         /* responsiveness */
         @media (max-width: 1100px) {
             .bento-layout { grid-template-columns: 1fr; }
+            .bento-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
             .blog-grid-bento { grid-template-columns: repeat(2,1fr); }
             .other-grid { grid-template-columns: repeat(2,1fr); }
             .newspaper-bento { grid-template-columns: repeat(2,1fr); }
             .footer-grid { grid-template-columns: repeat(2,1fr); }
+            .blog-title-list { columns: 1; }
         }
         @media (max-width: 700px) {
+            .bento-sidebar { grid-template-columns: 1fr; }
             .blog-grid-bento { grid-template-columns: 1fr; }
             .dual-video-bento { grid-template-columns: 1fr; }
             .other-grid { grid-template-columns: 1fr; }
@@ -532,29 +691,31 @@
             .hero-compact { flex-direction: column; align-items: flex-start; }
             nav ul { display: none; }
             .mobile-toggle { display: block; }
+            .header-flex { flex-wrap: wrap; }
         }
 
-        /* back to top & whatsapp (original kept) */
+        /* floating buttons (original) */
         .whatsapp-button {
             position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
             background: #25D366; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; color: white;
             font-size: 28px; box-shadow: 0 8px 25px rgba(37,211,102,0.3);
-            z-index: 1000; transition: 0.2s;
+            z-index: 1000; transition: 0.2s; text-decoration: none;
         }
         .whatsapp-button:hover { transform: scale(1.1); }
         #backToTop {
             position: fixed; bottom: 100px; right: 30px; width: 50px; height: 50px;
-            background: var(--deep-green); border: none; border-radius: 50%;
+            background: var(--navy); border: none; border-radius: 50%;
             color: white; font-size: 20px; cursor: pointer; display: none;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2); z-index: 999;
         }
+        #backToTop:hover { background: var(--teal); }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-flex">
-            <div class="logo"><h1>डा. विकास पौडेल – चर्मरोग र साहित्य</h1></div>
+            <div class="logo"><h1>डा. विकास <span>पौडेल</span></h1></div>
             <nav>
                 <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
                 <ul>
@@ -573,7 +734,7 @@
         </div>
     </header>
 
-    <!-- minimal hero section (bold, compact) -->
+    <!-- minimal hero section (bold, compact, navy) -->
     <section class="blog-hero-minimal">
         <div class="container hero-compact">
             <div class="hero-text">
@@ -591,7 +752,7 @@
     <div class="container bento-layout">
         <!-- main bento area (left) -->
         <div class="bento-main">
-            <!-- category filters (kept original categories) -->
+            <!-- category filters -->
             <div class="filter-pills">
                 <button class="filter-btn active" data-category="all"><span class="lang-nepali">सबै</span><span class="lang-english" style="display:none;">All</span></button>
                 <button class="filter-btn" data-category="medical"><span class="lang-nepali">चिकित्सा</span><span class="lang-english" style="display:none;">Medical</span></button>
@@ -600,11 +761,11 @@
                 <button class="filter-btn" data-category="personal"><span class="lang-nepali">व्यक्तिगत</span><span class="lang-english" style="display:none;">Personal</span></button>
             </div>
 
-            <!-- blog cards grid (asymmetric bento) - all original posts preserved -->
+            <!-- blog cards grid -->
             <div class="blog-grid-bento" id="blog-grid">
                 <!-- Blog 1 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/acne-treat.jpg" alt="acne" class="blog-card-image">
+                    <img src="images/acne-treat.jpg" alt="acne" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical lang-nepali">चिकित्सा डर्माटोलोजी</span><span class="blog-card-category medical lang-english" style="display:none;">Medical Dermatology</span>
                         <h3 class="blog-card-title lang-nepali">Understanding Acne: Causes, Treatment, and Prevention</h3>
@@ -617,7 +778,7 @@
                 </div>
                 <!-- Blog 2 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/chemical-peel.webp" alt="chemical peel" class="blog-card-image">
+                    <img src="images/chemical-peel.webp" alt="chemical peel" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">The Science Behind Chemical Peels</h3>
@@ -628,7 +789,7 @@
                 </div>
                 <!-- Blog 3 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/sunscreen-hero.jpg" alt="sunscreen" class="blog-card-image">
+                    <img src="images/sunscreen-hero.jpg" alt="sunscreen" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">Sun Protection: More Than Just Sunscreen</h3>
@@ -639,7 +800,7 @@
                 </div>
                 <!-- Blog 4 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/laser-skin.jpg" alt="laser" class="blog-card-image">
+                    <img src="images/laser-skin.jpg" alt="laser" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">डर्माटोलोजीमा लेजर उपचारहरू</h3>
@@ -650,7 +811,7 @@
                 </div>
                 <!-- Blog 5 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/eczema.webp" alt="eczema" class="blog-card-image">
+                    <img src="images/eczema.webp" alt="eczema" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">एक्जिमा व्यवस्थापन: दैनिक हेरचाहका सुझावहरू</h3>
@@ -661,7 +822,7 @@
                 </div>
                 <!-- Blog 6 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/hair-loss.webp" alt="hair loss" class="blog-card-image">
+                    <img src="images/hair-loss.webp" alt="hair loss" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">कपाल झर्ने समस्या: कारण र आधुनिक उपचार</h3>
@@ -672,7 +833,7 @@
                 </div>
                 <!-- Blog 7 -->
                 <div class="blog-card" data-category="medical">
-                    <img src="images/blue-light.jpg" alt="blue light" class="blog-card-image">
+                    <img src="images/blue-light.jpg" alt="blue light" class="blog-card-image" onerror="this.style.display='none'">
                     <div class="blog-card-content">
                         <span class="blog-card-category medical">चिकित्सा</span>
                         <h3 class="blog-card-title">Effects of Mobile Blue Light Health Risks</h3>
@@ -683,7 +844,7 @@
                 </div>
             </div>
 
-            <!-- dedicated list of all blog titles (clickable) with anchor -->
+            <!-- dedicated list of all blog titles -->
             <div id="blog-titles" class="blog-titles-panel fade-in">
                 <h3><span class="lang-nepali">सबै ब्लग शीर्षकहरू</span><span class="lang-english" style="display:none;">All blog titles</span></h3>
                 <ul class="blog-title-list">
@@ -707,18 +868,63 @@
             </div>
         </div>
 
-        <!-- sidebar (right rail) -->
+        <!-- sidebar (right rail) - with dedicated social media section -->
         <aside class="bento-sidebar">
+            <!-- SOCIAL MEDIA SIDEBAR (dedicated floating/sticky) -->
+            <div class="social-sidebar">
+                <h4><i class="fas fa-share-alt" style="margin-right:10px; color:var(--teal);"></i> सामाजिक मिडिया</h4>
+                
+                <!-- TikTok widget -->
+                <div class="social-widget">
+                    <div class="widget-header">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                        <span class="handle">@skindoctor.vikash</span>
+                    </div>
+                    <div class="social-card">
+                        <!-- TikTok embed (fallback: profile link + latest video placeholder) -->
+                        <div class="tiktok-embed" style="min-height:220px; background:#f0f4f8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:12px;">
+                            <i class="fab fa-tiktok" style="font-size:2.8rem; color:#010101;"></i>
+                            <p style="font-weight:600; color:var(--navy); font-size:1rem;">@skindoctor.vikash</p>
+                            <p style="font-size:0.85rem; color:#5a6b7a; text-align:center;">नवीनतम टिकटक भिडियो हेर्नुहोस्</p>
+                            <a href="https://www.tiktok.com/@skindoctor.vikash" target="_blank" style="background:var(--navy); color:white; padding:8px 20px; border-radius:40px; text-decoration:none; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:8px;">
+                                <i class="fab fa-tiktok"></i> प्रोफाइलमा जानुहोस्
+                            </a>
+                            <!-- Attempt to embed latest video (blocked by CORS, but we provide the link) -->
+                            <div style="margin-top:8px; width:100%; border-radius:12px; overflow:hidden; background:white; padding:8px; text-align:center; border:1px solid #ddd;">
+                                <p style="font-size:0.75rem; color:#888;">⬇️ भिडियो हेर्न तल क्लिक गर्नुहोस्</p>
+                                <a href="https://www.tiktok.com/@skindoctor.vikash/video/7428562187655695646" target="_blank" style="font-size:0.85rem; color:var(--teal); font-weight:500;">नवीनतम भिडियो →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facebook widget -->
+                <div class="social-widget">
+                    <div class="widget-header">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                        <span class="handle">Vikash Derma</span>
+                    </div>
+                    <div class="social-card">
+                        <!-- Facebook page plugin (original, kept) -->
+                        <div class="fb-page-embed">
+                            <div class="fb-page" data-href="https://www.facebook.com/vikashderma" data-width="340" data-height="280" data-small-header="true" data-adapt-container-width="true" data-show-facepile="true"></div>
+                        </div>
+                        <div style="margin-top:10px; display:flex; justify-content:flex-end;">
+                            <a href="https://www.facebook.com/vikashderma" target="_blank" style="font-size:0.8rem; color:var(--teal); font-weight:500;"><i class="fab fa-facebook"></i> पेजमा जानुहोस्</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Original sidebar cards (search, recent, subscribe) -->
             <div class="sidebar-card">
                 <h4><span class="lang-nepali">खोज</span><span class="lang-english" style="display:none;">Search</span></h4>
                 <form id="search-form" style="display:flex; gap:8px;">
-                    <input type="text" id="search-input" placeholder="खोज्नुहोस्..." style="flex:1; padding:12px; border-radius:40px; border:1px solid var(--sand);">
-                    <button type="submit" style="background:var(--deep-green); color:white; border:none; border-radius:40px; padding:0 20px;"><i class="fas fa-search"></i></button>
+                    <input type="text" id="search-input" placeholder="खोज्नुहोस्..." style="flex:1; padding:12px 16px; border-radius:40px; border:1px solid #dce4ec; background:#f8fafc; font-size:0.9rem;">
+                    <button type="submit" style="background:var(--navy); color:white; border:none; border-radius:40px; padding:0 20px; cursor:pointer;"><i class="fas fa-search"></i></button>
                 </form>
-            </div>
-            <div class="sidebar-card">
-                <h4><span class="lang-nepali">फेसबुक पेज</span><span class="lang-english" style="display:none;">Facebook</span></h4>
-                <div class="fb-page-container"><div class="fb-page" data-href="https://www.facebook.com/vikashderma" data-width="340" data-height="300" data-small-header="true" data-adapt-container-width="true"></div></div>
             </div>
             <div class="sidebar-card">
                 <h4><span class="lang-nepali">भर्खरको</span><span class="lang-english" style="display:none;">Recent</span></h4>
@@ -733,12 +939,12 @@
             </div>
             <div class="sidebar-card">
                 <h4><span class="lang-nepali">सदस्यता</span><span class="lang-english" style="display:none;">Subscribe</span></h4>
-                <form id="subscribe-form"><input type="email" placeholder="इमेल" style="width:100%; padding:12px; border-radius:40px; border:1px solid var(--sand); margin-bottom:12px;"><button class="btn-small" style="width:100%;">Subscribe</button></form>
+                <form id="subscribe-form"><input type="email" placeholder="इमेल" style="width:100%; padding:12px 16px; border-radius:40px; border:1px solid #dce4ec; background:#f8fafc; margin-bottom:12px; font-size:0.9rem;"><button class="btn-small" style="width:100%; background:var(--navy); color:white; border:none; padding:12px; border-radius:40px; font-weight:600; cursor:pointer;">Subscribe</button></form>
             </div>
         </aside>
     </div>
 
-    <!-- dual video section (original content) -->
+    <!-- dual video section -->
     <div class="container dual-video-bento">
         <div class="video-card">
             <h3 class="lang-nepali">कपाल झर्ने, तालु खुइलिने सम्बन्धि</h3><h3 class="lang-english" style="display:none;">Hair fall & alopecia</h3>
@@ -750,9 +956,9 @@
         </div>
     </div>
 
-    <!-- other blogs (original list) -->
+    <!-- other blogs -->
     <div class="container other-blogs-bento">
-        <h2 style="font-size:2rem;"><span class="lang-nepali">अन्य ब्लगहरू</span><span class="lang-english" style="display:none;">Other blogs</span></h2>
+        <h2 style="font-size:1.8rem; color:var(--navy);"><span class="lang-nepali">अन्य ब्लगहरू</span><span class="lang-english" style="display:none;">Other blogs</span></h2>
         <div class="other-grid">
             <div class="other-item"><a href="summer-skin.html">गर्मीको छाला रोगहरू <i class="fas fa-arrow-right"></i></a></div>
             <div class="other-item"><a href="winter-skin.html">जाडोको छाला रोगहरू <i class="fas fa-arrow-right"></i></a></div>
@@ -766,42 +972,41 @@
         </div>
     </div>
 
-    <!-- newspaper section (original articles) -->
+    <!-- newspaper section -->
     <div class="container newspaper-bento">
-        <div class="newspaper-card"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" class="newspaper-logo"><p class="newspaper-title">“मेरो कपाल फुल्न थाल्यो, के गरौं ?”</p><a href="https://www.onlinekhabar.com/2024/07/1511295/my-hair-started-growing-what-should-i-do" target="_blank" class="btn-small">पढ्नुहोस्</a></div>
-        <div class="newspaper-card"><img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" class="newspaper-logo"><p>"A look at hyperpigmentation"</p><a href="https://kathmandupost.com/art-culture/2024/08/06/a-look-at-hyperpigmentation" target="_blank" class="btn-small">Read</a></div>
-        <div class="newspaper-card"><img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" class="newspaper-logo"><p>"Keeping skin healthy in dry seasons"</p><a href="https://kathmandupost.com/life--style/2024/03/27/keeping-skin-healthy-in-dry-seasons" target="_blank" class="btn-small">Read</a></div>
-        <div class="newspaper-card"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" class="newspaper-logo"><p>“जाडोमा ओठ किन फुट्छ, कसरी बच्ने ?”</p><a href="https://www.onlinekhabar.com/2024/11/1566424/why-lips-crack-in-winter-how-to-avoid" target="_blank" class="btn-small">पढ्नुहोस्</a></div>
+        <div class="newspaper-card"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" class="newspaper-logo" alt="onlinekhabar"><p>“मेरो कपाल फुल्न थाल्यो, के गरौं ?”</p><a href="https://www.onlinekhabar.com/2024/07/1511295/my-hair-started-growing-what-should-i-do" target="_blank" class="btn-small">पढ्नुहोस्</a></div>
+        <div class="newspaper-card"><img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" class="newspaper-logo" alt="kathmandupost"><p>"A look at hyperpigmentation"</p><a href="https://kathmandupost.com/art-culture/2024/08/06/a-look-at-hyperpigmentation" target="_blank" class="btn-small">Read</a></div>
+        <div class="newspaper-card"><img src="https://assets-cdn.kathmandupost.com/static/img/site/kathmandupost-logo.svg" class="newspaper-logo" alt="kathmandupost"><p>"Keeping skin healthy in dry seasons"</p><a href="https://kathmandupost.com/life--style/2024/03/27/keeping-skin-healthy-in-dry-seasons" target="_blank" class="btn-small">Read</a></div>
+        <div class="newspaper-card"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-10/images/logo.png" class="newspaper-logo" alt="onlinekhabar"><p>“जाडोमा ओठ किन फुट्छ, कसरी बच्ने ?”</p><a href="https://www.onlinekhabar.com/2024/11/1566424/why-lips-crack-in-winter-how-to-avoid" target="_blank" class="btn-small">पढ्नुहोस्</a></div>
     </div>
 
-    <!-- footer (original content, modern) -->
+    <!-- footer -->
     <footer>
         <div class="container footer-grid">
             <div><h3 style="color:var(--gold);">डा. विकास पौडेल</h3><p>शंखमूल हेल्थकेयर, काठमाडौं</p><div><a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-circle"><i class="fab fa-instagram"></i></a></div></div>
-            <div><h4 style="color:white;">Quick Links</h4><p><a href="index.html" style="color:#b9cec4;">गृहपृष्ठ</a></p><p><a href="about.html" style="color:#b9cec4;">बारेमा</a></p></div>
+            <div><h4 style="color:white;">Quick Links</h4><p><a href="index.html">गृहपृष्ठ</a></p><p><a href="about.html">बारेमा</a></p></div>
             <div><h4 style="color:white;">सम्पर्क</h4><p>+977-1-5242511</p><p>vikashpaudel@gmail.com</p></div>
             <div><h4 style="color:white;">समय</h4><p>आइत-शुक्र ४-७ बजे</p></div>
         </div>
-        <div class="container copyright" style="text-align:center; padding-top:40px;">© डा. विकास पौडेल – चर्मरोग र साहित्य २०२६
-            डा. विकास पौडेल - डर्माटोलोजी र साहित्य। सर्वाधिकार सुरक्षित। यस वेबसाइटमा रहेको जानकारी शैक्षिक उद्देश्यको लागि मात्र हो। निदान र उपचारको लागि योग्य डर्माटोलोजिस्टसँग परामर्श गर्नुहोस्।</div>
+        <div class="container copyright" style="text-align:center; padding-top:40px; font-size:0.9rem; opacity:0.7;">© डा. विकास पौडेल – चर्मरोग र साहित्य २०२६</div>
     </footer>
 
-    <!-- floating buttons (original) -->
+    <!-- floating buttons -->
     <a href="https://wa.me/9779825207253" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // simple language toggle (kept from original, minimal)
+        // language toggle
         const nepaliBtn = document.getElementById('langNepali');
         const englishBtn = document.getElementById('langEnglish');
         function switchLang(lang) {
             document.querySelectorAll('.lang-nepali').forEach(el => el.style.display = lang==='ne' ? 'block' : 'none');
             document.querySelectorAll('.lang-english').forEach(el => el.style.display = lang==='en' ? 'block' : 'none');
-            nepaliBtn.classList.toggle('active', lang==='ne');
-            englishBtn.classList.toggle('active', lang==='en');
+            if (nepaliBtn) nepaliBtn.classList.toggle('active', lang==='ne');
+            if (englishBtn) englishBtn.classList.toggle('active', lang==='en');
         }
-        nepaliBtn.addEventListener('click',()=>switchLang('ne'));
-        englishBtn.addEventListener('click',()=>switchLang('en'));
+        if (nepaliBtn) nepaliBtn.addEventListener('click',()=>switchLang('ne'));
+        if (englishBtn) englishBtn.addEventListener('click',()=>switchLang('en'));
         switchLang('ne');
 
         // animations on scroll
@@ -811,7 +1016,7 @@
         }, {threshold:0.2});
         faders.forEach(el => observer.observe(el));
 
-        // category filter (original functionality)
+        // category filter
         const filterBtns = document.querySelectorAll('.filter-btn');
         const cards = document.querySelectorAll('.blog-card');
         filterBtns.forEach(btn => {
