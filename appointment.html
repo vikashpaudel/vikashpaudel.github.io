@@ -229,6 +229,43 @@
       flex-wrap: wrap;
     }
 
+    /* NOTICE BANNER - Dr. unavailable */
+    .notice-banner {
+      background: #FFF3E0;
+      color: #B85C00;
+      border-left: 6px solid #ED6A5E;
+      padding: 1.25rem 2rem;
+      border-radius: var(--border-radius-md);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    .notice-banner i {
+      font-size: 2.2rem;
+      color: #ED6A5E;
+    }
+    .notice-banner .notice-text {
+      flex: 1;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .notice-banner .notice-text strong {
+      color: #A33E2E;
+    }
+    .notice-banner .notice-dates {
+      background: #ED6A5E;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
     /* Hero Section */
     .booking-hero {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -821,6 +858,8 @@
       .form-body { padding: 1.5rem; }
       .emergency-banner { flex-direction: column; gap: 0.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
+      .notice-banner { flex-direction: column; text-align: center; gap: 0.75rem; }
+      .notice-banner .notice-dates { white-space: normal; }
     }
     @media (max-width: 480px) {
       main { padding: 0 1rem; }
@@ -869,6 +908,23 @@
         <span><i class="fas fa-police"></i> <a href="tel:100">100</a> – Nepal Police</span>
       </div>
       <span style="font-size:0.85rem; opacity:0.9;"><i class="fas fa-info-circle"></i> Do not use this form for emergencies.</span>
+    </div>
+
+    <!-- NOTICE BANNER - Dr. unavailable due to Japan visit -->
+    <div class="notice-banner">
+      <i class="fas fa-plane-departure"></i>
+      <div class="notice-text">
+        <strong data-en="Dr. Vikash Paudel is away in Japan for the International Psoriasis Masterclass." data-np="डा. विकास पौडेल अन्तर्राष्ट्रीय सोरायसिस मास्टरक्लासको लागि जापानमा हुनुहुन्छ।">
+          Dr. Vikash Paudel is away in Japan for the International Psoriasis Masterclass.
+        </strong>
+        <br>
+        <span data-en="He will not be available for consultations until 12th October 2026. Appointments cannot be booked for dates before 12th October 2026." data-np="उनी १२ अक्टोबर २०२६ सम्म परामर्शको लागि उपलब्ध हुनेछैनन्। १२ अक्टोबर २०२६ भन्दा पहिलेको मितिको लागि अपोइन्टमेन्ट बुक गर्न सकिँदैन।">
+          He will not be available for consultations until <strong>12th October 2026</strong>. Appointments cannot be booked for dates before <strong>12th October 2026</strong>.
+        </span>
+      </div>
+      <span class="notice-dates">
+        <i class="fas fa-calendar-times"></i> Booking resumes 12 Oct 2026
+      </span>
     </div>
 
     <!-- Hero Section with Doctor Photo -->
@@ -960,8 +1016,8 @@
             <h2 data-en="Request an Appointment" data-np="अपोइन्टमेन्टको लागि अनुरोध गर्नुहोस्">
               Request an Appointment
             </h2>
-            <p data-en="Fill in your details below and we'll confirm within 24 hours" data-np="तल आफ्नो विवरण भर्नुहोस् र हामी २४ घण्टाभित्र पुष्टि गर्नेछौं">
-              Fill in your details below and we'll confirm within 24 hours
+            <p data-en="Fill in your details below and we'll confirm within 24 hours. Please note: Dr. Paudel is away until 12th October 2026." data-np="तल आफ्नो विवरण भर्नुहोस् र हामी २४ घण्टाभित्र पुष्टि गर्नेछौं। कृपया ध्यान दिनुहोस्: डा. पौडेल १२ अक्टोबर २०२६ सम्म बाहिर हुनुहुन्छ।">
+              Fill in your details below and we'll confirm within 24 hours. Please note: Dr. Paudel is away until 12th October 2026.
             </p>
           </div>
           
@@ -1050,6 +1106,7 @@
                       <span class="required-star">*</span>
                     </label>
                     <input type="date" id="preferredDate" name="preferredDate" required class="form-input" onchange="validateDate()" />
+                    <div class="helper-text"><i class="fas fa-exclamation-triangle" style="color: #ED6A5E;"></i> <span data-en="Earliest available: 12th October 2026" data-np="सबैभन्दा चाँडो उपलब्ध: १२ अक्टोबर २०२६">Earliest available: 12th October 2026</span></div>
                   </div>
                   <div class="form-group">
                     <label for="preferredTime" class="form-label">
@@ -1250,6 +1307,9 @@
       emailjs.init("NpPYGnVdsqxvzVuyg");   // Updated public key
     })();
 
+    // IMPORTANT: Dr. Paudel is unavailable until 12 October 2026
+    const UNAVAILABLE_UNTIL = new Date('2026-10-12');
+    
     function updateTimeSlots() {
       const clinicSelect = document.getElementById('clinicLocation');
       const timeSelect = document.getElementById('preferredTime');
@@ -1294,6 +1354,14 @@
       const clinicSelect = document.getElementById('clinicLocation');
       const dateInput = document.getElementById('preferredDate');
       const selectedDate = new Date(dateInput.value);
+      
+      // Block dates before 12 October 2026
+      if (selectedDate < UNAVAILABLE_UNTIL) {
+        alert('Dr. Vikash Paudel is away in Japan for the International Psoriasis Masterclass until 12th October 2026. Please select a date on or after 12th October 2026.');
+        dateInput.value = '';
+        return;
+      }
+      
       const dayOfWeek = selectedDate.getDay();
       
       if (clinicSelect.value === 'Shubharambha Skin Centre, Dhangadhi') {
@@ -1316,9 +1384,16 @@
       const preferredDateInput = document.getElementById('preferredDate');
       const submitBtn = document.getElementById('submit-btn');
       const formStatus = document.getElementById('form-status');
-      const today = new Date().toISOString().split('T')[0];
-      preferredDateInput.min = today;
-
+      
+      // Set minimum date to 12 October 2026 (Dr. Paudel unavailable until then)
+      const minDateStr = UNAVAILABLE_UNTIL.toISOString().split('T')[0];
+      preferredDateInput.min = minDateStr;
+      
+      // Also set a default value hint if empty
+      if (!preferredDateInput.value) {
+        // Optionally set default to 12 Oct 2026 but we leave it empty for user to pick
+      }
+      
       function showStatus(message, type) {
         formStatus.innerHTML = `<div class="status-message status-${type}"><i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>${message}</div>`;
         formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1356,8 +1431,15 @@
           }
           if (age < 1 || age > 120) { showStatus('Please enter a valid age (1-120).', 'error'); return; }
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) { showStatus('Please enter a valid email address.', 'error'); return; }
+          
           const selectedDate = new Date(preferredDate);
-          if (selectedDate < new Date(today)) { showStatus('Please select a future date for your appointment.', 'error'); return; }
+          
+          // Block dates before 12 Oct 2026
+          if (selectedDate < UNAVAILABLE_UNTIL) {
+            showStatus('Dr. Vikash Paudel is away in Japan for the International Psoriasis Masterclass until 12th October 2026. Please select a date on or after 12th October 2026.', 'error');
+            return;
+          }
+          
           const dayOfWeek = selectedDate.getDay();
           if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) { showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error'); return; }
           if (clinicLocation !== 'Teledermatology' && clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek === 6) { showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error'); return; }
@@ -1375,7 +1457,7 @@
             .then(function(response) {
               showStatus('Thank you! We will contact you within 24 hours to confirm your appointment.', 'success');
               appointmentForm.reset();
-              preferredDateInput.min = today;
+              preferredDateInput.min = minDateStr; // reset min
               updateTimeSlots();
             })
             .catch(function(error) {
