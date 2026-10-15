@@ -189,17 +189,139 @@
       padding: 0 2rem;
     }
 
+    /* Festive Banner */
+    .festive-banner {
+      background: linear-gradient(135deg, #C41E3A 0%, #8B0000 50%, #FFD700 100%);
+      color: white;
+      border-radius: var(--border-radius-lg);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      border: 2px solid rgba(255, 215, 0, 0.5);
+    }
+    .festive-banner::before {
+      content: "🪔";
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      opacity: 0.7;
+    }
+    .festive-banner::after {
+      content: "🪔";
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      opacity: 0.7;
+    }
+    .festive-banner h2 {
+      color: #FFD700;
+      font-size: 1.9rem;
+      margin-bottom: 0.25rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      letter-spacing: 0.5px;
+      z-index: 2;
+      position: relative;
+    }
+    .festive-banner h2 .np {
+      display: block;
+      font-size: 1.4rem;
+      color: #FFF8E7;
+      font-weight: 500;
+      margin-top: 0.25rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    .festive-banner p {
+      font-size: 1.15rem;
+      color: #FFF8E7;
+      max-width: 700px;
+      z-index: 2;
+      position: relative;
+      font-style: italic;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Holiday Notice */
+    .holiday-notice {
+      background: #FFF8E7;
+      border: 2px solid #FFD700;
+      border-left: 8px solid #C41E3A;
+      border-radius: var(--border-radius-md);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .holiday-notice h3 {
+      color: #8B0000;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .holiday-notice h3 i {
+      color: #C41E3A;
+      font-size: 1.4rem;
+    }
+    .holiday-notice ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.75rem 2rem;
+    }
+    .holiday-notice li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 1rem;
+      color: var(--foreground);
+      padding: 0.4rem 0;
+    }
+    .holiday-notice li i {
+      color: #C41E3A;
+      margin-top: 0.2rem;
+      font-size: 1rem;
+      min-width: 1.2rem;
+    }
+    .holiday-notice li strong {
+      color: #8B0000;
+    }
+    .holiday-notice .online-note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #FFD700;
+      color: var(--accent);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .holiday-notice .online-note i {
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
     /* Hero Section */
     .booking-hero {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       border-radius: var(--border-radius-lg);
-      padding: 4rem; /* Increased padding for larger space */
+      padding: 4rem;
       margin-bottom: 3rem;
       color: white;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4rem; /* Increased gap */
+      gap: 4rem;
     }
 
     .hero-content {
@@ -208,7 +330,7 @@
 
     .hero-content h1 {
       color: white;
-      font-size: 3.5rem; /* Increased font size slightly */
+      font-size: 3.5rem;
       margin-bottom: 0.5rem;
     }
 
@@ -234,8 +356,8 @@
     }
 
     .doctor-photo {
-      width: 300px; /* Increased size for hero image */
-      height: 300px; /* Increased size for hero image */
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(5px);
@@ -616,6 +738,12 @@
       border: 1px solid #FECACA;
     }
 
+    .status-info {
+      background: #E8F0F5;
+      color: var(--primary);
+      border: 1px solid var(--primary-light);
+    }
+
     /* Loading Spinner */
     .spinner {
       display: inline-block;
@@ -780,6 +908,13 @@
       .floating-buttons { bottom: 1rem; right: 1rem; }
       .form-body { padding: 1.5rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
+      .festive-banner { padding: 1.5rem 1rem; }
+      .festive-banner h2 { font-size: 1.5rem; }
+      .festive-banner h2 .np { font-size: 1.1rem; }
+      .festive-banner::before, .festive-banner::after { font-size: 2rem; opacity: 0.5; }
+      .festive-banner::before { left: 0.5rem; }
+      .festive-banner::after { right: 0.5rem; }
+      .holiday-notice ul { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       main { padding: 0 1rem; }
@@ -788,6 +923,9 @@
       .btn { padding: 0.875rem 1.5rem; }
       .quick-facts-row { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
+      .festive-banner h2 { font-size: 1.2rem; }
+      .festive-banner h2 .np { font-size: 0.95rem; }
+      .festive-banner p { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -820,6 +958,29 @@
   </nav>
 
   <main>
+    <!-- Festive Banner -->
+    <div class="festive-banner" role="banner" aria-label="Festive greeting">
+      <h2>
+        Happy Dashain and Tihar!
+        <span class="np">शुभ दशैं तथा तिहारको हार्दिक मंगलमय शुभकामना!</span>
+      </h2>
+      <p>“Wishing you and your family happiness, good health, and prosperity this festive season.”</p>
+    </div>
+
+    <!-- Holiday Notice -->
+    <div class="holiday-notice" role="alert" aria-label="Holiday schedule notice">
+      <h3><i class="fas fa-calendar-times"></i> Holiday Notice – Appointment Availability</h3>
+      <ul>
+        <li><i class="fas fa-circle"></i> <span><strong>Dashain vacation:</strong> October 18–24, 2026, inclusive.</span></li>
+        <li><i class="fas fa-circle"></i> <span><strong>Tihar vacation:</strong> November 8–11, 2026, inclusive.</span></li>
+        <li><i class="fas fa-ban"></i> <span><strong>Physical appointments are unavailable</strong> during these dates at all clinic locations.</span></li>
+      </ul>
+      <div class="online-note">
+        <i class="fas fa-laptop-medical"></i>
+        <span><strong>Online consultations</strong> may be requested during both holidays, <em>subject to the doctor’s availability and confirmation.</em></span>
+      </div>
+    </div>
+
     <!-- Hero Section with Doctor Photo -->
     <section class="booking-hero">
       <div class="hero-content">
@@ -1053,6 +1214,10 @@
                   <i class="fas fa-lock"></i>
                   <span data-en="Your information is secure and confidential" data-np="तपाईंको जानकारी सुरक्षित र गोप्य छ">Your information is secure and confidential</span>
                 </div>
+                <div class="helper-text" style="justify-content: center; margin-top: 0.5rem; color: var(--primary);">
+                  <i class="fas fa-info-circle"></i>
+                  <span data-en="Online appointment requests are subject to confirmation." data-np="अनलाइन अपोइन्टमेन्ट अनुरोधहरू पुष्टिको अधीनमा छन्।">Online appointment requests are subject to confirmation.</span>
+                </div>
               </div>
             </form>
           </div>
@@ -1189,9 +1354,42 @@
 
     // EmailJS init with the provided public key
     (function() {
-      emailjs.init("NpPYGnVdsqxvzVuyg");   // Updated public key
+      emailjs.init("NpPYGnVdsqxvzVuyg");
     })();
-    
+
+    // ================== HOLIDAY VALIDATION (Nepal Time) ==================
+    // Holiday ranges in Asia/Kathmandu: Dashain Oct 18–24, 2026; Tihar Nov 8–11, 2026
+    const HOLIDAY_RANGES = [
+      { start: '2026-10-18', end: '2026-10-24' },  // Dashain
+      { start: '2026-11-08', end: '2026-11-11' }   // Tihar
+    ];
+
+    /**
+     * Get current date string in Asia/Kathmandu (YYYY-MM-DD)
+     */
+    function getKathmanduDateString(dateObj = new Date()) {
+      // en-CA gives YYYY-MM-DD format
+      return dateObj.toLocaleDateString('en-CA', { timeZone: 'Asia/Kathmandu' });
+    }
+
+    /**
+     * Check if a given date (input YYYY-MM-DD) falls within any holiday range.
+     * Uses pure string comparison since format is YYYY-MM-DD (lexicographically sortable).
+     */
+    function isHoliday(dateString) {
+      if (!dateString) return false;
+      return HOLIDAY_RANGES.some(range => dateString >= range.start && dateString <= range.end);
+    }
+
+    /**
+     * Check if the selected clinic is a physical clinic (not online).
+     */
+    function isPhysicalClinic(clinicValue) {
+      return clinicValue && clinicValue !== 'Teledermatology';
+    }
+
+    // ================== END HOLIDAY VALIDATION ==================
+
     function updateTimeSlots() {
       const clinicSelect = document.getElementById('clinicLocation');
       const timeSelect = document.getElementById('preferredTime');
@@ -1232,19 +1430,33 @@
       }
     }
     
+    // Validate date (existing weekday checks PLUS holiday checks)
     function validateDate() {
       const clinicSelect = document.getElementById('clinicLocation');
       const dateInput = document.getElementById('preferredDate');
-      const selectedDate = new Date(dateInput.value);
-      const dayOfWeek = selectedDate.getDay();
+      const selectedDate = dateInput.value;
+      const selectedClinic = clinicSelect.value;
       
-      if (clinicSelect.value === 'Shubharambha Skin Centre, Dhangadhi') {
+      if (!selectedDate) return;
+
+      // --- Holiday check for physical appointments ---
+      if (isPhysicalClinic(selectedClinic) && isHoliday(selectedDate)) {
+        alert('Physical appointments are unavailable during the holiday. Please select another date or request an online consultation.');
+        dateInput.value = '';
+        return;
+      }
+
+      // --- Weekday checks (existing) ---
+      const dateObj = new Date(selectedDate + 'T00:00:00');
+      const dayOfWeek = dateObj.getDay(); // 0=Sunday, 6=Saturday
+
+      if (selectedClinic === 'Shubharambha Skin Centre, Dhangadhi') {
         if (dayOfWeek !== 6) {
           alert('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.');
           dateInput.value = '';
         }
       }
-      if (clinicSelect.value !== 'Teledermatology' && clinicSelect.value !== 'Shubharambha Skin Centre, Dhangadhi') {
+      if (selectedClinic !== 'Teledermatology' && selectedClinic !== 'Shubharambha Skin Centre, Dhangadhi') {
         if (dayOfWeek === 6) {
           alert('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.');
           dateInput.value = '';
@@ -1259,14 +1471,14 @@
       const submitBtn = document.getElementById('submit-btn');
       const formStatus = document.getElementById('form-status');
       
-      // Set minimum date to today
-      const todayStr = new Date().toISOString().split('T')[0];
-      preferredDateInput.min = todayStr;
+      // Set minimum date to today in Nepal time
+      const todayNepal = getKathmanduDateString();
+      preferredDateInput.min = todayNepal;
       
       function showStatus(message, type) {
-        formStatus.innerHTML = `<div class="status-message status-${type}"><i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>${message}</div>`;
+        formStatus.innerHTML = `<div class="status-message status-${type}"><i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'info' ? 'fa-info-circle' : 'fa-exclamation-circle'}"></i>${message}</div>`;
         formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => formStatus.innerHTML = '', 8000);
+        setTimeout(() => formStatus.innerHTML = '', 10000);
       }
 
       function setLoading(isLoading) {
@@ -1301,8 +1513,15 @@
           if (age < 1 || age > 120) { showStatus('Please enter a valid age (1-120).', 'error'); return; }
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) { showStatus('Please enter a valid email address.', 'error'); return; }
           
-          const selectedDate = new Date(preferredDate);
-          const dayOfWeek = selectedDate.getDay();
+          // ========== HOLIDAY VALIDATION ON SUBMIT ==========
+          if (isPhysicalClinic(clinicLocation) && isHoliday(preferredDate)) {
+            showStatus('Physical appointments are unavailable during the holiday. Please select another date or request an online consultation.', 'error');
+            return;
+          }
+          // ===================================================
+          
+          const selectedDateObj = new Date(preferredDate + 'T00:00:00');
+          const dayOfWeek = selectedDateObj.getDay();
           
           if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) { showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error'); return; }
           if (clinicLocation !== 'Teledermatology' && clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek === 6) { showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error'); return; }
@@ -1312,7 +1531,7 @@
             from_name: fullName, age, phone_number: phoneNumber, reply_to: emailAddress,
             clinic_location: clinicLocation, preferred_date: preferredDate, preferred_time: preferredTime,
             reason_for_visit: reasonForVisit, additional_info: additionalInfo || 'No additional information provided',
-            submitted_at: new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+            submitted_at: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kathmandu', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
           };
           
           // Using the provided Service ID and Template ID
@@ -1320,11 +1539,10 @@
             .then(function(response) {
               showStatus('Thank you! We will contact you within 24 hours to confirm your appointment.', 'success');
               appointmentForm.reset();
-              preferredDateInput.min = todayStr; // reset min
+              preferredDateInput.min = getKathmanduDateString(); // reset min to today (Kathmandu)
               updateTimeSlots();
             })
             .catch(function(error) {
-              // Log full error to browser console for debugging
               console.error('EmailJS error details:', error);
               let errorMsg = 'There was an error submitting your request. ';
               if (error.text) {
@@ -1340,6 +1558,9 @@
 
       updateTimeSlots();
     });
+
+    // Override validateDate to use the new logic (already defined above, but ensure it's the one used)
+    // The function validateDate is defined globally, and the onchange calls it.
   </script>
 </body>
 </html>
