@@ -1,1203 +1,803 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Dr. Vikash Paudel</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("nPsKsuZlR3ghah6k-"); // You'll need to replace with your actual EmailJS public key
-    })();
-  </script>
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary: #1a6aa2;
-      --primary-foreground: #ffffff;
-      --accent: #4db6ac;
-      --background: #ffffff;
-      --foreground: #333333;
-      --muted-foreground: #666666;
-      --border: #e0e0e0;
-      --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
-      --transition-smooth: all 0.3s ease;
-      --destructive: #dc2626;
-      --destructive-foreground: #ffffff;
-      --success: #10b981;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--foreground);
-      background-color: var(--background);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--primary-foreground);
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Navigation Styles */
-    .navbar {
-      background-color: var(--background);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      position: relative;
-    }
-
-    .navbar-brand {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .navbar-menu {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .navbar-item {
-      margin: 0;
-    }
-
-    .navbar-link {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: var(--foreground);
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-bottom: 3px solid transparent;
-      font-size: 0.95rem;
-    }
-
-    .navbar-link:hover {
-      color: var(--primary);
-      background-color: #f5f5f5;
-    }
-
-    .navbar-link.active {
-      color: var(--primary);
-      border-bottom: 3px solid var(--accent);
-    }
-
-    .book-appointment {
-      background-color: var(--primary);
-      color: white;
-      border-radius: 4px;
-      margin-left: 1rem;
-    }
-
-    .book-appointment:hover {
-      background-color: #155d8a;
-      color: white;
-    }
-
-    .book-appointment i {
-      margin-right: 8px;
-    }
-
-    .language-toggle {
-      background: none;
-      border: none;
-      color: var(--foreground);
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin-left: 1rem;
-      padding: 0.5rem;
-      border-radius: 4px;
-      transition: var(--transition-smooth);
-    }
-
-    .language-toggle:hover {
-      background-color: #f5f5f5;
-    }
-
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--foreground);
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    /* Main Content Styles */
-    main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero-section {
-      background: linear-gradient(135deg, rgba(26, 106, 162, 0.8), rgba(44, 138, 201, 0.8)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--primary-foreground);
-      padding: 4rem 0;
-    }
-
-    .hero-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-section p {
-      font-size: 1.125rem;
-      opacity: 0.9;
-      max-width: 600px;
-    }
-
-    .content-section {
-      padding: 4rem 0;
-      background-color: var(--background);
-    }
-
-    .max-w-6xl {
-      max-width: 72rem;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .space-y-12 > * + * {
-      margin-top: 3rem;
-    }
-
-    /* Typography */
-    h2 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--foreground);
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .text-lg {
-      font-size: 1.125rem;
-    }
-
-    .text-muted-foreground {
-      color: var(--muted-foreground);
-    }
-
-    .leading-relaxed {
-      line-height: 1.625;
-    }
-
-    /* Card Styles */
-    .card {
-      background-color: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: var(--transition-smooth);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .card-content {
-      padding: 1.75rem;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .items-start {
-      align-items: flex-start;
-    }
-
-    .space-x-3 > * + * {
-      margin-left: 0.75rem;
-    }
-
-    .w-5 {
-      width: 1.25rem;
-    }
-
-    .h-5 {
-      height: 1.25rem;
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .shrink-0 {
-      flex-shrink: 0;
-    }
-
-    .mt-0\.5 {
-      margin-top: 0.125rem;
-    }
-
-    .text-sm {
-      font-size: 0.875rem;
-    }
-
-    .mb-4 {
-      margin-bottom: 1rem;
-    }
-
-    .space-y-4 > * + * {
-      margin-top: 1rem;
-    }
-
-    .pt-3 {
-      padding-top: 0.75rem;
-    }
-
-    .border-t {
-      border-top: 1px solid var(--border);
-    }
-
-    .border-border {
-      border-color: var(--border);
-    }
-
-    .mb-2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .ml-8 {
-      margin-left: 2rem;
-    }
-
-    .space-y-1 > * + * {
-      margin-top: 0.25rem;
-    }
-
-    .font-medium {
-      font-weight: 500;
-    }
-
-    /* Clinic Grid */
-    .clinics-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .clinics-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .mb-8 {
-      margin-bottom: 2rem;
-    }
-
-    /* Button Styles */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      border: none;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-    }
-
-    .btn-primary:hover {
-      background-color: #155d8a;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-lg {
-      padding: 0.875rem 1.75rem;
-      font-size: 1.125rem;
-    }
-
-    .w-full {
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .md\:w-auto {
-        width: auto;
-      }
-    }
-
-    /* Emergency Notice */
-    .emergency-notice {
-      border: 1px solid rgba(220, 38, 38, 0.5);
-      background-color: rgba(220, 38, 38, 0.05);
-    }
-
-    .text-destructive {
-      color: var(--destructive);
-    }
-
-    .text-lg {
-      font-size: 1.125rem;
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      transition: var(--transition-smooth);
-      text-decoration: none;
-    }
-
-    .whatsapp-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .whatsapp-button i {
-      color: white;
-      font-size: 32px;
-    }
-
-    /* Live Chat Widget */
-    .chat-button {
-      position: fixed;
-      bottom: 100px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background-color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      transition: var(--transition-smooth);
-      cursor: pointer;
-    }
-
-    .chat-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .chat-button i {
-      color: white;
-      font-size: 24px;
-    }
-
-    .chat-container {
-      position: fixed;
-      bottom: 170px;
-      right: 30px;
-      width: 350px;
-      height: 450px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .chat-container.active {
-      display: flex;
-    }
-
-    .chat-header {
-      background-color: var(--primary);
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chat-header h3 {
-      margin: 0;
-      color: white;
-    }
-
-    .close-chat {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 15px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .message {
-      max-width: 80%;
-      padding: 10px 15px;
-      border-radius: 18px;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .user-message {
-      align-self: flex-end;
-      background-color: var(--primary);
-      color: white;
-    }
-
-    .bot-message {
-      align-self: flex-start;
-      background-color: #f0f0f0;
-      color: var(--foreground);
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 10px;
-      border-top: 1px solid var(--border);
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 10px 15px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      outline: none;
-    }
-
-    .chat-input button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-left: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Map Styles */
-    .map-wrapper {
-      margin-top: 15px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .map-iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-      
-      .navbar-container {
-        flex-wrap: wrap;
-      }
-      
-      .navbar-toggle {
-        display: block;
-      }
-      
-      .navbar-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        padding: 0;
-      }
-      
-      .navbar-menu.active {
-        display: flex;
-      }
-      
-      .navbar-link {
-        padding: 0.8rem 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border);
-      }
-      
-      .navbar-link.active {
-        border-bottom: 3px solid var(--accent);
-      }
-      
-      .book-appointment {
-        margin-left: 0;
-        margin-top: 0.5rem;
-      }
-      
-      .language-toggle {
-        margin-left: 0;
-        margin-top: 0.5rem;
-      }
-      
-      .chat-container {
-        width: 300px;
-        height: 400px;
-        right: 15px;
-      }
-      
-      .whatsapp-button, .chat-button {
-        right: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-section {
-        padding: 2rem 0;
-      }
-      
-      .hero-section h1 {
-        font-size: 1.8rem;
-      }
-      
-      .card-content {
-        padding: 1.25rem;
-      }
-      
-      .chat-container {
-        width: calc(100% - 30px);
-        right: 15px;
-      }
-    }
-
-    /* Link Styles */
-    a {
-      color: var(--muted-foreground);
-      transition: var(--transition-smooth);
-    }
-
-    a:hover {
-      color: var(--primary);
-    }
-
-    /* Nepali Language Styles */
-    .nepali {
-      display: none;
-    }
-
-    /* Additional CSS Classes */
-    .text-3xl {
-      font-size: 1.875rem;
-    }
-
-    .font-bold {
-      font-weight: 700;
-    }
-
-    .text-foreground {
-      color: var(--foreground);
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .text-xl {
-      font-size: 1.25rem;
-    }
-
-    .font-semibold {
-      font-weight: 600;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>Contact | Dr. Vikash Paudel — Consultant Dermatologist</title>
+<meta name="description" content="Contact Dr. Vikash Paudel, consultant dermatologist in Kathmandu. Find clinic locations, phone numbers, opening hours and directions to Shankhamul Health Care, Elite Health Clinic and Shubharambha Skin Centre.">
+<meta name="keywords" content="contact dermatologist Kathmandu, Dr Vikash Paudel contact, skin clinic Kathmandu, Shankhamul Health Care, Elite Health Clinic, Shubharambha Skin Centre">
+<meta name="author" content="Dr. Vikash Paudel">
+<meta name="geo.region" content="NP-KA"><meta name="geo.placename" content="Kathmandu">
+<meta property="og:title" content="Contact — Dr. Vikash Paudel">
+<meta property="og:description" content="Find clinic locations, phone numbers and directions for Dr. Vikash Paudel, consultant dermatologist in Kathmandu.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://vikashpaudel.com.np/contact.html">
+<meta property="og:image" content="https://vikashpaudel.com.np/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@vikashpaudel">
+<link rel="canonical" href="https://vikashpaudel.com.np/contact.html">
+<link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--p:#082B4C;--pl:#0A3A62;--pd:#061F36;--ps:#F3F9FC;--a:#008C95;--ad:#00666E;--as:#DDF4F4;--bg:#FFF;--bga:#F6FAFC;--bgaq:#EEF8F8;--sf:#FFF;--tx:#162536;--txm:#536273;--txs:#758394;--od:#B9C7D3;--bd:#DFE7EC;--bds:#C9D6DE;--wa:#25D366;--fb:#1877F2;--fh:'DM Serif Display',Georgia,serif;--fb2:'Inter',system-ui,sans-serif;--fd:'Noto Sans Devanagari','Inter',sans-serif;--rs:8px;--rm:12px;--rl:16px;--rx:22px;--rp:999px;--shs:0 2px 8px rgba(8,43,76,.06);--shm:0 10px 24px rgba(8,43,76,.08);--shl:0 18px 42px rgba(8,43,76,.12);--cm:1240px;--hh:78px;--ss:clamp(3.5rem,7vw,5.5rem);--e:cubic-bezier(.22,.61,.36,1);--tf:160ms var(--e);--t:260ms var(--e);--em:#B00020;--apb:#FFF;--apt:#162536;--apbd:#DFE7EC;--acb:#F6FAFC;--ach:#E8F0F5}
+body.night-mode{--p:#4FC3F7;--pl:#4FC3F7;--pd:#0A1628;--ps:#0F3460;--a:#4FC3F7;--ad:#81D4FA;--as:#0F3460;--bg:#0F1B2D;--bga:#0A1628;--bgaq:#102A44;--sf:#0F3460;--tx:#E4EAF0;--txm:#B0BCC9;--txs:#8A98A8;--bd:#1F3450;--bds:#2C4A6B;--shs:0 2px 8px rgba(0,0,0,.4);--shm:0 10px 24px rgba(0,0,0,.5);--shl:0 18px 42px rgba(0,0,0,.6);--em:#A93226;--apb:#0F1B2D;--apt:#E4EAF0;--apbd:#1F3450;--acb:#0F3460;--ach:#163E70}
+body.color-blind-mode{--a:#2980B9;--ad:#1A5276;--as:#D6EAF8}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 20px)}
+body{margin:0;font-family:var(--fb2);font-size:1.0625rem;line-height:1.7;color:var(--tx);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;cursor:none}
+body[lang="ne"]{font-family:var(--fd)}body[lang="ne"] h1,body[lang="ne"] h2,body[lang="ne"] h3,body[lang="ne"] h4{font-family:var(--fd);font-weight:600}
+img,svg{max-width:100%}img{height:auto}ul{margin:0;padding:0;list-style:none}button{font:inherit}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:400;line-height:1.2;letter-spacing:-.01em;color:var(--p);margin:0 0 .6em;text-wrap:balance}
+h1{font-size:clamp(2.1rem,4.4vw,3.4rem)}h2{font-size:clamp(1.7rem,2.9vw,2.4rem)}h3{font-size:clamp(1.1rem,1.6vw,1.35rem)}h4{font-size:1.0625rem}
+p{margin:0 0 1rem}p:last-child{margin-bottom:0}
+.container{width:100%;max-width:var(--cm);margin:0 auto;padding:0 clamp(1.15rem,4vw,2.5rem)}
+.section{padding:var(--ss) 0}.section--alt{background:var(--bga)}.section--aqua{background:var(--bgaq)}
+.skip-link{position:absolute;top:-100px;left:1rem;z-index:9999;background:var(--p);color:#fff;padding:.75rem 1.25rem;border-radius:var(--rs);text-decoration:none;font-weight:600}.skip-link:focus{top:1rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ad);margin:0 0 .85rem}.eyebrow i{color:var(--a)}
+.section-head{max-width:720px;margin-bottom:clamp(2rem,4vw,3rem)}.section-head--center{margin:0 auto;text-align:center}.section-head--center .section-sub{margin:0 auto}
+.section-sub{color:var(--txm);font-size:1.0625rem;max-width:62ch;margin:0}
+.divider{width:56px;height:3px;border-radius:2px;background:var(--a);margin:1.25rem 0 1.5rem}.section-head--center .divider{margin:1.25rem auto 1.5rem}
+a{color:var(--ad)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.8rem 1.5rem;border:1.5px solid transparent;border-radius:var(--rs);font-family:var(--fb2);font-size:.98rem;font-weight:600;line-height:1;text-align:center;text-decoration:none;cursor:pointer;transition:transform var(--t),box-shadow var(--t),background var(--t),color var(--t),border-color var(--t)}
+.btn i{font-size:.9em;transition:transform var(--t)}
+.btn-primary{background:var(--p);color:#fff;box-shadow:var(--shs)}.btn-primary:hover,.btn-primary:focus-visible{background:var(--pl);transform:translateY(-2px);box-shadow:var(--shm)}
+.btn-outline{background:transparent;color:var(--p);border-color:var(--bds)}.btn-outline:hover,.btn-outline:focus-visible{border-color:var(--p);background:var(--ps);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--p);box-shadow:var(--shm)}.btn-light:hover{background:var(--as);transform:translateY(-2px)}
+.link-arrow{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;font-size:.95rem;color:var(--ad);text-decoration:none;padding:.35rem 0;transition:color var(--t),gap var(--t)}.link-arrow:hover{color:var(--p);gap:.7rem}
+:focus-visible{outline:3px solid var(--a);outline-offset:3px;border-radius:4px}
+
+/* EMERGENCY */
+.emergency-banner{background:var(--em);color:#fff;text-align:center;padding:.55rem 1rem;font-size:.82rem;font-weight:500;position:relative;z-index:1001;display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.12)}
+.emergency-banner a{color:#fff;text-decoration:underline;font-weight:700}.emergency-banner .emergency-divider{opacity:.3}
+@media(max-width:700px){.emergency-banner{font-size:.72rem;padding:.4rem .65rem;gap:.5rem}.emergency-banner .emergency-divider{display:none}}
+
+/* CURSOR */
+.custom-cursor{position:fixed;pointer-events:none;z-index:9999;width:30px;height:30px;border-radius:50%;background:rgba(0,140,149,.08);border:1.5px solid rgba(0,140,149,.35);transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s;top:0;left:0}
+.custom-cursor .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:50%;background:var(--a);box-shadow:0 0 10px rgba(0,140,149,.5)}
+.custom-cursor.is-moving{width:40px;height:40px;background:rgba(0,140,149,.16);border-color:rgba(0,140,149,.65)}
+@media(hover:none) and (pointer:coarse){.custom-cursor{display:none!important}body{cursor:auto!important}}
+
+/* LEFT SOCIAL */
+.left-social-widget{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:.55rem}
+.social-left-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--sf);color:var(--txm);box-shadow:var(--shs);border:1px solid var(--bd);text-decoration:none;font-size:.95rem;transition:all var(--t)}
+.social-left-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:var(--shm);color:#fff}
+.fb-left:hover{background:#1877F2;border-color:#1877F2}.ig-left:hover{background:#E4405F;border-color:#E4405F}.tt-left:hover{background:#000;border-color:#000}.yt-left:hover{background:#FF0000;border-color:#FF0000}.li-left:hover{background:#0A66C2;border-color:#0A66C2}
+@media(max-width:900px){.left-social-widget{display:none}}
+
+/* COLOR BLIND TOGGLE */
+.accessibility-toggle-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:900;display:flex;align-items:center;gap:.75rem;padding:.5rem .95rem .5rem .85rem;border-radius:var(--rp);background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid var(--bd);box-shadow:var(--shm);font-size:.8rem;transition:background .4s,border-color .4s}
+body.night-mode .accessibility-toggle-wrap{background:rgba(15,27,45,.94)}
+.toggle-label{display:flex;align-items:center;gap:.45rem;font-weight:600;color:var(--tx);white-space:nowrap}.toggle-label i{color:var(--a);font-size:1rem}
+.toggle-switch{position:relative;width:42px;height:22px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;cursor:pointer;inset:0;background:#C9D6DE;transition:.3s;border-radius:34px}
+.toggle-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle-switch input:checked + .toggle-slider{background:var(--a)}.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+@media(max-width:640px){.accessibility-toggle-wrap{bottom:16px;padding:.4rem .75rem;gap:.55rem;font-size:.72rem}.toggle-switch{width:36px;height:20px}.toggle-slider::before{height:14px;width:14px}.toggle-switch input:checked + .toggle-slider::before{transform:translateX(16px)}}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:800;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:background var(--t),box-shadow var(--t),border-color var(--t)}
+body.night-mode .site-header{background:rgba(15,27,45,.94)}
+.site-header.is-scrolled{background:rgba(255,255,255,.98);border-bottom-color:var(--bd);box-shadow:0 4px 20px rgba(8,43,76,.06)}
+body.night-mode .site-header.is-scrolled{background:rgba(15,27,45,.98)}
+.header-inner{display:flex;align-items:center;gap:1rem;min-height:var(--hh)}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;flex-shrink:0}
+.brand-mark{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(150deg,var(--p),var(--a));color:#fff;font-size:1.05rem;box-shadow:var(--shs)}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{font-family:var(--fh);font-size:1.16rem;color:var(--p);letter-spacing:.005em}
+.brand-role{font-size:.68rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--txs)}
+.nav-menu{display:flex;align-items:center;gap:.05rem;margin-left:auto}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:inline-flex;align-items:center;gap:.3rem;padding:.55rem .65rem;border-radius:var(--rs);font-size:.88rem;font-weight:500;color:var(--tx);text-decoration:none;white-space:nowrap;position:relative;transition:color var(--tf)}
+.nav-menu>li>a::after{content:"";position:absolute;left:.65rem;right:.65rem;bottom:.25rem;height:2px;border-radius:2px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform var(--t)}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{color:var(--p)}.nav-menu>li>a:hover::after,.nav-menu>li>a.active::after{transform:scaleX(1)}
+.nav-menu>li>a .fa-chevron-down{font-size:.6rem;color:var(--txs);transition:transform var(--t)}
+.has-dropdown:hover>a .fa-chevron-down,.has-dropdown:focus-within>a .fa-chevron-down{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:250px;padding:.4rem;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);box-shadow:var(--shl);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity var(--t),transform var(--t),visibility var(--t);z-index:60}
+.dropdown a{display:block;padding:.58rem .85rem;border-radius:var(--rs);font-size:.875rem;color:var(--tx);text-decoration:none;transition:background var(--tf),color var(--tf),padding-left var(--tf)}
+.dropdown a:hover{background:var(--ps);color:var(--p);padding-left:1.1rem}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.book-now-nav{margin-left:.35rem}
+.book-now-nav a{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;border-radius:var(--rs);background:var(--p);color:#fff!important;font-size:.88rem;font-weight:600;text-decoration:none;box-shadow:var(--shs);transition:background var(--t),transform var(--t),box-shadow var(--t)}
+.book-now-nav a::after{display:none}.book-now-nav a:hover{background:var(--ad);transform:translateY(-2px);box-shadow:var(--shm)}
+.language-switcher{position:relative;margin-left:.35rem}
+.language-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border:1px solid var(--bd);border-radius:var(--rp);background:var(--bga);color:var(--p);font-size:.82rem;font-weight:600;cursor:pointer;transition:background var(--t),border-color var(--t)}
+.language-btn:hover,.language-btn:focus-visible{background:var(--as);border-color:var(--a)}
+.language-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);box-shadow:var(--shl);min-width:160px;padding:.35rem;opacity:0;visibility:hidden;transform:translateY(8px);transition:all var(--t);z-index:60}
+.language-dropdown.active{opacity:1;visibility:visible;transform:translateY(0)}
+.language-option{padding:.55rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.6rem;border-radius:var(--rs);font-size:.85rem;color:var(--tx);transition:background var(--tf)}
+.language-option:hover{background:var(--ps)}
+.language-flag{width:20px;height:14px;border-radius:2px}
+.theme-toggle-nav{display:inline-flex;align-items:center;justify-content:center;margin-left:.35rem;width:38px;height:38px;border-radius:50%;background:var(--bga);border:1px solid var(--bd);color:var(--p);font-size:1rem;cursor:pointer;transition:background var(--t),transform var(--t),color var(--t)}
+.theme-toggle-nav:hover,.theme-toggle-nav:focus-visible{background:var(--as);color:var(--ad);transform:rotate(-15deg)}
+.mobile-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;border:1px solid var(--bd);border-radius:var(--rs);background:var(--sf);color:var(--p);font-size:1.05rem;cursor:pointer}
+.mobile-toggle:hover{background:var(--ps)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(2.5rem,5vw,4.5rem) 0 clamp(2rem,4vw,3.5rem);background:linear-gradient(180deg,#F7FBFD 0%,#FFF 100%)}
+body.night-mode .hero{background:linear-gradient(180deg,#0A1628 0%,#0F1B2D 100%)}
+.hero-decor{position:absolute;inset:0;pointer-events:none}
+.hero-orb{position:absolute;border-radius:50%}
+.hero-orb--1{width:540px;height:540px;top:-200px;right:-180px;background:radial-gradient(circle at 35% 35%,rgba(0,140,149,.13),rgba(0,140,149,0) 70%)}
+.hero-orb--2{width:460px;height:460px;bottom:-220px;left:-180px;background:radial-gradient(circle at 60% 40%,rgba(8,43,76,.10),rgba(8,43,76,0) 70%)}
+.hero-inner{position:relative;max-width:860px}
+.hero-copy h1{margin-bottom:1rem}
+.hero-lead{font-size:1.08rem;color:var(--txm);max-width:60ch;margin-bottom:1.5rem}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem 1.25rem}
+
+/* CLINIC CARDS */
+.clinics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem}
+.clinic-card{background:var(--sf);border:1px solid var(--bd);border-left:4px solid var(--a);border-radius:var(--rm);padding:1.6rem 1.5rem;transition:transform var(--t),box-shadow var(--t),border-color var(--t);display:flex;flex-direction:column;gap:.9rem}
+.clinic-card:hover{transform:translateY(-4px);box-shadow:var(--shm);border-left-color:var(--p)}
+.clinic-card h3{font-family:var(--fb2);font-size:1.1rem;font-weight:600;color:var(--p);margin:0}
+.clinic-row{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--txm);line-height:1.55}
+.clinic-row i{color:var(--a);flex-shrink:0;margin-top:.3rem;font-size:.95rem;width:18px;text-align:center}
+.clinic-row a{color:var(--txm);text-decoration:none;transition:color var(--tf)}.clinic-row a:hover{color:var(--p)}
+.clinic-hours{padding-top:.85rem;border-top:1px solid var(--bd)}
+.clinic-hours-title{display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;color:var(--p);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em}
+.clinic-hours-title i{color:var(--a)}
+.clinic-hours ul{display:flex;flex-direction:column;gap:.3rem;font-size:.84rem;color:var(--txm)}
+.clinic-hours li{display:flex;flex-wrap:wrap;gap:.3rem}
+.clinic-hours .day{font-weight:600;color:var(--tx)}
+.clinic-map{margin-top:.4rem;border-radius:var(--rs);overflow:hidden;border:1px solid var(--bd);box-shadow:var(--shs)}
+.clinic-map iframe{width:100%;height:200px;border:0;display:block}
+
+/* EMERGENCY NOTICE */
+.emergency-notice{background:rgba(176,0,32,.05);border:1px solid rgba(176,0,32,.35);border-left:4px solid var(--em);border-radius:var(--rm);padding:1.5rem 1.6rem;margin-top:2.5rem}
+body.night-mode .emergency-notice{background:rgba(169,50,38,.14);border-color:rgba(169,50,38,.4)}
+.emergency-notice h3{font-family:var(--fb2);font-size:1.05rem;font-weight:600;color:var(--em);margin:0 0 .6rem;display:flex;align-items:center;gap:.55rem}
+.emergency-notice h3 i{font-size:1rem}
+.emergency-notice p{font-size:.92rem;color:var(--txm);line-height:1.65;margin:0}
+
+/* QUICK CONTACT */
+.quick-contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem}
+.quick-contact-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);padding:1.3rem 1.2rem;text-align:center;transition:transform var(--t),box-shadow var(--t),border-color var(--t);text-decoration:none;color:var(--tx);display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.quick-contact-card:hover{transform:translateY(-4px);box-shadow:var(--shm);border-color:var(--a);color:var(--p)}
+.quick-contact-card i{font-size:1.6rem;color:var(--ad);margin-bottom:.35rem;transition:color var(--t)}
+.quick-contact-card:hover i{color:var(--p)}
+.quick-contact-card .qc-title{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--txs)}
+.quick-contact-card .qc-value{font-size:.95rem;font-weight:600;color:var(--p);word-break:break-word}
+
+/* FOOTER */
+.site-footer{background:var(--pd);color:var(--od);padding:clamp(2.5rem,4vw,3.5rem) 0 1.25rem;font-size:.85rem}
+.footer-container{display:grid;grid-template-columns:1.5fr 1fr 1.4fr 1.2fr;gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.10)}
+.footer-column h3{font-family:var(--fb2);font-size:.95rem;font-weight:600;letter-spacing:.04em;color:#fff;margin:0 0 1rem}
+.footer-column>p{font-size:.82rem;line-height:1.6;color:var(--od);margin:0 0 1rem;max-width:34ch}
+.footer-links{display:grid;gap:.5rem}
+.footer-links a{color:var(--od);text-decoration:none;font-size:.82rem;transition:color var(--tf),padding-left var(--tf)}
+.footer-links a:hover{color:#fff;padding-left:3px}
+.footer-contact{display:grid;gap:1rem}
+.footer-contact li{display:flex;gap:.7rem;font-size:.82rem;line-height:1.55;color:var(--od)}
+.footer-contact i{color:var(--a);font-size:.9rem;margin-top:.22rem;flex-shrink:0}
+.footer-contact strong{display:block;color:#fff;font-weight:600;font-size:.82rem;margin-bottom:.15rem}
+.footer-contact p{margin:0}
+.social-links{display:flex;gap:.5rem;margin-top:1.1rem;flex-wrap:wrap}
+.social-links a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);color:#fff;font-size:.82rem;text-decoration:none;transition:background var(--t),transform var(--t)}
+.social-links a:hover{background:var(--a);transform:translateY(-2px)}
+.social-links a.whatsapp-footer{background:var(--wa)}.social-links a.whatsapp-footer:hover{background:#128C7E}
+.social-links a.x-footer:hover{background:#000}
+.copyright{padding-top:1.25rem;text-align:center;font-size:.74rem;color:rgba(255,255,255,.55)}
+
+/* FLOATING */
+.whatsapp-button,.facebook-button,.accessibility-widget-toggle{position:fixed;right:16px;z-index:850;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.3rem;cursor:pointer;border:none;text-decoration:none;box-shadow:var(--shl);transition:transform var(--t),background var(--t)}
+.whatsapp-button{bottom:76px;background:var(--wa)}.whatsapp-button:hover,.whatsapp-button:focus-visible{background:#128C7E;transform:translateY(-3px)}
+.facebook-button{bottom:136px;background:var(--fb)}.facebook-button:hover,.facebook-button:focus-visible{background:#0F5FCC;transform:translateY(-3px)}
+.accessibility-widget-toggle{bottom:196px;background:var(--p);font-size:1.2rem}
+.accessibility-widget-toggle:hover,.accessibility-widget-toggle:focus-visible{background:var(--ad);transform:translateY(-3px) rotate(8deg)}
+@media(max-width:640px){.whatsapp-button,.facebook-button,.accessibility-widget-toggle{width:44px;height:44px;font-size:1.1rem;right:12px}.whatsapp-button{bottom:70px}.facebook-button{bottom:122px}.accessibility-widget-toggle{bottom:174px}}
+
+/* CHAT */
+.chat-widget{position:fixed;bottom:16px;right:16px;z-index:860}
+.chat-button{width:54px;height:54px;border-radius:50%;background:var(--p);color:#fff;font-size:1.3rem;display:grid;place-items:center;border:none;cursor:pointer;box-shadow:var(--shl);transition:transform var(--t),background var(--t)}
+.chat-button:hover,.chat-button:focus-visible{background:var(--ad);transform:translateY(-3px)}
+.chat-container{position:absolute;bottom:calc(100% + 12px);right:0;width:340px;max-width:calc(100vw - 2rem);height:460px;display:none;flex-direction:column;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rl);box-shadow:var(--shl);overflow:hidden;z-index:870}
+.chat-container.active{display:flex;animation:fadeUp .3s var(--e)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;background:var(--p);color:#fff}
+.chat-header h3{font-family:var(--fb2);font-size:.95rem;font-weight:600;color:#fff;margin:0}
+.close-chat{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer;padding:.25rem .4rem;border-radius:4px}
+.close-chat:hover{background:rgba(255,255,255,.15)}
+.chat-messages{flex:1;display:flex;flex-direction:column;gap:.7rem;padding:1rem;overflow-y:auto;background:var(--bga)}
+.message{max-width:82%;padding:.65rem .9rem;border-radius:14px;font-size:.875rem;line-height:1.5;word-wrap:break-word}
+.message.bot{align-self:flex-start;background:var(--sf);border:1px solid var(--bd);border-bottom-left-radius:4px;color:var(--tx)}
+.message.user{align-self:flex-end;background:var(--p);color:#fff;border-bottom-right-radius:4px}
+.chat-input{display:flex;gap:.5rem;padding:.75rem;background:var(--sf);border-top:1px solid var(--bd)}
+.chat-input input{flex:1;min-width:0;padding:.6rem .85rem;border:1px solid var(--bd);border-radius:var(--rp);font-family:inherit;font-size:.875rem;color:var(--tx);background:var(--bga);outline:none}
+.chat-input input:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(0,140,149,.15)}
+.chat-input button{width:40px;height:40px;flex-shrink:0;border:none;border-radius:50%;background:var(--p);color:#fff;cursor:pointer;display:grid;place-items:center}
+.chat-input button:hover{background:var(--ad)}
+@media(max-width:640px){.chat-container{right:-8px;width:calc(100vw - 1.5rem);height:65vh}}
+
+/* ACCESSIBILITY PANEL */
+.accessibility-panel{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);width:92%;max-width:880px;max-height:88vh;overflow-y:auto;padding:1.75rem 1.5rem;background:var(--apb);color:var(--apt);border:1px solid var(--apbd);border-radius:var(--rl);box-shadow:var(--shl);z-index:1300;opacity:0;visibility:hidden;transition:opacity var(--t),transform var(--t),visibility var(--t)}
+.accessibility-panel.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.accessibility-panel::-webkit-scrollbar{width:6px}
+.accessibility-panel::-webkit-scrollbar-track{background:var(--acb);border-radius:10px}
+.accessibility-panel::-webkit-scrollbar-thumb{background:var(--a);border-radius:10px}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:.85rem;margin-bottom:1.25rem;border-bottom:1px solid var(--apbd)}
+.panel-header h2{font-family:var(--fh);font-size:1.35rem;display:flex;align-items:center;gap:.65rem;color:var(--apt);margin:0}
+.panel-header h2 i{color:var(--a)}
+.close-panel{background:transparent;border:none;font-size:1.75rem;color:var(--apt);cursor:pointer;padding:0 .35rem;border-radius:4px}
+.close-panel:hover{transform:rotate(90deg);outline:2px solid var(--a);outline-offset:2px}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.85rem}
+.tool-item{display:flex;flex-direction:column;gap:.5rem;padding:.9rem .85rem;background:var(--acb);border:1px solid transparent;border-radius:var(--rm);transition:background var(--t),border-color var(--t)}
+.tool-item:hover{background:var(--ach);border-color:var(--a)}
+.tool-item label{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--apt);opacity:.8;display:flex;align-items:center;gap:.4rem}
+.tool-item label i{width:18px;text-align:center;color:var(--a)}
+.tool-item select{width:100%;padding:.35rem .5rem;border:1px solid var(--apbd);border-radius:var(--rs);background:var(--apb);color:var(--apt);font-size:.82rem}
+.btn-group{display:flex;gap:.3rem;flex-wrap:wrap}
+.btn-group button{flex:1;min-width:40px;padding:.35rem .5rem;border:1px solid var(--apbd);background:var(--apb);color:var(--apt);border-radius:var(--rs);cursor:pointer;font-size:.78rem;font-weight:500;transition:all var(--tf)}
+.btn-group button.active{background:var(--a);color:#fff;border-color:var(--a)}
+.btn-group button:hover:not(.active){background:var(--ach)}
+.toggle-btn{position:relative;width:42px;height:22px;background:#C9D6DE;border-radius:30px;border:none;cursor:pointer;transition:background var(--t);align-self:flex-start}
+.toggle-btn.active{background:var(--a)}
+.toggle-btn::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform var(--t)}
+.toggle-btn.active::after{transform:translateX(20px)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.reveal.is-visible{opacity:1;transform:none}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.fade-in.visible{opacity:1;transform:none}
+.stagger>*:nth-child(1){transition-delay:0ms}.stagger>*:nth-child(2){transition-delay:70ms}.stagger>*:nth-child(3){transition-delay:140ms}.stagger>*:nth-child(4){transition-delay:210ms}.stagger>*:nth-child(5){transition-delay:280ms}.stagger>*:nth-child(6){transition-delay:350ms}
+.hero-copy>*{animation:fadeUp .7s var(--e) both}
+.hero-copy>*:nth-child(1){animation-delay:.05s}.hero-copy>*:nth-child(2){animation-delay:.12s}.hero-copy>*:nth-child(3){animation-delay:.19s}.hero-copy>*:nth-child(4){animation-delay:.26s}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+:root{--hh:68px}
+.mobile-toggle{display:inline-flex}
+.nav-menu{position:fixed;top:var(--hh);left:0;right:0;display:flex;flex-direction:column;align-items:stretch;gap:.15rem;margin:0;padding:.85rem clamp(1.15rem,4vw,2.5rem) 1.5rem;background:var(--sf);border-bottom:1px solid var(--bd);box-shadow:var(--shl);max-height:calc(100vh - var(--hh));max-height:calc(100dvh - var(--hh));overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity var(--t),transform var(--t),visibility var(--t)}
+.nav-menu.active{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-menu>li{width:100%}
+.nav-menu>li>a{width:100%;justify-content:space-between;padding:.8rem .5rem;font-size:.98rem;border-bottom:1px solid var(--bd);border-radius:0}
+.nav-menu>li>a::after{display:none}
+.dropdown{position:static;min-width:0;width:auto;margin:.3rem 0 .6rem .6rem;padding:0 0 0 .75rem;border:0;border-left:2px solid var(--bd);border-radius:0;box-shadow:none;opacity:1;visibility:visible;transform:none;display:none}
+.nav-menu li:hover .dropdown,.nav-menu li:focus-within .dropdown,.nav-menu li.open .dropdown{display:block}
+.dropdown a{padding:.55rem .5rem}
+.book-now-nav{margin:.85rem 0 0}.book-now-nav a{width:100%;justify-content:center}
+.language-switcher{margin:.75rem 0 0}.language-btn{width:100%;justify-content:center}
+.theme-toggle-nav{margin:.75rem auto 0}
+}
+@media(max-width:900px){.footer-container{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}}
+@media(max-width:640px){
+body{font-size:1rem}
+.footer-container{grid-template-columns:1fr;gap:1.75rem}
+.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{width:100%}
+.brand-role{display:none}.brand-name{font-size:1.05rem}
+.accessibility-panel .tools-grid{grid-template-columns:repeat(2,1fr)}
+.clinics-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}.reveal,.fade-in{opacity:1!important;transform:none!important}.hero-copy>*{animation:none!important;opacity:1!important}}
+@media print{.site-header,.chat-widget,.accessibility-panel,.left-social-widget,.accessibility-toggle-wrap,.custom-cursor,.emergency-banner,.facebook-button,.whatsapp-button,.accessibility-widget-toggle{display:none!important}body{color:#000;cursor:auto}}
+body.filter-protanopia{filter:url('#protanopia-filter')}body.filter-deuteranopia{filter:url('#deuteranopia-filter')}body.filter-tritanopia{filter:url('#tritanopia-filter')}
+</style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Dr. Vikash Paudel</a>
-      <button class="navbar-toggle" id="navbar-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul class="navbar-menu" id="navbar-menu">
-        <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-        <li class="navbar-item"><a href="services.html" class="navbar-link">Services</a></li>
-        <li class="navbar-item"><a href="research.html" class="navbar-link">Research</a></li>
-        <li class="navbar-item"><a href="award.html" class="navbar-link">Awards</a></li>
-        <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
-        <li class="navbar-item"><a href="contact.html" class="navbar-link active">Contact</a></li>
-        <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
-        <li class="navbar-item"><a href="appointment.html" class="navbar-link book-appointment"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
-        <li class="navbar-item">
-          <button class="language-toggle" id="language-toggle">
-            <i class="fas fa-globe"></i>
-          </button>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner" role="alert" aria-label="Emergency contact banner">
+  <span><i class="fas fa-phone-alt emergency-icon" aria-hidden="true"></i> 24/7 Emergency: <a href="tel:102">102</a></span>
+  <span class="emergency-divider" aria-hidden="true">|</span>
+  <span><i class="fas fa-clock emergency-icon" aria-hidden="true"></i> <span data-en="Open 6 Days a Week, Saturday Closed" data-np="हप्ताको ६ दिन खुला, शनिबार बन्द">Open 6 Days a Week, Saturday Closed</span></span>
+  <span class="emergency-divider" aria-hidden="true">|</span>
+  <span><i class="fas fa-map-marker-alt emergency-icon" aria-hidden="true"></i> <span data-en="Kathmandu, Nepal" data-np="काठमाडौं, नेपाल">Kathmandu, Nepal</span></span>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="custom-cursor" id="customCursor" aria-hidden="true"><div class="dot"></div></div>
+
+<!-- SKIP LINK -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- LEFT SOCIAL WIDGET -->
+<div class="left-social-widget" role="complementary" aria-label="Social media links">
+  <a href="https://facebook.com/vikashderma" target="_blank" rel="noopener noreferrer" class="social-left-btn fb-left" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-left-btn ig-left" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+  <a href="https://www.tiktok.com/@skindoctor.vikash" target="_blank" rel="noopener noreferrer" class="social-left-btn tt-left" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+  <a href="https://youtube.com/@vikashpaudel" target="_blank" rel="noopener noreferrer" class="social-left-btn yt-left" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+  <a href="https://linkedin.com/in/vikashpaudel/" target="_blank" rel="noopener noreferrer" class="social-left-btn li-left" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+</div>
+
+<!-- COLOR BLIND TOGGLE -->
+<div class="accessibility-toggle-wrap" id="accessibilityToggleWrap" role="complementary" aria-label="Color blind mode toggle">
+  <span class="toggle-label"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-en="Color Blind Mode" data-np="रङ अन्धा मोड">Color Blind Mode</span></span>
+  <label class="toggle-switch"><input type="checkbox" id="colorBlindToggle" aria-label="Toggle color blind mode" /><span class="toggle-slider"></span></label>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Dr. Vikash Paudel - Home">
+      <span class="brand-mark" aria-hidden="true"><i class="fas fa-stethoscope"></i></span>
+      <span class="brand-text">
+        <span class="brand-name">Dr. Vikash Paudel</span>
+        <span class="brand-role" data-en="Consultant Dermatologist · Kathmandu" data-np="छालारोग विशेषज्ञ · काठमाडौं">Consultant Dermatologist</span>
+      </span>
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" id="navMenu" role="menubar">
+        <li role="none"><a href="index.html#home" role="menuitem" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+        <li role="none" class="has-dropdown">
+          <a href="services.html" role="menuitem" data-en="Services" data-np="सेवाहरू">Services <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+          <ul class="dropdown" role="menu">
+            <li role="none"><a href="acne.html" role="menuitem" data-en="Acne Treatment" data-np="डन्डिफोर उपचार">Acne Treatment</a></li>
+            <li role="none"><a href="peel.html" role="menuitem" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
+            <li role="none"><a href="hair.html" role="menuitem" data-en="Hair Restoration" data-np="कपाल सम्बन्धि">Hair Restoration</a></li>
+            <li role="none"><a href="laser.html" role="menuitem" data-en="LASER Therapy" data-np="लेजर उपचार">LASER Therapy</a></li>
+            <li role="none"><a href="sti.html" role="menuitem" data-en="STI Treatment" data-np="यौन संक्रमण/रोग उपचार">STI Treatment</a></li>
+            <li role="none"><a href="cosmetic.html" role="menuitem" data-en="Cosmetic Procedures" data-np="कस्मेटिक उपचार">Cosmetic Procedures</a></li>
+          </ul>
         </li>
+        <li role="none"><a href="research.html" role="menuitem" data-en="Research" data-np="अनुसन्धान">Research</a></li>
+        <li role="none"><a href="award.html" role="menuitem" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
+        <li role="none"><a href="index.html#testimonials" role="menuitem" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
+        <li role="none"><a href="about.html" role="menuitem" data-en="About" data-np="हाम्रो बारेमा">About</a></li>
+        <li role="none"><a href="contact.html" role="menuitem" class="active" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+        <li role="none"><a href="blog.html" role="menuitem" data-en="Blog" data-np="ब्लग">Blog</a></li>
+        <li role="none" class="book-now-nav">
+          <a href="appointment.html" role="menuitem"><i class="fas fa-calendar-check" aria-hidden="true"></i> <span data-en="Book Now" data-np="बुक गर्नुहोस्">Book Now</span></a>
+        </li>
+        <li role="none" class="language-switcher">
+          <button class="language-btn" id="languageBtn" aria-label="Switch language" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-globe" aria-hidden="true"></i><span>English</span><i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="language-dropdown" id="languageDropdown" role="menu">
+            <div class="language-option" data-lang="en" role="menuitem" tabindex="0">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHJlY3QgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMiIGZpbGw9IiNmZmYiLz48cmVjdCB5PSI2IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjEyIiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjE4IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjI0IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RlMjcyNyIvPjwvc3ZnPg==" alt="English flag" class="language-flag" loading="lazy" width="20" height="14" />
+              <span>English</span>
+            </div>
+            <div class="language-option" data-lang="np" role="menuitem" tabindex="0">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Nepal flag" class="language-flag" loading="lazy" width="20" height="14" />
+              <span>नेपाली</span>
+            </div>
+          </div>
+        </li>
+        <li role="none"><button class="theme-toggle-nav" id="themeToggleNav" aria-label="Toggle day/night mode"><i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i></button></li>
       </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="contact-title">
+    <div class="hero-decor" aria-hidden="true">
+      <span class="hero-orb hero-orb--1"></span>
+      <span class="hero-orb hero-orb--2"></span>
     </div>
-  </nav>
-
-  <main>
-    <!-- Header -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="english">Contact Us</h1>
-        <h1 class="nepali">सम्पर्क गर्नुहोस्</h1>
-        <p class="english">Get in touch for appointments, inquiries, or consultations with best dermatologists</p>
-        <p class="nepali">नियुक्ति, जानकारी वा परामर्शको लागि सम्पर्क गर्नुहोस्</p>
-      </div>
-    </section>
-
-    <!-- Contact Content -->
-    <section class="content-section">
-      <div class="container">
-        <div class="max-w-6xl mx-auto space-y-12">
-          <!-- Clinic Locations -->
-          <div>
-            <h2 class="text-3xl font-bold text-foreground mb-8 text-center english">Our Clinic Locations</h2>
-            <h2 class="text-3xl font-bold text-foreground mb-8 text-center nepali">हाम्रा क्लिनिक स्थानहरू</h2>
-            <div class="clinics-grid">
-              <!-- Clinic 1: Private Clinic -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-primary mb-4">Private Clinic</h3>
-                  
-                  <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                      <i class="fas fa-map-marker-alt text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                      <span class="text-sm text-muted-foreground">Lagankhel, Lalitpur, Nepal</span>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-phone text-accent w-5 h-5 shrink-0"></i>
-                      <a href="tel:+977-1-5448007" class="text-sm text-muted-foreground">+977-1-5448007</a>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-envelope text-accent w-5 h-5 shrink-0"></i>
-                      <a href="mailto:pahs@pahs.edu.np" class="text-sm text-muted-foreground">pahs@pahs.edu.np</a>
-                    </div>
-                    
-                    <div class="pt-3 border-t border-border">
-                      <div class="flex items-start space-x-3 mb-2">
-                        <i class="fas fa-clock text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                        <span class="text-sm font-semibold text-foreground english">Hours</span>
-                        <span class="text-sm font-semibold text-foreground nepali">समय</span>
-                      </div>
-                      <div class="ml-8 space-y-1">
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Thursday:</span>
-                          <span class="font-medium nepali">बिहीबार:</span>
-                          <span class="english"> 9:00 AM - 11:00 AM (By appointment only)</span>
-                          <span class="nepali"> 9:00 बिहान - 11:00 बिहान (नियुक्तिमा मात्र)</span>
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Other days:</span>
-                          <span class="font-medium nepali">अन्य दिनहरू:</span>
-                          <span class="english"> Please contact reception for appointment</span>
-                          <span class="nepali"> कृपया नियुक्तिको लागि रिसेप्सन सम्पर्क गर्नुहोस्</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="pt-3 border-t border-border">
-                      <a href="https://booking.pahs.edu.np" target="_blank" class="btn btn-primary w-full english">
-                        <i class="fas fa-calendar-check"></i> Book Appointment
-                      </a>
-                      <a href="https://booking.pahs.edu.np" target="_blank" class="btn btn-primary w-full nepali">
-                        <i class="fas fa-calendar-check"></i> नियुक्ति बुक गर्नुहोस्
-                      </a>
-                    </div>
-                    
-                    <!-- Map for Patan Private Clinic -->
-                    <div class="map-wrapper">
-                      <iframe 
-                        class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3205683!3d27.668302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d1be9baf71%3A0x48893d580864792f!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                      </iframe>
-                    </div>
-
-                    
-                  </div>
-                </div>
-              </div>
-
-              <!-- Clinic 2: Elite Health Clinic -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-primary mb-4">Elite Health Clinic</h3>
-                  
-                  <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                      <i class="fas fa-map-marker-alt text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                      <span class="text-sm text-muted-foreground">Mahalaxmisthan, Lagankhel, Nepal</span>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-phone text-accent w-5 h-5 shrink-0"></i>
-                      <a href="tel:+977-1-5420745" class="text-sm text-muted-foreground">+977-1-5420745, 9828070931</a>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-envelope text-accent w-5 h-5 shrink-0"></i>
-                      <a href="mailto:elitehealthclinic1@gmail.com" class="text-sm text-muted-foreground">elitehealthclinic1@gmail.com</a>
-                    </div>
-                    
-                    <div class="pt-3 border-t border-border">
-                      <div class="flex items-start space-x-3 mb-2">
-                        <i class="fas fa-clock text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                        <span class="text-sm font-semibold text-foreground english">Hours</span>
-                        <span class="text-sm font-semibold text-foreground nepali">समय</span>
-                      </div>
-                      <div class="ml-8 space-y-1">
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Sunday - Friday:</span>
-                          <span class="font-medium nepali">आइतबार - शुक्रबार:</span>
-                          <span class="english"> 4:00 PM (Please contact reception for timings)</span>
-                          <span class="nepali"> 4:00 बेलुका (कृपया समयको लागि रिसेप्सन सम्पर्क गर्नुहोस्)</span>
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Wednesday:</span>
-                          <span class="font-medium nepali">बुधबार:</span>
-                          <span class="english"> Please contact the reception for emergency appointments.</span>
-                          <span class="nepali"> आपतकालीन नियुक्तिको लागि कृपया रिसेप्सन सम्पर्क गर्नुहोस्।</span>
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Saturday:</span>
-                          <span class="font-medium nepali">शनिबार:</span>
-                          <span class="english"> Closed</span>
-                          <span class="nepali"> बन्द</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Map for Elite Health Clinic -->
-                    <div class="map-wrapper">
-                      <iframe 
-                        class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.516024478542!2d85.3191621!3d27.6623373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993552c50e0bf55%3A0xc10c6fde911c0e43!2sDr%20Vikash%20Paudel%20Clinic!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Clinic 3: Shankhamul Healthcare -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-primary mb-4">Shankhamul Healthcare</h3>
-                  
-                  <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                      <i class="fas fa-map-marker-alt text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                      <span class="text-sm text-muted-foreground">Shankhamul, New Baneswor, Kathmandu, Nepal</span>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-phone text-accent w-5 h-5 shrink-0"></i>
-                      <a href="tel:+977-1-5242511" class="text-sm text-muted-foreground">+977-1-5242511, 9810142009</a>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-envelope text-accent w-5 h-5 shrink-0"></i>
-                      <a href="mailto:info@shankhamulhealthcare.com.np" class="text-sm text-muted-foreground">info@shankhamulhealthcare.com.np</a>
-                    </div>
-                    
-                    <div class="pt-3 border-t border-border">
-                      <div class="flex items-start space-x-3 mb-2">
-                        <i class="fas fa-clock text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                        <span class="text-sm font-semibold text-foreground english">Hours</span>
-                        <span class="text-sm font-semibold text-foreground nepali">समय</span>
-                      </div>
-                      <div class="ml-8 space-y-1">
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Sunday to Friday:</span>
-                          <span class="font-medium nepali">आइतबार देखि शुक्रबार:</span>
-                          <span class="english"> 4:00 PM - 7:00 PM</span>
-                          <span class="nepali"> 4:00 बेलुका - 7:00 बेलुका</span>
-                        </div>
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Saturday:</span>
-                          <span class="font-medium nepali">शनिबार:</span>
-                          <span class="english"> Closed</span>
-                          <span class="nepali"> बन्द</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Map for Shankhamul Healthcare -->
-                    <div class="map-wrapper">
-                      <iframe 
-                        class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.393503392584!2d85.3318495!3d27.6813285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199321f634b5%3A0x52ddc625a3481046!2sDr%20Vikash%20Paudel!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Clinic 4: Shubharambha Skin Centre -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-primary mb-4">Shubharambha Skin Centre</h3>
-                  
-                  <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                      <i class="fas fa-map-marker-alt text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                      <span class="text-sm text-muted-foreground">Dhangadhi Kailali, Nepal</span>
-                    </div>
-                    
-                    <div class="flex items-center space-x-3">
-                      <i class="fas fa-phone text-accent w-5 h-5 shrink-0"></i>
-                      <a href="tel:+91-410107" class="text-sm text-muted-foreground">+91-410107, 9848488242</a>
-                    </div>
-                    
-                    <div class="pt-3 border-t border-border">
-                      <div class="flex items-start space-x-3 mb-2">
-                        <i class="fas fa-clock text-accent w-5 h-5 shrink-0 mt-0.5"></i>
-                        <span class="text-sm font-semibold text-foreground english">Hours</span>
-                        <span class="text-sm font-semibold text-foreground nepali">समय</span>
-                      </div>
-                      <div class="ml-8 space-y-1">
-                        <div class="text-sm text-muted-foreground">
-                          <span class="font-medium english">Contact for appointment details</span>
-                          <span class="font-medium nepali">नियुक्ति विवरणको लागि सम्पर्क गर्नुहोस्</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Map for Shubharambha Skin Centre -->
-                    <div class="map-wrapper">
-                      <iframe 
-                        class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.456789012345!2d80.59500000000001!3d28.693333333333335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a1a8275f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sDhangadhi%2C%20Kailali%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Emergency Notice -->
-          <div class="card emergency-notice">
-            <div class="card-content">
-              <h3 class="text-lg font-semibold text-destructive mb-2 english">Medical Emergency</h3>
-              <h3 class="text-lg font-semibold text-destructive mb-2 nepali">चिकित्सा आपतकाल</h3>
-              <p class="text-muted-foreground english">
-                If you are experiencing a medical emergency, please call emergency services immediately or visit the nearest emergency room. 
-                This contact form is not monitored 24/7 and should not be used for urgent medical situations.
-              </p>
-              <p class="text-muted-foreground nepali">
-                यदि तपाईं चिकित्सा आपतकाल अनुभव गर्दै हुनुहुन्छ भने, कृपया तुरुन्तै आपतकालीन सेवाहरूमा कल गर्नुहोस् वा नजिकैको आपतकालीन कक्ष भ्रमण गर्नुहोस्। 
-                यो सम्पर्क फारम 24/7 मोनिटर गरिएको छैन र जरुरी चिकित्सा स्थितिहरूको लागि प्रयोग गर्नु हुँदैन।
-              </p>
-            </div>
-          </div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow"><i class="fas fa-address-book" aria-hidden="true"></i><span data-en="Get in Touch" data-np="सम्पर्क गर्नुहोस्">Get in Touch</span></p>
+        <h1 id="contact-title" data-en="Contact Dr. Vikash Paudel" data-np="डा. विकास पौडेललाई सम्पर्क गर्नुहोस्">Contact Dr. Vikash Paudel</h1>
+        <p class="hero-lead" data-en="Reach out for appointments, inquiries, or consultations. Our clinics across Kathmandu and Dhangadhi provide comprehensive dermatological care with a patient-first approach." data-np="अपोइन्टमेन्ट, जानकारी वा परामर्शको लागि सम्पर्क गर्नुहोस्। काठमाडौं र धनगढीका हाम्रा क्लिनिकहरूले बिरामी-पहिलो दृष्टिकोणका साथ व्यापक छालारोग हेरचाह प्रदान गर्दछन्।">Reach out for appointments, inquiries, or consultations. Our clinics across Kathmandu and Dhangadhi provide comprehensive dermatological care with a patient-first approach.</p>
+        <div class="hero-actions">
+          <a href="appointment.html" class="btn btn-primary"><i class="fas fa-calendar-check" aria-hidden="true"></i><span data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</span></a>
+          <a href="https://wa.me/9779825207253" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><span data-en="WhatsApp Us" data-np="व्हाट्सएप गर्नुहोस्">WhatsApp Us</span></a>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Dr. Vikash Paudel</p>
-  </footer>
-
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Vikash%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" 
-     target="_blank" 
-     class="whatsapp-button">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <!-- Live Chat Widget -->
-  <div class="chat-button" id="chat-button">
-    <i class="fas fa-comments"></i>
-  </div>
-
-  <div class="chat-container" id="chat-container">
-    <div class="chat-header">
-      <h3 class="english">Live Chat Support</h3>
-      <h3 class="nepali">लाइभ च्याट समर्थन</h3>
-      <button class="close-chat" id="close-chat">
-        <i class="fas fa-times"></i>
-      </button>
     </div>
-    <div class="chat-messages" id="chat-messages">
-      <div class="message bot-message english">
-        Hello! How can I assist you today?
+  </section>
+
+  <!-- QUICK CONTACT -->
+  <section class="section" aria-labelledby="quick-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i><span data-en="Quick Contact" data-np="द्रुत सम्पर्क">Quick Contact</span></p>
+        <h2 id="quick-title" data-en="How to Reach Us" data-np="हामीलाई कसरी सम्पर्क गर्ने">How to Reach Us</h2>
+        <div class="divider" aria-hidden="true"></div>
       </div>
-      <div class="message bot-message nepali">
-        नमस्ते! म तपाईंलाई कसरी सहयोग गर्न सक्छु?
+      <div class="quick-contact reveal">
+        <a href="tel:+97715242511" class="quick-contact-card">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          <div class="qc-title" data-en="Call Main Clinic" data-np="मुख्य क्लिनिकमा कल">Call Main Clinic</div>
+          <div class="qc-value">+977-1-5242511</div>
+        </a>
+        <a href="https://wa.me/9779825207253" target="_blank" rel="noopener noreferrer" class="quick-contact-card">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <div class="qc-title" data-en="WhatsApp" data-np="व्हाट्सएप">WhatsApp</div>
+          <div class="qc-value">+977-9825207253</div>
+        </a>
+        <a href="mailto:vikashpaudel@gmail.com" class="quick-contact-card">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <div class="qc-title" data-en="Email" data-np="इमेल">Email</div>
+          <div class="qc-value">vikashpaudel@gmail.com</div>
+        </a>
+        <a href="appointment.html" class="quick-contact-card">
+          <i class="fas fa-calendar-check" aria-hidden="true"></i>
+          <div class="qc-title" data-en="Book Online" data-np="अनलाइन बुक">Book Online</div>
+          <div class="qc-value" data-en="Book Now →" data-np="अहिले बुक गर्नुहोस् →">Book Now →</div>
+        </a>
       </div>
+    </div>
+  </section>
+
+  <!-- CLINIC LOCATIONS -->
+  <section class="section section--alt" aria-labelledby="clinics-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</span></p>
+        <h2 id="clinics-title" data-en="Our Clinics" data-np="हाम्रा क्लिनिकहरू">Our Clinics</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-sub" data-en="Visit Dr. Paudel at one of our convenient clinic locations across Nepal." data-np="नेपालभरका हाम्रा सुविधाजनक क्लिनिक स्थानहरूमध्ये एकमा डा. पौडेललाई भेट्नुहोस्।">Visit Dr. Paudel at one of our convenient clinic locations across Nepal.</p>
+      </div>
+
+      <div class="clinics-grid stagger">
+
+        <!-- Clinic 1: Patan Private Clinic -->
+        <article class="clinic-card fade-in">
+          <h3 data-en="Private Clinic — Lagankhel" data-np="निजी क्लिनिक — लगनखेल">Private Clinic — Lagankhel</h3>
+          <div class="clinic-row"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-en="Lagankhel, Lalitpur, Nepal" data-np="लगनखेल, ललितपुर, नेपाल">Lagankhel, Lalitpur, Nepal</span></div>
+          <div class="clinic-row"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+977-1-5448007">+977-1-5448007</a></div>
+          <div class="clinic-row"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:pahs@pahs.edu.np">pahs@pahs.edu.np</a></div>
+          <div class="clinic-hours">
+            <div class="clinic-hours-title"><i class="fas fa-clock" aria-hidden="true"></i><span data-en="Hours" data-np="समय">Hours</span></div>
+            <ul>
+              <li><span class="day" data-en="Thursday:" data-np="बिहीबार:">Thursday:</span><span data-en="9:00 AM – 11:00 AM (By appointment only)" data-np="९:०० बिहान – ११:०० बिहान (नियुक्तिमा मात्र)">9:00 AM – 11:00 AM (By appointment only)</span></li>
+              <li><span class="day" data-en="Other days:" data-np="अन्य दिनहरू:">Other days:</span><span data-en="Contact reception for appointment" data-np="नियुक्तिको लागि रिसेप्सन सम्पर्क गर्नुहोस्">Contact reception for appointment</span></li>
+            </ul>
+          </div>
+          <a href="https://booking.pahs.edu.np" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;margin-top:.5rem;">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i><span data-en="Book Appointment" data-np="नियुक्ति बुक गर्नुहोस्">Book Appointment</span>
+          </a>
+          <div class="clinic-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.463895833206!2d85.3205683!3d27.668302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d1be9baf71%3A0x48893d580864792f!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" title="Patan Hospital Location Map"></iframe>
+          </div>
+        </article>
+
+        <!-- Clinic 2: Elite Health Clinic -->
+        <article class="clinic-card fade-in">
+          <h3 data-en="Elite Health Clinic" data-np="एलाइट हेल्थ क्लिनिक">Elite Health Clinic</h3>
+          <div class="clinic-row"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-en="Mahalaxmisthan, Lagankhel, Nepal" data-np="महालक्ष्मीस्थान, लगनखेल, नेपाल">Mahalaxmisthan, Lagankhel, Nepal</span></div>
+          <div class="clinic-row"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+977-1-5420745">+977-1-5420745, 9828070931</a></div>
+          <div class="clinic-row"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:elitehealthclinic1@gmail.com">elitehealthclinic1@gmail.com</a></div>
+          <div class="clinic-hours">
+            <div class="clinic-hours-title"><i class="fas fa-clock" aria-hidden="true"></i><span data-en="Hours" data-np="समय">Hours</span></div>
+            <ul>
+              <li><span class="day" data-en="Sun – Fri:" data-np="आइत – शुक्र:">Sun – Fri:</span><span data-en="4:00 PM onwards (Contact reception)" data-np="४:०० बेलुका पछि (रिसेप्सन सम्पर्क)">4:00 PM onwards (Contact reception)</span></li>
+              <li><span class="day" data-en="Wednesday:" data-np="बुधबार:">Wednesday:</span><span data-en="Contact for emergency appointments" data-np="आपतकालीन नियुक्तिको लागि सम्पर्क">Contact for emergency appointments</span></li>
+              <li><span class="day" data-en="Saturday:" data-np="शनिबार:">Saturday:</span><span data-en="Closed" data-np="बन्द">Closed</span></li>
+            </ul>
+          </div>
+          <div class="clinic-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.516024478542!2d85.3191621!3d27.6623373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993552c50e0bf55%3A0xc10c6fde911c0e43!2sDr%20Vikash%20Paudel%20Clinic!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" title="Elite Health Clinic Location Map"></iframe>
+          </div>
+        </article>
+
+        <!-- Clinic 3: Shankhamul Healthcare -->
+        <article class="clinic-card fade-in">
+          <h3 data-en="Shankhamul Healthcare" data-np="शंखमुल हेल्थकेयर">Shankhamul Healthcare</h3>
+          <div class="clinic-row"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-en="Shankhamul, New Baneswor, Kathmandu, Nepal" data-np="शंखमुल, नयाँ बानेश्वर, काठमाडौं, नेपाल">Shankhamul, New Baneswor, Kathmandu, Nepal</span></div>
+          <div class="clinic-row"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+977-1-5242511">+977-1-5242511, 9810142009</a></div>
+          <div class="clinic-row"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@shankhamulhealthcare.com.np">info@shankhamulhealthcare.com.np</a></div>
+          <div class="clinic-hours">
+            <div class="clinic-hours-title"><i class="fas fa-clock" aria-hidden="true"></i><span data-en="Hours" data-np="समय">Hours</span></div>
+            <ul>
+              <li><span class="day" data-en="Sun – Fri:" data-np="आइत – शुक्र:">Sun – Fri:</span><span data-en="4:00 PM – 7:00 PM" data-np="४:०० बेलुका – ७:०० बेलुका">4:00 PM – 7:00 PM</span></li>
+              <li><span class="day" data-en="Saturday:" data-np="शनिबार:">Saturday:</span><span data-en="Closed" data-np="बन्द">Closed</span></li>
+            </ul>
+          </div>
+          <div class="clinic-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.393503392584!2d85.3318495!3d27.6813285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199321f634b5%3A0x52ddc625a3481046!2sDr%20Vikash%20Paudel!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" title="Shankhamul Healthcare Location Map"></iframe>
+          </div>
+        </article>
+
+        <!-- Clinic 4: Shubharambha Skin Centre -->
+        <article class="clinic-card fade-in">
+          <h3 data-en="Shubharambha Skin Centre" data-np="शुभारम्भ स्किन सेन्टर">Shubharambha Skin Centre</h3>
+          <div class="clinic-row"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-en="Dhangadhi, Kailali, Nepal" data-np="धनगढी, कैलाली, नेपाल">Dhangadhi, Kailali, Nepal</span></div>
+          <div class="clinic-row"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+977-91-410107">+977-91-410107, 9848488242</a></div>
+          <div class="clinic-hours">
+            <div class="clinic-hours-title"><i class="fas fa-clock" aria-hidden="true"></i><span data-en="Hours" data-np="समय">Hours</span></div>
+            <ul>
+              <li><span data-en="Contact for appointment details" data-np="नियुक्ति विवरणको लागि सम्पर्क गर्नुहोस्">Contact for appointment details</span></li>
+            </ul>
+          </div>
+          <div class="clinic-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.456789012345!2d80.595!3d28.693333333333335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a1a8275f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sDhangadhi%2C%20Kailali%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" allowfullscreen="" loading="lazy" title="Shubharambha Skin Centre Location Map"></iframe>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Emergency Notice -->
+      <div class="emergency-notice reveal">
+        <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><span data-en="Medical Emergency" data-np="चिकित्सा आपतकाल">Medical Emergency</span></h3>
+        <p data-en="If you are experiencing a medical emergency, please call emergency services immediately or visit the nearest emergency room. This contact page is not monitored 24/7 and should not be used for urgent medical situations." data-np="यदि तपाईं चिकित्सा आपतकाल अनुभव गर्दै हुनुहुन्छ भने, कृपया तुरुन्तै आपतकालीन सेवाहरूमा कल गर्नुहोस् वा नजिकैको आपतकालीन कक्ष भ्रमण गर्नुहोस्। यो सम्पर्क पृष्ठ २४/७ मोनिटर गरिएको छैन र जरुरी चिकित्सा स्थितिहरूको लागि प्रयोग गर्नु हुँदैन।">If you are experiencing a medical emergency, please call emergency services immediately or visit the nearest emergency room. This contact page is not monitored 24/7 and should not be used for urgent medical situations.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact" role="contentinfo">
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 style="font-family:var(--fh);font-size:1.2rem;font-weight:400;margin-bottom:.6rem;color:#fff;" data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</h3>
+        <p data-en="Consultant dermatologist in Kathmandu providing comprehensive skin care with evidence-based treatments and a personalised approach." data-np="काठमाडौंका परामर्श छालारोग विशेषज्ञ जसले प्रमाण-आधारित उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक छालाको हेरचाह प्रदान गर्दछ।">Consultant dermatologist in Kathmandu providing comprehensive skin care with evidence-based treatments and a personalised approach.</p>
+        <p style="font-family:var(--fh);font-size:.95rem;color:var(--as);margin:0 0 1.1rem;">We care for your skin</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/vikashderma" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.x.com/merodesh" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="x-footer"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/vikash.paudel" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/vikash-paudel-89598324" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://wa.me/9779825207253" class="whatsapp-footer" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 data-en="Quick Links" data-np="द्रुत लिंकहरू">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+          <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+          <li><a href="index.html#services" data-en="Services" data-np="सेवाहरू">Services</a></li>
+          <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+          <li><a href="contact.html" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+          <li><a href="deepainfertility.html" data-en="Dr Deepa Chudal" data-np="डा दिपा चुडाल">Dr Deepa Chudal</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h3>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><div><strong data-en="Main Clinic" data-np="मुख्य क्लिनिक">Main Clinic</strong><p data-en="Shankhamul Health Care, Shankhamul, Kathmandu" data-np="शंखमुल हेल्थ केयर, शंखमुल, काठमाडौं">Shankhamul Health Care, Shankhamul, Kathmandu</p><p data-en="Elite Health Clinic, Mahalaxmisthan, Lalitpur" data-np="एलाइट हेल्थ क्लिनिक, महालक्ष्मीस्थान, ललितपुर">Elite Health Clinic, Mahalaxmisthan, Lalitpur</p></div></li>
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><div><strong data-en="Satellite Clinic" data-np="अन्य क्लिनिक">Satellite Clinic</strong><p data-en="Shubharambha Skin Centre, Chatakpur, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, चटकपुर, धनगढी">Shubharambha Skin Centre, Chatakpur, Dhangadhi</p></div></li>
+          <li><i class="fas fa-phone" aria-hidden="true"></i><div><strong data-en="Phone" data-np="फोन">Phone</strong><p><a href="tel:+97715242511" style="color:inherit;">+977-1-5242511 (Shankhamul)</a></p><p><a href="tel:+97715420745" style="color:inherit;">+977-1-5420745 (Elite)</a></p><p><a href="tel:+97791410107" style="color:inherit;">+977-91-410107 (Shubharambha)</a></p></div></li>
+          <li><i class="fas fa-envelope" aria-hidden="true"></i><div><strong data-en="Email" data-np="इमेल">Email</strong><p><a href="mailto:vikashpaudel@gmail.com" style="color:inherit;">vikashpaudel@gmail.com</a></p></div></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</h3>
+        <p data-en="Schedule your consultation with Dr. Paudel for personalised skin care solutions." data-np="व्यक्तिगत छालाको हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्शको योजना बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalised skin care solutions.</p>
+        <a href="appointment.html" class="btn btn-light" style="margin-top:.5rem;"><i class="fas fa-calendar-check" aria-hidden="true"></i><span data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</span></a>
+      </div>
+    </div>
+    <div class="copyright"><p>&copy; 2025 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p></div>
+  </div>
+</footer>
+
+<!-- FIXED BUTTONS -->
+<a href="https://www.facebook.com/vikashderma" class="facebook-button" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+<a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+<button class="accessibility-widget-toggle" id="accessibilityToggle" aria-label="Open accessibility tools"><i class="fas fa-universal-access" aria-hidden="true"></i></button>
+
+<!-- CHAT WIDGET -->
+<div class="chat-widget" role="complementary" aria-label="Chat support">
+  <button class="chat-button" id="chatButton" aria-label="Open chat"><i class="fas fa-comments" aria-hidden="true"></i></button>
+  <div class="chat-container" id="chatContainer" role="dialog" aria-label="Chat window">
+    <div class="chat-header">
+      <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
+      <button class="close-chat" id="closeChat" aria-label="Close chat"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="message bot"><span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span></div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chat-input" placeholder="Type your message..." class="chat-input-field">
-      <button id="send-message">
-        <i class="fas fa-paper-plane"></i>
-      </button>
+      <input type="text" id="chatInput" placeholder="Type your message..." data-en-placeholder="Type your message..." data-np-placeholder="आफ्नो सन्देश टाइप गर्नुहोस्..." aria-label="Type your message" />
+      <button id="sendMessage" aria-label="Send message"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
     </div>
   </div>
+</div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu toggle
-      const navbarToggle = document.getElementById('navbar-toggle');
-      const navbarMenu = document.getElementById('navbar-menu');
-      
-      if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', function() {
-          navbarMenu.classList.toggle('active');
-        });
-      }
-      
-      // Language toggle functionality
-      const languageToggle = document.getElementById('language-toggle');
-      let currentLanguage = 'english';
-      
-      if (languageToggle) {
-        languageToggle.addEventListener('click', function() {
-          const englishElements = document.querySelectorAll('.english');
-          const nepaliElements = document.querySelectorAll('.nepali');
-          const chatInput = document.getElementById('chat-input');
-          
-          if (currentLanguage === 'english') {
-            // Switch to Nepali
-            englishElements.forEach(el => {
-              el.style.display = 'none';
-            });
-            nepaliElements.forEach(el => {
-              el.style.display = 'block';
-            });
-            if (chatInput) {
-              chatInput.placeholder = 'आफ्नो सन्देश टाइप गर्नुहोस्...';
-            }
-            currentLanguage = 'nepali';
-          } else {
-            // Switch to English
-            englishElements.forEach(el => {
-              el.style.display = 'block';
-            });
-            nepaliElements.forEach(el => {
-              el.style.display = 'none';
-            });
-            if (chatInput) {
-              chatInput.placeholder = 'Type your message...';
-            }
-            currentLanguage = 'english';
-          }
-        });
-      }
+<!-- ACCESSIBILITY PANEL -->
+<div class="accessibility-panel" id="accessibilityPanel" role="dialog" aria-label="Accessibility tools">
+  <div class="panel-header">
+    <h2><i class="fas fa-universal-access" aria-hidden="true"></i> Accessibility Tools</h2>
+    <button class="close-panel" id="closeAccessibilityPanel" aria-label="Close accessibility panel">&times;</button>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-item"><label><i class="fas fa-globe" aria-hidden="true"></i> Language</label><select id="accLang"><option value="en">English</option><option value="np">नेपाली</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-font" aria-hidden="true"></i> Text Size</label><div class="btn-group" id="textSizeGroup"><button data-size="small">A-</button><button data-size="medium" class="active">A</button><button data-size="large">A+</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-adjust" aria-hidden="true"></i> Contrast</label><div class="btn-group" id="contrastGroup"><button data-contrast="low">Low</button><button data-contrast="medium" class="active">Med</button><button data-contrast="high">High</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-align-left" aria-hidden="true"></i> Text Align</label><div class="btn-group" id="textAlignGroup"><button data-align="left" class="active"><i class="fas fa-align-left" aria-hidden="true"></i></button><button data-align="center"><i class="fas fa-align-center" aria-hidden="true"></i></button><button data-align="right"><i class="fas fa-align-right" aria-hidden="true"></i></button></div></div>
+    <div class="tool-item"><label><i class="fas fa-palette" aria-hidden="true"></i> Color Filter</label><select id="colorFilter"><option value="none">None</option><option value="grayscale">Grayscale</option><option value="sepia">Sepia</option><option value="invert">Invert</option><option value="protanopia">Protanopia</option><option value="deuteranopia">Deuteranopia</option><option value="tritanopia">Tritanopia</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-arrows-alt-h" aria-hidden="true"></i> Text Spacing</label><div class="btn-group" id="textSpacingGroup"><button data-spacing="0" class="active">0</button><button data-spacing="1">1</button><button data-spacing="2">2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-arrows-alt-v" aria-hidden="true"></i> Line Height</label><div class="btn-group" id="lineHeightGroup"><button data-line="1.4">1.4</button><button data-line="1.8" class="active">1.8</button><button data-line="2.2">2.2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-font" aria-hidden="true"></i> Font</label><select id="fontSelect"><option value="Inter">Inter</option><option value="Open Sans">Open Sans</option><option value="Roboto">Roboto</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-droplet" aria-hidden="true"></i> Saturation</label><div class="btn-group" id="saturationGroup"><button data-sat="0.5">0.5</button><button data-sat="1" class="active">1</button><button data-sat="2">2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-mouse-pointer" aria-hidden="true"></i> Cursor</label><div class="btn-group" id="cursorGroup"><button data-cursor="small" class="active">Small</button><button data-cursor="big">Big</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-image" aria-hidden="true"></i> Hide Images</label><button class="toggle-btn" id="hideImagesToggle" aria-label="Toggle image visibility"></button></div>
+    <div class="tool-item"><label><i class="fas fa-pause-circle" aria-hidden="true"></i> Pause Animations</label><button class="toggle-btn" id="pauseAnimationsToggle" aria-label="Toggle animation pause"></button></div>
+    <div class="tool-item"><label><i class="fas fa-volume-up" aria-hidden="true"></i> Screen Reader</label><button class="toggle-btn" id="screenReaderToggle" aria-label="Toggle screen reader"></button></div>
+    <div class="tool-item"><label><i class="fas fa-microphone" aria-hidden="true"></i> Voice Command</label><button class="toggle-btn" id="voiceCommandToggle" aria-label="Toggle voice command"></button></div>
+  </div>
+</div>
 
-      // Live Chat Widget Functionality
-      const chatButton = document.getElementById('chat-button');
-      const chatContainer = document.getElementById('chat-container');
-      const closeChat = document.getElementById('close-chat');
-      const chatMessages = document.getElementById('chat-messages');
-      const chatInput = document.getElementById('chat-input');
-      const sendMessage = document.getElementById('send-message');
+<!-- STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Dr. Vikash Paudel - Consultant Dermatologist",
+  "description": "Consultant dermatologist in Kathmandu with clinical experience in medical and cosmetic dermatology, hair restoration, STI management and dermatosurgery.",
+  "url": "https://www.vikashpaudel.com.np",
+  "telephone": "+977-1-5242511",
+  "email": "vikashpaudel@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Shankhamul Health Care, Shankhamul",
+    "addressLocality": "Kathmandu",
+    "addressCountry": "NP"
+  },
+  "openingHours": ["Su-Fr 04:00-19:00", "We 09:00-19:00"],
+  "medicalSpecialty": "Dermatology",
+  "sameAs": [
+    "https://www.facebook.com/vikashderma",
+    "https://www.instagram.com/vikash.paudel",
+    "https://www.linkedin.com/in/vikash-paudel-89598324"
+  ]
+}
+</script>
 
-      // Toggle chat container
-      if (chatButton && chatContainer) {
-        chatButton.addEventListener('click', function() {
-          chatContainer.classList.toggle('active');
-        });
-      }
+<!-- SVG FILTERS -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;" focusable="false">
+  <filter id="protanopia-filter"><feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0"/></filter>
+  <filter id="deuteranopia-filter"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter>
+  <filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0 0 0.475 0.525 0 0  0 0 0 1 0"/></filter>
+</svg>
 
-      // Close chat container
-      if (closeChat && chatContainer) {
-        closeChat.addEventListener('click', function() {
-          chatContainer.classList.remove('active');
-        });
-      }
+<script>
+(function(){
+'use strict';
+let currentLanguage=localStorage.getItem('preferredLanguage')||'en';
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Send message functionality
-      function sendUserMessage() {
-        const messageText = chatInput.value.trim();
-        
-        if (messageText) {
-          // Add user message
-          const userMessage = document.createElement('div');
-          userMessage.className = 'message user-message';
-          userMessage.textContent = messageText;
-          chatMessages.appendChild(userMessage);
-          
-          // Clear input
-          chatInput.value = '';
-          
-          // Scroll to bottom
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-          
-          // Simulate bot response after a delay
-          setTimeout(function() {
-            const botResponsesEnglish = [
-              "Thank you for your message. Our team will get back to you shortly.",
-              "I understand your concern. Would you like to schedule an appointment?",
-              "For appointment bookings, please visit our booking page or contact us directly.",
-              "Is there anything specific you'd like to know about our services?"
-            ];
-            
-            const botResponsesNepali = [
-              "तपाईंको सन्देशको लागि धन्यवाद। हाम्रो टीम चाँडै नै तपाईंसँग सम्पर्क गर्नेछ।",
-              "म तपाईंको चिन्ता बुझ्दछु। के तपाईं नियुक्ति तय गर्न चाहनुहुन्छ?",
-              "नियुक्ति बुकिङको लागि, कृपया हाम्रो बुकिङ पृष्ठ भ्रमण गर्नुहोस् वा सिधै सम्पर्क गर्नुहोस्।",
-              "के तपाईं हाम्रो सेवाहरूको बारेमा केहि विशेष जान्न चाहनुहुन्छ?"
-            ];
-            
-            const randomIndex = Math.floor(Math.random() * botResponsesEnglish.length);
-            const botResponse = currentLanguage === 'english' ? 
-              botResponsesEnglish[randomIndex] : botResponsesNepali[randomIndex];
-            
-            const botMessage = document.createElement('div');
-            botMessage.className = 'message bot-message';
-            botMessage.textContent = botResponse;
-            chatMessages.appendChild(botMessage);
-            
-            // Scroll to bottom
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-          }, 1000);
-        }
-      }
+/* CURSOR */
+(function(){const c=document.getElementById('customCursor');if(!c)return;let t;
+  document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';c.classList.add('is-moving');clearTimeout(t);t=setTimeout(()=>c.classList.remove('is-moving'),150);});
+  if('ontouchstart' in window||navigator.maxTouchPoints>0){c.style.display='none';document.body.style.cursor='auto';}
+})();
 
-      // Send message on button click
-      if (sendMessage) {
-        sendMessage.addEventListener('click', sendUserMessage);
-      }
+/* LANGUAGE */
+const languageBtn=document.getElementById('languageBtn'),languageDropdown=document.getElementById('languageDropdown');
+function switchLanguage(lang){
+  currentLanguage=lang;try{localStorage.setItem('preferredLanguage',lang);}catch(e){}
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute(lang==='en'?'data-en':'data-np');if(v===null)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=v;}
+    else if(el.hasAttribute('data-en-placeholder')){el.placeholder=v;}
+    else{el.innerHTML=v;}
+  });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el=>{const v=el.getAttribute(lang==='en'?'data-en-placeholder':'data-np-placeholder');if(v)el.placeholder=v;});
+  const lt=lang==='en'?'English':'नेपाली';
+  if(languageBtn)languageBtn.innerHTML=`<i class="fas fa-globe" aria-hidden="true"></i><span>${lt}</span><i class="fas fa-chevron-down" aria-hidden="true"></i>`;
+  const hl=lang==='np'?'ne':'en';document.documentElement.lang=hl;document.body.lang=hl;
+  const al=document.getElementById('accLang');if(al)al.value=lang;
+}
+if(languageBtn&&languageDropdown){
+  languageBtn.addEventListener('click',e=>{e.stopPropagation();const ex=languageBtn.getAttribute('aria-expanded')==='true';languageBtn.setAttribute('aria-expanded',String(!ex));languageDropdown.classList.toggle('active');});
+  document.querySelectorAll('.language-option').forEach(opt=>{
+    const h=()=>{switchLanguage(opt.getAttribute('data-lang'));languageDropdown.classList.remove('active');languageBtn.setAttribute('aria-expanded','false');};
+    opt.addEventListener('click',h);opt.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();h();}});
+  });
+  document.addEventListener('click',e=>{if(!languageBtn.contains(e.target)&&!languageDropdown.contains(e.target)){languageDropdown.classList.remove('active');languageBtn.setAttribute('aria-expanded','false');}});
+}
 
-      // Send message on Enter key
-      if (chatInput) {
-        chatInput.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') {
-            sendUserMessage();
-          }
-        });
-      }
-    });
-  </script>
+/* MOBILE NAV */
+const mobileToggle=document.getElementById('mobileToggle'),navMenu=document.getElementById('navMenu');
+if(mobileToggle&&navMenu){
+  mobileToggle.addEventListener('click',function(){const ex=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!ex));navMenu.classList.toggle('active');});
+  document.querySelectorAll('.nav-menu a').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100){navMenu.classList.remove('active');mobileToggle.setAttribute('aria-expanded','false');}}));
+}
+
+/* STICKY HEADER */
+const header=document.getElementById('siteHeader');
+function updateHeader(){if(header)header.classList.toggle('is-scrolled',window.scrollY>10);}
+updateHeader();window.addEventListener('scroll',updateHeader,{passive:true});
+
+/* REVEAL */
+const revealEls=document.querySelectorAll('.fade-in, .reveal');
+if(prefersReduced||!('IntersectionObserver' in window)){
+  revealEls.forEach(el=>{el.classList.add('visible','is-visible');});
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible','is-visible');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  revealEls.forEach(el=>io.observe(el));
+}
+
+/* THEME */
+const themeToggle=document.getElementById('themeToggleNav'),themeIcon=document.getElementById('themeIcon');
+function applyTheme(){const s=localStorage.getItem('themeMode');if(s==='night'){document.body.classList.add('night-mode');if(themeIcon)themeIcon.className='fas fa-sun';}else{document.body.classList.remove('night-mode');if(themeIcon)themeIcon.className='fas fa-moon';}}
+if(themeToggle&&themeIcon){
+  themeToggle.addEventListener('click',()=>{document.body.classList.toggle('night-mode');const n=document.body.classList.contains('night-mode');themeIcon.className=n?'fas fa-sun':'fas fa-moon';try{localStorage.setItem('themeMode',n?'night':'day');}catch(e){}});
+}
+
+/* COLOR BLIND */
+const colorBlindToggle=document.getElementById('colorBlindToggle');
+function applyCB(){const s=localStorage.getItem('colorBlindMode');if(s==='on'){document.body.classList.add('color-blind-mode');if(colorBlindToggle)colorBlindToggle.checked=true;}else{document.body.classList.remove('color-blind-mode');if(colorBlindToggle)colorBlindToggle.checked=false;}}
+if(colorBlindToggle){
+  colorBlindToggle.addEventListener('change',function(){if(this.checked){document.body.classList.add('color-blind-mode');try{localStorage.setItem('colorBlindMode','on');}catch(e){}}else{document.body.classList.remove('color-blind-mode');try{localStorage.setItem('colorBlindMode','off');}catch(e){}}});
+}
+
+/* CHAT */
+const chatButton=document.getElementById('chatButton'),chatContainer=document.getElementById('chatContainer'),closeChat=document.getElementById('closeChat'),sendMessage=document.getElementById('sendMessage'),chatInput=document.getElementById('chatInput'),chatMessages=document.getElementById('chatMessages');
+const chatResponses={
+  en:{appt:"To book an appointment, use our online booking system or call +977-1-5242511.",svc:"Dr. Paudel specialises in medical dermatology, cosmetic procedures, STI treatment, hair restoration and skin surgery.",hrs:"Our clinics are open Sunday–Friday. Saturday closed. Hours vary by location.",loc:"Clinics at Shankhamul Health Care, Elite Health Clinic (Mahalaxmisthan) and Shubharambha Skin Centre (Dhangadhi).",def:"Thank you for your message. For detailed information, please call +977-1-5242511."},
+  np:{appt:"अपोइन्टमेन्ट बुक गर्न, हाम्रो अनलाइन बुकिङ प्रयोग गर्नुहोस् वा +९७७-१-५२४२५११ मा कल गर्नुहोस्।",svc:"डा. पौडेल चिकित्सा त्वचा विज्ञान, कस्मेटिक प्रक्रिया, यौन संक्रमण उपचार, कपाल पुनर्स्थापना र त्वचा सर्जरीमा विशेषज्ञ हुनुहुन्छ।",hrs:"हाम्रा क्लिनिकहरू आइत–शुक्र खुला छन्। शनिबार बन्द। समय स्थान अनुसार फरक हुन्छ।",loc:"शंखमुल हेल्थ केयर, एलाइट हेल्थ क्लिनिक (महालक्ष्मीस्थान) र शुभारम्भ स्किन सेन्टर (धनगढी)।",def:"तपाईंको सन्देशको लागि धन्यवाद। विस्तृत जानकारीको लागि +९७७-१-५२४२५११ मा कल गर्नुहोस्।"}
+};
+function addMsg(text,isUser){
+  if(!chatMessages)return;
+  const d=document.createElement('div');d.className='message '+(isUser?'user':'bot');
+  const s=document.createElement('span');s.textContent=text;d.appendChild(s);chatMessages.appendChild(d);
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+function genResp(msg){
+  const l=msg.toLowerCase();const r=chatResponses[currentLanguage]||chatResponses.en;
+  if(/appoint|book|schedule/.test(l))return r.appt;
+  if(/service|treat|procedure/.test(l))return r.svc;
+  if(/hour|time|open/.test(l))return r.hrs;
+  if(/location|clinic|address/.test(l))return r.loc;
+  return r.def;
+}
+function handleSend(){
+  if(!chatInput)return;const m=chatInput.value.trim();if(!m)return;
+  addMsg(m,true);chatInput.value='';
+  setTimeout(()=>addMsg(genResp(m),false),700);
+}
+if(chatButton&&chatContainer){chatButton.addEventListener('click',e=>{e.stopPropagation();chatContainer.classList.toggle('active');if(chatContainer.classList.contains('active')&&chatInput)chatInput.focus();});}
+if(closeChat&&chatContainer)closeChat.addEventListener('click',()=>chatContainer.classList.remove('active'));
+if(sendMessage)sendMessage.addEventListener('click',handleSend);
+if(chatInput)chatInput.addEventListener('keypress',e=>{if(e.key==='Enter'){e.preventDefault();handleSend();}});
+document.addEventListener('click',e=>{if(chatContainer&&chatButton&&!chatContainer.contains(e.target)&&!chatButton.contains(e.target))chatContainer.classList.remove('active');});
+
+/* ACCESSIBILITY */
+const filterState={contrast:1,saturate:1,grayscale:0,sepia:0,invert:0};
+function updateFilters(){const f=filterState,p=[];if(f.contrast!==1)p.push(`contrast(${f.contrast})`);if(f.saturate!==1)p.push(`saturate(${f.saturate})`);if(f.grayscale)p.push(`grayscale(${f.grayscale})`);if(f.sepia)p.push(`sepia(${f.sepia})`);if(f.invert)p.push(`invert(${f.invert})`);document.body.style.filter=p.length?p.join(' '):'';}
+function initA11y(){
+  const tb=document.getElementById('accessibilityToggle'),pn=document.getElementById('accessibilityPanel'),cb=document.getElementById('closeAccessibilityPanel');
+  if(!tb||!pn)return;
+  tb.addEventListener('click',e=>{e.stopPropagation();pn.classList.toggle('open');});
+  if(cb)cb.addEventListener('click',()=>pn.classList.remove('open'));
+  document.addEventListener('click',e=>{if(pn.classList.contains('open')&&!pn.contains(e.target)&&!tb.contains(e.target))pn.classList.remove('open');});
+  const saved=JSON.parse(localStorage.getItem('accessibilitySettings')||'{}');
+  function apply(k,v){
+    saved[k]=v;try{localStorage.setItem('accessibilitySettings',JSON.stringify(saved));}catch(e){}
+    switch(k){
+      case'lang':{const o=document.querySelector(`.language-option[data-lang="${v}"]`);if(o)o.click();break;}
+      case'textSize':document.body.style.fontSize=v==='small'?'.92rem':v==='large'?'1.18rem':'1rem';break;
+      case'contrast':filterState.contrast=parseFloat(v);updateFilters();break;
+      case'textAlign':document.querySelectorAll('.container').forEach(el=>el.style.textAlign=v);break;
+      case'colorFilter':filterState.grayscale=0;filterState.sepia=0;filterState.invert=0;document.body.classList.remove('filter-protanopia','filter-deuteranopia','filter-tritanopia');
+        if(v==='grayscale')filterState.grayscale=1;else if(v==='sepia')filterState.sepia=1;else if(v==='invert')filterState.invert=1;else if(v==='protanopia')document.body.classList.add('filter-protanopia');else if(v==='deuteranopia')document.body.classList.add('filter-deuteranopia');else if(v==='tritanopia')document.body.classList.add('filter-tritanopia');updateFilters();break;
+      case'textSpacing':document.body.style.letterSpacing=parseFloat(v)+'px';break;
+      case'lineHeight':document.body.style.lineHeight=v;break;
+      case'font':document.body.style.fontFamily=v+', sans-serif';break;
+      case'saturation':filterState.saturate=parseFloat(v);updateFilters();break;
+      case'cursor':document.body.style.cursor=v==='big'?'crosshair':'';break;
+      case'hideImages':document.querySelectorAll('img').forEach(img=>{img.style.display=v?'none':'';});break;
+      case'pauseAnimations':document.querySelectorAll('*').forEach(el=>{el.style.animationPlayState=v?'paused':'';});break;
+      case'screenReader':if(!('speechSynthesis' in window))return;if(v){speechSynthesis.cancel();const t=document.body.innerText.slice(0,4000);const u=new SpeechSynthesisUtterance(t);u.lang=currentLanguage==='np'?'ne-NP':'en-US';u.rate=.9;speechSynthesis.speak(u);}else speechSynthesis.cancel();break;
+    }
+  }
+  Object.keys(saved).forEach(k=>apply(k,saved[k]));
+  const bind=(id,s)=>{const el=document.getElementById(id);if(el)el.addEventListener('change',function(){apply(s,this.value);});};
+  bind('accLang','lang');bind('colorFilter','colorFilter');bind('fontSelect','font');
+  const bg=(gid,s,attr)=>{document.querySelectorAll(`#${gid} button`).forEach(b=>b.addEventListener('click',function(){document.querySelectorAll(`#${gid} button`).forEach(x=>x.classList.remove('active'));this.classList.add('active');apply(s,this.dataset[attr]);}));};
+  bg('textSizeGroup','textSize','size');bg('contrastGroup','contrast','contrast');bg('textAlignGroup','textAlign','align');bg('textSpacingGroup','textSpacing','spacing');bg('lineHeightGroup','lineHeight','line');bg('saturationGroup','saturation','sat');bg('cursorGroup','cursor','cursor');
+  const bt=(id,s)=>{const el=document.getElementById(id);if(!el)return;el.addEventListener('click',function(){this.classList.toggle('active');apply(s,this.classList.contains('active'));});if(saved[s])el.classList.add('active');};
+  bt('hideImagesToggle','hideImages');bt('pauseAnimationsToggle','pauseAnimations');bt('screenReaderToggle','screenReader');
+  const rg=(gid,val,attr)=>{document.querySelectorAll(`#${gid} button`).forEach(b=>b.classList.toggle('active',b.dataset[attr]===val));};
+  rg('textSizeGroup',saved.textSize||'medium','size');rg('contrastGroup',saved.contrast||'medium','contrast');rg('textAlignGroup',saved.textAlign||'left','align');rg('textSpacingGroup',saved.textSpacing||'0','spacing');rg('lineHeightGroup',saved.lineHeight||'1.8','line');rg('saturationGroup',saved.saturation||'1','sat');rg('cursorGroup',saved.cursor||'small','cursor');
+}
+
+/* ESCAPE */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  const pn=document.getElementById('accessibilityPanel');if(pn&&pn.classList.contains('open'))pn.classList.remove('open');
+  const ct=document.getElementById('chatContainer');if(ct&&ct.classList.contains('active'))ct.classList.remove('active');
+  const ld=document.getElementById('languageDropdown');if(ld&&ld.classList.contains('active')){ld.classList.remove('active');if(languageBtn)languageBtn.setAttribute('aria-expanded','false');}
+  if(navMenu&&navMenu.classList.contains('active')){navMenu.classList.remove('active');if(mobileToggle)mobileToggle.setAttribute('aria-expanded','false');}
+});
+
+/* INIT */
+function init(){switchLanguage(currentLanguage);applyTheme();applyCB();initA11y();}
+document.addEventListener('DOMContentLoaded',init);
+if(document.readyState!=='loading')init();
+})();
+</script>
 </body>
 </html>
