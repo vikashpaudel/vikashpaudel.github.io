@@ -1,2011 +1,939 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research Publications - Dr. Vikash Paudel | Dermatology & Research</title>
-  <meta name="description" content="Explore Dr. Vikash Paudel's extensive research in dermatology, teledermatology, leprosy, and infectious diseases. Publications in JAAD International, Psychiatry Research, and more.">
-  <meta name="keywords" content="dermatology research, teledermatology, leprosy, Nepal dermatology, Dr. Vikash Paudel, JAAD International, PubMed publications, dermatology case reports">
-  <meta name="author" content="Dr. Vikash Paudel">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Research Publications - Dr. Vikash Paudel | Dermatology & Research">
-  <meta property="og:description" content="Explore Dr. Vikash Paudel's extensive research in dermatology, teledermatology, leprosy, and infectious diseases.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.drvikashpaudel.com/research.html">
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Research Publications - Dr. Vikash Paudel">
-  <meta name="twitter:description" content="Dermatology research publications in teledermatology, leprosy, and infectious diseases.">
-  
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Dr. Vikash Paudel",
-    "jobTitle": "Associate Professor of Dermatology",
-    "affiliation": "Tribhuvan University",
-    "url": "https://www.drvikashpaudel.com",
-    "sameAs": [
-      "https://orcid.org/0000-0001-8729-052X",
-      "https://www.researchgate.net/profile/Vikash_Paudel",
-      "https://www.linkedin.com/in/dr-vikash-paudel"
-    ],
-    "knowsAbout": [
-      "Dermatology",
-      "Teledermatology",
-      "Leprosy",
-      "Infectious Diseases",
-      "Medical Education"
-    ],
-    "hasCredential": "MD Dermatology"
-  }
-  </script>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary: #1a6aa2;
-      --primary-dark: #0d4a7a;
-      --primary-foreground: #ffffff;
-      --accent: #4db6ac;
-      --accent-dark: #3a8c85;
-      --background: #ffffff;
-      --foreground: #333333;
-      --muted-foreground: #666666;
-      --border: #e0e0e0;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-medical: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --hero-gradient: linear-gradient(135deg, var(--primary), #2c8ac9);
-      --transition-smooth: all 0.3s ease;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--foreground);
-      background-color: var(--background);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-
-    /* Animation Classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .slide-in-left.in-view {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .slide-in-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .slide-in-right.in-view {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .scale-in.in-view {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .stagger-delay > * {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .stagger-delay.in-view > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger-delay > *:nth-child(1) { transition-delay: 0.1s; }
-    .stagger-delay > *:nth-child(2) { transition-delay: 0.2s; }
-    .stagger-delay > *:nth-child(3) { transition-delay: 0.3s; }
-    .stagger-delay > *:nth-child(4) { transition-delay: 0.4s; }
-    .stagger-delay > *:nth-child(5) { transition-delay: 0.5s; }
-    .stagger-delay > *:nth-child(6) { transition-delay: 0.6s; }
-    .stagger-delay > *:nth-child(7) { transition-delay: 0.7s; }
-    .stagger-delay > *:nth-child(8) { transition-delay: 0.8s; }
-    .stagger-delay > *:nth-child(9) { transition-delay: 0.9s; }
-    .stagger-delay > *:nth-child(10) { transition-delay: 1s; }
-
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--primary), #2c8ac9);
-      color: var(--primary-foreground);
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Navigation Styles - Updated to match index.html */
-    .navbar {
-      background-color: white;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: all 0.3s;
-    }
-
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--primary);
-      text-decoration: none;
-      padding: 1rem 0;
-    }
-
-    .logo-icon {
-      color: var(--primary);
-      margin-right: 10px;
-      font-size: 1.5rem;
-    }
-
-    .navbar-menu {
-      list-style: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar-item {
-      position: relative;
-    }
-
-    .navbar-link {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: var(--foreground);
-      font-weight: 500;
-      transition: var(--transition-smooth);
-      position: relative;
-    }
-
-    .navbar-link:hover {
-      color: var(--primary);
-    }
-
-    .navbar-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--primary);
-      transition: width 0.3s;
-    }
-
-    .navbar-link:hover::after {
-      width: 100%;
-    }
-
-    .navbar-link.active {
-      color: var(--primary);
-    }
-
-    .navbar-link.active::after {
-      width: 100%;
-    }
-
-    .appointment-btn {
-      background: linear-gradient(135deg, #4db6ac, #1a6aa2);
-      color: white;
-      border-radius: 30px;
-      padding: 0.6rem 1.5rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-left: 1rem;
-    }
-
-    .appointment-btn:hover {
-      background: linear-gradient(135deg, #1a6aa2, #4db6ac);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .appointment-btn i {
-      margin-right: 0.5rem;
-    }
-
-    .mobile-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--primary);
-    }
-
-    /* Main Content Styles */
-    main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero-section {
-      background: linear-gradient(rgba(26, 106, 162, 0.8), rgba(26, 106, 162, 0.9)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      color: var(--primary-foreground);
-      padding: 4rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-section h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      position: relative;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .hero-section p {
-      font-size: 1.25rem;
-      opacity: 0.95;
-      max-width: 700px;
-      position: relative;
-    }
-
-    .content-section {
-      padding: 3rem 0;
-      background-color: var(--background);
-    }
-
-    .max-w-4xl {
-      max-width: 56rem;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .space-y-12 > * + * {
-      margin-top: 2rem;
-    }
-
-    /* Typography */
-    h2 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--foreground);
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .text-lg {
-      font-size: 1.125rem;
-    }
-
-    .text-muted-foreground {
-      color: var(--muted-foreground);
-    }
-
-    .leading-relaxed {
-      line-height: 1.625;
-    }
-
-    /* Card Styles */
-    .card {
-      background-color: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: var(--transition-smooth);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .card.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:nth-child(2) { transition-delay: 0.1s; }
-    .card:nth-child(3) { transition-delay: 0.2s; }
-    .card:nth-child(4) { transition-delay: 0.3s; }
-    .card:nth-child(5) { transition-delay: 0.4s; }
-    .card:nth-child(6) { transition-delay: 0.5s; }
-    .card:nth-child(7) { transition-delay: 0.6s; }
-    .card:nth-child(8) { transition-delay: 0.7s; }
-    .card:nth-child(9) { transition-delay: 0.8s; }
-    .card:nth-child(10) { transition-delay: 0.9s; }
-
-    .card:hover {
-      box-shadow: var(--shadow-medical);
-      transform: translateY(-5px);
-    }
-
-    .card-content {
-      padding: 1.5rem;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .items-start {
-      align-items: flex-start;
-    }
-
-    .space-x-3 > * + * {
-      margin-left: 0.75rem;
-    }
-
-    .space-x-4 > * + * {
-      margin-left: 1rem;
-    }
-
-    .w-12 {
-      width: 3rem;
-    }
-
-    .h-12 {
-      height: 3rem;
-    }
-
-    .w-10 {
-      width: 2.5rem;
-    }
-
-    .h-10 {
-      height: 2.5rem;
-    }
-
-    .w-6 {
-      width: 1.5rem;
-    }
-
-    .h-6 {
-      height: 1.5rem;
-    }
-
-    .w-5 {
-      width: 1.25rem;
-    }
-
-    .h-5 {
-      height: 1.25rem;
-    }
-
-    .bg-primary\/10 {
-      background-color: rgba(26, 106, 162, 0.1);
-    }
-
-    .bg-accent\/10 {
-      background-color: rgba(77, 182, 172, 0.1);
-    }
-
-    .rounded-lg {
-      border-radius: 0.5rem;
-    }
-
-    .flex-center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .text-primary {
-      color: var(--primary);
-    }
-
-    .text-accent {
-      color: var(--accent);
-    }
-
-    .mb-2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .mb-3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .mb-4 {
-      margin-bottom: 1rem;
-    }
-
-    .mb-6 {
-      margin-bottom: 1.5rem;
-    }
-
-    .space-y-6 > * + * {
-      margin-top: 1.5rem;
-    }
-
-    /* Publication Tags */
-    .pub-tag {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      background-color: rgba(26, 106, 162, 0.1);
-      color: var(--primary);
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .text-sm {
-      font-size: 0.875rem;
-    }
-
-    .flex-wrap {
-      flex-wrap: wrap;
-    }
-
-    .gap-3 {
-      gap: 0.75rem;
-    }
-
-    .shrink-0 {
-      flex-shrink: 0;
-    }
-
-    .flex-1 {
-      flex: 1;
-    }
-
-    /* Presentations Grid */
-    .presentations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .presentations-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Research Focus */
-    .research-focus {
-      background-color: #f8f9fa;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .research-focus::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('images/research-bg.jpg') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: 0;
-    }
-
-    .research-focus .card-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .mt-16 {
-      margin-top: 4rem;
-    }
-
-    .space-y-4 > * + * {
-      margin-top: 1rem;
-    }
-
-    .space-y-3 > * + * {
-      margin-top: 0.75rem;
-    }
-
-    .w-2 {
-      width: 0.5rem;
-    }
-
-    .h-2 {
-      height: 0.5rem;
-    }
-
-    .rounded-full {
-      border-radius: 9999px;
-    }
-
-    .mt-2 {
-      margin-top: 0.5rem;
-    }
-
-    /* Editorial Work */
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .editorial-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      text-align: center;
-      border: 1px solid #f0f0f0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .editorial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .editorial-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .editorial-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .editorial-icon {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .editorial-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background-color: #f5f5f5;
-      color: var(--primary);
-      transition: all 0.3s ease;
-      text-decoration: none;
-      font-size: 2rem;
-    }
-
-    .social-link:hover {
-      background-color: var(--primary);
-      color: white;
-      transform: translateY(-5px);
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    /* Publication Categories */
-    .pub-category {
-      margin-bottom: 2rem;
-    }
-
-    .pub-category-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary);
-    }
-
-    .pub-category-icon {
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-
-    /* Work Experience Cards */
-    .work-experience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .work-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      text-align: center;
-      border: 1px solid #f0f0f0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .work-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .work-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .work-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .work-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 2rem;
-      color: var(--primary);
-      overflow: hidden;
-    }
-
-    .work-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .work-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
-    .work-duration {
-      color: var(--muted-foreground);
-      font-size: 0.875rem;
-    }
-
-    /* Peer Reviewer Section */
-    .peer-reviewer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .reviewer-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      background: #f8f9fa;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .reviewer-item:hover {
-      background: #e9ecef;
-      transform: translateX(5px);
-    }
-
-    .reviewer-icon {
-      color: var(--primary);
-      font-size: 1.25rem;
-    }
-
-    /* Featured Publication */
-    .featured-publication {
-      background: linear-gradient(rgba(26, 106, 162, 0.05), rgba(26, 106, 162, 0.05)), url('images/jaad-bg.jpg') center/cover no-repeat;
-      border-left: 4px solid var(--primary);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .featured-badge {
-      display: inline-block;
-      background-color: #d32f2f;
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    /* Compact layout adjustments */
-    .compact-section {
-      padding: 2rem 0;
-    }
-
-    /* Conference Presentations Grid */
-    .conference-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* Quick Links Section */
-    .quick-links-section {
-      background-color: #f8f9fa;
-      padding: 3rem 0;
-      margin-top: 3rem;
-    }
-
-    .quick-links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .quick-link-item {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      text-align: center;
-      border: 1px solid #f0f0f0;
-      text-decoration: none;
-      color: var(--foreground);
-    }
-
-    .quick-link-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      color: var(--primary);
-    }
-
-    .quick-link-icon {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .quick-link-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Statistics Section */
-    .stats-section {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 3rem 0;
-      margin: 2rem 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-item {
-      padding: 1.5rem;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    /* Publication Filter */
-    .filter-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      background: #f5f5f5;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-section {
-        padding: 3rem 0;
-      }
-      
-      .navbar-container {
-        flex-direction: column;
-        padding: 0;
-      }
-      
-      .navbar-menu {
-        flex-direction: column;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s;
-      }
-      
-      .navbar-menu.active {
-        max-height: 500px;
-        margin-top: 15px;
-      }
-      
-      .navbar-item {
-        width: 100%;
-      }
-      
-      .navbar-link {
-        padding: 0.8rem 1rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border);
-        width: 100%;
-      }
-      
-      .navbar-link.active {
-        border-bottom: 3px solid var(--accent);
-      }
-
-      .appointment-btn {
-        margin: 1rem 0;
-        width: 100%;
-        text-align: center;
-      }
-
-      .mobile-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-      }
-
-      .flex.space-x-4 {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .flex.space-x-4 > * + * {
-        margin-left: 0;
-        margin-top: 1rem;
-      }
-
-      .editorial-grid, .work-experience-grid, .peer-reviewer-grid, .conference-grid, .quick-links-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .social-link {
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
-      }
-
-      .content-section {
-        padding: 2rem 0;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-section {
-        padding: 2rem 0;
-      }
-      
-      .hero-section h1 {
-        font-size: 1.8rem;
-      }
-      
-      .card-content {
-        padding: 1rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>Research Publications | Dr. Vikash Paudel — Consultant Dermatologist</title>
+<meta name="description" content="Explore Dr. Vikash Paudel's research in dermatology, teledermatology, leprosy and infectious diseases. Publications in JAAD International, Psychiatry Research and more.">
+<meta name="keywords" content="dermatology research, teledermatology, leprosy, Nepal dermatology, Dr. Vikash Paudel, JAAD International, PubMed publications">
+<meta name="author" content="Dr. Vikash Paudel">
+<meta name="geo.region" content="NP-KA"><meta name="geo.placename" content="Kathmandu">
+<meta property="og:title" content="Research Publications — Dr. Vikash Paudel">
+<meta property="og:description" content="Dermatology research publications in teledermatology, leprosy, and infectious diseases.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://vikashpaudel.com.np/research.html">
+<meta property="og:image" content="https://vikashpaudel.com.np/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@vikashpaudel"><meta name="twitter:title" content="Research Publications — Dr. Vikash Paudel">
+<meta name="twitter:description" content="Dermatology research publications in teledermatology, leprosy, and infectious diseases.">
+<link rel="canonical" href="https://vikashpaudel.com.np/research.html">
+<link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--p:#082B4C;--pl:#0A3A62;--pd:#061F36;--ps:#F3F9FC;--a:#008C95;--ad:#00666E;--as:#DDF4F4;--bg:#FFF;--bga:#F6FAFC;--bgaq:#EEF8F8;--sf:#FFF;--tx:#162536;--txm:#536273;--txs:#758394;--od:#B9C7D3;--bd:#DFE7EC;--bds:#C9D6DE;--wa:#25D366;--fb:#1877F2;--fh:'DM Serif Display',Georgia,serif;--fb2:'Inter',system-ui,sans-serif;--fd:'Noto Sans Devanagari','Inter',sans-serif;--rs:8px;--rm:12px;--rl:16px;--rx:22px;--rp:999px;--shs:0 2px 8px rgba(8,43,76,.06);--shm:0 10px 24px rgba(8,43,76,.08);--shl:0 18px 42px rgba(8,43,76,.12);--cm:1240px;--hh:78px;--ss:clamp(3.5rem,7vw,5.5rem);--e:cubic-bezier(.22,.61,.36,1);--tf:160ms var(--e);--t:260ms var(--e);--em:#B00020;--apb:#FFF;--apt:#162536;--apbd:#DFE7EC;--acb:#F6FAFC;--ach:#E8F0F5}
+body.night-mode{--p:#4FC3F7;--pl:#4FC3F7;--pd:#0A1628;--ps:#0F3460;--a:#4FC3F7;--ad:#81D4FA;--as:#0F3460;--bg:#0F1B2D;--bga:#0A1628;--bgaq:#102A44;--sf:#0F3460;--tx:#E4EAF0;--txm:#B0BCC9;--txs:#8A98A8;--bd:#1F3450;--bds:#2C4A6B;--shs:0 2px 8px rgba(0,0,0,.4);--shm:0 10px 24px rgba(0,0,0,.5);--shl:0 18px 42px rgba(0,0,0,.6);--em:#A93226;--apb:#0F1B2D;--apt:#E4EAF0;--apbd:#1F3450;--acb:#0F3460;--ach:#163E70}
+body.color-blind-mode{--a:#2980B9;--ad:#1A5276;--as:#D6EAF8}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 20px)}
+body{margin:0;font-family:var(--fb2);font-size:1.0625rem;line-height:1.7;color:var(--tx);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;cursor:none}
+body[lang="ne"]{font-family:var(--fd)}body[lang="ne"] h1,body[lang="ne"] h2,body[lang="ne"] h3{font-family:var(--fd);font-weight:600}
+img,svg{max-width:100%}img{height:auto}ul{margin:0;padding:0;list-style:none}button{font:inherit}
+h1,h2,h3,h4{font-family:var(--fh);font-weight:400;line-height:1.2;letter-spacing:-.01em;color:var(--p);margin:0 0 .6em;text-wrap:balance}
+h1{font-size:clamp(2.1rem,4.4vw,3.4rem)}h2{font-size:clamp(1.7rem,2.9vw,2.4rem)}h3{font-size:clamp(1.1rem,1.6vw,1.35rem)}
+p{margin:0 0 1rem}p:last-child{margin-bottom:0}
+.container{width:100%;max-width:var(--cm);margin:0 auto;padding:0 clamp(1.15rem,4vw,2.5rem)}
+.section{padding:var(--ss) 0}.section--alt{background:var(--bga)}.section--aqua{background:var(--bgaq)}
+.skip-link{position:absolute;top:-100px;left:1rem;z-index:9999;background:var(--p);color:#fff;padding:.75rem 1.25rem;border-radius:var(--rs);text-decoration:none;font-weight:600}.skip-link:focus{top:1rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ad);margin:0 0 .85rem}.eyebrow i{color:var(--a)}
+.section-head{max-width:720px;margin-bottom:clamp(2rem,4vw,3rem)}.section-head--center{margin:0 auto;text-align:center}.section-head--center .section-sub{margin:0 auto}
+.section-sub{color:var(--txm);font-size:1.0625rem;max-width:62ch;margin:0}
+.divider{width:56px;height:3px;border-radius:2px;background:var(--a);margin:1.25rem 0 1.5rem}.section-head--center .divider{margin:1.25rem auto 1.5rem}
+a{color:var(--ad)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.8rem 1.5rem;border:1.5px solid transparent;border-radius:var(--rs);font-family:var(--fb2);font-size:.98rem;font-weight:600;line-height:1;text-align:center;text-decoration:none;cursor:pointer;transition:transform var(--t),box-shadow var(--t),background var(--t),color var(--t),border-color var(--t)}
+.btn-primary{background:var(--p);color:#fff;box-shadow:var(--shs)}.btn-primary:hover{background:var(--pl);transform:translateY(-2px);box-shadow:var(--shm)}
+.btn-outline{background:transparent;color:var(--p);border-color:var(--bds)}.btn-outline:hover{border-color:var(--p);background:var(--ps);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--p);box-shadow:var(--shm)}.btn-light:hover{background:var(--as);transform:translateY(-2px)}
+.link-arrow{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;font-size:.95rem;color:var(--ad);text-decoration:none;padding:.35rem 0;transition:color var(--t),gap var(--t)}.link-arrow:hover{color:var(--p);gap:.7rem}
+:focus-visible{outline:3px solid var(--a);outline-offset:3px;border-radius:4px}
+
+/* EMERGENCY */
+.emergency-banner{background:var(--em);color:#fff;text-align:center;padding:.55rem 1rem;font-size:.82rem;font-weight:500;position:relative;z-index:1001;display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap}
+.emergency-banner a{color:#fff;text-decoration:underline;font-weight:700}.emergency-banner .emergency-divider{opacity:.3}
+@media(max-width:700px){.emergency-banner{font-size:.72rem;padding:.4rem .65rem;gap:.5rem}.emergency-banner .emergency-divider{display:none}}
+
+/* CURSOR */
+.custom-cursor{position:fixed;pointer-events:none;z-index:9999;width:30px;height:30px;border-radius:50%;background:rgba(0,140,149,.08);border:1.5px solid rgba(0,140,149,.35);transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s;top:0;left:0}
+.custom-cursor .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:50%;background:var(--a);box-shadow:0 0 10px rgba(0,140,149,.5)}
+.custom-cursor.is-moving{width:40px;height:40px;background:rgba(0,140,149,.16);border-color:rgba(0,140,149,.65)}
+@media(hover:none) and (pointer:coarse){.custom-cursor{display:none!important}body{cursor:auto!important}}
+
+/* LEFT SOCIAL */
+.left-social-widget{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:.55rem}
+.social-left-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--sf);color:var(--txm);box-shadow:var(--shs);border:1px solid var(--bd);text-decoration:none;font-size:.95rem;transition:all var(--t)}
+.social-left-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:var(--shm);color:#fff}
+.fb-left:hover{background:#1877F2;border-color:#1877F2}.ig-left:hover{background:#E4405F;border-color:#E4405F}.tt-left:hover{background:#000;border-color:#000}.yt-left:hover{background:#FF0000;border-color:#FF0000}.li-left:hover{background:#0A66C2;border-color:#0A66C2}
+@media(max-width:900px){.left-social-widget{display:none}}
+
+/* COLOR BLIND TOGGLE */
+.accessibility-toggle-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:900;display:flex;align-items:center;gap:.75rem;padding:.5rem .95rem .5rem .85rem;border-radius:var(--rp);background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid var(--bd);box-shadow:var(--shm);font-size:.8rem}
+body.night-mode .accessibility-toggle-wrap{background:rgba(15,27,45,.94)}
+.toggle-label{display:flex;align-items:center;gap:.45rem;font-weight:600;color:var(--tx);white-space:nowrap}.toggle-label i{color:var(--a)}
+.toggle-switch{position:relative;width:42px;height:22px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;cursor:pointer;inset:0;background:#C9D6DE;transition:.3s;border-radius:34px}
+.toggle-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle-switch input:checked + .toggle-slider{background:var(--a)}.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+@media(max-width:640px){.accessibility-toggle-wrap{bottom:16px;padding:.4rem .75rem;gap:.55rem;font-size:.72rem}}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:800;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:background var(--t),box-shadow var(--t),border-color var(--t)}
+body.night-mode .site-header{background:rgba(15,27,45,.94)}
+.site-header.is-scrolled{background:rgba(255,255,255,.98);border-bottom-color:var(--bd);box-shadow:0 4px 20px rgba(8,43,76,.06)}
+body.night-mode .site-header.is-scrolled{background:rgba(15,27,45,.98)}
+.header-inner{display:flex;align-items:center;gap:1rem;min-height:var(--hh)}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;flex-shrink:0}
+.brand-mark{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(150deg,var(--p),var(--a));color:#fff;font-size:1.05rem;box-shadow:var(--shs)}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{font-family:var(--fh);font-size:1.16rem;color:var(--p)}
+.brand-role{font-size:.68rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--txs)}
+.nav-menu{display:flex;align-items:center;gap:.05rem;margin-left:auto}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:inline-flex;align-items:center;gap:.3rem;padding:.55rem .65rem;border-radius:var(--rs);font-size:.88rem;font-weight:500;color:var(--tx);text-decoration:none;white-space:nowrap;position:relative;transition:color var(--tf)}
+.nav-menu>li>a::after{content:"";position:absolute;left:.65rem;right:.65rem;bottom:.25rem;height:2px;border-radius:2px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform var(--t)}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{color:var(--p)}.nav-menu>li>a:hover::after,.nav-menu>li>a.active::after{transform:scaleX(1)}
+.nav-menu>li>a .fa-chevron-down{font-size:.6rem;color:var(--txs)}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:250px;padding:.4rem;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);box-shadow:var(--shl);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity var(--t),transform var(--t),visibility var(--t);z-index:60}
+.dropdown a{display:block;padding:.58rem .85rem;border-radius:var(--rs);font-size:.875rem;color:var(--tx);text-decoration:none}
+.dropdown a:hover{background:var(--ps);color:var(--p);padding-left:1.1rem}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.book-now-nav{margin-left:.35rem}
+.book-now-nav a{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.2rem;border-radius:var(--rs);background:var(--p);color:#fff!important;font-size:.88rem;font-weight:600;text-decoration:none;box-shadow:var(--shs)}
+.book-now-nav a::after{display:none}.book-now-nav a:hover{background:var(--ad);transform:translateY(-2px)}
+.language-switcher{position:relative;margin-left:.35rem}
+.language-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border:1px solid var(--bd);border-radius:var(--rp);background:var(--bga);color:var(--p);font-size:.82rem;font-weight:600;cursor:pointer}
+.language-btn:hover{background:var(--as);border-color:var(--a)}
+.language-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);box-shadow:var(--shl);min-width:160px;padding:.35rem;opacity:0;visibility:hidden;transform:translateY(8px);transition:all var(--t);z-index:60}
+.language-dropdown.active{opacity:1;visibility:visible;transform:translateY(0)}
+.language-option{padding:.55rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.6rem;border-radius:var(--rs);font-size:.85rem;color:var(--tx)}
+.language-option:hover{background:var(--ps)}
+.language-flag{width:20px;height:14px;border-radius:2px}
+.theme-toggle-nav{display:inline-flex;align-items:center;justify-content:center;margin-left:.35rem;width:38px;height:38px;border-radius:50%;background:var(--bga);border:1px solid var(--bd);color:var(--p);font-size:1rem;cursor:pointer}
+.theme-toggle-nav:hover{background:var(--as);color:var(--ad);transform:rotate(-15deg)}
+.mobile-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;border:1px solid var(--bd);border-radius:var(--rs);background:var(--sf);color:var(--p);font-size:1.05rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(2.5rem,5vw,4.5rem) 0 clamp(2rem,4vw,3.5rem);background:linear-gradient(180deg,#F7FBFD 0%,#FFF 100%)}
+body.night-mode .hero{background:linear-gradient(180deg,#0A1628 0%,#0F1B2D 100%)}
+.hero-decor{position:absolute;inset:0;pointer-events:none}
+.hero-orb{position:absolute;border-radius:50%}
+.hero-orb--1{width:540px;height:540px;top:-200px;right:-180px;background:radial-gradient(circle at 35% 35%,rgba(0,140,149,.13),rgba(0,140,149,0) 70%)}
+.hero-orb--2{width:460px;height:460px;bottom:-220px;left:-180px;background:radial-gradient(circle at 60% 40%,rgba(8,43,76,.10),rgba(8,43,76,0) 70%)}
+.hero-inner{position:relative;max-width:860px}
+.hero-copy h1{margin-bottom:1rem}
+.hero-lead{font-size:1.08rem;color:var(--txm);max-width:60ch;margin-bottom:1.5rem}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.85rem 1.25rem}
+
+/* STATS */
+.stats-section{position:relative;padding:clamp(3rem,5vw,4rem) 0;background:linear-gradient(135deg,var(--p) 0%,var(--pd) 100%);color:#fff;overflow:hidden}
+.stats-section::after{content:"";position:absolute;top:-180px;right:-140px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(0,140,149,.28),rgba(0,140,149,0) 70%);pointer-events:none}
+.stats-container{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.stat-card{padding:1.6rem 1.2rem;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:var(--rm);backdrop-filter:blur(8px);transition:background var(--t),transform var(--t)}
+.stat-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
+.stat-number{font-family:var(--fh);font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.05;margin-bottom:.4rem;color:#fff;display:inline-block}
+.stat-text{font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+
+/* PROFILE LINKS */
+.profile-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.85rem;margin-top:2rem}
+.profile-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;min-width:118px;padding:1rem 1.1rem;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);color:var(--txm);text-decoration:none;font-size:.8rem;font-weight:600;text-align:center;transition:transform var(--t),box-shadow var(--t),border-color var(--t),color var(--t)}
+.profile-link i{font-size:1.55rem;color:var(--ad)}.profile-link:hover{transform:translateY(-4px);box-shadow:var(--shm);border-color:var(--a);color:var(--p)}.profile-link:hover i{color:var(--p)}
+
+/* PUBLICATION COMPONENTS */
+.pub-category{margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.pub-category-title{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:.85rem;border-bottom:2px solid var(--as)}
+.pub-category-title i{font-size:1.35rem;color:var(--a)}
+.pub-category-title h2{font-size:clamp(1.5rem,2.4vw,2rem);margin:0}
+.featured-publication{background:linear-gradient(135deg,var(--ps),var(--as));border:1px solid var(--bd);border-left:5px solid var(--p);border-radius:var(--rm);padding:1.7rem 1.6rem;margin-bottom:2.5rem}
+body.night-mode .featured-publication{background:linear-gradient(135deg,var(--ps),var(--bgaq))}
+.featured-badge{display:inline-block;background:var(--p);color:#fff;padding:.25rem .8rem;border-radius:var(--rp);font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.95rem}
+.featured-publication h3{font-family:var(--fb2);font-weight:600;font-size:1.12rem;color:var(--p);line-height:1.45;margin:0 0 .6rem}
+.featured-publication p{font-size:.93rem;color:var(--txm);margin:0 0 .7rem}
+.pub-list{display:flex;flex-direction:column;gap:1.1rem}
+.pub-card{background:var(--sf);border:1px solid var(--bd);border-left:4px solid var(--a);border-radius:var(--rm);padding:1.4rem 1.5rem;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+.pub-card:hover{transform:translateY(-3px);box-shadow:var(--shm);border-left-color:var(--p)}
+.pub-card h3{font-family:var(--fb2);font-size:1.02rem;font-weight:600;line-height:1.5;color:var(--p);margin:0 0 .55rem}
+.pub-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .75rem;font-size:.8rem;color:var(--txm);margin-bottom:.6rem}
+.pub-meta .pub-journal{font-weight:600;color:var(--ad)}.pub-meta .pub-dot{opacity:.45}
+.pub-tag{display:inline-block;padding:.18rem .65rem;background:var(--as);color:var(--ad);border-radius:var(--rp);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pub-card p{font-size:.9rem;line-height:1.62;color:var(--txm);margin:0 0 .65rem}
+.conference-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.conference-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);padding:1.25rem 1.3rem;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+.conference-card:hover{transform:translateY(-3px);box-shadow:var(--shm);border-color:var(--a)}
+.conference-card h3{font-family:var(--fb2);font-size:.97rem;font-weight:600;line-height:1.45;color:var(--p);margin:0 0 .6rem}
+.conference-card .conf-venue{font-size:.8rem;color:var(--txm);margin:0 0 .2rem}
+.conference-card .conf-year{font-size:.8rem;font-weight:700;color:var(--ad);margin:0}
+.reviewer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin-top:1.25rem}
+.reviewer-item{display:flex;align-items:flex-start;gap:.6rem;padding:.75rem .9rem;background:var(--bga);border:1px solid var(--bd);border-radius:var(--rs);font-size:.85rem;color:var(--txm);line-height:1.5;transition:background var(--t),transform var(--t),border-color var(--t)}
+.reviewer-item:hover{background:var(--as);border-color:var(--a);transform:translateX(4px)}
+.reviewer-item i{color:var(--a);margin-top:.2rem;flex-shrink:0;font-size:.9rem}
+.info-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem;margin-top:1.25rem}
+.info-card{position:relative;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);padding:1.35rem 1.2rem;text-align:center;overflow:hidden;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+.info-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--a),var(--p));transform:scaleX(0);transform-origin:left;transition:transform var(--t)}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--shm)}.info-card:hover::before{transform:scaleX(1)}
+.info-card-icon{font-size:1.7rem;color:var(--ad);margin-bottom:.75rem}
+.info-card h3{font-family:var(--fb2);font-size:1rem;font-weight:600;color:var(--p);margin:0 0 .35rem}
+.info-card p{font-size:.85rem;color:var(--txm);margin:0;line-height:1.55}
+.research-focus-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.1rem}
+.research-focus-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.93rem;color:var(--txm)}
+.research-focus-list li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:.55em;border-radius:50%;background:var(--a)}
+.quick-link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:1.5rem}
+.quick-link{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.35rem;padding:1.2rem 1rem;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rm);color:var(--tx);text-decoration:none;transition:transform var(--t),box-shadow var(--t),border-color var(--t),color var(--t)}
+.quick-link:hover{transform:translateY(-4px);box-shadow:var(--shm);border-color:var(--a);color:var(--p)}
+.quick-link-icon{font-size:1.65rem;color:var(--ad);margin-bottom:.35rem}
+.quick-link-title{font-weight:600;font-size:.92rem;color:var(--p)}
+.quick-link-sub{font-size:.76rem;color:var(--txs)}
+
+/* FOOTER */
+.site-footer{background:var(--pd);color:var(--od);padding:clamp(2.5rem,4vw,3.5rem) 0 1.25rem;font-size:.85rem}
+.footer-container{display:grid;grid-template-columns:1.5fr 1fr 1.4fr 1.2fr;gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.10)}
+.footer-column h3{font-family:var(--fb2);font-size:.95rem;font-weight:600;letter-spacing:.04em;color:#fff;margin:0 0 1rem}
+.footer-column>p{font-size:.82rem;line-height:1.6;color:var(--od);margin:0 0 1rem;max-width:34ch}
+.footer-links{display:grid;gap:.5rem}
+.footer-links a{color:var(--od);text-decoration:none;font-size:.82rem;transition:color var(--tf),padding-left var(--tf)}
+.footer-links a:hover{color:#fff;padding-left:3px}
+.footer-contact{display:grid;gap:1rem}
+.footer-contact li{display:flex;gap:.7rem;font-size:.82rem;line-height:1.55;color:var(--od)}
+.footer-contact i{color:var(--a);font-size:.9rem;margin-top:.22rem;flex-shrink:0}
+.footer-contact strong{display:block;color:#fff;font-weight:600;font-size:.82rem;margin-bottom:.15rem}
+.footer-contact p{margin:0}
+.social-links{display:flex;gap:.5rem;margin-top:1.1rem;flex-wrap:wrap}
+.social-links a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);color:#fff;font-size:.82rem;text-decoration:none;transition:background var(--t),transform var(--t)}
+.social-links a:hover{background:var(--a);transform:translateY(-2px)}
+.social-links a.whatsapp-footer{background:var(--wa)}
+.copyright{padding-top:1.25rem;text-align:center;font-size:.74rem;color:rgba(255,255,255,.55)}
+
+/* FLOATING */
+.whatsapp-button,.facebook-button,.accessibility-widget-toggle{position:fixed;right:16px;z-index:850;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.3rem;cursor:pointer;border:none;text-decoration:none;box-shadow:var(--shl);transition:transform var(--t),background var(--t)}
+.whatsapp-button{bottom:76px;background:var(--wa)}.whatsapp-button:hover{background:#128C7E;transform:translateY(-3px)}
+.facebook-button{bottom:136px;background:var(--fb)}.facebook-button:hover{background:#0F5FCC;transform:translateY(-3px)}
+.accessibility-widget-toggle{bottom:196px;background:var(--p);font-size:1.2rem}
+.accessibility-widget-toggle:hover{background:var(--ad);transform:translateY(-3px) rotate(8deg)}
+@media(max-width:640px){.whatsapp-button,.facebook-button,.accessibility-widget-toggle{width:44px;height:44px;font-size:1.1rem;right:12px}.whatsapp-button{bottom:70px}.facebook-button{bottom:122px}.accessibility-widget-toggle{bottom:174px}}
+
+/* CHAT */
+.chat-widget{position:fixed;bottom:16px;right:16px;z-index:860}
+.chat-button{width:54px;height:54px;border-radius:50%;background:var(--p);color:#fff;font-size:1.3rem;display:grid;place-items:center;border:none;cursor:pointer;box-shadow:var(--shl);transition:transform var(--t),background var(--t)}
+.chat-button:hover{background:var(--ad);transform:translateY(-3px)}
+.chat-container{position:absolute;bottom:calc(100% + 12px);right:0;width:340px;max-width:calc(100vw - 2rem);height:460px;display:none;flex-direction:column;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rl);box-shadow:var(--shl);overflow:hidden;z-index:870}
+.chat-container.active{display:flex}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;background:var(--p);color:#fff}
+.chat-header h3{font-family:var(--fb2);font-size:.95rem;font-weight:600;color:#fff;margin:0}
+.close-chat{background:none;border:none;color:#fff;font-size:1rem;cursor:pointer}
+.chat-messages{flex:1;display:flex;flex-direction:column;gap:.7rem;padding:1rem;overflow-y:auto;background:var(--bga)}
+.message{max-width:82%;padding:.65rem .9rem;border-radius:14px;font-size:.875rem;line-height:1.5}
+.message.bot{align-self:flex-start;background:var(--sf);border:1px solid var(--bd);color:var(--tx)}
+.message.user{align-self:flex-end;background:var(--p);color:#fff}
+.chat-input{display:flex;gap:.5rem;padding:.75rem;background:var(--sf);border-top:1px solid var(--bd)}
+.chat-input input{flex:1;min-width:0;padding:.6rem .85rem;border:1px solid var(--bd);border-radius:var(--rp);font-size:.875rem;background:var(--bga);outline:none}
+.chat-input button{width:40px;height:40px;border:none;border-radius:50%;background:var(--p);color:#fff;cursor:pointer}
+@media(max-width:640px){.chat-container{right:-8px;width:calc(100vw - 1.5rem);height:65vh}}
+
+/* ACCESSIBILITY PANEL */
+.accessibility-panel{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);width:92%;max-width:880px;max-height:88vh;overflow-y:auto;padding:1.75rem 1.5rem;background:var(--apb);color:var(--apt);border:1px solid var(--apbd);border-radius:var(--rl);box-shadow:var(--shl);z-index:1300;opacity:0;visibility:hidden;transition:opacity var(--t),transform var(--t),visibility var(--t)}
+.accessibility-panel.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:.85rem;margin-bottom:1.25rem;border-bottom:1px solid var(--apbd)}
+.panel-header h2{font-family:var(--fh);font-size:1.35rem;display:flex;align-items:center;gap:.65rem;color:var(--apt);margin:0}
+.panel-header h2 i{color:var(--a)}
+.close-panel{background:transparent;border:none;font-size:1.75rem;color:var(--apt);cursor:pointer}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.85rem}
+.tool-item{display:flex;flex-direction:column;gap:.5rem;padding:.9rem .85rem;background:var(--acb);border-radius:var(--rm)}
+.tool-item label{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--apt);opacity:.8;display:flex;align-items:center;gap:.4rem}
+.tool-item label i{color:var(--a)}
+.tool-item select{width:100%;padding:.35rem .5rem;border:1px solid var(--apbd);border-radius:var(--rs);background:var(--apb);color:var(--apt);font-size:.82rem}
+.btn-group{display:flex;gap:.3rem;flex-wrap:wrap}
+.btn-group button{flex:1;min-width:40px;padding:.35rem .5rem;border:1px solid var(--apbd);background:var(--apb);color:var(--apt);border-radius:var(--rs);cursor:pointer;font-size:.78rem}
+.btn-group button.active{background:var(--a);color:#fff;border-color:var(--a)}
+.toggle-btn{position:relative;width:42px;height:22px;background:#C9D6DE;border-radius:30px;border:none;cursor:pointer;transition:background var(--t);align-self:flex-start}
+.toggle-btn.active{background:var(--a)}
+.toggle-btn::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform var(--t)}
+.toggle-btn.active::after{transform:translateX(20px)}
+
+/* FESTIVE POPUP */
+.festive-popup-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:rgba(6,31,54,.65);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+.festive-popup-backdrop.open{opacity:1;visibility:visible}
+.festive-popup{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;border-radius:var(--rx);background:var(--sf);border:1px solid var(--bd);box-shadow:var(--shl);transform:translateY(24px) scale(.96);transition:transform .5s}
+.festive-popup-backdrop.open .festive-popup{transform:translateY(0) scale(1)}
+.festive-popup-art{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--rx) var(--rx) 0 0;background:radial-gradient(circle at 22% 28%,rgba(255,200,90,.35),transparent 42%),linear-gradient(140deg,#0A3A62 0%,#082B4C 46%,#4A2C1A 100%)}
+.festive-popup-art-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1rem;text-align:center;color:#fff}
+.festive-eyebrow{font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F7DCA8;margin:0}
+.festive-title{font-family:var(--fh);font-size:clamp(1.3rem,5vw,1.65rem);line-height:1.18;color:#fff;margin:0}
+.festive-sub{font-size:.72rem;color:rgba(255,255,255,.82);margin:0}
+.festive-popup-body{padding:1.35rem 1.4rem 1.5rem;text-align:center}
+.festive-popup-body h3{font-size:1.2rem;margin:0 0 .5rem;color:var(--p)}
+.festive-popup-body p{font-size:.88rem;line-height:1.62;color:var(--txm);margin:0 0 1.15rem}
+.festive-popup-body .btn{width:100%}
+.festive-popup-close{position:absolute;top:.7rem;right:.7rem;z-index:3;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:rgba(8,43,76,.55);color:#fff;font-size:1rem;cursor:pointer}
+.festive-popup-close:hover{background:var(--p)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.reveal.is-visible{opacity:1;transform:none}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.fade-in.visible{opacity:1;transform:none}
+.stagger>*:nth-child(1){transition-delay:0ms}.stagger>*:nth-child(2){transition-delay:70ms}.stagger>*:nth-child(3){transition-delay:140ms}.stagger>*:nth-child(4){transition-delay:210ms}.stagger>*:nth-child(5){transition-delay:280ms}.stagger>*:nth-child(6){transition-delay:350ms}.stagger>*:nth-child(7){transition-delay:420ms}.stagger>*:nth-child(8){transition-delay:490ms}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+:root{--hh:68px}
+.mobile-toggle{display:inline-flex}
+.nav-menu{position:fixed;top:var(--hh);left:0;right:0;display:flex;flex-direction:column;align-items:stretch;gap:.15rem;margin:0;padding:.85rem clamp(1.15rem,4vw,2.5rem) 1.5rem;background:var(--sf);border-bottom:1px solid var(--bd);box-shadow:var(--shl);max-height:calc(100vh - var(--hh));overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity var(--t),transform var(--t),visibility var(--t)}
+.nav-menu.active{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-menu>li{width:100%}
+.nav-menu>li>a{width:100%;justify-content:space-between;padding:.8rem .5rem;font-size:.98rem;border-bottom:1px solid var(--bd);border-radius:0}
+.nav-menu>li>a::after{display:none}
+.dropdown{position:static;min-width:0;margin:.3rem 0 .6rem .6rem;padding:0 0 0 .75rem;border:0;border-left:2px solid var(--bd);border-radius:0;box-shadow:none;opacity:1;visibility:visible;transform:none;display:none}
+.nav-menu li:hover .dropdown,.nav-menu li.open .dropdown{display:block}
+.book-now-nav{margin:.85rem 0 0}.book-now-nav a{width:100%;justify-content:center}
+.language-switcher{margin:.75rem 0 0}.language-btn{width:100%;justify-content:center}
+.theme-toggle-nav{margin:.75rem auto 0}
+.conference-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+.stats-container{grid-template-columns:repeat(2,1fr);gap:1rem}
+.footer-container{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.conference-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+body{font-size:1rem}
+.footer-container{grid-template-columns:1fr;gap:1.75rem}
+.profile-link{min-width:100px;padding:.85rem .9rem;font-size:.75rem}
+.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{width:100%}
+.brand-role{display:none}.brand-name{font-size:1.05rem}
+.accessibility-panel .tools-grid{grid-template-columns:repeat(2,1fr)}
+.quick-link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}.reveal,.fade-in{opacity:1!important;transform:none!important}}
+@media print{.site-header,.chat-widget,.accessibility-panel,.left-social-widget,.accessibility-toggle-wrap,.custom-cursor,.emergency-banner,.festive-popup-backdrop,.facebook-button,.whatsapp-button,.accessibility-widget-toggle{display:none!important}body{color:#000;cursor:auto}}
+body.filter-protanopia{filter:url('#protanopia-filter')}body.filter-deuteranopia{filter:url('#deuteranopia-filter')}body.filter-tritanopia{filter:url('#tritanopia-filter')}
+</style>
 </head>
 <body>
-  <!-- Updated Navigation -->
-  <nav class="navbar" role="navigation" aria-label="Main Navigation">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-logo">
-        <i class="fas fa-stethoscope logo-icon"></i>
-        Dr. Vikash Paudel
-      </a>
-      
-      <div class="mobile-toggle" aria-label="Open navigation menu">
-        <i class="fas fa-bars"></i>
+
+<!-- FESTIVE POPUP -->
+<div class="festive-popup-backdrop" id="festivePopupBackdrop" role="dialog" aria-modal="true">
+  <div class="festive-popup">
+    <button class="festive-popup-close" id="festivePopupClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="festive-popup-art">
+      <div class="festive-popup-art-text">
+        <p class="festive-eyebrow" data-en="Season's Greetings" data-np="मौसमी शुभकामना">Season's Greetings</p>
+        <p class="festive-title" data-en="Happy Vijayadashami, Diwali &amp; Chhath Puja" data-np="विजयादशमी, दीपावली र छठ पूजाको शुभकामना">Happy Vijayadashami, Diwali &amp; Chhath Puja</p>
+        <p class="festive-sub" data-en="Warm wishes from Dr. Vikash Paudel" data-np="डा. विकास पौडेलको तर्फबाट शुभकामना">Warm wishes from Dr. Vikash Paudel</p>
       </div>
-      
-      <ul class="navbar-menu">
-        <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-        <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
-        <li class="navbar-item"><a href="research.html" class="navbar-link active">Research</a></li>
-        <li class="navbar-item"><a href="award.html" class="navbar-link">Awards</a></li>
-        <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
-        <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-        <li class="navbar-item"><a href="appointment.html" class="navbar-link appointment-btn"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
-      </ul>
     </div>
-  </nav>
+    <div class="festive-popup-body">
+      <h3 data-en="May your festivities be filled with light and joy" data-np="तपाईंको चाडपर्व उज्यालो र खुशीले भरियोस्">May your festivities be filled with light and joy</h3>
+      <p data-en="Wishing you and your family health, happiness and prosperity this festive season." data-np="यो चाडपर्वको अवसरमा तपाईं र तपाईंको परिवारलाई स्वास्थ्य, खुशी र समृद्धिको शुभकामना।">Wishing you and your family health, happiness and prosperity this festive season.</p>
+      <button class="btn btn-primary" id="festivePopupDismiss" data-en="Continue to Website" data-np="वेबसाइटमा जानुहोस्">Continue to Website</button>
+    </div>
+  </div>
+</div>
 
-  <main>
-    <!-- Header -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="fade-in">Publications & Research</h1>
-        <p class="fade-in">Contributing to dermatological knowledge through research and academic publications</p>
+<!-- EMERGENCY -->
+<div class="emergency-banner" role="alert">
+  <span><i class="fas fa-phone-alt" style="margin-right:4px"></i> 24/7 Emergency: <a href="tel:102">102</a></span>
+  <span class="emergency-divider">|</span>
+  <span><i class="fas fa-clock" style="margin-right:4px"></i> <span data-en="Open 6 Days a Week, Saturday Closed" data-np="हप्ताको ६ दिन खुला, शनिबार बन्द">Open 6 Days a Week, Saturday Closed</span></span>
+  <span class="emergency-divider">|</span>
+  <span><i class="fas fa-map-marker-alt" style="margin-right:4px"></i> <span data-en="Kathmandu, Nepal" data-np="काठमाडौं, नेपाल">Kathmandu, Nepal</span></span>
+</div>
+
+<!-- CURSOR -->
+<div class="custom-cursor" id="customCursor" aria-hidden="true"><div class="dot"></div></div>
+
+<!-- SKIP -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- LEFT SOCIAL -->
+<div class="left-social-widget" role="complementary" aria-label="Social media">
+  <a href="https://facebook.com/vikashderma" target="_blank" rel="noopener" class="social-left-btn fb-left" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://instagram.com" target="_blank" rel="noopener" class="social-left-btn ig-left" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@skindoctor.vikash" target="_blank" rel="noopener" class="social-left-btn tt-left" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  <a href="https://youtube.com/@vikashpaudel" target="_blank" rel="noopener" class="social-left-btn yt-left" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  <a href="https://linkedin.com/in/vikashpaudel/" target="_blank" rel="noopener" class="social-left-btn li-left" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+<!-- COLOR BLIND -->
+<div class="accessibility-toggle-wrap" role="complementary">
+  <span class="toggle-label"><i class="fas fa-wheelchair"></i><span data-en="Color Blind Mode" data-np="रङ अन्धा मोड">Color Blind Mode</span></span>
+  <label class="toggle-switch"><input type="checkbox" id="colorBlindToggle" aria-label="Toggle color blind mode"><span class="toggle-slider"></span></label>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fas fa-stethoscope"></i></span>
+      <span class="brand-text"><span class="brand-name">Dr. Vikash Paudel</span><span class="brand-role" data-en="Consultant Dermatologist · Kathmandu" data-np="छालारोग विशेषज्ञ · काठमाडौं">Consultant Dermatologist</span></span>
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <nav role="navigation">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+        <li class="has-dropdown"><a href="services.html" data-en="Services" data-np="सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="acne.html" data-en="Acne Treatment" data-np="डन्डिफोर उपचार">Acne Treatment</a></li>
+            <li><a href="peel.html" data-en="Chemical Peels" data-np="केमिकल पील">Chemical Peels</a></li>
+            <li><a href="hair.html" data-en="Hair Restoration" data-np="कपाल सम्बन्धि">Hair Restoration</a></li>
+            <li><a href="laser.html" data-en="LASER Therapy" data-np="लेजर उपचार">LASER Therapy</a></li>
+            <li><a href="sti.html" data-en="STI Treatment" data-np="यौन संक्रमण/रोग उपचार">STI Treatment</a></li>
+            <li><a href="cosmetic.html" data-en="Cosmetic Procedures" data-np="कस्मेटिक उपचार">Cosmetic Procedures</a></li>
+          </ul>
+        </li>
+        <li><a href="research.html" class="active" data-en="Research" data-np="अनुसन्धान">Research</a></li>
+        <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
+        <li><a href="index.html#testimonials" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
+        <li><a href="about.html" data-en="About" data-np="हाम्रो बारेमा">About</a></li>
+        <li><a href="index.html#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+        <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+        <li class="book-now-nav"><a href="appointment.html"><i class="fas fa-calendar-check"></i> <span data-en="Book Now" data-np="बुक गर्नुहोस्">Book Now</span></a></li>
+        <li class="language-switcher">
+          <button class="language-btn" id="languageBtn" aria-expanded="false"><i class="fas fa-globe"></i><span>English</span><i class="fas fa-chevron-down"></i></button>
+          <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" data-lang="en" tabindex="0"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHJlY3QgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMiIGZpbGw9IiNmZmYiLz48cmVjdCB5PSI2IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjEyIiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjE4IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHk9IjI0IiB3aWR0aD0iNjAiIGhlaWdodD0iMyIgZmlsbD0iI2ZmZiIvPjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2RlMjcyNyIvPjwvc3ZnPg==" alt="EN" class="language-flag"><span>English</span></div>
+            <div class="language-option" data-lang="np" tabindex="0"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZGUyNzI3Ii8+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDAzODkzIi8+PHBhdGggZD0iTTMwLDE1IEw2MCwzMCBMMzAsMzAgTDAsMzAgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="NP" class="language-flag"><span>नेपाली</span></div>
+          </div>
+        </li>
+        <li><button class="theme-toggle-nav" id="themeToggleNav" aria-label="Toggle theme"><i class="fas fa-moon" id="themeIcon"></i></button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-decor"><span class="hero-orb hero-orb--1"></span><span class="hero-orb hero-orb--2"></span></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><i class="fas fa-flask"></i><span data-en="Research &amp; Publications" data-np="अनुसन्धान र प्रकाशनहरू">Research &amp; Publications</span></p>
+      <h1 data-en="Advancing Dermatology Through Research" data-np="अनुसन्धान मार्फत छालारोग विज्ञानको प्रगति">Advancing Dermatology Through Research</h1>
+      <p class="hero-lead" data-en="Dr. Vikash Paudel has contributed to numerous peer-reviewed journals and publications, advancing the field of dermatology through evidence-based research, clinical studies and academic leadership." data-np="डा. विकास पौडेलले धेरै सहकर्मी-समीक्षित जर्नल र प्रकाशनहरूमा योगदान पुर्‍याउनुभएको छ, प्रमाण-आधारित अनुसन्धान, क्लिनिकल अध्ययन र शैक्षिक नेतृत्व मार्फत छालारोग विज्ञानको क्षेत्रलाई अगाडि बढाउँदै।">Dr. Vikash Paudel has contributed to numerous peer-reviewed journals and publications, advancing the field of dermatology through evidence-based research, clinical studies and academic leadership.</p>
+      <div class="hero-actions">
+        <a href="appointment.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i><span data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</span></a>
+        <a href="index.html#contact" class="btn btn-outline"><span data-en="Contact Dr. Paudel" data-np="डा. पौडेललाई सम्पर्क गर्नुहोस्">Contact Dr. Paudel</span><i class="fas fa-arrow-right"></i></a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Research Statistics -->
-    <section class="stats-section">
-      <div class="container">
-        <div class="stats-grid stagger-delay">
-          <div class="stat-item">
-            <div class="stat-number" id="publication-count">50+</div>
-            <div class="stat-label">Peer-Reviewed Publications</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" id="citation-count">100+</div>
-            <div class="stat-label">Citations</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" id="conference-count">20+</div>
-            <div class="stat-label">Conference Presentations</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" id="journal-count">18</div>
-            <div class="stat-label">Peer Reviewer Journals</div>
-          </div>
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-container">
+      <div class="stat-card fade-in"><div class="stat-number" data-count="50" data-suffix="+">0</div><div class="stat-text" data-en="Peer-Reviewed Publications" data-np="सहकर्मी-समीक्षित प्रकाशनहरू">Peer-Reviewed Publications</div></div>
+      <div class="stat-card fade-in"><div class="stat-number" data-count="100" data-suffix="+">0</div><div class="stat-text" data-en="Citations" data-np="उद्धरणहरू">Citations</div></div>
+      <div class="stat-card fade-in"><div class="stat-number" data-count="20" data-suffix="+">0</div><div class="stat-text" data-en="Conference Presentations" data-np="सम्मेलन प्रस्तुतिहरू">Conference Presentations</div></div>
+      <div class="stat-card fade-in"><div class="stat-number" data-count="18">0</div><div class="stat-text" data-en="Peer Reviewer Journals" data-np="सहकर्मी समीक्षक जर्नलहरू">Peer Reviewer Journals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><i class="fas fa-user-graduate"></i><span data-en="Academic Presence" data-np="शैक्षिक उपस्थिति">Academic Presence</span></p>
+      <h2 data-en="Research Profiles" data-np="अनुसन्धान प्रोफाइलहरू">Research Profiles</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="Connect with Dr. Paudel's research work across leading academic platforms." data-np="अग्रणी शैक्षिक प्लेटफर्महरूमा डा. पौडेलको अनुसन्धान कार्यसँग जोडिनुहोस्।">Connect with Dr. Paudel's research work across leading academic platforms.</p>
+    </div>
+    <div class="profile-links reveal">
+      <a href="https://orcid.org/0000-0001-8729-052X" target="_blank" rel="noopener" class="profile-link"><i class="fab fa-orcid"></i><span>ORCID</span></a>
+      <a href="https://scholar.google.com/citations?user=USER_ID" target="_blank" rel="noopener" class="profile-link"><i class="fas fa-graduation-cap"></i><span>Google Scholar</span></a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Paudel+V" target="_blank" rel="noopener" class="profile-link"><i class="fas fa-book-medical"></i><span>PubMed</span></a>
+      <a href="https://www.researchgate.net/profile/Vikash_Paudel" target="_blank" rel="noopener" class="profile-link"><i class="fab fa-researchgate"></i><span>ResearchGate</span></a>
+      <a href="https://www.linkedin.com/in/dr-vikash-paudel" target="_blank" rel="noopener" class="profile-link"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><i class="fas fa-book-open"></i><span data-en="Scholarly Work" data-np="विद्वान कार्य">Scholarly Work</span></p>
+      <h2 data-en="Published Research" data-np="प्रकाशित अनुसन्धान">Published Research</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="A comprehensive record of peer-reviewed articles, case reports, editorials and reviews." data-np="सहकर्मी-समीक्षित लेखहरू, केस रिपोर्टहरू, सम्पादकीयहरू र समीक्षाहरूको व्यापक रेकर्ड।">A comprehensive record of peer-reviewed articles, case reports, editorials and reviews.</p>
+    </div>
+
+    <div class="featured-publication reveal">
+      <span class="featured-badge" data-en="High Impact Publication" data-np="उच्च प्रभाव प्रकाशन">High Impact Publication</span>
+      <h3>Patterns and barriers of teledermatology in resource-limited settings in the COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
+      <div class="pub-meta"><span class="pub-journal">JAAD International</span><span class="pub-dot">•</span><span>2022</span><span class="pub-tag">Original Research</span></div>
+      <p>Comprehensive analysis of teledermatology implementation challenges and patterns during the COVID-19 pandemic in Nepal's resource-limited settings.</p>
+      <a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="link-arrow" target="_blank" rel="noopener"><span data-en="View Publication" data-np="प्रकाशन हेर्नुहोस्">View Publication</span><i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="pub-category reveal">
+      <div class="pub-category-title"><i class="fas fa-flask"></i><h2 data-en="Original Research" data-np="मौलिक अनुसन्धान">Original Research</h2></div>
+      <div class="pub-list stagger">
+        <article class="pub-card fade-in"><h3>Clinical and epidemiological panorama of leprosy at a tertiary center across the Nepal–India border in the post-elimination era: A cross-sectional study</h3><div class="pub-meta"><span class="pub-journal">Our Dermatol Online</span><span class="pub-dot">•</span><span>2024</span><span class="pub-tag">Original Research</span></div><p>Cross-sectional study examining leprosy patterns in the post-elimination era at the Nepal-India border region.</p><a href="https://doi.org/10.7241/ourd.20243.4" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>A clinical and epidemiological study of non-venereal genital dermatoses: A cross-sectional, hospital-based study from Nepal</h3><div class="pub-meta"><span class="pub-journal">Our Dermatol Online</span><span class="pub-dot">•</span><span>2022</span><span class="pub-tag">Original Research</span></div><p>Comprehensive analysis of non-venereal genital dermatoses in a hospital setting in Nepal.</p><a href="https://doi.org/10.7241/ourd.20221.3" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Patterns and barriers of teledermatology in resource-limited settings in COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3><div class="pub-meta"><span class="pub-journal">JAAD International</span><span class="pub-dot">•</span><span>2022</span><span class="pub-tag">Original Research</span></div><p>Survey-based analysis of teledermatology implementation during COVID-19 in Nepal.</p><a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Prevalence of Venereophobia among Patients of Non-Venereal Genital Conditions - A Cross-Sectional Hospital Based Study from Nepal</h3><div class="pub-meta"><span class="pub-journal">Nepal J Dermatol Venereol &amp; Leprol</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Original Research</span></div><p>Study examining the prevalence of venereophobia among patients with non-venereal genital conditions.</p><a href="https://doi.org/10.3126/njdvl.v19i2.39020" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Misuse of Topical Corticosteroids in Dermatological Disorders in Tribhuvan University Teaching Hospital</h3><div class="pub-meta"><span class="pub-journal">Journal of Nepal Health Research Council</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Original Research</span></div><p>Study examining the misuse of topical corticosteroids in dermatological disorders.</p><a href="https://doi.org/10.33314/jnhrc.v18i4.2832" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Clinico-mycological Study of Dermatophytosis and Their Antifungal Susceptibility, A Hospital Based Study</h3><div class="pub-meta"><span class="pub-journal">Nepal Journal of Dermatology, Venereology &amp; Leprology</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Original Research</span></div><p>Study examining dermatophytosis and antifungal susceptibility patterns.</p><a href="https://doi.org/10.3126/njdvl.v19i1.34693" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Clinico-Epidemiological Characteristics of Scabies in Children. Do We Need Mass Drug Administration?</h3><div class="pub-meta"><span class="pub-journal">Nepal Medical Journal</span><span class="pub-dot">•</span><span>2020</span><span class="pub-tag">Original Research</span></div><p>Study examining scabies characteristics in children and implications for mass drug administration.</p><a href="https://doi.org/10.37080/nmj.123" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>A clinico-epidemiological profile of herpes zoster; a cross-sectional study from tertiary hospital, Nepal</h3><div class="pub-meta"><span class="pub-journal">Medphoenix</span><span class="pub-dot">•</span><span>2018</span><span class="pub-tag">Original Research</span></div><p>Cross-sectional study examining the clinical presentation and epidemiological patterns of Herpes Zoster in tertiary care settings.</p><a href="https://doi.org/10.3126/medphoenix.v3i1.20764" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Pattern of patch test reactivity among patients with clinical diagnosis of contact dermatitis: A hospital-based study</h3><div class="pub-meta"><span class="pub-journal">Our Dermatol Online</span><span class="pub-dot">•</span><span>2017</span><span class="pub-tag">Original Research</span></div><p>Study examining patch test reactivity patterns in patients with contact dermatitis.</p><a href="https://doi.org/10.7241/ourd.20174.111" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+      </div>
+    </div>
+
+    <div class="pub-category reveal">
+      <div class="pub-category-title"><i class="fas fa-file-medical"></i><h2 data-en="Case Reports / Case Series" data-np="केस रिपोर्ट / केस श्रृंखला">Case Reports / Case Series</h2></div>
+      <div class="pub-list stagger">
+        <article class="pub-card fade-in"><h3>Oral Isotretinoin Therapy in Recalcitrant Molluscum Contagiosum in an Immunocompromised Patient</h3><div class="pub-meta"><span class="pub-journal">Case Reports in Dermatological Medicine</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Case Report</span></div><p>Case report documenting successful treatment of recalcitrant molluscum contagiosum with oral isotretinoin in an immunocompromised patient.</p><a href="https://doi.org/10.1155/2021/5529382" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Zinc-responsive acral hyperkeratosis as a mimicker of cutaneous tuberculosis</h3><div class="pub-meta"><span class="pub-journal">Our Dermatol Online</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Case Report</span></div><p>Case report of zinc-responsive acral hyperkeratosis mimicking cutaneous tuberculosis.</p><a href="https://doi.org/10.7241/ourd.20214.23" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Isolated Leprosy of Bilateral Ear Lobes, A Rare Presentation of Leprosy</h3><div class="pub-meta"><span class="pub-journal">Kathmandu Univ Med J</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Case Report</span></div><p>Documentation of an unusual presentation of leprosy affecting bilateral ear lobes.</p><a href="#" class="link-arrow">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Angiokeratoma corporis diffusum universale: A rare case report from Nepal</h3><div class="pub-meta"><span class="pub-journal">Our Dermatol Online</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Case Report</span></div><p>Case report of a rare case of angiokeratoma corporis diffusum universale.</p><a href="https://doi.org/10.7241/ourd.20212.18" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Alopecia universalis associated with hyperthyroidism treated with azathioprine and hydroxychloroquine: a case report</h3><div class="pub-meta"><span class="pub-journal">JNMA: Journal of the Nepal Medical Association</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Case Report</span></div><p>Case report documenting successful treatment of alopecia universalis in a patient with concurrent hyperthyroidism.</p><a href="#" class="link-arrow">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Carbamazepine-Induced Toxic Epidermal Necrolysis Managed by Mobile Teledermatology in COVID-19 Pandemic in Rural Nepal</h3><div class="pub-meta"><span class="pub-journal">Case Reports in Dermatological Medicine</span><span class="pub-dot">•</span><span>2020</span><span class="pub-tag">Case Report</span></div><p>Innovative approach to managing severe drug reactions using mobile teledermatology during the COVID-19 pandemic in rural settings.</p><a href="https://doi.org/10.1155/2020/8845759" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Classical pellagra, the disease of 4 Ds, the forgotten entity</h3><div class="pub-meta"><span class="pub-journal">Pan Afr Med J</span><span class="pub-dot">•</span><span>2020</span><span class="pub-tag">Case Report</span></div><p>Case report of classical pellagra, a forgotten disease.</p><a href="https://doi.org/10.11604/pamj.2020.36.219.24806" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+      </div>
+    </div>
+
+    <div class="pub-category reveal">
+      <div class="pub-category-title"><i class="fas fa-edit"></i><h2 data-en="Editorial / Short Communication / View Point" data-np="सम्पादकीय / छोटो सञ्चार / दृष्टिकोण">Editorial / Short Communication / View Point</h2></div>
+      <div class="pub-list stagger">
+        <article class="pub-card fade-in"><h3>Medical Education and Telemedicine in the Covid-19 Pandemic</h3><div class="pub-meta"><span class="pub-journal">Medphoenix</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">View Point</span></div><p>Perspective on medical education and telemedicine during the COVID-19 pandemic.</p><a href="https://doi.org/10.3126/medphoenix.v6i1.38261" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>The Challenges of COVID-19 in Medical Education in Nepal</h3><div class="pub-meta"><span class="pub-journal">Nepal Journal of Dermatology, Venereology &amp; Leprology</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Editorial</span></div><p>Editorial discussing challenges in medical education during the COVID-19 pandemic in Nepal.</p><a href="https://doi.org/10.3126/njdvl.v19i1.35308" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>The Increasing Scope of Teledermatology in Nepal</h3><div class="pub-meta"><span class="pub-journal">J Nepal Med Assoc</span><span class="pub-dot">•</span><span>2020</span><span class="pub-tag">View Point</span></div><p>Comprehensive analysis of teledermatology implementation and its growing impact on healthcare delivery in Nepal.</p><a href="https://doi.org/10.31729/jnma.5318" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+      </div>
+    </div>
+
+    <div class="pub-category reveal">
+      <div class="pub-category-title"><i class="fas fa-search"></i><h2 data-en="Review Article / Meta Analyses" data-np="समीक्षा लेख / मेटा विश्लेषण">Review Article / Meta Analyses</h2></div>
+      <div class="pub-list stagger">
+        <article class="pub-card fade-in"><h3>Alopecia associated with the use of selective serotonin reuptake inhibitors: Systematic review</h3><div class="pub-meta"><span class="pub-journal">Psychiatry Research</span><span class="pub-dot">•</span><span>2022</span><span class="pub-tag">Systematic Review</span></div><p>Systematic review examining the relationship between SSRI medications and hair loss conditions.</p><a href="https://doi.org/10.1016/j.psychres.2022.114620" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+        <article class="pub-card fade-in"><h3>Growing burden of dermatophytosis in southern region of Nepal</h3><div class="pub-meta"><span class="pub-journal">British Journal of Dermatology</span><span class="pub-dot">•</span><span>2021</span><span class="pub-tag">Review Article</span></div><p>Review of the increasing burden of dermatophytosis in southern Nepal.</p><a href="https://doi.org/10.1111/bjd.20013" class="link-arrow" target="_blank" rel="noopener">View Publication <i class="fas fa-arrow-right"></i></a></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><i class="fas fa-award"></i><span data-en="Academic Presentations" data-np="शैक्षिक प्रस्तुतिहरू">Academic Presentations</span></p>
+      <h2 data-en="Conference Presentations" data-np="सम्मेलन प्रस्तुतिहरू">Conference Presentations</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="conference-grid stagger">
+      <div class="conference-card fade-in"><h3>Could oral isotretinoin be a novel in the armamentarium of Molluscum contagiosum? A case series of three Nepalese boys</h3><p class="conf-venue">World Congress of Dermatology, Singapore</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Clinical, Epidemiological, Histopathological and Socio-economic Panorama of Leprosy at a Tertiary Center Across Nepal-India Border in the Post-Elimination Era</h3><p class="conf-venue">World Congress of Dermatology, Singapore</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Clinical, epidemiological and socio-economic profile of patient with dermatophytoses treated via mobile teledermatology</h3><p class="conf-venue">EADV Seville</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Congenital syphilis presenting as snuffles, skin lesions with peeling of palms and soles and oral ulcers: a case report</h3><p class="conf-venue">SODVELONCON, Kathmandu</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Co-occurrence of Herpes Zoster and Anagen Effluvium in a 17-year-old male undergoing chemotherapy: A Case Report</h3><p class="conf-venue">SODVELONCON, Kathmandu</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Bowen disease a rare carcinoma in situ: A Case Report</h3><p class="conf-venue">SODVELONCON, Kathmandu</p><p class="conf-year">2023</p></div>
+      <div class="conference-card fade-in"><h3>Tele-dermatology in clinical management of suspected cutaneous leishmaniasis in COVID-19 pandemic</h3><p class="conf-venue">Regional Dermatology Training Centre, IFD. Tanzania (Virtual)</p><p class="conf-year">2021</p></div>
+      <div class="conference-card fade-in"><h3>Clinico-epidemiological characteristics of scabies in children. Do we need mass drug administration?</h3><p class="conf-venue">38th ESPID (Virtual)</p><p class="conf-year">2020</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS + REVIEWER + EDITORIAL + WORK -->
+<section class="section section--aqua">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><i class="fas fa-bullseye"></i><span data-en="Current Focus" data-np="वर्तमान फोकस">Current Focus</span></p>
+      <h2 data-en="Current Research Focus" data-np="वर्तमान अनुसन्धान फोकस">Current Research Focus</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="Dr. Paudel's research focuses on teledermatology, dermatosurgery, STIs and leprosy. Key areas include:" data-np="डा. पौडेलको अनुसन्धान टेलिडर्माटोलोजी, डर्माटोसर्जरी, यौन संक्रमण र कुष्ठरोगमा केन्द्रित छ। मुख्य क्षेत्रहरूमा समावेश छन्:">Dr. Paudel's research focuses on teledermatology, dermatosurgery, STIs and leprosy. Key areas include:</p>
+    </div>
+    <ul class="research-focus-list reveal">
+      <li>Teledermatology implementation and barriers in resource-limited settings</li>
+      <li>Clinical management of complex dermatological conditions and rare presentations</li>
+      <li>Drug-induced dermatological reactions and their management</li>
+      <li>Epidemiological and clinical profile of Leprosy and STI in Nepal</li>
+    </ul>
+
+    <div class="section-head reveal" style="margin-top:4rem">
+      <p class="eyebrow"><i class="fas fa-check-circle"></i><span data-en="Peer Review" data-np="सहकर्मी समीक्षा">Peer Review</span></p>
+      <h2 data-en="Peer Reviewer" data-np="सहकर्मी समीक्षक">Peer Reviewer</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="Dr. Paudel serves as a peer reviewer for numerous prestigious journals, listed in descending order of impact factor:" data-np="डा. पौडेल धेरै प्रतिष्ठित जर्नलहरूको लागि सहकर्मी समीक्षकको रूपमा सेवा गर्नुहुन्छ, प्रभाव कारकको घट्दो क्रममा सूचीबद्ध:">Dr. Paudel serves as a peer reviewer for numerous prestigious journals, listed in descending order of impact factor:</p>
+    </div>
+    <div class="reviewer-grid reveal">
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>JAAD (Journal of the American Academy of Dermatology)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>JEADV (Journal of European Academy of Dermatology and Venereology)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Skin Health and Disease</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Wiley (Dermatologic Therapy, Journal of Chemotherapy)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Springer Nature (Journal of Medical Case Reports, Journal of Neurovirology)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Dove Press (Clinical, Cosmetic and Investigational Dermatology)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Dove Press (Journal of Multidisciplinary Healthcare)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Dove Press (Research and Reports in Tropical Medicine)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Dove Press (HIV/AIDS - Research and Palliative Care)</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Frontiers</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Cureus</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Dermatology Practical &amp; Conceptual</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Clinical Case Reports journal</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Journal of Medical Case Reports</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Journal of Nepal Medical Association</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Journal of Lumbini Medical College</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Journal of Chitwan Medical College</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>Medphoenix, Journal of National Medical College</span></div>
+      <div class="reviewer-item"><i class="fas fa-check-circle"></i><span>JPAHS (Journal of Patan Academy of Health Sciences)</span></div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:4rem">
+      <p class="eyebrow"><i class="fas fa-feather-alt"></i><span data-en="Editorial Roles" data-np="सम्पादकीय भूमिकाहरू">Editorial Roles</span></p>
+      <h2 data-en="Editorial Work" data-np="सम्पादकीय कार्य">Editorial Work</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="Dr. Paudel holds editorial positions in several scientific journals:" data-np="डा. पौडेल धेरै वैज्ञानिक जर्नलहरूमा सम्पादकीय पदहरू राख्नुहुन्छ:">Dr. Paudel holds editorial positions in several scientific journals:</p>
+    </div>
+    <div class="info-card-grid reveal">
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-book-medical"></i></div><h3>NJDVL</h3><p>Nepal Journal of Dermatology, Venereology and Leprology (Editor-in-Chief, 2025-Present)</p></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-globe-europe"></i></div><h3>JEADV</h3><p>Journal of European Academy of Dermatology, Venereology and Leprosy (Junior Editor, Infection Section)</p></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-university"></i></div><h3>JPAHS</h3><p>Journal of Patan Academy of Health Sciences (Editor, Since 2025)</p></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-stethoscope"></i></div><h3>Our Dermatology Online</h3><p>Our Dermatology Online (Associate Editor, 2020-present)</p></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-hospital"></i></div><h3>Med-phoenix</h3><p>Med-phoenix, Journal of National Medical College (Executive Editor, 2020-2022)</p></div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:4rem">
+      <p class="eyebrow"><i class="fas fa-briefcase"></i><span data-en="Academic Career" data-np="शैक्षिक करियर">Academic Career</span></p>
+      <h2 data-en="Work Experience" data-np="कार्य अनुभव">Work Experience</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="info-card-grid reveal">
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-user-tie"></i></div><h3>Associate Professor</h3><p>Tribhuvan University — Since September 2021</p></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Assistant Professor / Lecturer</h3><p>Dermatology, Tribhuvan University — National Medical College and Teaching Hospital and Patan Hospital</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><i class="fas fa-link"></i><span data-en="Useful Resources" data-np="उपयोगी स्रोतहरू">Useful Resources</span></p>
+      <h2 data-en="Research Resources &amp; Links" data-np="अनुसन्धान स्रोतहरू र लिंकहरू">Research Resources &amp; Links</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-en="Explore leading dermatology and healthcare research platforms referenced by Dr. Paudel." data-np="डा. पौडेलले सन्दर्भ गर्नुभएका अग्रणी छालारोग र स्वास्थ्य सेवा अनुसन्धान प्लेटफर्महरू अन्वेषण गर्नुहोस्।">Explore leading dermatology and healthcare research platforms referenced by Dr. Paudel.</p>
+    </div>
+    <div class="quick-link-grid reveal">
+      <a href="https://pubmed.ncbi.nlm.nih.gov/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-book-medical"></i></div><div class="quick-link-title">PubMed</div><div class="quick-link-sub">National Library of Medicine</div></a>
+      <a href="https://www.researchgate.net/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fab fa-researchgate"></i></div><div class="quick-link-title">ResearchGate</div><div class="quick-link-sub">Scientific Network</div></a>
+      <a href="https://orcid.org/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fab fa-orcid"></i></div><div class="quick-link-title">ORCID</div><div class="quick-link-sub">Researcher Identifier</div></a>
+      <a href="https://www.linkedin.com/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fab fa-linkedin"></i></div><div class="quick-link-title">LinkedIn</div><div class="quick-link-sub">Professional Network</div></a>
+      <a href="https://nhrc.gov.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-hospital"></i></div><div class="quick-link-title">NHRC Nepal</div><div class="quick-link-sub">Health Research Council</div></a>
+      <a href="https://sodvelon.com/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-users"></i></div><div class="quick-link-title">SODVELON</div><div class="quick-link-sub">Dermatology Society</div></a>
+      <a href="https://www.nepjol.info/index.php/njdvl" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-book"></i></div><div class="quick-link-title">NJDVL</div><div class="quick-link-sub">Journal of Dermatology</div></a>
+      <a href="https://jnma.com.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-stethoscope"></i></div><div class="quick-link-title">JNMA</div><div class="quick-link-sub">Nepal Medical Association</div></a>
+      <a href="https://www.ugcnepal.edu.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-university"></i></div><div class="quick-link-title">UGC Nepal</div><div class="quick-link-sub">University Grants Commission</div></a>
+      <a href="https://mohp.gov.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-clinic-medical"></i></div><div class="quick-link-title">MoHP</div><div class="quick-link-sub">Ministry of Health</div></a>
+      <a href="https://www.pahs.edu.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-graduation-cap"></i></div><div class="quick-link-title">PAHS</div><div class="quick-link-sub">Patan Academy of Health Sciences</div></a>
+      <a href="https://jpahs.edu.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-file-medical"></i></div><div class="quick-link-title">JPAHS</div><div class="quick-link-sub">Journal of PAHS</div></a>
+      <a href="https://www.nepjol.info/index.php/medphoenix/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-feather-alt"></i></div><div class="quick-link-title">Medphoenix</div><div class="quick-link-sub">Medical Journal</div></a>
+      <a href="https://iom.edu.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-school"></i></div><div class="quick-link-title">IOM</div><div class="quick-link-sub">Institute of Medicine</div></a>
+      <a href="https://tribhuvan-university.edu.np/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-landmark"></i></div><div class="quick-link-title">TU</div><div class="quick-link-sub">Tribhuvan University</div></a>
+      <a href="https://www.jeadv.com/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-globe-europe"></i></div><div class="quick-link-title">JEADV</div><div class="quick-link-sub">European Academy Journal</div></a>
+      <a href="https://www.odermatol.com/" class="quick-link" target="_blank" rel="noopener"><div class="quick-link-icon"><i class="fas fa-user-md"></i></div><div class="quick-link-title">Our Dermatol Online</div><div class="quick-link-sub">Dermatology Journal</div></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 style="font-family:var(--fh);font-size:1.2rem;font-weight:400;margin-bottom:.6rem" data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</h3>
+        <p data-en="Consultant dermatologist in Kathmandu providing comprehensive skin care with evidence-based treatments and a personalised approach." data-np="काठमाडौंका परामर्श छालारोग विशेषज्ञ जसले प्रमाण-आधारित उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक छालाको हेरचाह प्रदान गर्दछ।">Consultant dermatologist in Kathmandu providing comprehensive skin care with evidence-based treatments and a personalised approach.</p>
+        <p style="font-family:var(--fh);font-size:.95rem;color:var(--as);margin:0 0 1.1rem">We care for your skin</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/vikashderma" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.x.com/merodesh" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/vikash.paudel" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/vikash-paudel-89598324" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/9779825207253" class="whatsapp-footer" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-    </section>
-
-    <!-- External Profiles -->
-    <section class="content-section compact-section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-center mb-6 fade-in">Research Profiles</h2>
-          <div class="social-links stagger-delay">
-            <a href="https://orcid.org/0000-0001-8729-052X" class="social-link scale-in" aria-label="ORCID Profile" target="_blank">
-              <i class="fab fa-orcid"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?user=USER_ID" class="social-link scale-in" aria-label="Google Scholar Profile" target="_blank">
-              <i class="fas fa-graduation-cap"></i>
-            </a>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Paudel+V" class="social-link scale-in" aria-label="PubMed Publications" target="_blank">
-              <i class="fas fa-book-medical"></i>
-            </a>
-            <a href="https://www.researchgate.net/profile/Vikash_Paudel" class="social-link scale-in" aria-label="ResearchGate Profile" target="_blank">
-              <i class="fab fa-researchgate"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/dr-vikash-paudel" class="social-link scale-in" aria-label="LinkedIn Profile" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-        </div>
+      <div class="footer-column">
+        <h3 data-en="Quick Links" data-np="द्रुत लिंकहरू">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#home" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
+          <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+          <li><a href="index.html#services" data-en="Services" data-np="सेवाहरू">Services</a></li>
+          <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
+          <li><a href="#contact" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+          <li><a href="deepainfertility.html" data-en="Dr Deepa Chudal" data-np="डा दिपा चुडाल">Dr Deepa Chudal</a></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section class="content-section compact-section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto space-y-12">
-          <!-- Introduction -->
-          <div class="fade-in">
-            <div class="flex items-center space-x-3 mb-6">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex-center">
-                <i class="fas fa-book-open text-primary w-6 h-6"></i>
-              </div>
-              <h2>Published Research</h2>
-            </div>
-            <p class="text-lg text-muted-foreground leading-relaxed">
-              Dr. Vikash Paudel has contributed to numerous peer-reviewed journals and publications, 
-              advancing the field of dermatology through evidence-based research and clinical studies.
-            </p>
-          </div>
-
-          <!-- Featured Publication -->
-          <div class="featured-publication fade-in">
-            <div class="featured-badge">High Impact Publication</div>
-            <h3 class="text-xl font-semibold text-foreground mb-2">Patterns and barriers of teledermatology in resource-limited settings in the COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
-            <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-              <span class="font-medium">JAAD International</span>
-              <span>•</span>
-              <span>2022</span>
-              <span>•</span>
-              <span class="pub-tag">Original Research</span>
-            </div>
-            <p class="text-muted-foreground">Comprehensive analysis of teledermatology implementation challenges and patterns during the COVID-19 pandemic in Nepal's resource-limited settings.</p>
-            <a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-          </div>
-
-          <!-- Original Research -->
-          <div class="pub-category">
-            <div class="pub-category-title fade-in">
-              <i class="fas fa-flask pub-category-icon"></i>
-              <h2>Original Research</h2>
-            </div>
-            <div class="space-y-6 stagger-delay">
-              <!-- Original Research Publications - in descending chronological order -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Clinical and epidemiological panorama of leprosy at a tertiary center across the Nepal–India border in the post-elimination era: A cross-sectional study</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Our Dermatol Online</span>
-                    <span>•</span>
-                    <span>2024</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Cross-sectional study examining leprosy patterns in the post-elimination era at the Nepal-India border region.</p>
-                  <a href="https://doi.org/10.7241/ourd.20243.4" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">A clinical and epidemiological study of non-venereal genital dermatoses: A cross-sectional, hospital-based study from Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Our Dermatol Online</span>
-                    <span>•</span>
-                    <span>2022</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Comprehensive analysis of non-venereal genital dermatoses in a hospital setting in Nepal.</p>
-                  <a href="https://doi.org/10.7241/ourd.20221.3" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Patterns and barriers of teledermatology in resource-limited settings in COVID-19 pandemic: A descriptive cross-sectional survey of Nepalese dermatologists</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">JAAD International</span>
-                    <span>•</span>
-                    <span>2022</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Survey-based analysis of teledermatology implementation during COVID-19 in Nepal.</p>
-                  <a href="https://doi.org/10.1016/j.jdin.2022.02.011" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Prevalence of Venereophobia among Patients of Non-Venereal Genital Conditions- A Cross-Sectional Hospital Based Study from Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Nepal J Dermatol Venereol & Leprol</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Study examining the prevalence of venereophobia among patients with non-venereal genital conditions.</p>
-                  <a href="https://doi.org/10.3126/njdvl.v19i2.39020" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Misuse of Topical Corticosteroids in Dermatological Disorders in Tribhuvan University Teaching Hospital</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Journal of Nepal Health Research Council</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Study examining the misuse of topical corticosteroids in dermatological disorders.</p>
-                  <a href="https://doi.org/10.33314/jnhrc.v18i4.2832" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Clinico-mycological Study of Dermatophytosis and Their Antifungal Susceptibility, A Hospital Based Study</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Nepal Journal of Dermatology, Venereology & Leprology</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Study examining dermatophytosis and antifungal susceptibility patterns.</p>
-                  <a href="https://doi.org/10.3126/njdvl.v19i1.34693" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Clinico-Epidemiological Characteristics of Scabies in Children. Do We Need Mass Drug Administration?</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Nepal Medical Journal</span>
-                    <span>•</span>
-                    <span>2020</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Study examining scabies characteristics in children and implications for mass drug administration.</p>
-                  <a href="https://doi.org/10.37080/nmj.123" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">A clinico-epidemiological profile of herpes zoster; a cross-sectional study from tertiary hospital, Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Medphoenix</span>
-                    <span>•</span>
-                    <span>2018</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Cross-sectional study examining the clinical presentation and epidemiological patterns of Herpes Zoster in tertiary care settings.</p>
-                  <a href="https://doi.org/10.3126/medphoenix.v3i1.20764" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Pattern of patch test reactivity among patients with clinical diagnosis of contact dermatitis: A hospital-based study</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Our Dermatol Online</span>
-                    <span>•</span>
-                    <span>2017</span>
-                    <span>•</span>
-                    <span class="pub-tag">Original Research</span>
-                  </div>
-                  <p class="text-muted-foreground">Study examining patch test reactivity patterns in patients with contact dermatitis.</p>
-                  <a href="https://doi.org/10.7241/ourd.20174.111" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <!-- Add more original research publications here -->
-            </div>
-          </div>
-
-          <!-- Case Reports / Case Series -->
-          <div class="pub-category">
-            <div class="pub-category-title fade-in">
-              <i class="fas fa-file-medical pub-category-icon"></i>
-              <h2>Case Reports / Case Series</h2>
-            </div>
-            <div class="space-y-6 stagger-delay">
-              <!-- Case Report Publications - in descending chronological order -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Oral Isotretinoin Therapy in Recalcitrant Molluscum Contagiosum in an Immunocompromised Patient</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Case Reports in Dermatological Medicine</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Case report documenting successful treatment of recalcitrant molluscum contagiosum with oral isotretinoin in an immunocompromised patient.</p>
-                  <a href="https://doi.org/10.1155/2021/5529382" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Zinc-responsive acral hyperkeratosis as a mimicker of cutaneous tuberculosis</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Our Dermatol Online</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Case report of zinc-responsive acral hyperkeratosis mimicking cutaneous tuberculosis.</p>
-                  <a href="https://doi.org/10.7241/ourd.20214.23" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Isolated Leprosy of Bilateral Ear Lobes, A Rare Presentation of Leprosy</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Kathmandu Univ Med J</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Documentation of an unusual presentation of leprosy affecting bilateral ear lobes.</p>
-                  <a href="#" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Angiokeratoma corporis diffusum universale: A rare case report from Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Our Dermatol Online</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Case report of a rare case of angiokeratoma corporis diffusum universale.</p>
-                  <a href="https://doi.org/10.7241/ourd.20212.18" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Alopecia universalis associated with hyperthyroidism treated with azathioprine and hydroxychloroquine: a case report</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">JNMA: Journal of the Nepal Medical Association</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Case report documenting successful treatment of alopecia universalis in a patient with concurrent hyperthyroidism.</p>
-                  <a href="#" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Carbamazepine-Induced Toxic Epidermal Necrolysis Managed by Mobile Teledermatology in COVID-19 Pandemic in Rural Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Case Reports in Dermatological Medicine</span>
-                    <span>•</span>
-                    <span>2020</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Innovative approach to managing severe drug reactions using mobile teledermatology during the COVID-19 pandemic in rural settings.</p>
-                  <a href="https://doi.org/10.1155/2020/8845759" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Classical pellagra, the disease of 4 Ds, the forgotten entity</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Pan Afr Med J</span>
-                    <span>•</span>
-                    <span>2020</span>
-                    <span>•</span>
-                    <span class="pub-tag">Case Report</span>
-                  </div>
-                  <p class="text-muted-foreground">Case report of classical pellagra, a forgotten disease.</p>
-                  <a href="https://doi.org/10.11604/pamj.2020.36.219.24806" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <!-- Add more case reports here -->
-            </div>
-          </div>
-
-          <!-- Editorial / Short Communication / View Point -->
-          <div class="pub-category">
-            <div class="pub-category-title fade-in">
-              <i class="fas fa-edit pub-category-icon"></i>
-              <h2>Editorial / Short Communication / View Point</h2>
-            </div>
-            <div class="space-y-6 stagger-delay">
-              <!-- Editorial Publications - in descending chronological order -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Medical Education and Telemedicine in the Covid-19 Pandemic</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Medphoenix</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">View Point</span>
-                  </div>
-                  <p class="text-muted-foreground">Perspective on medical education and telemedicine during the COVID-19 pandemic.</p>
-                  <a href="https://doi.org/10.3126/medphoenix.v6i1.38261" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">The Challenges of COVID-19 in Medical Education in Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Nepal Journal of Dermatology, Venereology & Leprology</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Editorial</span>
-                  </div>
-                  <p class="text-muted-foreground">Editorial discussing challenges in medical education during the COVID-19 pandemic in Nepal.</p>
-                  <a href="https://doi.org/10.3126/njdvl.v19i1.35308" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">The Increasing Scope of Teledermatology in Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">J Nepal Med Assoc</span>
-                    <span>•</span>
-                    <span>2020</span>
-                    <span>•</span>
-                    <span class="pub-tag">View Point</span>
-                  </div>
-                  <p class="text-muted-foreground">Comprehensive analysis of teledermatology implementation and its growing impact on healthcare delivery in Nepal.</p>
-                  <a href="https://doi.org/10.31729/jnma.5318" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <!-- Add more editorial publications here -->
-            </div>
-          </div>
-
-          <!-- Review Article / Meta Analyses -->
-          <div class="pub-category">
-            <div class="pub-category-title fade-in">
-              <i class="fas fa-search pub-category-icon"></i>
-              <h2>Review Article / Meta Analyses</h2>
-            </div>
-            <div class="space-y-6 stagger-delay">
-              <!-- Review Publications - in descending chronological order -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Alopecia associated with the use of selective serotonin reuptake inhibitors: Systematic review</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">Psychiatry Research</span>
-                    <span>•</span>
-                    <span>2022</span>
-                    <span>•</span>
-                    <span class="pub-tag">Systematic Review</span>
-                  </div>
-                  <p class="text-muted-foreground">Systematic review examining the relationship between SSRI medications and hair loss conditions.</p>
-                  <a href="https://doi.org/10.1016/j.psychres.2022.114620" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-xl font-semibold text-foreground mb-2">Growing burden of dermatophytosis in southern region of Nepal</h3>
-                  <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-3">
-                    <span class="font-medium">British Journal of Dermatology</span>
-                    <span>•</span>
-                    <span>2021</span>
-                    <span>•</span>
-                    <span class="pub-tag">Review Article</span>
-                  </div>
-                  <p class="text-muted-foreground">Review of the increasing burden of dermatophytosis in southern Nepal.</p>
-                  <a href="https://doi.org/10.1111/bjd.20013" class="text-primary text-sm mt-2 inline-block" target="_blank">View Publication</a>
-                </div>
-              </div>
-
-              <!-- Add more review articles here -->
-            </div>
-          </div>
-
-          <!-- Conference Presentations Section -->
-          <div class="mt-16">
-            <div class="flex items-center space-x-3 mb-6 fade-in">
-              <div class="w-12 h-12 bg-accent/10 rounded-lg flex-center">
-                <i class="fas fa-award text-accent w-6 h-6"></i>
-              </div>
-              <h2>Conference Presentations</h2>
-            </div>
-            
-            <div class="conference-grid stagger-delay">
-              <!-- Conference Presentations - Added more from the provided list -->
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Could oral isotretinoin be a novel in the armamentarium of Molluscum contagiosum? A case series of three Nepalese boys</h3>
-                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Clinical, Epidemiological, Histopathological and Socio-economic Panorama of Leprosy at a Tertiary Center Across Nepal-India Border in the Post-Elimination Era</h3>
-                  <p class="text-sm text-muted-foreground mb-1">World Congress of Dermatology, Singapore</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Clinical, epidemiological and socio-economic profile of patient with dermatophytoses treated via mobile teledermatology</h3>
-                  <p class="text-sm text-muted-foreground mb-1">EADV Seville</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Congenital syphilis presenting as snuffles, skin lesions with peeling of palms and soles and oral ulcers: a case report</h3>
-                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Co-occurrence of Herpes Zoster and Anagen Effluvium in a 17-year-old male undergoing chemotherapy: A Case Report</h3>
-                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Bowen disease a rare carcinoma in situ: A Case Report</h3>
-                  <p class="text-sm text-muted-foreground mb-1">SODVELONCON, Kathmandu</p>
-                  <p class="text-sm text-primary font-medium">2023</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Tele-dermatology in clinical management of suspected cutaneous leishmaniasis in COVID-19 pandemic</h3>
-                  <p class="text-sm text-muted-foreground mb-1">Regional Dermatology Training Centre, IFD. Tanzania (Virtual)</p>
-                  <p class="text-sm text-primary font-medium">2021</p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-content">
-                  <h3 class="text-lg font-semibold text-foreground mb-2">Clinico-epidemiological characteristics of scabies in children. Do we need mass drug administration?</h3>
-                  <p class="text-sm text-muted-foreground mb-1">38th ESPID (Virtual)</p>
-                  <p class="text-sm text-primary font-medium">2020</p>
-                </div>
-              </div>
-
-              <!-- Add more presentations here -->
-            </div>
-          </div>
-
-          <!-- Research Focus -->
-          <div class="card research-focus fade-in">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">Current Research Focus</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground">
-                  Dr. Paudel's research focuses on teledermatology, dermatosurgery, STIs, and leprosy. Key areas include:
-                </p>
-                <ul class="space-y-3 stagger-delay">
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      Teledermatology implementation and barriers in resource-limited settings
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      Clinical management of complex dermatological conditions and rare presentations
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      Drug-induced dermatological reactions and their management
-                    </span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>
-                    <span class="text-muted-foreground">
-                      Epidemiological and clinical profile of Leprosy and STI in Nepal
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Peer Reviewer Section - Reordered by impact factor -->
-          <div class="card fade-in">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">Peer Reviewer</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground">
-                  Dr. Paudel serves as a peer reviewer for numerous prestigious journals, listed in descending order of impact factor:
-                </p>
-                <div class="peer-reviewer-grid stagger-delay">
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>JAAD (Journal of the American Academy of Dermatology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>JEADV (Journal of European Academy of Dermatology and Venereology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Skin Health and Disease</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Wiley (Dermatologic therapy, Journal of Chemotherapy)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Springer Nature (Journal of Medical Case Reports, Journal of Neurovirology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dove Press (Clinical, Cosmetic and Investigational Dermatology)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dove Press (Journal of Multidisciplinary Healthcare)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dove Press (Research and Reports in Tropical Medicine)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dove Press (HIV/AIDS - Research and Palliative Care)</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Frontiers</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Cureus</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Dermatology Practical & Conceptual</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Clinical Case Reports journal</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Journal of Medical Case Reports</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Journal of Nepal Medical Association</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Journal of Lumbini Medical College</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Journal of Chitwan Medical College</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>Medphoenix, Journal of National Medical College</span>
-                  </div>
-                  <div class="reviewer-item">
-                    <i class="fas fa-check-circle reviewer-icon"></i>
-                    <span>JPAHS (Journal of Patan Academy of Health Sciences)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Editorial Work -->
-          <div class="card fade-in">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">Editorial Work</h2>
-              <div class="space-y-4">
-                <p class="text-muted-foreground">
-                  Dr. Paudel holds editorial positions in several scientific journals:
-                </p>
-              </div>
-              <div class="editorial-grid stagger-delay">
-                <div class="editorial-card">
-                  <div class="editorial-icon">
-                    <i class="fas fa-book-medical"></i>
-                  </div>
-                  <div class="editorial-title">NJDVL</div>
-                  <p class="text-sm text-muted-foreground">Nepal Journal of Dermatology, Venereology and Leprology (Editor-in- Chief, 2025-Present)</p>
-                </div>
-                <div class="editorial-card">
-                  <div class="editorial-icon">
-                    <i class="fas fa-globe-europe"></i>
-                  </div>
-                  <div class="editorial-title">JEADV</div>
-                  <p class="text-sm text-muted-foreground">Journal of European Academy of Dermatology, Venereology and Leprosy (Junior Editor, Infection Section)</p>
-                </div>
-                <div class="editorial-card">
-                  <div class="editorial-icon">
-                    <i class="fas fa-university"></i>
-                  </div>
-                  <div class="editorial-title">JPAHS</div>
-                  <p class="text-sm text-muted-foreground">Journal of Patan Academy of Health Sciences (Editor, Since 2025)</p>
-                </div>
-                <div class="editorial-card">
-                  <div class="editorial-icon">
-                    <i class="fas fa-stethoscope"></i>
-                  </div>
-                  <div class="editorial-title">Our Dermatology Online</div>
-                  <p class="text-sm text-muted-foreground">Our Dermatolog Online (Associate Editor, 2020-present)</p>
-                </div>
-                <div class="editorial-card">
-                  <div class="editorial-icon">
-                    <i class="fas fa-hospital"></i>
-                  </div>
-                  <div class="editorial-title">Med-phoenix</div>
-                  <p class="text-sm text-muted-foreground">Med-phoenix, Journal of National Medical College (Executive Editor, 2020-2022)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Work Experience -->
-          <div class="card fade-in">
-            <div class="card-content">
-              <h2 class="text-2xl font-bold text-foreground mb-6">Work Experience</h2>
-              <div class="work-experience-grid stagger-delay">
-                <div class="work-card">
-                  <div class="work-logo">
-                    <img src="images/tribhuvan-university-logo.jpg" alt="Tribhuvan University">
-                  </div>
-                  <div class="work-title">Associate Professor</div>
-                  <p class="text-muted-foreground">Tribhuvan University</p>
-                  <p class="work-duration">Since September 2021</p>
-                </div>
-                <div class="work-card">
-                  <div class="work-logo">
-                    <img src="images/patan-hospital-logo.jpg" alt="Patan Hospital">
-                  </div>
-                  <div class="work-title">Assistant Professor/Lecturer</div>
-                  <p class="text-muted-foreground">Dermatology, Tribhuvan University</p>
-                  <p class="work-duration">National Medical College and Teaching Hospital and Patan Hospital</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="footer-column">
+        <h3 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h3>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i><div><strong data-en="Main Clinic" data-np="मुख्य क्लिनिक">Main Clinic</strong><p data-en="Shankhamul Health Care, Shankhamul, Kathmandu" data-np="शंखमुल हेल्थ केयर, शंखमुल, काठमाडौं">Shankhamul Health Care, Shankhamul, Kathmandu</p><p data-en="Elite Health Clinic, Mahalaxmisthan, Lalitpur" data-np="एलाइट हेल्थ क्लिनिक, महालक्ष्मीस्थान, ललितपुर">Elite Health Clinic, Mahalaxmisthan, Lalitpur</p></div></li>
+          <li><i class="fas fa-map-marker-alt"></i><div><strong data-en="Satellite Clinic" data-np="अन्य क्लिनिक">Satellite Clinic</strong><p data-en="Shubharambha Skin Centre, Chatakpur, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, चटकपुर, धनगढी">Shubharambha Skin Centre, Chatakpur, Dhangadhi</p></div></li>
+          <li><i class="fas fa-phone"></i><div><strong data-en="Phone" data-np="फोन">Phone</strong><p><a href="tel:+97715242511" style="color:inherit">+977-1-5242511 (Shankhamul)</a></p><p><a href="tel:+97715420745" style="color:inherit">+977-1-5420745 (Elite)</a></p><p><a href="tel:+97791410107" style="color:inherit">+977-91-410107 (Shubharambha)</a></p></div></li>
+          <li><i class="fas fa-envelope"></i><div><strong data-en="Email" data-np="इमेल">Email</strong><p><a href="mailto:vikashpaudel@gmail.com" style="color:inherit">vikashpaudel@gmail.com</a></p></div></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section class="quick-links-section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-center mb-6 fade-in">Research Resources & Links</h2>
-          <div class="quick-links-grid stagger-delay">
-            <a href="https://pubmed.ncbi.nlm.nih.gov/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-book-medical"></i>
-              </div>
-              <div class="quick-link-title">PubMed</div>
-              <p class="text-sm text-muted-foreground">National Library of Medicine</p>
-            </a>
-            <a href="https://www.researchgate.net/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fab fa-researchgate"></i>
-              </div>
-              <div class="quick-link-title">ResearchGate</div>
-              <p class="text-sm text-muted-foreground">Scientific Network</p>
-            </a>
-            <a href="https://orcid.org/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fab fa-orcid"></i>
-              </div>
-              <div class="quick-link-title">ORCID</div>
-              <p class="text-sm text-muted-foreground">Researcher Identifier</p>
-            </a>
-            <a href="https://www.linkedin.com/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div class="quick-link-title">LinkedIn</div>
-              <p class="text-sm text-muted-foreground">Professional Network</p>
-            </a>
-            <a href="https://nhrc.gov.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-hospital"></i>
-              </div>
-              <div class="quick-link-title">NHRC Nepal</div>
-              <p class="text-sm text-muted-foreground">Health Research Council</p>
-            </a>
-            <a href="https://https://sodvelon.com/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="quick-link-title">SODVELON</div>
-              <p class="text-sm text-muted-foreground">Dermatology Society</p>
-            </a>
-            <a href="https://https://www.nepjol.info/index.php/njdvl" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-book"></i>
-              </div>
-              <div class="quick-link-title">NJDVL</div>
-              <p class="text-sm text-muted-foreground">Journal of Dermatology</p>
-            </a>
-            <a href="https://jnma.com.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-stethoscope"></i>
-              </div>
-              <div class="quick-link-title">JNMA</div>
-              <p class="text-sm text-muted-foreground">Nepal Medical Association</p>
-            </a>
-            <a href="https://www.ugcnepal.edu.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-university"></i>
-              </div>
-              <div class="quick-link-title">UGC Nepal</div>
-              <p class="text-sm text-muted-foreground">University Grants Commission</p>
-            </a>
-            <a href="https://mohp.gov.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-clinic-medical"></i>
-              </div>
-              <div class="quick-link-title">MoHP</div>
-              <p class="text-sm text-muted-foreground">Ministry of Health</p>
-            </a>
-            <a href="https://www.pahs.edu.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="quick-link-title">PAHS</div>
-              <p class="text-sm text-muted-foreground">Patan Academy of Health Sciences</p>
-            </a>
-            <a href="https://jpahs.edu.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-file-medical"></i>
-              </div>
-              <div class="quick-link-title">JPAHS</div>
-              <p class="text-sm text-muted-foreground">Journal of PAHS</p>
-            </a>
-            <a href="https://https://www.nepjol.info/index.php/medphoenix/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-feather-alt"></i>
-              </div>
-              <div class="quick-link-title">Medphoenix</div>
-              <p class="text-sm text-muted-foreground">Medical Journal</p>
-            </a>
-            <a href="https://iom.edu.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-school"></i>
-              </div>
-              <div class="quick-link-title">IOM</div>
-              <p class="text-sm text-muted-foreground">Institute of Medicine</p>
-            </a>
-            <a href="https://tribhuvan-university.edu.np/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-landmark"></i>
-              </div>
-              <div class="quick-link-title">TU</div>
-              <p class="text-sm text-muted-foreground">Tribhuvan University</p>
-            </a>
-            <a href="https://www.jeadv.com/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-globe-europe"></i>
-              </div>
-              <div class="quick-link-title">JEADV</div>
-              <p class="text-sm text-muted-foreground">European Academy Journal</p>
-            </a>
-            <a href="https://www.odermatol.com/" class="quick-link-item" target="_blank">
-              <div class="quick-link-icon">
-                <i class="fas fa-user-md"></i>
-              </div>
-              <div class="quick-link-title">Our Dermatol Online</div>
-              <p class="text-sm text-muted-foreground">Dermatology Journal</p>
-            </a>
-          </div>
-        </div>
+      <div class="footer-column">
+        <h3 data-en="Book Appointment" data-np="अपोइन्टमेन्ट बुक गर्नुहोस्">Book Appointment</h3>
+        <p data-en="Schedule your consultation with Dr. Paudel for personalised skin care solutions." data-np="व्यक्तिगत छालाको हेरचाह समाधानहरूको लागि डा. पौडेलसँग आफ्नो परामर्शको योजना बनाउनुहोस्।">Schedule your consultation with Dr. Paudel for personalised skin care solutions.</p>
+        <a href="appointment.html" class="btn btn-light" style="margin-top:.5rem"><i class="fas fa-calendar-check"></i><span data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</span></a>
       </div>
-    </section>
-  </main>
+    </div>
+    <div class="copyright"><p>&copy; 2025 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p></div>
+  </div>
+</footer>
 
-  <footer>
-    <p>&copy; 2025 Dr. Vikash Paudel. All rights reserved.</p>
-  </footer>
+<!-- FLOATING -->
+<a href="https://www.facebook.com/vikashderma" class="facebook-button" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-button" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="accessibility-widget-toggle" id="accessibilityToggle" aria-label="Accessibility tools"><i class="fas fa-universal-access"></i></button>
 
-  <script>
-    // Enhanced scroll animation for all elements with animation classes
-    document.addEventListener('DOMContentLoaded', function() {
-      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-delay, .card');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-      
-      animatedElements.forEach(element => {
-        observer.observe(element);
-      });
+<!-- CHAT -->
+<div class="chat-widget">
+  <button class="chat-button" id="chatButton" aria-label="Open chat"><i class="fas fa-comments"></i></button>
+  <div class="chat-container" id="chatContainer" role="dialog" aria-label="Chat">
+    <div class="chat-header"><h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3><button class="close-chat" id="closeChat" aria-label="Close"><i class="fas fa-times"></i></button></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot"><span data-en="Hello! How can we help you today?" data-np="नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?">Hello! How can we help you today?</span></div></div>
+    <div class="chat-input"><input type="text" id="chatInput" placeholder="Type your message..." data-en-placeholder="Type your message..." data-np-placeholder="आफ्नो सन्देश टाइप गर्नुहोस्..."><button id="sendMessage" aria-label="Send"><i class="fas fa-paper-plane"></i></button></div>
+  </div>
+</div>
 
-      // Mobile Navigation Toggle
-      document.querySelector('.mobile-toggle').addEventListener('click', function() {
-        document.querySelector('.navbar-menu').classList.toggle('active');
-      });
-      
-      // Close mobile menu when clicking on a link
-      document.querySelectorAll('.navbar-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.querySelector('.navbar-menu').classList.remove('active');
-        });
-      });
+<!-- ACCESSIBILITY PANEL -->
+<div class="accessibility-panel" id="accessibilityPanel" role="dialog">
+  <div class="panel-header"><h2><i class="fas fa-universal-access"></i> Accessibility Tools</h2><button class="close-panel" id="closeAccessibilityPanel" aria-label="Close">&times;</button></div>
+  <div class="tools-grid">
+    <div class="tool-item"><label><i class="fas fa-globe"></i> Language</label><select id="accLang"><option value="en">English</option><option value="np">नेपाली</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-font"></i> Text Size</label><div class="btn-group" id="textSizeGroup"><button data-size="small">A-</button><button data-size="medium" class="active">A</button><button data-size="large">A+</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-adjust"></i> Contrast</label><div class="btn-group" id="contrastGroup"><button data-contrast="low">Low</button><button data-contrast="medium" class="active">Med</button><button data-contrast="high">High</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-align-left"></i> Text Align</label><div class="btn-group" id="textAlignGroup"><button data-align="left" class="active"><i class="fas fa-align-left"></i></button><button data-align="center"><i class="fas fa-align-center"></i></button><button data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+    <div class="tool-item"><label><i class="fas fa-palette"></i> Color Filter</label><select id="colorFilter"><option value="none">None</option><option value="grayscale">Grayscale</option><option value="sepia">Sepia</option><option value="invert">Invert</option><option value="protanopia">Protanopia</option><option value="deuteranopia">Deuteranopia</option><option value="tritanopia">Tritanopia</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-arrows-alt-h"></i> Text Spacing</label><div class="btn-group" id="textSpacingGroup"><button data-spacing="0" class="active">0</button><button data-spacing="1">1</button><button data-spacing="2">2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-arrows-alt-v"></i> Line Height</label><div class="btn-group" id="lineHeightGroup"><button data-line="1.4">1.4</button><button data-line="1.8" class="active">1.8</button><button data-line="2.2">2.2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-font"></i> Font</label><select id="fontSelect"><option value="Inter">Inter</option><option value="Open Sans">Open Sans</option><option value="Roboto">Roboto</option></select></div>
+    <div class="tool-item"><label><i class="fas fa-droplet"></i> Saturation</label><div class="btn-group" id="saturationGroup"><button data-sat="0.5">0.5</button><button data-sat="1" class="active">1</button><button data-sat="2">2</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-mouse-pointer"></i> Cursor</label><div class="btn-group" id="cursorGroup"><button data-cursor="small" class="active">Small</button><button data-cursor="big">Big</button></div></div>
+    <div class="tool-item"><label><i class="fas fa-image"></i> Hide Images</label><button class="toggle-btn" id="hideImagesToggle" aria-label="Toggle images"></button></div>
+    <div class="tool-item"><label><i class="fas fa-pause-circle"></i> Pause Animations</label><button class="toggle-btn" id="pauseAnimationsToggle" aria-label="Toggle animations"></button></div>
+    <div class="tool-item"><label><i class="fas fa-volume-up"></i> Screen Reader</label><button class="toggle-btn" id="screenReaderToggle" aria-label="Toggle screen reader"></button></div>
+    <div class="tool-item"><label><i class="fas fa-microphone"></i> Voice Command</label><button class="toggle-btn" id="voiceCommandToggle" aria-label="Toggle voice command"></button></div>
+  </div>
+</div>
 
-      // Update statistics with animation
-      function animateCount(element, target) {
-        let current = 0;
-        const increment = target / 100;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            clearInterval(timer);
-            current = target;
-          }
-          element.textContent = Math.floor(current) + "+";
-        }, 20);
-      }
+<!-- SVG FILTERS -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <filter id="protanopia-filter"><feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0"/></filter>
+  <filter id="deuteranopia-filter"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter>
+  <filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0 0 0.475 0.525 0 0  0 0 0 1 0"/></filter>
+</svg>
 
-      // Animate statistics when they come into view
-      const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCount(document.getElementById('publication-count'), 50);
-            animateCount(document.getElementById('citation-count'), 100);
-            animateCount(document.getElementById('conference-count'), 20);
-            statsObserver.unobserve(entry.target);
-          }
-        });
-      });
+<script>
+(function(){
+'use strict';
+let currentLanguage=localStorage.getItem('preferredLanguage')||'en';
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      statsObserver.observe(document.querySelector('.stats-section'));
+/* CURSOR */
+(function(){
+  const c=document.getElementById('customCursor');if(!c)return;let t;
+  document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';c.classList.add('is-moving');clearTimeout(t);t=setTimeout(()=>c.classList.remove('is-moving'),150);});
+  if('ontouchstart' in window||navigator.maxTouchPoints>0){c.style.display='none';document.body.style.cursor='auto';}
+})();
+
+/* LANGUAGE */
+const languageBtn=document.getElementById('languageBtn');
+const languageDropdown=document.getElementById('languageDropdown');
+function switchLanguage(lang){
+  currentLanguage=lang;try{localStorage.setItem('preferredLanguage',lang);}catch(e){}
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute(lang==='en'?'data-en':'data-np');if(v===null)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=v;}else{el.innerHTML=v;}
+  });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el=>{const v=el.getAttribute(lang==='en'?'data-en-placeholder':'data-np-placeholder');if(v)el.placeholder=v;});
+  const lt=lang==='en'?'English':'नेपाली';
+  if(languageBtn)languageBtn.innerHTML=`<i class="fas fa-globe"></i><span>${lt}</span><i class="fas fa-chevron-down"></i>`;
+  const hl=lang==='np'?'ne':'en';document.documentElement.lang=hl;document.body.lang=hl;
+  const al=document.getElementById('accLang');if(al)al.value=lang;
+}
+if(languageBtn&&languageDropdown){
+  languageBtn.addEventListener('click',e=>{e.stopPropagation();const ex=languageBtn.getAttribute('aria-expanded')==='true';languageBtn.setAttribute('aria-expanded',String(!ex));languageDropdown.classList.toggle('active');});
+  document.querySelectorAll('.language-option').forEach(opt=>{
+    const h=()=>{switchLanguage(opt.getAttribute('data-lang'));languageDropdown.classList.remove('active');languageBtn.setAttribute('aria-expanded','false');};
+    opt.addEventListener('click',h);opt.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();h();}});
+  });
+  document.addEventListener('click',e=>{if(!languageBtn.contains(e.target)&&!languageDropdown.contains(e.target)){languageDropdown.classList.remove('active');languageBtn.setAttribute('aria-expanded','false');}});
+}
+
+/* MOBILE NAV */
+const mobileToggle=document.getElementById('mobileToggle');
+const navMenu=document.getElementById('navMenu');
+if(mobileToggle&&navMenu){
+  mobileToggle.addEventListener('click',function(){const ex=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',String(!ex));navMenu.classList.toggle('active');});
+  document.querySelectorAll('.nav-menu a').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100){navMenu.classList.remove('active');mobileToggle.setAttribute('aria-expanded','false');}}));
+}
+
+/* STICKY HEADER */
+const header=document.getElementById('siteHeader');
+function updateHeader(){if(header)header.classList.toggle('is-scrolled',window.scrollY>10);}
+updateHeader();window.addEventListener('scroll',updateHeader,{passive:true});
+
+/* REVEAL */
+const revealEls=document.querySelectorAll('.fade-in, .reveal');
+if(prefersReduced||!('IntersectionObserver' in window)){
+  revealEls.forEach(el=>{el.classList.add('visible','is-visible');});
+}else{
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible','is-visible');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  revealEls.forEach(el=>io.observe(el));
+}
+
+/* STATS COUNTER */
+(function(){
+  const cards=document.querySelectorAll('.stat-number[data-count]');
+  if(!cards.length)return;
+  const section=document.querySelector('.stats-section');let started=false;
+  function run(){
+    if(started)return;started=true;
+    cards.forEach(el=>{
+      const target=parseInt(el.getAttribute('data-count'),10)||0;
+      const suffix=el.getAttribute('data-suffix')||'';
+      let cur=0;const step=Math.max(1,Math.ceil(target/60));
+      const timer=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(timer);}el.textContent=cur.toLocaleString()+suffix;},22);
     });
-  </script>
+  }
+  if(!('IntersectionObserver' in window)){run();return;}
+  const obs=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){run();obs.disconnect();}});},{threshold:.25});
+  obs.observe(section);
+})();
+
+/* THEME */
+const themeToggle=document.getElementById('themeToggleNav');
+const themeIcon=document.getElementById('themeIcon');
+function applyTheme(){const s=localStorage.getItem('themeMode');if(s==='night'){document.body.classList.add('night-mode');if(themeIcon)themeIcon.className='fas fa-sun';}else{document.body.classList.remove('night-mode');if(themeIcon)themeIcon.className='fas fa-moon';}}
+if(themeToggle){
+  themeToggle.addEventListener('click',()=>{
+    document.body.classList.toggle('night-mode');
+    const isNight=document.body.classList.contains('night-mode');
+    if(themeIcon)themeIcon.className=isNight?'fas fa-sun':'fas fa-moon';
+    try{localStorage.setItem('themeMode',isNight?'night':'day');}catch(e){}
+  });
+}
+
+/* COLOR BLIND */
+const colorBlindToggle=document.getElementById('colorBlindToggle');
+function applyCB(){const s=localStorage.getItem('colorBlindMode');if(s==='on'){document.body.classList.add('color-blind-mode');if(colorBlindToggle)colorBlindToggle.checked=true;}else{document.body.classList.remove('color-blind-mode');if(colorBlindToggle)colorBlindToggle.checked=false;}}
+if(colorBlindToggle){
+  colorBlindToggle.addEventListener('change',function(){
+    if(this.checked){document.body.classList.add('color-blind-mode');try{localStorage.setItem('colorBlindMode','on');}catch(e){}}
+    else{document.body.classList.remove('color-blind-mode');try{localStorage.setItem('colorBlindMode','off');}catch(e){}}
+  });
+}
+
+/* CHAT */
+const chatButton=document.getElementById('chatButton');
+const chatContainer=document.getElementById('chatContainer');
+const closeChat=document.getElementById('closeChat');
+const sendMessage=document.getElementById('sendMessage');
+const chatInput=document.getElementById('chatInput');
+const chatMessages=document.getElementById('chatMessages');
+function addMsg(text,isUser){
+  if(!chatMessages)return;
+  const d=document.createElement('div');d.className='message '+(isUser?'user':'bot');
+  const s=document.createElement('span');s.textContent=text;d.appendChild(s);chatMessages.appendChild(d);
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+function genResp(msg){
+  const l=msg.toLowerCase();
+  const R={
+    en:{appt:"To book an appointment, please use our online booking system or call +977-1-5242511.",svc:"Dr. Paudel specialises in medical dermatology, cosmetic procedures, STI treatment, hair restoration and skin surgery.",hrs:"Our clinic hours are Sunday to Friday from 8 AM to 7 PM. Closed Saturdays.",loc:"Clinics at Shankhamul Health Care, Elite Health Clinic (Mahalaxmisthan) and Shubharambha Skin Centre (Dhangadhi).",def:"Thank you for your question. For detailed information, please contact our clinic at +977-1-5242511."},
+    np:{appt:"अपोइन्टमेन्ट बुक गर्न, कृपया हाम्रो अनलाइन बुकिङ प्रणाली प्रयोग गर्नुहोस् वा +९७७-१-५२४२५११ मा कल गर्नुहोस्।",svc:"डा. पौडेल चिकित्सा त्वचा विज्ञान, कस्मेटिक प्रक्रिया, यौन संक्रमण उपचार, कपाल पुनर्स्थापना, र त्वचा सर्जरीमा विशेषज्ञ हुनुहुन्छ।",hrs:"हाम्रो क्लिनिकको समय आइतबार देखि शुक्रबार सम्म ९ बजे देखि ७ बजे सम्म हो। शनिबार बन्द।",loc:"शंखमुल हेल्थ केयर, एलाइट हेल्थ क्लिनिक (महालक्ष्मीस्थान) र शुभारम्भ स्किन सेन्टर (धनगढी)।",def:"तपाईंको प्रश्नको लागि धन्यवाद। विस्तृत जानकारीको लागि, कृपया +९७७-१-५२४२५११ मा सम्पर्क गर्नुहोस्।"}
+  };
+  const r=R[currentLanguage]||R.en;
+  if(/appoint|book|schedule/.test(l))return r.appt;
+  if(/service|treat|procedure/.test(l))return r.svc;
+  if(/hour|time|open/.test(l))return r.hrs;
+  if(/location|clinic|address/.test(l))return r.loc;
+  return r.def;
+}
+function handleSend(){
+  if(!chatInput)return;
+  const m=chatInput.value.trim();if(!m)return;
+  addMsg(m,true);chatInput.value='';
+  setTimeout(()=>addMsg(genResp(m),false),700);
+}
+if(chatButton&&chatContainer){
+  chatButton.addEventListener('click',e=>{e.stopPropagation();chatContainer.classList.toggle('active');if(chatContainer.classList.contains('active')&&chatInput)chatInput.focus();});
+}
+if(closeChat&&chatContainer)closeChat.addEventListener('click',()=>chatContainer.classList.remove('active'));
+if(sendMessage)sendMessage.addEventListener('click',handleSend);
+if(chatInput)chatInput.addEventListener('keypress',e=>{if(e.key==='Enter'){e.preventDefault();handleSend();}});
+document.addEventListener('click',e=>{if(chatContainer&&chatButton&&!chatContainer.contains(e.target)&&!chatButton.contains(e.target))chatContainer.classList.remove('active');});
+
+/* ACCESSIBILITY PANEL */
+const filterState={contrast:1,saturate:1,grayscale:0,sepia:0,invert:0};
+function updateFilters(){const f=filterState,p=[];if(f.contrast!==1)p.push(`contrast(${f.contrast})`);if(f.saturate!==1)p.push(`saturate(${f.saturate})`);if(f.grayscale)p.push(`grayscale(${f.grayscale})`);if(f.sepia)p.push(`sepia(${f.sepia})`);if(f.invert)p.push(`invert(${f.invert})`);document.body.style.filter=p.length?p.join(' '):'';}
+function initA11y(){
+  const tb=document.getElementById('accessibilityToggle'),pn=document.getElementById('accessibilityPanel'),cb=document.getElementById('closeAccessibilityPanel');
+  if(!tb||!pn)return;
+  tb.addEventListener('click',e=>{e.stopPropagation();pn.classList.toggle('open');});
+  if(cb)cb.addEventListener('click',()=>pn.classList.remove('open'));
+  document.addEventListener('click',e=>{if(pn.classList.contains('open')&&!pn.contains(e.target)&&!tb.contains(e.target))pn.classList.remove('open');});
+  const saved=JSON.parse(localStorage.getItem('accessibilitySettings')||'{}');
+  function apply(k,v){
+    saved[k]=v;try{localStorage.setItem('accessibilitySettings',JSON.stringify(saved));}catch(e){}
+    switch(k){
+      case'lang':{const o=document.querySelector(`.language-option[data-lang="${v}"]`);if(o)o.click();break;}
+      case'textSize':document.body.style.fontSize=v==='small'?'.92rem':v==='large'?'1.18rem':'1rem';break;
+      case'contrast':filterState.contrast=parseFloat(v);updateFilters();break;
+      case'textAlign':document.querySelectorAll('.container').forEach(el=>el.style.textAlign=v);break;
+      case'colorFilter':filterState.grayscale=0;filterState.sepia=0;filterState.invert=0;document.body.classList.remove('filter-protanopia','filter-deuteranopia','filter-tritanopia');
+        if(v==='grayscale')filterState.grayscale=1;else if(v==='sepia')filterState.sepia=1;else if(v==='invert')filterState.invert=1;else if(v==='protanopia')document.body.classList.add('filter-protanopia');else if(v==='deuteranopia')document.body.classList.add('filter-deuteranopia');else if(v==='tritanopia')document.body.classList.add('filter-tritanopia');
+        updateFilters();break;
+      case'textSpacing':document.body.style.letterSpacing=parseFloat(v)+'px';break;
+      case'lineHeight':document.body.style.lineHeight=v;break;
+      case'font':document.body.style.fontFamily=v+', sans-serif';break;
+      case'saturation':filterState.saturate=parseFloat(v);updateFilters();break;
+      case'cursor':document.body.style.cursor=v==='big'?'crosshair':'';break;
+      case'hideImages':document.querySelectorAll('img').forEach(img=>{img.style.display=v?'none':'';});break;
+      case'pauseAnimations':document.querySelectorAll('*').forEach(el=>{el.style.animationPlayState=v?'paused':'';});break;
+      case'screenReader':if(!('speechSynthesis' in window))return;if(v){speechSynthesis.cancel();const t=document.body.innerText.slice(0,4000);const u=new SpeechSynthesisUtterance(t);u.lang=currentLanguage==='np'?'ne-NP':'en-US';u.rate=.9;speechSynthesis.speak(u);}else speechSynthesis.cancel();break;
+    }
+  }
+  Object.keys(saved).forEach(k=>apply(k,saved[k]));
+  const bind=(id,s)=>{const el=document.getElementById(id);if(el)el.addEventListener('change',function(){apply(s,this.value);});};
+  bind('accLang','lang');bind('colorFilter','colorFilter');bind('fontSelect','font');
+  const bg=(gid,s,attr)=>{document.querySelectorAll(`#${gid} button`).forEach(b=>b.addEventListener('click',function(){document.querySelectorAll(`#${gid} button`).forEach(x=>x.classList.remove('active'));this.classList.add('active');apply(s,this.dataset[attr]);}));};
+  bg('textSizeGroup','textSize','size');bg('contrastGroup','contrast','contrast');bg('textAlignGroup','textAlign','align');bg('textSpacingGroup','textSpacing','spacing');bg('lineHeightGroup','lineHeight','line');bg('saturationGroup','saturation','sat');bg('cursorGroup','cursor','cursor');
+  const bt=(id,s)=>{const el=document.getElementById(id);if(!el)return;el.addEventListener('click',function(){this.classList.toggle('active');apply(s,this.classList.contains('active'));});if(saved[s])el.classList.add('active');};
+  bt('hideImagesToggle','hideImages');bt('pauseAnimationsToggle','pauseAnimations');bt('screenReaderToggle','screenReader');
+}
+
+/* FESTIVE POPUP */
+function initFestive(){
+  const bd=document.getElementById('festivePopupBackdrop'),cl=document.getElementById('festivePopupClose'),dm=document.getElementById('festivePopupDismiss');
+  if(!bd)return;
+  const open=()=>{bd.classList.add('open');document.body.style.overflow='hidden';if(cl)cl.focus();};
+  const close=()=>{bd.classList.remove('open');document.body.style.overflow='';};
+  if(cl)cl.addEventListener('click',close);if(dm)dm.addEventListener('click',close);
+  bd.addEventListener('click',e=>{if(e.target===bd)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bd.classList.contains('open'))close();});
+  setTimeout(open,700);
+}
+
+/* ESCAPE */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  const pn=document.getElementById('accessibilityPanel');if(pn&&pn.classList.contains('open'))pn.classList.remove('open');
+  const ct=document.getElementById('chatContainer');if(ct&&ct.classList.contains('active'))ct.classList.remove('active');
+  const ld=document.getElementById('languageDropdown');if(ld&&ld.classList.contains('active')){ld.classList.remove('active');if(languageBtn)languageBtn.setAttribute('aria-expanded','false');}
+  if(navMenu&&navMenu.classList.contains('active')){navMenu.classList.remove('active');if(mobileToggle)mobileToggle.setAttribute('aria-expanded','false');}
+  const fp=document.getElementById('festivePopupBackdrop');if(fp&&fp.classList.contains('open')){fp.classList.remove('open');document.body.style.overflow='';}
+});
+
+/* INIT */
+function init(){switchLanguage(currentLanguage);applyTheme();applyCB();initA11y();initFestive();}
+document.addEventListener('DOMContentLoaded',init);
+if(document.readyState!=='loading')init();
+})();
+</script>
 </body>
 </html>
