@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Dr. Vikash Paudel | Dermatologist & Skin Specialist in Kathmandu, Nepal</title>
-    <meta name="description" content="Dr. Vikash Paudel, MD, is a consultant dermatologist and skin specialist in Kathmandu and Lalitpur, Nepal. Consult for acne, hair loss, melasma, eczema, psoriasis, vitiligo, skin allergies and dermatosurgery." />
+    <title>Dr. Vikash Paudel, MD | Dermatologist & Skin Specialist in Kathmandu, Lalitpur</title>
+    <meta name="description" content="Meet Dr. Vikash Paudel, MD, consultant dermatologist and skin specialist serving Kathmandu and Lalitpur, Nepal. Explore evidence-based care for acne, hair loss, melasma, eczema, psoriasis, vitiligo, skin allergies and dermatosurgery." />
 
     <!-- SEO Meta Tags -->
     <meta name="keywords" content="dermatologist Kathmandu, skin specialist Kathmandu, dermatologist Lalitpur, dermatology clinic Nepal, best dermatologist Kathmandu search, dermatologist Nepal, acne treatment Kathmandu, cosmetic dermatology, melasma care, hair fall treatment, STI treatment Nepal, dermatosurgery, warts, genital wart, skin doctor Kathmandu" />
@@ -2510,6 +2510,63 @@
         body.color-blind-mode :focus-visible { outline: 3px solid #EAAE36; outline-offset: 3px; }
         @media(max-width:900px) { .footer-container { grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem; } }
         @media(max-width:640px) { .footer-container { grid-template-columns:1fr;gap:1.1rem; } .site-footer { padding-top:1.5rem; } .search-intent-note { font-size:.85rem; } }
+
+        /* 2026 professional readability and UX refinement; existing content preserved */
+        :root { --space-section: clamp(2.35rem,4.25vw,3.55rem); }
+        body { font-feature-settings:"kern" 1; }
+        /* Justification for readable paragraphs, not headings, labels, buttons, or tiny UI. */
+        .hero-lead, .welcome-text p, .welcome-card p,
+        .service-card p, .why-choose-text p,
+        .section-sub, .footer-column > p,
+        .faq-answer p, .testimonial-text, .search-intent-note {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+        }
+        .hero-lead { line-height:1.76; }
+        .welcome-text, .service-card p, .why-choose-text p { line-height:1.72; }
+        .service-card, .welcome-card, .why-choose-item { border-radius:14px; }
+        .service-card:hover, .welcome-card:hover, .why-choose-item:hover {
+            border-color:var(--color-accent);
+        }
+        .nav-menu a, .language-btn { letter-spacing:.005em; }
+        .language-option[tabindex]:focus-visible,
+        .language-btn:focus-visible, .chat-button:focus-visible,
+        .filter-btn:focus-visible, .btn:focus-visible {
+            outline:3px solid var(--color-accent);outline-offset:3px;
+        }
+        .language-flag { border:1px solid rgba(0,0,0,.1); border-radius:2px; }
+        .site-footer { padding-top:clamp(1.65rem,3vw,2.2rem); }
+        .footer-container { row-gap:1.25rem; }
+        .footer-contact p, .footer-links a { overflow-wrap:anywhere; }
+        .chat-container { box-shadow:0 20px 55px rgba(8,43,76,.21); }
+        body.color-blind-mode:not(.night-mode) {
+            --color-primary:#15365B; --color-accent:#2255A4;
+            --color-accent-dark:#153C79; --color-accent-soft:#E9F1FF;
+            --color-text-muted:#34475C; --color-border:#A9B9C9;
+        }
+        body.color-blind-mode .service-icon,
+        body.color-blind-mode .btn { border-width:2px; }
+        body.color-blind-mode :focus-visible {
+            outline:3px solid #C47B00!important;outline-offset:4px!important;
+        }
+        @media(max-width:640px) {
+            .hero-lead,.section-sub,.search-intent-note,
+            .service-card p,.why-choose-text p,.welcome-text p,
+            .footer-column > p,.faq-answer p,.testimonial-text {
+                text-align:left;
+                hyphens:auto;
+            }
+            .site-footer {padding-top:1.5rem;}
+            .footer-container {gap:1.15rem;}
+            .hero {padding-block:1.75rem 1.35rem;}
+            .service-card,.welcome-card {padding:1.15rem;}
+        }
+        @media(prefers-reduced-motion:reduce) {
+            .service-card,.welcome-card,.why-choose-item {transform:none!important;}
+        }
+
     </style>
 </head>
 <body>
@@ -3455,6 +3512,59 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Search-engine and AI-readable professional profile (factual, non-ranking) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vikashpaudel.com.np/#vikash-paudel",
+      "name": "Dr. Vikash Paudel",
+      "alternateName": "डा. विकास पौडेल",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "MD",
+      "jobTitle": [
+        "Consultant Dermatologist",
+        "Associate Professor of Dermatology"
+      ],
+      "description": "Consultant dermatologist, venereologist and dermatosurgeon providing dermatology care in Kathmandu and Lalitpur, Nepal.",
+      "url": "https://vikashpaudel.com.np/",
+      "knowsAbout": [
+        "Dermatology",
+        "Acne",
+        "Hair Loss",
+        "Melasma",
+        "Psoriasis",
+        "Eczema",
+        "Vitiligo",
+        "Teledermatology",
+        "Dermatosurgery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vikashpaudel.com.np/#webpage",
+      "url": "https://vikashpaudel.com.np/",
+      "name": "Dr. Vikash Paudel | Dermatologist in Kathmandu & Lalitpur",
+      "description": "Clinical information, dermatology services, clinic locations and consultation enquiries for Dr. Vikash Paudel.",
+      "inLanguage": [
+        "en",
+        "ne"
+      ],
+      "about": {
+        "@id": "https://vikashpaudel.com.np/#vikash-paudel"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://vikashpaudel.com.np/"
+      }
+    }
+  ]
+}
+    </script>
 
     <!-- ===== STRUCTURED DATA ===== -->
     <script type="application/ld+json">
