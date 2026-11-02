@@ -2469,6 +2469,18 @@
         body.filter-protanopia    { filter: url('#protanopia-filter'); }
         body.filter-deuteranopia  { filter: url('#deuteranopia-filter'); }
         body.filter-tritanopia    { filter: url('#tritanopia-filter'); }
+
+        /* Enhanced chat controls */
+        .chat-container {width: min(390px, calc(100vw - 24px));height:min(570px,calc(100dvh - 105px));}
+        .chat-messages {overscroll-behavior:contain;}
+        .quick-responses {display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;}
+        .quick-response-btn {font-size:.79rem;line-height:1.35;border:1px solid var(--color-accent);border-radius:999px;padding:9px 11px;background:var(--color-surface);color:var(--color-text);cursor:pointer;text-align:left;}
+        .quick-response-btn:hover,.quick-response-btn:focus-visible {background:var(--color-accent-soft);}
+        .chat-action-link {align-self:flex-start;border-radius:10px;padding:9px 12px;background:var(--color-accent-soft);color:var(--color-accent-dark);font-size:.83rem;font-weight:600;text-decoration:none;}
+        .chat-header h3 {font-size:.9rem;}
+        @media(max-width:480px){.chat-widget{right:12px;bottom:12px}.chat-container{right:0;height:min(590px,calc(100dvh - 90px));}}
+        @media(prefers-reduced-motion:reduce){.chat-container.active{animation:none}}
+
     </style>
 </head>
 <body>
@@ -2570,7 +2582,7 @@
                     <li role="none"><a href="award.html" role="menuitem" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
                     <li role="none"><a href="#testimonials" role="menuitem" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
                     <li role="none"><a href="about.html" role="menuitem" data-en="About" data-np="हाम्रो बारेमा">About</a></li>
-                    <li role="none"><a href="contact.html" role="menuitem" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+                    <li role="none"><a href="#contact" role="menuitem" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
                     <li role="none"><a href="blog.html" role="menuitem" data-en="Blog" data-np="ब्लग">Blog</a></li>
                     <li role="none" class="book-now-nav">
                         <a href="appointment.html" role="menuitem" data-en="Book Now" data-np="बुक गर्नुहोस्">
@@ -2618,12 +2630,12 @@
                 <div class="hero-copy">
                     <p class="eyebrow">
                         <i class="fas fa-user-md" aria-hidden="true"></i>
-                        <span data-en="Consultant Dermatologist · Kathmandu, Nepal" data-np="वरिष्ट छालारोग विशेषज्ञ · काठमाडौं, नेपाल">Consultant Dermatologist · Kathmandu, Nepal</span>
+                        <span data-en="Consultant Dermatologist · Kathmandu, Nepal" data-np="परामर्श छालारोग विशेषज्ञ · काठमाडौं, नेपाल">Consultant Dermatologist · Kathmandu, Nepal</span>
                     </p>
 
                     <h1 class="hero-title"
                         data-en="Dr. Vikash Paudel — Consultant Dermatologist in Kathmandu"
-                        data-np="डा. विकास पौडेल — वरिष्ठ छालारोग विशेषज्ञ">
+                        data-np="डा. विकास पौडेल — काठमाडौंमा छालारोग विशेषज्ञ">
                         Dr. Vikash Paudel — Consultant Dermatologist in Kathmandu
                     </h1>
 
@@ -2633,7 +2645,7 @@
 
                     <p class="hero-lead"
                        data-en="Dr. Vikash Paudel is one of Nepal's leading dermatologists, with clinical experience across medical and cosmetic dermatology, hair restoration, STI management and dermatosurgery. He combines internationally trained expertise with a patient-centred approach to deliver evidence-based, personalised care."
-                       data-np="डा. विकास पौडेल नेपालका अग्रणी छालारोग विशेषज्ञहरूमध्ये एक हुनुहुन्छ, जसले साधारण छालारोग र कस्मेटिक समस्या, कपाल, नङ, यौन संक्रमण व्यवस्थापन र शल्यचिकित्सामा अनुभव राख्नुहुन्छ। उहाँ अन्तर्राष्ट्रिय रूपमा प्रशिक्षित विशेषज्ञता र बिरामी-केन्द्रित दृष्टिकोणलाई संयोजन गरी प्रमाण-आधारित, व्यक्तिगत हेरचाह प्रदान गर्नुहुन्छ।">
+                       data-np="डा. विकास पौडेल नेपालका अग्रणी छालारोग विशेषज्ञहरूमध्ये एक हुनुहुन्छ, जसले चिकित्सकीय र कस्मेटिक छालारोग, कपाल पुनर्स्थापना, यौन संक्रमण व्यवस्थापन र छाला शल्यचिकित्सामा क्लिनिकल अनुभव राख्नुहुन्छ। उहाँ अन्तर्राष्ट्रिय रूपमा प्रशिक्षित विशेषज्ञता र बिरामी-केन्द्रित दृष्टिकोणलाई संयोजन गरी प्रमाण-आधारित, व्यक्तिगत हेरचाह प्रदान गर्नुहुन्छ।">
                         Dr. Vikash Paudel is one of Nepal's leading dermatologists, with clinical experience across medical and cosmetic dermatology, hair restoration, STI management and dermatosurgery. He combines internationally trained expertise with a patient-centred approach to deliver evidence-based, personalised care.
                     </p>
 
@@ -3268,12 +3280,12 @@
 
     <!-- ===== CHAT WIDGET ===== -->
     <div class="chat-widget" role="complementary" aria-label="Chat support">
-        <button class="chat-button" id="chatButton" aria-label="Open chat">
+        <button class="chat-button" id="chatButton" aria-label="Open chat" aria-expanded="false" aria-controls="chatContainer">
             <i class="fas fa-comments" aria-hidden="true"></i>
         </button>
         <div class="chat-container" id="chatContainer" role="dialog" aria-label="Chat window">
             <div class="chat-header">
-                <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Chat with Us</h3>
+                <h3 data-en="Chat with Us" data-np="हामीसँग कुरा गर्नुहोस्">Dr. Vikash Skin Assistant</h3>
                 <button class="close-chat" id="closeChat" aria-label="Close chat">
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
@@ -3831,110 +3843,88 @@
             }
         };
 
+        /* Interactive bilingual clinic assistant: rule-based, no medical diagnosis */
         const chatButton = document.getElementById('chatButton');
         const chatContainer = document.getElementById('chatContainer');
         const closeChat = document.getElementById('closeChat');
-        const sendMessage = document.getElementById('sendMessage');
         const chatInput = document.getElementById('chatInput');
         const chatMessages = document.getElementById('chatMessages');
-
-        function addMessage(text, isUser) {
-            if (!chatMessages) return;
-            const div = document.createElement('div');
-            div.className = `message ${isUser ? 'user' : 'bot'}`;
-            const span = document.createElement('span');
-            span.textContent = text;
-            div.appendChild(span);
-            chatMessages.appendChild(div);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+        const sendMessage = document.getElementById('sendMessage');
+        let chatStarted = false, chatTopic = '';
+        const chatMenus = {
+            main: [['appointment','📅 Book Appointment','📅 अपोइन्टमेन्ट'],['skin','🩺 Skin & Hair','🩺 छाला र कपाल'],['online','💻 Online Consultation','💻 अनलाइन परामर्श'],['clinics','📍 Clinic Locations','📍 क्लिनिक स्थान'],['fees','💰 Consultation Fees','💰 परामर्श शुल्क'],['about','👨‍⚕️ About Doctor','👨‍⚕️ डाक्टरबारे'],['contact','📞 Contact','📞 सम्पर्क']],
+            skin: [['acne','Acne & Pimples','डन्डिफोर'],['hair','Hair Loss','कपाल झर्ने'],['pigment','Melasma / Pigmentation','चायापोतो'],['eczema','Eczema / Psoriasis','एक्जिमा / सोरायसिस'],['allergy','Allergy / Urticaria','एलर्जी / पित्ती'],['fungal','Fungal Infections','ढुसी संक्रमण'],['vitiligo','Vitiligo','सेतो दाग'],['appointment','Book Consultation','परामर्श लिनुहोस्'],['main','⌂ Main Menu','⌂ मुख्य मेनु']],
+            appointment: [['inperson','In-person Visit','प्रत्यक्ष जाँच'],['online','Online Consultation','अनलाइन परामर्श'],['contact','Contact Reception','रिसेप्सन सम्पर्क'],['main','⌂ Main Menu','⌂ मुख्य मेनु']],
+            clinics: [['shankhamul','Shankhamul','शंखमूल'],['elite','Elite Health Clinic','एलाइट हेल्थ क्लिनिक'],['patan','Patan Hospital','पाटन अस्पताल'],['dhangadhi','Dhangadhi','धनगढी'],['main','⌂ Main Menu','⌂ मुख्य मेनु']]
+        };
+        const isNp = () => currentLanguage === 'np';
+        const tr = (en,np) => isNp() ? np : en;
+        function chatMessage(text, user=false) {
+            const el=document.createElement('div'); el.className='message '+(user?'user':'bot');
+            el.textContent=text; chatMessages.appendChild(el); chatMessages.scrollTop=chatMessages.scrollHeight;
+            return el;
         }
-
-        function generateChatResponse(userMessage) {
-            const responses = chatResponses[currentLanguage] || chatResponses.en;
-            let topic = 'greetings';
-            const lower = userMessage.toLowerCase();
-            if (lower.includes('appointment') || lower.includes('book') || lower.includes('schedule')) topic = 'appointment';
-            else if (lower.includes('service') || lower.includes('treatment') || lower.includes('procedure')) topic = 'services';
-            else if (lower.includes('hour') || lower.includes('time') || lower.includes('open')) topic = 'hours';
-            else if (lower.includes('location') || lower.includes('clinic') || lower.includes('address')) topic = 'location';
-            else if (lower.includes('cost') || lower.includes('price') || lower.includes('fee')) topic = 'cost';
-            else if (lower.includes('emergency') || lower.includes('urgent')) topic = 'emergency';
-            else if (!lower.includes('hello') && !lower.includes('hi') && !lower.includes('help')) topic = 'default';
-
-            const arr = responses[topic] || responses.default;
-            let reply = arr[Math.floor(Math.random() * arr.length)];
-            reply = reply.replace('{topic}', 'your concern');
-            return reply;
+        function chatActions(items) {
+            chatMessages.querySelectorAll('.quick-responses').forEach(e=>e.remove());
+            const wrap=document.createElement('div'); wrap.className='quick-responses';
+            items.forEach(([key,en,np])=>{const btn=document.createElement('button');btn.type='button';btn.className='quick-response-btn';btn.textContent=tr(en,np);btn.addEventListener('click',()=>chatChoose(key,btn.textContent));wrap.appendChild(btn);});
+            chatMessages.appendChild(wrap);chatMessages.scrollTop=chatMessages.scrollHeight;
         }
-
-        function addQuickResponseButtons() {
-            if (!chatMessages) return;
-            const existing = chatMessages.querySelector('.quick-responses');
-            if (existing) existing.remove();
-
-            const labels = currentLanguage === 'en'
-                ? ['Book Appointment', 'Clinic Hours', 'Services', 'Location']
-                : ['अपोइन्टमेन्ट बुक', 'क्लिनिक समय', 'सेवाहरू', 'स्थान'];
-
-            const container = document.createElement('div');
-            container.className = 'quick-responses';
-            labels.forEach(text => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'quick-response-btn';
-                btn.textContent = text;
-                btn.addEventListener('click', () => {
-                    chatInput.value = text;
-                    handleUserMessage();
-                });
-                container.appendChild(btn);
-            });
-            chatMessages.appendChild(container);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+        function chatLink(label,href) {
+            const a=document.createElement('a');a.className='chat-action-link';a.textContent=label;a.href=href;
+            if(/^https?:/.test(href)){a.target='_blank';a.rel='noopener noreferrer';}
+            chatMessages.appendChild(a);chatMessages.scrollTop=chatMessages.scrollHeight;
         }
-
-        function handleUserMessage() {
-            if (!chatInput) return;
-            const msg = chatInput.value.trim();
-            if (!msg) return;
-            addMessage(msg, true);
-            chatInput.value = '';
-            setTimeout(() => {
-                addMessage(generateChatResponse(msg), false);
-                setTimeout(addQuickResponseButtons, 400);
-            }, 800);
+        function chatChoose(key,label) {
+            if(label)chatMessage(label,true);
+            chatTopic=key;
+            let menu='main', response='';
+            const topics={
+              acne:['Acne can have several causes and treatments. A dermatologist can assess severity and scarring.','डन्डिफोरका विभिन्न कारण र उपचार हुन्छन्। उचित जाँचका लागि छालारोग विशेषज्ञसँग परामर्श गर्नुहोस्।'],
+              hair:['Hair loss has different causes. Assessment helps determine suitable treatment options.','कपाल झर्ने विभिन्न कारण हुन्छन्। उचित उपचारका लागि कारण पहिचान गर्नुपर्छ।'],
+              pigment:['Melasma and pigmentation require an individual skin assessment and sun protection.','चायापोतो तथा कालोपनका लागि छालाको जाँच र घामबाट सुरक्षा महत्त्वपूर्ण हुन्छ।'],
+              eczema:['Eczema and psoriasis are different inflammatory skin conditions requiring appropriate evaluation.','एक्जिमा र सोरायसिस फरक छालाका समस्या हुन्। उचित जाँच आवश्यक हुन्छ।'],
+              allergy:['Hives and skin allergies may have different triggers. Seek urgent care for breathing difficulty or facial swelling.','पित्ती र एलर्जीका विभिन्न कारण हुन सक्छन्। सास फेर्न गाह्रो वा अनुहार सुन्निए तुरुन्त अस्पताल जानुहोस्।'],
+              fungal:['Fungal rashes can resemble other conditions. Avoid unsupervised steroid combination creams.','ढुसी संक्रमण अन्य रोगजस्तै देखिन सक्छ। चिकित्सकको सल्लाहबिना स्टेरोइड मिसिएको क्रिम नलगाउनुहोस्।'],
+              vitiligo:['Vitiligo causes loss of skin pigment. Treatment options depend on extent and clinical assessment.','सेतो दागमा छालाको रङ घट्छ। उपचारको विकल्प जाँचअनुसार फरक हुन्छ।']
+            };
+            if(key==='main')response=tr('How may I help you today?','तपाईंलाई के सहयोग चाहिन्छ?');
+            else if(key==='skin'){response=tr('Select a skin or hair concern:','छाला वा कपालको समस्या छान्नुहोस्:');menu='skin';}
+            else if(key==='appointment'){response=tr('Would you prefer an in-person or online consultation? Appointments are requests until confirmed by the clinic.','प्रत्यक्ष वा अनलाइन परामर्श कुन चाहनुहुन्छ? क्लिनिकबाट पुष्टि नभएसम्म अपोइन्टमेन्ट निश्चित हुँदैन।');menu='appointment';}
+            else if(key==='inperson'){response=tr('Choose a clinic to request an appointment. Please confirm current timings with reception.','अपोइन्टमेन्टका लागि क्लिनिक छान्नुहोस्। समय रिसेप्सनसँग पुष्टि गर्नुहोस्।');menu='clinics';}
+            else if(key==='clinics'){response=tr('Choose a clinic location:','क्लिनिकको स्थान छान्नुहोस्:');menu='clinics';}
+            else if(key==='online'){response=tr('Online dermatology consultations are available by prior arrangement, via Zoom or WhatsApp. International consultation: NPR 3,000 per session, payable in advance. Follow-ups are charged separately.','Zoom वा WhatsApp मार्फत पूर्वसमय मिलाएर अनलाइन परामर्श उपलब्ध छ। विदेशमा रहेका बिरामीका लागि प्रति सत्र रु. ३,००० अग्रिम शुल्क लाग्छ। फलोअपको शुल्क अलग हुन्छ।');}
+            else if(key==='fees'){response=tr('In-clinic consultation in Nepal: NPR 1,000 (confirm with clinic). International online consultation: NPR 3,000 per session. Other fees depend on service and location.','नेपालमा क्लिनिक परामर्श: रु. १,००० (क्लिनिकसँग पुष्टि गर्नुहोस्)। विदेशबाट अनलाइन परामर्श: प्रति सत्र रु. ३,०००। अन्य शुल्क सेवाअनुसार फरक हुन्छ।');}
+            else if(key==='about'){response=tr('Dr. Vikash Paudel is a consultant dermatologist, venereologist and dermatosurgeon. Explore the website for qualifications and clinical services.','डा. विकास पौडेल छालारोग, यौनरोग तथा डर्माटोसर्जरी विशेषज्ञ हुनुहुन्छ। थप जानकारी वेबसाइटमा हेर्नुहोस्।');}
+            else if(key==='contact'){response=tr('Contact the clinic to inquire about appointments. Please avoid sending sensitive medical information in an initial message.','अपोइन्टमेन्टबारे जानकारीका लागि क्लिनिकमा सम्पर्क गर्नुहोस्। प्रारम्भिक सन्देशमा गोप्य स्वास्थ्य विवरण नपठाउनुहोस्।');}
+            else if(['shankhamul','elite','patan','dhangadhi'].includes(key)){const names={shankhamul:'Shankhamul Healthcare, Kathmandu',elite:'Elite Health Clinic, Mahalaxmisthan, Lalitpur',patan:'Patan Hospital, Lalitpur',dhangadhi:'Shubharambha Skin Centre, Dhangadhi'};response=names[key]+tr('. Please contact reception to verify schedule and request an appointment.','. अपोइन्टमेन्ट र समय पुष्टि गर्न रिसेप्सनमा सम्पर्क गर्नुहोस्।');}
+            else if(topics[key])response=tr(...topics[key])+tr(' This assistant provides general information, not a diagnosis or prescription.',' यो सहायकले सामान्य जानकारी मात्र दिन्छ, निदान वा औषधि लेख्दैन।');
+            else response=tr('I can help with services, appointments and clinic information. For a personal medical concern, please arrange a consultation.','म सेवा, अपोइन्टमेन्ट र क्लिनिकबारे जानकारी दिन सक्छु। व्यक्तिगत स्वास्थ्य समस्याका लागि परामर्श लिनुहोस्।');
+            chatMessage(response);
+            if(['contact','online','fees','appointment','inperson','shankhamul','elite','patan','dhangadhi'].includes(key))chatLink(tr('WhatsApp appointment inquiry ↗','WhatsApp मा सोधपुछ ↗'),'https://wa.me/9779825207253?text='+encodeURIComponent('Namaste, I would like to request a dermatology consultation with Dr. Vikash Paudel. Please advise on availability.'));
+            if(key==='about')chatLink(tr('Read about Dr. Paudel ↗','डा. पौडेलबारे पढ्नुहोस् ↗'),'about.html');
+            if(['shankhamul','elite','patan','dhangadhi'].includes(key))chatLink(tr('View on Google Maps ↗','नक्सामा हेर्नुहोस् ↗'),'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(({shankhamul:'Shankhamul Healthcare Kathmandu',elite:'Elite Health Clinic Mahalaxmisthan Lalitpur',patan:'Patan Hospital Lalitpur',dhangadhi:'Shubharambha Skin Centre Dhangadhi'})[key]));
+            if(topics[key])chatActions([['appointment','📅 Book Consultation','📅 परामर्श लिनुहोस्'],['skin','← Other Conditions','← अन्य समस्या'],['main','⌂ Main Menu','⌂ मुख्य मेनु']]);
+            else if(['online','fees','about','contact'].includes(key))chatActions([['appointment','📅 Book Appointment','📅 अपोइन्टमेन्ट'],['main','⌂ Main Menu','⌂ मुख्य मेनु']]);
+            else chatActions(chatMenus[menu]);
         }
-
-        if (chatButton && chatContainer) {
-            chatButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = chatContainer.classList.toggle('active');
-                chatButton.setAttribute('aria-label', isOpen ? 'Close chat' : 'Open chat');
-                if (isOpen) {
-                    setTimeout(addQuickResponseButtons, 400);
-                    if (chatInput) chatInput.focus();
-                }
-            });
+        function chatWelcome(){
+            const path=location.pathname.toLowerCase();
+            const greeting=path.includes('about')?tr('Want to learn about Dr. Paudel’s experience?','डा. पौडेलको अनुभवबारे जान्न चाहनुहुन्छ?'):path.includes('service')?tr('Which skin or hair service interests you?','कुन छाला वा कपाल सेवा चाहनुहुन्छ?'):path.includes('contact')?tr('Need clinic contact details or directions?','क्लिनिकको सम्पर्क वा बाटो चाहिन्छ?'):tr('Namaste! 🙏 I’m Dr. Vikash Skin Assistant, a virtual clinic assistant. How may I help you?','नमस्कार! 🙏 म डा. विकास स्किन असिस्टेन्ट, भर्चुअल क्लिनिक सहायक हुँ। के सहयोग गरूँ?');
+            chatMessages.replaceChildren();chatMessage(greeting);chatMessage(tr('For general information and appointments only. Not for emergencies or diagnosis.','सामान्य जानकारी र अपोइन्टमेन्टका लागि मात्र। आकस्मिक उपचार वा निदानका लागि होइन।'));chatActions(chatMenus.main);
         }
-        if (closeChat && chatContainer) {
-            closeChat.addEventListener('click', () => {
-                chatContainer.classList.remove('active');
-                if (chatButton) chatButton.setAttribute('aria-label', 'Open chat');
-            });
+        function chatFreeText(){const value=chatInput.value.trim().slice(0,500);if(!value)return;chatInput.value='';chatMessage(value,true);
+            const v=value.toLowerCase();
+            if(/breath|anaphyla|emergency|सास|श्वास|आपत|बेहोस/.test(v)){chatMessage(tr('If you have breathing difficulty, severe swelling, extensive blistering, or feel seriously unwell, seek emergency medical care immediately. This chat is not an emergency service.','सास फेर्न गाह्रो, धेरै सुन्निने, व्यापक फोका वा गम्भीर अवस्था भए तुरुन्त आपतकालीन स्वास्थ्य सेवा लिनुहोस्। यो च्याट आपतकालीन सेवा होइन।'));chatActions(chatMenus.main);return;}
+            const intents=[[/appoint|book|schedule|अपोइन्ट|बुक/, 'appointment'],[/online|zoom|tele|अनलाइन/,'online'],[/fee|cost|price|शुल्क|पैसा/,'fees'],[/where|location|address|clinic|ठेगाना|कहाँ|क्लिनिक/,'clinics'],[/hair|कपाल/,'hair'],[/acne|pimple|डन्डिफोर/,'acne'],[/melasma|pigment|चायापोतो/,'pigment'],[/eczema|psoriasis|एक्जिमा|सोरायसिस/,'eczema'],[/allerg|urticaria|पित्ती|एलर्जी/,'allergy'],[/fung|ढुसी/,'fungal'],[/vitiligo|सेतो दाग/,'vitiligo'],[/doctor|about|qualification|डाक्टर/,'about'],[/contact|phone|whatsapp|सम्पर्क|फोन/,'contact']];
+            const found=intents.find(([re])=>re.test(v));chatChoose(found?found[1]:'unknown',null);
         }
-        if (sendMessage) sendMessage.addEventListener('click', handleUserMessage);
-        if (chatInput) {
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') { e.preventDefault(); handleUserMessage(); }
-            });
-        }
-        document.addEventListener('click', (e) => {
-            if (chatContainer && chatButton &&
-                !chatContainer.contains(e.target) && !chatButton.contains(e.target)) {
-                chatContainer.classList.remove('active');
-            }
-        });
-
+        if(chatButton&&chatContainer){chatButton.addEventListener('click',()=>{const open=chatContainer.classList.toggle('active');chatButton.setAttribute('aria-expanded',String(open));chatButton.setAttribute('aria-label',open?'Close chat':'Open chat');if(open){if(!chatStarted){chatStarted=true;chatWelcome();}chatInput.focus();}});}
+        if(closeChat)closeChat.addEventListener('click',()=>{chatContainer.classList.remove('active');chatButton.setAttribute('aria-expanded','false');chatButton.focus();});
+        if(sendMessage)sendMessage.addEventListener('click',chatFreeText);
+        if(chatInput)chatInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();chatFreeText();}});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chatContainer.classList.contains('active'))closeChat.click();});
+        document.addEventListener('click',e=>{if(chatContainer&&!chatContainer.contains(e.target)&&!chatButton.contains(e.target)){chatContainer.classList.remove('active');chatButton.setAttribute('aria-expanded','false');}});
         /* =========================================================
            11. ACCESSIBILITY PANEL
            ========================================================= */
