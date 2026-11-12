@@ -168,19 +168,6 @@
         }
 
         /* ============================================================
-           COLOR BLIND MODE
-           ============================================================ */
-        body.color-blind-mode {
-            --color-accent:      #2980B9;
-            --color-accent-dark: #1A5276;
-            --color-accent-soft: #D6EAF8;
-            --color-gold:        #E67E22;
-            --color-success:     #27AE60;
-            --color-warning:     #E67E22;
-            --color-error:       #C0392B;
-        }
-
-        /* ============================================================
            02. RESET & BASE
            ============================================================ */
         *, *::before, *::after { box-sizing: border-box; }
@@ -539,96 +526,7 @@
         }
 
         /* ============================================================
-           09. COLOR BLIND TOGGLE (floating)
-           ============================================================ */
-        .accessibility-toggle-wrap {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 900;
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            padding: .5rem .95rem .5rem .85rem;
-            border-radius: var(--radius-pill);
-            background: rgba(255, 255, 255, .94);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--color-border);
-            box-shadow: var(--shadow-md);
-            font-size: .8rem;
-            transition: background-color .4s, border-color .4s;
-        }
-        body.night-mode .accessibility-toggle-wrap {
-            background: rgba(15, 27, 45, .94);
-            border-color: var(--color-border);
-        }
-        .accessibility-toggle-wrap .toggle-label {
-            display: flex;
-            align-items: center;
-            gap: .45rem;
-            font-weight: 600;
-            color: var(--color-text);
-            white-space: nowrap;
-        }
-        .accessibility-toggle-wrap .toggle-label i {
-            color: var(--color-accent);
-            font-size: 1rem;
-        }
-        .toggle-switch {
-            position: relative;
-            width: 42px;
-            height: 22px;
-            flex-shrink: 0;
-        }
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-            position: absolute;
-        }
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            inset: 0;
-            background-color: #C9D6DE;
-            transition: .3s;
-            border-radius: 34px;
-        }
-        .toggle-slider::before {
-            content: '';
-            position: absolute;
-            height: 16px;
-            width: 16px;
-            left: 3px;
-            bottom: 3px;
-            background-color: #fff;
-            transition: .3s;
-            border-radius: 50%;
-            box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        }
-        .toggle-switch input:checked + .toggle-slider {
-            background-color: var(--color-accent);
-        }
-        .toggle-switch input:checked + .toggle-slider::before {
-            transform: translateX(20px);
-        }
-
-        @media (max-width: 640px) {
-            .accessibility-toggle-wrap {
-                bottom: 16px;
-                padding: .4rem .75rem .4rem .7rem;
-                gap: .55rem;
-                font-size: .72rem;
-            }
-            .toggle-switch { width: 36px; height: 20px; }
-            .toggle-slider::before { height: 14px; width: 14px; }
-            .toggle-switch input:checked + .toggle-slider::before { transform: translateX(16px); }
-        }
-
-        /* ============================================================
-           10. HEADER / NAVIGATION
+           09. HEADER / NAVIGATION
            ============================================================ */
         .site-header {
             position: sticky;
@@ -2092,202 +1990,6 @@
         .accessibility-panel .toggle-btn.active::after { transform: translateX(20px); }
 
         /* ============================================================
-           23. FESTIVE POP-UP
-           ============================================================ */
-        .festive-popup-backdrop {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.25rem;
-            background: rgba(6, 31, 54, .65);
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity .45s var(--ease), visibility .45s var(--ease);
-        }
-        .festive-popup-backdrop.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .festive-popup {
-            position: relative;
-            width: 100%;
-            max-width: 440px;
-            max-height: 92vh;
-            overflow-y: auto;
-            border-radius: var(--radius-xl);
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            box-shadow: var(--shadow-lg), 0 0 0 6px rgba(217, 179, 140, .18);
-            transform: translateY(24px) scale(.96);
-            transition: transform .5s var(--ease);
-        }
-        .festive-popup-backdrop.open .festive-popup {
-            transform: translateY(0) scale(1);
-        }
-
-        .festive-popup-art {
-            position: relative;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-            background:
-                radial-gradient(circle at 22% 28%, rgba(255, 200, 90, .35), transparent 42%),
-                radial-gradient(circle at 82% 18%, rgba(255, 140, 66, .32), transparent 44%),
-                linear-gradient(140deg, #0A3A62 0%, #082B4C 46%, #4A2C1A 100%);
-        }
-        .festive-popup-art::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(circle, rgba(255, 218, 130, .85) 1.4px, transparent 1.4px),
-                radial-gradient(circle, rgba(255, 236, 190, .55) 1px, transparent 1px);
-            background-size: 46px 46px, 26px 26px;
-            background-position: 0 0, 13px 13px;
-            opacity: .5;
-        }
-        .festive-popup-lamp {
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 40% 35%, #FFF3C4, #FFC24B 55%, rgba(255, 170, 40, 0) 72%);
-            box-shadow: 0 0 26px 10px rgba(255, 190, 80, .5);
-            animation: festiveGlow 3.2s ease-in-out infinite;
-        }
-        @keyframes festiveGlow {
-            0%, 100% { opacity: .85; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.07); }
-        }
-        .festive-popup-art-text {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: .4rem;
-            padding: 1rem;
-            text-align: center;
-            color: #fff;
-        }
-        .festive-popup-art-text .festive-eyebrow {
-            font-family: var(--font-body);
-            font-size: .64rem;
-            font-weight: 600;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: #F7DCA8;
-            margin: 0;
-        }
-        .festive-popup-art-text .festive-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.3rem, 5vw, 1.65rem);
-            line-height: 1.18;
-            color: #fff;
-            margin: 0;
-            text-shadow: 0 2px 14px rgba(0, 0, 0, .35);
-        }
-        .festive-popup-art-text .festive-sub {
-            font-family: var(--font-body);
-            font-size: .72rem;
-            font-weight: 500;
-            letter-spacing: .04em;
-            color: rgba(255, 255, 255, .82);
-            margin: 0;
-        }
-        .festive-diya {
-            position: absolute;
-            bottom: 8%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 66px;
-            height: 22px;
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            background: linear-gradient(180deg, #C97B3C 0%, #8A4B1F 100%);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, .35);
-        }
-        .festive-diya::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 70%;
-            transform: translateX(-50%);
-            width: 14px;
-            height: 20px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            background: radial-gradient(circle at 50% 70%, #FFF6C9, #FFBE3D 55%, #F07818 100%);
-            box-shadow: 0 0 16px 5px rgba(255, 178, 60, .55);
-            animation: festiveFlame 1.6s ease-in-out infinite;
-        }
-        @keyframes festiveFlame {
-            0%, 100% { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: .95; }
-            50% { transform: translateX(-50%) scale(1.12) rotate(2deg); opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .festive-popup-lamp,
-            .festive-diya::before { animation: none; }
-        }
-
-        .festive-popup-body {
-            padding: 1.35rem 1.4rem 1.5rem;
-            text-align: center;
-        }
-        .festive-popup-body h3 {
-            font-size: 1.2rem;
-            margin: 0 0 .5rem;
-            color: var(--color-primary);
-        }
-        .festive-popup-body p {
-            font-size: .88rem;
-            line-height: 1.62;
-            color: var(--color-text-muted);
-            margin: 0 0 1.15rem;
-        }
-        .festive-popup-body .btn {
-            width: 100%;
-        }
-        .festive-popup-close {
-            position: absolute;
-            top: .7rem;
-            right: .7rem;
-            z-index: 3;
-            display: grid;
-            place-items: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, .45);
-            background: rgba(8, 43, 76, .55);
-            color: #fff;
-            font-size: 1rem;
-            line-height: 1;
-            cursor: pointer;
-            -webkit-backdrop-filter: blur(4px);
-            backdrop-filter: blur(4px);
-            transition: background-color var(--t), transform var(--t);
-        }
-        .festive-popup-close:hover,
-        .festive-popup-close:focus-visible {
-            background: var(--color-primary);
-            transform: rotate(90deg);
-        }
-
-        @media (max-width: 480px) {
-            .festive-popup-body { padding: 1.15rem 1.1rem 1.3rem; }
-            .festive-popup-body h3 { font-size: 1.08rem; }
-            .festive-popup-art-text .festive-title { font-size: 1.2rem; }
-        }
-
-        /* ============================================================
            24. ANIMATIONS
            ============================================================ */
         .reveal {
@@ -2461,14 +2163,9 @@
         @media print {
             .site-header, .floating-buttons, .chat-widget, .accessibility-panel,
             .left-social-widget, .accessibility-toggle-wrap, .custom-cursor,
-            .emergency-banner, .hero-decor, .festive-popup-backdrop { display: none !important; }
+            .emergency-banner, .hero-decor { display: none !important; }
             body { color: #000; }
         }
-
-        /* Colorblind filter helpers */
-        body.filter-protanopia    { filter: url('#protanopia-filter'); }
-        body.filter-deuteranopia  { filter: url('#deuteranopia-filter'); }
-        body.filter-tritanopia    { filter: url('#tritanopia-filter'); }
 
         /* Enhanced chat controls */
         .chat-container {width: min(390px, calc(100vw - 24px));height:min(570px,calc(100dvh - 105px));}
@@ -2504,10 +2201,6 @@
         .copyright { padding-top: .75rem; }
         .language-flag { width: 22px; height: 15px; object-fit: contain; vertical-align: middle; }
         .language-option { gap: .6rem; }
-        body.color-blind-mode:not(.night-mode) { --color-primary:#163B70;--color-accent:#2459A6;--color-accent-dark:#12427D;--color-accent-soft:#E5F0FF;--color-success:#176345;--color-error:#9B1B30;--color-warning:#8F5100;--color-border-strong:#8797AB; }
-        body.color-blind-mode.night-mode { --color-accent:#9EC9FF;--color-accent-dark:#BEDCFF;--color-accent-soft:#173657;--color-text-muted:#DBE4ED; }
-        body.color-blind-mode a:not(.btn) { text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-        body.color-blind-mode :focus-visible { outline: 3px solid #EAAE36; outline-offset: 3px; }
         @media(max-width:900px) { .footer-container { grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem; } }
         @media(max-width:640px) { .footer-container { grid-template-columns:1fr;gap:1.1rem; } .site-footer { padding-top:1.5rem; } .search-intent-note { font-size:.85rem; } }
 
@@ -2541,16 +2234,6 @@
         .footer-container { row-gap:1.25rem; }
         .footer-contact p, .footer-links a { overflow-wrap:anywhere; }
         .chat-container { box-shadow:0 20px 55px rgba(8,43,76,.21); }
-        body.color-blind-mode:not(.night-mode) {
-            --color-primary:#15365B; --color-accent:#2255A4;
-            --color-accent-dark:#153C79; --color-accent-soft:#E9F1FF;
-            --color-text-muted:#34475C; --color-border:#A9B9C9;
-        }
-        body.color-blind-mode .service-icon,
-        body.color-blind-mode .btn { border-width:2px; }
-        body.color-blind-mode :focus-visible {
-            outline:3px solid #C47B00!important;outline-offset:4px!important;
-        }
         @media(max-width:640px) {
             .hero-lead,.section-sub,.search-intent-note,
             .service-card p,.why-choose-text p,.welcome-text p,
@@ -2570,31 +2253,6 @@
     </style>
 </head>
 <body>
-
-    <!-- ===== FESTIVE POP-UP ===== -->
-    <div class="festive-popup-backdrop" id="festivePopupBackdrop" role="dialog" aria-modal="true" aria-labelledby="festivePopupTitle" aria-describedby="festivePopupDesc">
-        <div class="festive-popup">
-            <button class="festive-popup-close" id="festivePopupClose" aria-label="Close festive greeting">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-
-            <div class="festive-popup-art" aria-hidden="true">
-                <span class="festive-popup-lamp"></span>
-                <div class="festive-popup-art-text">
-                    <p class="festive-eyebrow" data-en="Season's Greetings" data-np="मौसमी शुभकामना">Season's Greetings</p>
-                    <p class="festive-title" data-en="Happy Vijayadashami, Diwali &amp; Chhath Puja" data-np="विजयादशमी, दीपावली र छठ पूजाको शुभकामना">Happy Vijayadashami, Diwali &amp; Chhath Puja</p>
-                    <p class="festive-sub" data-en="Warm wishes from Dr. Vikash Paudel" data-np="डा. विकास पौडेलको तर्फबाट शुभकामना">Warm wishes from Dr. Vikash Paudel</p>
-                </div>
-                <span class="festive-diya"></span>
-            </div>
-
-            <div class="festive-popup-body">
-                <h3 id="festivePopupTitle" data-en="May your festivities be filled with light and joy" data-np="तपाईंको चाडपर्व उज्यालो र खुशीले भरियोस्">May your festivities be filled with light and joy</h3>
-                <p id="festivePopupDesc" data-en="Wishing you and your family health, happiness and prosperity this festive season." data-np="यो चाडपर्वको अवसरमा तपाईं र तपाईंको परिवारलाई स्वास्थ्य, खुशी र समृद्धिको शुभकामना।">Wishing you and your family health, happiness and prosperity this festive season.</p>
-                <button class="btn btn-primary" id="festivePopupDismiss" data-en="Continue to Website" data-np="वेबसाइटमा जानुहोस्">Continue to Website</button>
-            </div>
-        </div>
-    </div>
 
     <!-- ===== EMERGENCY BANNER ===== -->
     <div class="emergency-banner" role="alert" aria-label="Emergency contact banner">
@@ -2620,18 +2278,6 @@
         <a href="https://www.tiktok.com/@skindoctor.vikash" target="_blank" rel="noopener noreferrer" class="social-left-btn tt-left" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
         <a href="https://youtube.com/@vikashpaudel" target="_blank" rel="noopener noreferrer" class="social-left-btn yt-left" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
         <a href="https://linkedin.com/in/vikashpaudel/" target="_blank" rel="noopener noreferrer" class="social-left-btn li-left" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-    </div>
-
-    <!-- ===== COLOR BLIND TOGGLE ===== -->
-    <div class="accessibility-toggle-wrap" id="accessibilityToggleWrap" role="complementary" aria-label="Color blind mode toggle">
-        <span class="toggle-label">
-            <i class="fas fa-wheelchair" aria-hidden="true"></i>
-            <span data-en="Color Blind Mode" data-np="रङ अन्धा मोड">Color Blind Mode</span>
-        </span>
-        <label class="toggle-switch">
-            <input type="checkbox" id="colorBlindToggle" aria-label="Toggle color blind mode" />
-            <span class="toggle-slider"></span>
-        </label>
     </div>
 
     <!-- ===== HEADER ===== -->
@@ -3902,34 +3548,6 @@
         }
 
         /* =========================================================
-           8. COLOR BLIND MODE (floating toggle)
-           ========================================================= */
-        const colorBlindToggle = document.getElementById('colorBlindToggle');
-
-        function applyColorBlindPreference() {
-            const saved = localStorage.getItem('colorBlindMode');
-            if (saved === 'on') {
-                document.body.classList.add('color-blind-mode');
-                if (colorBlindToggle) colorBlindToggle.checked = true;
-            } else {
-                document.body.classList.remove('color-blind-mode');
-                if (colorBlindToggle) colorBlindToggle.checked = false;
-            }
-        }
-
-        if (colorBlindToggle) {
-            colorBlindToggle.addEventListener('change', function () {
-                if (this.checked) {
-                    document.body.classList.add('color-blind-mode');
-                    try { localStorage.setItem('colorBlindMode', 'on'); } catch (err) {}
-                } else {
-                    document.body.classList.remove('color-blind-mode');
-                    try { localStorage.setItem('colorBlindMode', 'off'); } catch (err) {}
-                }
-            });
-        }
-
-        /* =========================================================
            9. TESTIMONIAL SLIDER
            ========================================================= */
         function startSliders() {
@@ -4292,38 +3910,6 @@
         }
 
         /* =========================================================
-           12. FESTIVE POP-UP
-           ========================================================= */
-        function initFestivePopup() {
-            const backdrop = document.getElementById('festivePopupBackdrop');
-            const closeBtn = document.getElementById('festivePopupClose');
-            const dismissBtn = document.getElementById('festivePopupDismiss');
-            if (!backdrop) return;
-
-            function openPopup() {
-                backdrop.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                if (closeBtn) closeBtn.focus();
-            }
-            function closePopup() {
-                backdrop.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-
-            if (closeBtn) closeBtn.addEventListener('click', closePopup);
-            if (dismissBtn) dismissBtn.addEventListener('click', closePopup);
-            backdrop.addEventListener('click', (e) => {
-                if (e.target === backdrop) closePopup();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && backdrop.classList.contains('open')) closePopup();
-            });
-
-            // Show after a short delay on every page load, unless reduced motion + user just dismissed
-            setTimeout(openPopup, 700);
-        }
-
-        /* =========================================================
            13. ESCAPE KEY CLOSES OVERLAYS
            ========================================================= */
         document.addEventListener('keydown', (e) => {
@@ -4341,11 +3927,6 @@
                 navMenu.classList.remove('active');
                 if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
             }
-            const festive = document.getElementById('festivePopupBackdrop');
-            if (festive && festive.classList.contains('open')) {
-                festive.classList.remove('open');
-                document.body.style.overflow = '';
-            }
         });
 
         /* =========================================================
@@ -4354,19 +3935,15 @@
         document.addEventListener('DOMContentLoaded', function () {
             switchLanguage(currentLanguage);
             applyThemePreference();
-            applyColorBlindPreference();
             initAccessibilityWidget();
             startSliders();
-            initFestivePopup();
         });
 
         if (document.readyState !== 'loading') {
             switchLanguage(currentLanguage);
             applyThemePreference();
-            applyColorBlindPreference();
             initAccessibilityWidget();
             startSliders();
-            initFestivePopup();
         }
     })();
     </script>
