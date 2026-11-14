@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Appointment | Dr. Vikash Paudel — Consultant Dermatologist</title>
-  <meta name="description" content="Request a dermatology appointment with Dr. Vikash Paudel at his clinics in Nepal or enquire about online teledermatology consultations. All appointments are subject to confirmation.">
+  <title>Book Appointment | Dr. Vikash Paudel — Consultant Dermatologist in Nepal</title>
+  <meta name="description" content="Request an in-person dermatology appointment in Kathmandu, Lalitpur, or Dhangadhi, or book an online teledermatology consultation with Dr. Vikash Paudel. All requests are subject to confirmation.">
   <link rel="canonical" href="https://vikashpaudel.com.np/appointment.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,49 +12,45 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <style>
-    /* CSS Variables - Refined Medical Color Scheme */
     :root {
-      --primary: #0B4F6C;
-      --primary-light: #1C6A8A;
-      --primary-dark: #083B4F;
-      --primary-soft: #E8F0F5;
-      
-      --accent: #2E7D5E;
-      --accent-light: #3E9B77;
-      --accent-soft: #E8F3EE;
-      
+      --primary: #082B4C;
+      --primary-light: #0A3A62;
+      --primary-dark: #061F36;
+      --primary-soft: #F3F9FC;
+      --accent: #007A82;
+      --accent-light: #008C95;
+      --accent-soft: #DDF4F4;
       --background: #FFFFFF;
-      --background-alt: #F9FBFD;
-      --foreground: #1A2B3C;
-      --foreground-light: #4A5B6B;
-      --foreground-muted: #6F7D8C;
-      
-      --border: #E2E8F0;
-      --border-focus: var(--primary);
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.1);
-      
-      --success: #2E7D5E;
+      --background-alt: #F6FAFC;
+      --foreground: #162536;
+      --foreground-light: #475569;
+      --foreground-muted: #64748B;
+      --border: #CBD5E1;
+      --border-light: #DFE7EC;
+      --shadow-sm: 0 2px 8px rgba(8, 43, 76, 0.05);
+      --shadow-md: 0 10px 24px rgba(8, 43, 76, 0.08);
+      --shadow-lg: 0 18px 42px rgba(8, 43, 76, 0.12);
+      --success: #1E6B4B;
+      --success-bg: #ECFDF5;
       --error: #B00020;
-      --warning: #ED6A5E;
-      
+      --error-bg: #FEF2F2;
       --border-radius-sm: 8px;
       --border-radius-md: 12px;
-      --border-radius-lg: 16px;
-      
+      --border-radius-lg: 18px;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
+      --font-serif: 'DM Serif Display', Georgia, serif;
       --transition: all 0.2s ease;
-      --transition-slow: all 0.3s ease;
     }
 
-    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -65,6 +61,18 @@
       min-height: 100vh;
     }
 
+    body, input, select, textarea, button {
+      font-family: var(--font-sans);
+    }
+
+    html[lang="ne"] body,
+    html[lang="ne"] input,
+    html[lang="ne"] select,
+    html[lang="ne"] textarea,
+    html[lang="ne"] button {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+
     /* Typography */
     h1, h2, h3, h4 {
       font-weight: 600;
@@ -72,60 +80,73 @@
       color: var(--foreground);
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
+    h1 { font-size: clamp(1.9rem, 4vw, 3.1rem); font-family: var(--font-serif); font-weight: 400; margin-bottom: 0.5rem; }
+    h2 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-family: var(--font-serif); font-weight: 400; margin-bottom: 0.5rem; }
+    h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
 
     /* Navigation */
     .navbar {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow-sm);
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .navbar-container {
-      max-width: 1400px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0.85rem clamp(1rem, 3.5vw, 2.5rem);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .navbar-logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       text-decoration: none;
       color: var(--primary);
-      font-weight: 600;
+      font-family: var(--font-serif);
+      font-weight: 400;
       font-size: 1.25rem;
+      letter-spacing: 0.01em;
     }
 
     .navbar-logo i {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--accent);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      background: var(--background-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius-sm);
+      color: var(--primary);
+      font-size: 1.15rem;
+      cursor: pointer;
     }
 
     .navbar ul {
       list-style: none;
       display: flex;
-      gap: 0.5rem;
+      gap: 0.35rem;
       align-items: center;
     }
 
@@ -133,17 +154,16 @@
       text-decoration: none;
       color: var(--foreground);
       font-weight: 500;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.85rem;
       border-radius: 30px;
       transition: var(--transition);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
     }
 
-    .navbar a:hover {
-      color: var(--primary);
-      background: var(--primary-soft);
-    }
-
+    .navbar a:hover,
     .navbar a.active {
       color: var(--primary);
       background: var(--primary-soft);
@@ -151,60 +171,63 @@
     }
 
     .language-toggle {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      min-height: 40px;
       border-radius: 30px;
       background: var(--background-alt);
       cursor: pointer;
       transition: var(--transition);
       border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--foreground);
     }
 
     .language-toggle:hover {
       background: var(--primary-soft);
+      border-color: var(--primary);
     }
 
     .language-toggle i {
       color: var(--primary);
     }
 
-    /* Book Now Button */
     .book-now-btn {
-      background: var(--primary);
+      background: var(--primary) !important;
       color: white !important;
       border-radius: 30px;
-      padding: 0.5rem 1.5rem !important;
+      padding: 0.5rem 1.25rem !important;
       font-weight: 600;
       box-shadow: var(--shadow-sm);
-      transition: var(--transition) !important;
+      gap: 0.45rem;
     }
 
     .book-now-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      background: var(--primary-dark) !important;
     }
 
     /* Main Layout */
     main {
-      max-width: 1400px;
-      margin: 2rem auto;
-      padding: 0 2rem;
+      max-width: 1240px;
+      margin: 1.75rem auto 3rem;
+      padding-inline: clamp(1rem, 3.5vw, 2.5rem);
     }
 
     /* Hero Section */
     .booking-hero {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      border-radius: var(--border-radius-lg);
-      padding: 4rem;
-      margin-bottom: 3rem;
+      border-radius: 22px;
+      padding: clamp(1.65rem, 4.5vw, 3.5rem);
+      margin-bottom: 2rem;
       color: white;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4rem;
+      gap: clamp(1.25rem, 4vw, 3rem);
+      box-shadow: var(--shadow-md);
     }
 
     .hero-content {
@@ -213,37 +236,47 @@
 
     .hero-content h1 {
       color: white;
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
     }
 
     .hero-content .subhead {
-      font-size: 1.25rem;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
       opacity: 0.95;
-      max-width: 600px;
+      max-width: 650px;
       margin-bottom: 1.25rem;
     }
+
     .hero-content .doctor-desc {
-      font-size: 1rem;
-      opacity: 0.9;
-      max-width: 650px;
-      line-height: 1.7;
-      background: rgba(255,255,255,0.08);
-      padding: 1rem 1.5rem;
+      font-size: 0.96rem;
+      opacity: 0.95;
+      max-width: 680px;
+      line-height: 1.65;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.25rem;
       border-radius: var(--border-radius-sm);
-      backdrop-filter: blur(2px);
-      border-left: 4px solid rgba(255,255,255,0.3);
+      border-left: 4px solid var(--accent-soft);
     }
+
     .hero-content .doctor-desc i {
-      margin-right: 0.5rem;
+      margin-right: 0.45rem;
+    }
+
+    .hero-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem 1.1rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      margin-top: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 500;
     }
 
     .doctor-photo {
-      width: 300px;
-      height: 300px;
+      width: clamp(175px, 24vw, 270px);
+      height: clamp(175px, 24vw, 270px);
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(5px);
       border: 4px solid rgba(255, 255, 255, 0.3);
       display: flex;
       align-items: center;
@@ -251,67 +284,71 @@
       overflow: hidden;
       flex-shrink: 0;
     }
+
     .doctor-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* Quick Facts Row */
+    /* Quick Facts Row (Aligned with actual multi-clinic schedule & NMC credentials) */
     .quick-facts-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.25rem;
     }
+
     .fact-card {
       background: white;
       border-radius: var(--border-radius-md);
-      padding: 1.25rem 1rem;
+      padding: 1.1rem 1rem;
       box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-light);
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: var(--transition);
+      align-items: flex-start;
+      gap: 0.85rem;
     }
-    .fact-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
+
     .fact-card i {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: var(--primary);
-      width: 2.8rem;
+      margin-top: 0.15rem;
+      width: 1.75rem;
       text-align: center;
+      flex-shrink: 0;
     }
+
     .fact-card .fact-content {
       flex: 1;
     }
+
     .fact-card .fact-label {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--foreground-muted);
       font-weight: 600;
+      margin-bottom: 0.15rem;
     }
+
     .fact-card .fact-value {
       font-weight: 600;
       color: var(--foreground);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
-    .fact-card .fact-value a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .fact-card .fact-value a:hover {
-      text-decoration: underline;
+
+    .fact-card .fact-sub {
+      font-size: 0.8rem;
+      color: var(--foreground-light);
+      margin-top: 0.15rem;
     }
 
     /* Split Screen Layout */
     .booking-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 2rem;
       align-items: start;
     }
@@ -321,39 +358,38 @@
       background: white;
       border-radius: var(--border-radius-lg);
       box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
       overflow: hidden;
-      animation: slideUp 0.5s ease;
     }
 
     .form-header {
       background: linear-gradient(135deg, var(--primary-soft) 0%, white 100%);
-      padding: 2rem;
-      border-bottom: 1px solid var(--border);
+      padding: clamp(1.35rem, 3vw, 2rem);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .form-header h2 {
-      margin-bottom: 0.5rem;
       color: var(--primary);
     }
 
     .form-header p {
       color: var(--foreground-light);
+      font-size: 0.96rem;
     }
 
     .form-body {
-      padding: 2rem;
+      padding: clamp(1.35rem, 3vw, 2rem);
     }
 
-    /* Form Groups */
     .form-section {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.85rem;
+      padding-bottom: 1.85rem;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .form-section:last-child {
+    .form-section:last-of-type {
       border-bottom: none;
-      margin-bottom: 0;
+      margin-bottom: 1rem;
       padding-bottom: 0;
     }
 
@@ -361,19 +397,98 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.15rem;
       color: var(--primary);
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-weight: 600;
     }
 
-    .section-title i {
-      font-size: 1.25rem;
+    /* Consultation Mode Selector Cards */
+    .mode-selector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .mode-option {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .mode-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    .mode-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 1rem;
+      min-height: 48px;
+      border: 2px solid var(--border);
+      border-radius: var(--border-radius-md);
+      background: white;
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .mode-option input[type="radio"]:focus-visible + .mode-card {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .mode-option input[type="radio"]:checked + .mode-card {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.98rem;
+    }
+
+    .mode-card-desc {
+      font-size: 0.83rem;
+      color: var(--foreground-light);
+      line-height: 1.45;
+    }
+
+    .mode-card-meta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: auto;
+      padding-top: 0.35rem;
+    }
+
+    /* Callout Banners */
+    .context-banner {
+      background: var(--background-alt);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--border-radius-sm);
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--foreground);
+      line-height: 1.55;
+    }
+
+    .context-banner strong {
+      color: var(--primary);
     }
 
     .form-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1rem;
       margin-bottom: 1rem;
     }
@@ -386,37 +501,66 @@
       display: flex;
       align-items: center;
       gap: 0.25rem;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.92rem;
+      font-weight: 600;
       color: var(--foreground);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
     }
 
     .required-star {
-      color: var(--warning);
-      font-size: 1.2rem;
+      color: var(--error);
+      font-size: 1.1rem;
       line-height: 1;
+      font-weight: 700;
+    }
+
+    .optional-tag {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--foreground-muted);
+      margin-left: 0.25rem;
     }
 
     .helper-text {
-      font-size: 0.8rem;
-      color: var(--foreground-muted);
-      margin-top: 0.25rem;
+      font-size: 0.82rem;
+      color: var(--foreground-light);
+      margin-top: 0.35rem;
       display: flex;
-      align-items: center;
-      gap: 0.25rem;
+      align-items: flex-start;
+      gap: 0.35rem;
+      line-height: 1.45;
     }
 
     .helper-text i {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
     }
 
-    /* Form Inputs */
+    .inline-error {
+      font-size: 0.84rem;
+      color: var(--error);
+      background: var(--error-bg);
+      border: 1px solid #FECACA;
+      border-radius: var(--border-radius-sm);
+      padding: 0.55rem 0.75rem;
+      margin-top: 0.45rem;
+      display: none;
+      align-items: flex-start;
+      gap: 0.45rem;
+      font-weight: 500;
+    }
+
+    .inline-error.visible {
+      display: flex;
+    }
+
     .form-input,
     .form-select,
     .form-textarea {
       width: 100%;
-      padding: 0.875rem 1rem;
+      min-height: 48px;
+      padding: 0.75rem 0.95rem;
       border: 2px solid var(--border);
       border-radius: var(--border-radius-sm);
       font-size: 1rem;
@@ -425,24 +569,28 @@
       color: var(--foreground);
     }
 
+    .form-textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
     .form-input:hover,
     .form-select:hover,
     .form-textarea:hover {
       border-color: var(--primary-light);
     }
 
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus {
-      outline: none;
+    .form-input:focus-visible,
+    .form-select:focus-visible,
+    .form-textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
       border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(11, 79, 108, 0.1);
     }
 
-    .form-input::placeholder,
-    .form-textarea::placeholder {
-      color: var(--foreground-muted);
-      opacity: 0.6;
+    .form-input[aria-invalid="true"],
+    .form-select[aria-invalid="true"] {
+      border-color: var(--error);
     }
 
     /* Checkbox */
@@ -453,41 +601,43 @@
       padding: 1rem;
       background: var(--primary-soft);
       border-radius: var(--border-radius-sm);
-      margin: 1.5rem 0;
+      margin: 1.25rem 0;
+      border: 1px solid var(--border-light);
     }
 
     .checkbox-input {
-      width: 1.25rem;
-      height: 1.25rem;
-      margin-top: 0.125rem;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      margin-top: 0.1rem;
       accent-color: var(--primary);
+      cursor: pointer;
     }
 
     .checkbox-label {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--foreground);
-      line-height: 1.5;
+      line-height: 1.55;
+      cursor: pointer;
     }
 
-    /* CTA Button */
+    /* CTA Container - Static on mobile/tablet to avoid overlapping floating buttons */
     .cta-container {
-      position: sticky;
-      bottom: 2rem;
-      background: white;
-      padding: 1.5rem;
+      background: var(--background-alt);
+      padding: 1.25rem;
       border-radius: var(--border-radius-md);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-      margin-top: 2rem;
+      border: 1px solid var(--border-light);
+      margin-top: 1.5rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
+      gap: 0.65rem;
+      padding: 0.95rem 1.75rem;
+      min-height: 52px;
+      font-size: 1.05rem;
       font-weight: 600;
       border: none;
       border-radius: var(--border-radius-sm);
@@ -503,33 +653,32 @@
 
     .btn-primary:hover:not(:disabled) {
       background: var(--primary-dark);
-      transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
 
-    .btn-primary:active:not(:disabled) {
-      transform: translateY(0);
+    .btn-primary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
     }
 
     .btn-primary:disabled {
-      opacity: 0.7;
+      opacity: 0.75;
       cursor: not-allowed;
     }
 
     /* Info Sidebar */
     .info-sidebar {
       position: sticky;
-      top: 6rem;
+      top: 5.5rem;
     }
 
     .info-card {
       background: white;
       border-radius: var(--border-radius-lg);
-      padding: 2rem;
-      margin-bottom: 1.5rem;
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      margin-bottom: 1.35rem;
       box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      animation: slideUp 0.5s ease 0.1s both;
+      border: 1px solid var(--border-light);
     }
 
     .info-card h3 {
@@ -537,27 +686,29 @@
       align-items: center;
       gap: 0.5rem;
       color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
+      margin-bottom: 1.15rem;
+      font-size: 1.08rem;
     }
 
     .info-item {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
+      gap: 0.85rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-light);
     }
 
     .info-item:last-child {
       border-bottom: none;
+      padding-bottom: 0;
     }
 
     .info-item i {
       color: var(--accent);
-      font-size: 1.1rem;
-      width: 1.5rem;
+      font-size: 1.05rem;
+      width: 1.35rem;
       text-align: center;
+      margin-top: 0.2rem;
     }
 
     .info-item-content {
@@ -567,144 +718,166 @@
     .info-item-content strong {
       display: block;
       color: var(--foreground);
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+      margin-bottom: 0.15rem;
     }
 
-    .info-item-content p {
+    .info-item-content p,
+    .info-item-content a {
       color: var(--foreground-light);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       line-height: 1.5;
+      text-decoration: none;
+    }
+
+    .info-item-content a:hover {
+      color: var(--primary);
+      text-decoration: underline;
     }
 
     .trust-badge {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.85rem;
       background: var(--accent-soft);
       border-radius: var(--border-radius-sm);
-      margin: 1rem 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .trust-badge:last-child {
+      margin-bottom: 0;
     }
 
     .trust-badge i {
-      font-size: 2rem;
+      font-size: 1.4rem;
       color: var(--accent);
+      margin-top: 0.15rem;
     }
 
     .trust-badge p {
-      font-size: 0.9rem;
-      color: var(--foreground);
+      font-size: 0.85rem;
+      color: var(--foreground-light);
     }
 
     /* Status Messages */
     .status-message {
-      padding: 1rem;
-      border-radius: var(--border-radius-sm);
+      padding: 1.15rem;
+      border-radius: var(--border-radius-md);
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      animation: slideDown 0.3s ease;
+      font-size: 0.94rem;
+      line-height: 1.6;
     }
 
     .status-success {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid var(--accent-light);
+      background: var(--success-bg);
+      color: var(--success);
+      border: 1px solid #A7F3D0;
     }
 
     .status-error {
-      background: #FEF2F2;
+      background: var(--error-bg);
       color: var(--error);
       border: 1px solid #FECACA;
     }
 
-    .status-info {
-      background: #E8F0F5;
-      color: var(--primary);
-      border: 1px solid var(--primary-light);
+    .status-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* Loading Spinner */
+    .status-steps {
+      margin: 0.65rem 0 0 1.25rem;
+      color: var(--foreground);
+    }
+
+    .status-steps li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Spinner */
     .spinner {
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border: 3px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       border-top-color: white;
       animation: spin 0.8s linear infinite;
     }
 
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     /* Floating Buttons */
     .floating-buttons {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
+      bottom: 1.25rem;
+      right: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      z-index: 99;
+      gap: 0.75rem;
+      z-index: 90;
     }
 
     .floating-button {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       box-shadow: var(--shadow-lg);
       transition: var(--transition);
-      cursor: pointer;
-      border: none;
       text-decoration: none;
     }
+
     .floating-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
-    .whatsapp-button {
-      background: #25D366;
-    }
-    .whatsapp-button:hover {
-      background: #128C7E;
+    .floating-button:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
     }
 
-    .viber-button {
-      background: #665CAC;
-    }
-    .viber-button:hover {
-      background: #4A3F8A;
-    }
+    .whatsapp-button { background: #1E9E52; }
+    .viber-button { background: #5B509E; }
 
     /* Footer */
     footer {
       background: var(--foreground);
       color: white;
-      padding: 4rem 0 2rem;
-      margin-top: 4rem;
+      padding: 3.5rem 0 2rem;
+      margin-top: 3.5rem;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       margin-bottom: 2rem;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 2rem;
+      max-width: 1240px;
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 3.5vw, 2.5rem);
     }
 
     .footer-column h3 {
       color: white;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .footer-column p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.9rem;
     }
 
     .footer-links {
@@ -712,33 +885,38 @@
     }
 
     .footer-links li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
     }
 
     .footer-links a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       text-decoration: none;
       transition: var(--transition);
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
     }
 
     .footer-links a:hover {
       color: white;
-      padding-left: 5px;
+      text-decoration: underline;
     }
 
     .social-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: 1rem;
     }
 
     .social-links a {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.1);
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.12);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -750,131 +928,140 @@
 
     .social-links a:hover {
       background: var(--accent);
-      transform: translateY(-3px);
     }
 
     .copyright {
       text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-      max-width: 1400px;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.88rem;
+      max-width: 1240px;
       margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-inline: clamp(1rem, 3.5vw, 2.5rem);
     }
 
-    /* Animations */
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    /* Payment & QR Grid */
+    .payment-details-box {
+      background: var(--primary-soft);
+      border: 1px solid var(--border-light);
+      border-radius: var(--border-radius-sm);
+      padding: 0.85rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.55;
     }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .payment-details-box div {
+      margin-bottom: 0.25rem;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    .payment-details-box div:last-child {
+      margin-bottom: 0;
+    }
+    .qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .qr-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius-sm);
+      padding: 0.6rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .qr-card img {
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 0.4rem;
+      border-radius: 4px;
+    }
+    .qr-card-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .qr-card-sub {
+      font-size: 0.72rem;
+      color: var(--foreground-light);
+    }
+    @media (max-width: 400px) {
+      .qr-grid { grid-template-columns: 1fr; }
     }
 
-    /* Responsive */
+    /* Responsive Breakpoints */
     @media (max-width: 1024px) {
       .booking-grid { grid-template-columns: 1fr; }
       .info-sidebar { position: static; }
     }
-    @media (max-width: 768px) {
-      .navbar-container { flex-direction: column; gap: 1rem; padding: 1rem; }
-      .navbar ul { flex-wrap: wrap; justify-content: center; }
-      .booking-hero { flex-direction: column; text-align: center; padding: 2rem; }
-      .hero-content h1 { font-size: 2rem; }
-      .floating-buttons { bottom: 1rem; right: 1rem; }
-      .form-body { padding: 1.5rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
-    }
-    @media (max-width: 480px) {
-      main { padding: 0 1rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .cta-container { bottom: 1rem; padding: 1rem; }
-      .btn { padding: 0.875rem 1.5rem; }
-      .quick-facts-row { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 820px) {
+      .mobile-menu-btn { display: inline-flex; }
+      .navbar ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border-light);
+      }
+      .navbar ul.open { display: flex; }
+      .navbar a { border-radius: var(--border-radius-sm); padding: 0.65rem 0.85rem; }
+      .booking-hero { flex-direction: column; text-align: center; }
+      .hero-content .doctor-desc { text-align: left; }
     }
 
-    /* ===== Professional appointment page refinement; aligned with the homepage ===== */
-    :root { --primary:#082B4C; --primary-light:#0A3A62; --primary-dark:#061F36;
-      --primary-soft:#F3F9FC; --accent:#008C95; --accent-light:#00A1AA;
-      --accent-soft:#DDF4F4; --background-alt:#F6FAFC;
-      --foreground:#162536; --foreground-light:#536273; --foreground-muted:#758394;
-      --border:#DFE7EC; --shadow-md:0 10px 24px rgba(8,43,76,.08);
-      --shadow-lg:0 18px 42px rgba(8,43,76,.12);
+    @media (max-width: 560px) {
+      .mode-selector-grid { grid-template-columns: 1fr; }
+      .quick-facts-row { grid-template-columns: 1fr; }
+      .floating-buttons { bottom: 0.85rem; right: 0.85rem; }
+      .floating-button { width: 46px; height: 46px; font-size: 1.25rem; }
+      footer { padding-bottom: 5rem; }
     }
-    html {scroll-behavior:smooth;scroll-padding-top:105px;}
-    body {font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-    body, input, select, textarea, button {font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-    html[lang="ne"] body, html[lang="ne"] input,html[lang="ne"] select {font-family:'Noto Sans Devanagari','Inter',sans-serif;}
-    main {max-width:1240px;margin:2rem auto 3rem;padding-inline:clamp(1rem,3.5vw,2.5rem);}
-    .navbar-container,.footer-grid,.copyright {max-width:1240px;}
-    .navbar-logo {font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:.01em;}
-    .booking-hero {border-radius:22px;padding:clamp(1.65rem,4.5vw,3.6rem);gap:clamp(1rem,4vw,3rem);box-shadow:var(--shadow-md);}
-    .hero-content h1 {font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(2rem,4vw,3.3rem);}
-    .doctor-photo {width:clamp(190px,26vw,290px);height:clamp(190px,26vw,290px);}
-    .form-card,.info-card,.fact-card {border:1px solid var(--border);box-shadow:var(--shadow-md);}
-    .form-card,.info-card {border-radius:18px;}
-    .form-header {padding:clamp(1.4rem,3vw,2rem);}
-    .form-header h2 {font-family:'DM Serif Display',Georgia,serif;font-weight:400;}
-    .form-input,.form-select,.form-textarea {min-height:48px;}
-    .form-textarea {min-height:110px;}
-    .form-input:focus-visible,.form-select:focus-visible,.form-textarea:focus-visible {outline:2px solid var(--accent);outline-offset:2px;}
-    .btn,.notice-action {transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease;}
-    .info-card {padding:clamp(1.25rem,2.5vw,1.85rem);}
-    .cta-container {bottom:12px;z-index:4;}
-    .booking-hero .doctor-desc,.notice-intro,.online-note p,.form-header p,
-    .info-card p,.checkbox-label,.footer-column p,.festival-dialog p,
-    .info-item-content p {text-align:justify;text-justify:inter-word;overflow-wrap:anywhere;hyphens:auto;}
-    @media(max-width:768px) {
-      .navbar-container {gap:.6rem;}
-      .navbar ul {gap:.15rem;}
-      .navbar a {padding:.45rem .7rem;font-size:.83rem;}
-      .booking-hero {gap:1.6rem;}
-      .booking-hero .hero-content {width:100%;}
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
-    @media(max-width:480px) {
-      .navbar-container {padding:.75rem;}
-      .booking-hero {padding:1.5rem 1.15rem;}
-      .doctor-photo {width:175px;height:175px;}
-      .quick-facts-row {grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;}
-      .fact-card {padding:.85rem .65rem;gap:.5rem;align-items:flex-start;}
-      .fact-card i {width:1.4rem;font-size:1.3rem;}
-      .fact-card .fact-value {font-size:.8rem;overflow-wrap:anywhere;}
-      .form-body,.form-header {padding:1.3rem;}
-      .cta-container {position:static;margin-top:1rem;}
-    }
-    @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto;} *,*::before,*::after {animation-duration:.01ms!important;transition-duration:.01ms!important;}}
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Primary Navigation">
     <div class="navbar-container">
       <a href="index.html" class="navbar-logo">
-        <i class="fas fa-stethoscope"></i>
+        <i class="fas fa-stethoscope" aria-hidden="true"></i>
         <span data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</span>
       </a>
-      <ul>
+
+      <div class="nav-controls">
+        <button type="button" class="language-toggle" id="languageToggle" aria-label="Switch language between English and Nepali">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span data-en="नेपाली" data-np="English">नेपाली</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="primaryNavList" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <ul id="primaryNavList">
         <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
         <li><a href="biography.html" data-en="Biography" data-np="जीवनी">Biography</a></li>
         <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
         <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
         <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
         <li><a href="contact.html" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
-        <li><a href="appointment.html" class="active" data-en="Appointment" data-np="अपोइन्टमेन्ट">Appointment</a></li>
-        <li class="language-toggle" id="languageToggle" role="button" tabindex="0" aria-label="Change language between English and Nepali">
-          <i class="fas fa-globe"></i>
-          <span data-en="English" data-np="नेपाली">English</span>
-        </li>
+        <li><a href="appointment.html" class="active" aria-current="page" data-en="Appointment" data-np="अपोइन्टमेन्ट">Appointment</a></li>
         <li><a href="#appointment-form" class="book-now-btn">
-          <i class="fas fa-calendar-alt"></i>
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
           <span data-en="Book Now" data-np="अहिले बुक गर्नुहोस्">Book Now</span>
         </a></li>
       </ul>
@@ -882,78 +1069,66 @@
   </nav>
 
   <main>
-    <!-- Hero Section with Doctor Photo -->
+    <!-- Hero Section -->
     <section class="booking-hero">
       <div class="hero-content">
-        <h1 data-en="Book Your Consultation" data-np="आफ्नो परामर्श बुक गर्नुहोस्">
-          Book Your Consultation
+        <h1 data-en="Request a Dermatology Appointment" data-np="छाला रोग परामर्शको लागि अनुरोध गर्नुहोस्">
+          Request a Dermatology Appointment
         </h1>
-        <p class="subhead" data-en="with Dr. Vikash Paudel - Consultant Dermatologist" data-np="डा. विकास पौडेल - छाला रोग विशेषज्ञसँग">
-          with Dr. Vikash Paudel - Consultant Dermatologist
+        <p class="subhead" data-en="Choose an in-person clinic visit in Nepal (Kathmandu, Lalitpur, or Dhangadhi) or an online teledermatology consultation from anywhere." data-np="नेपालका क्लिनिकहरू (काठमाडौं, ललितपुर, वा धनगढी) मा प्रत्यक्ष भेटघाट वा जहाँसुकैबाट अनलाइन टेलिडर्माटोलोजी परामर्श छनौट गर्नुहोस्।">
+          Choose an in-person clinic visit in Nepal (Kathmandu, Lalitpur, or Dhangadhi) or an online teledermatology consultation from anywhere.
         </p>
         <div class="doctor-desc">
-          <i class="fas fa-user-md"></i> 
-          <span data-en="Dr. Vikash Paudel is a board-certified Consultant Dermatologist with over 10 years of experience in medical, surgical, and aesthetic dermatology. He specializes in acne treatment, skin surgery, hair disorders, and pigmentation issues. Committed to evidence-based care, he practices at Elite Health Clinic (Lagankhel), Shankhamul Healthcare, and Shubharambha Skin Centre (Dhangadhi), and offers teledermatology services daily." data-np="डा. विकास पौडेल बोर्ड-प्रमाणित छाला रोग विशेषज्ञ हुन्, जसको चिकित्सा, शल्यक्रिया र एस्थेटिक डर्माटोलोजीमा १० वर्ष भन्दा बढी अनुभव छ। उनी डन्डिफोर उपचार, छाला शल्यक्रिया, कपालको समस्या र चायापोतो समस्यामा विशेषज्ञ छन्। प्रमाण-आधारित हेरचाहमा प्रतिबद्ध, उनी एलिट हेल्थ क्लिनिक (लगनखेल), शंखमुल हेल्थकेयर र शुभारम्भ स्किन सेन्टर (धनगढी) मा अभ्यास गर्छन्, र दैनिक टेलिडर्माटोलोजी सेवा पनि दिन्छन्।">
-            Dr. Vikash Paudel is a board-certified Consultant Dermatologist with over 10 years of experience in medical, surgical, and aesthetic dermatology. He specializes in acne treatment, skin surgery, hair disorders, and pigmentation issues. Committed to evidence-based care, he practices at Elite Health Clinic (Lagankhel), Shankhamul Healthcare, and Shubharambha Skin Centre (Dhangadhi), and offers teledermatology services daily.
+          <i class="fas fa-user-md" aria-hidden="true"></i>
+          <span data-en="Dr. Vikash Paudel (MD Dermatology, NMC Reg. #9111) is a board-certified Consultant Dermatologist with over 10 years of clinical experience in acne, hair disorders, pigmentation, skin surgery, and aesthetic dermatology." data-np="डा. विकास पौडेल (एमडी डर्माटोलोजी, एनएमसी दर्ता नं. ९१११) १० वर्षभन्दा बढी अनुभव भएका बोर्ड-प्रमाणित छाला रोग विशेषज्ञ हुनुहुन्छ, जसले डन्डिफोर, कपालको समस्या, चायापोतो, छाला शल्यक्रिया र एस्थेटिक डर्माटोलोजीमा उपचार प्रदान गर्नुहुन्छ।">
+            Dr. Vikash Paudel (MD Dermatology, NMC Reg. #9111) is a board-certified Consultant Dermatologist with over 10 years of clinical experience in acne, hair disorders, pigmentation, skin surgery, and aesthetic dermatology.
           </span>
         </div>
-        <div style="margin-top: 1.5rem;">
-          <span class="trust-badge" style="background: rgba(255,255,255,0.15); color: white; display: inline-flex; border: none;">
-            <i class="fas fa-star"></i>
-            <span>5.0 ★ (100+ patient reviews)</span>
-          </span>
+        <div class="hero-trust-pill">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <span data-en="5.0 ★ Rating (100+ verified patient reviews)" data-np="५.० ★ मूल्याङ्कन (१००+ प्रमाणित बिरामी समीक्षा)">5.0 ★ Rating (100+ verified patient reviews)</span>
         </div>
       </div>
       <div class="doctor-photo">
-        <img src="dr-vikash-paudel-profile.webp" alt="Dr. Vikash Paudel - Consultant Dermatologist">
+        <img src="dr-vikash-paudel-profile.webp" alt="Dr. Vikash Paudel — Consultant Dermatologist">
       </div>
     </section>
 
-    <!-- QUICK FACTS ROW -->
-    <div class="quick-facts-row">
+    <!-- Quick Facts Row (Aligned across all clinics & teledermatology) -->
+    <section class="quick-facts-row" aria-label="Practice Highlights">
       <div class="fact-card">
-        <i class="fas fa-clinic-medical"></i>
+        <i class="fas fa-hospital-alt" aria-hidden="true"></i>
         <div class="fact-content">
-          <div class="fact-label">Clinic</div>
-          <div class="fact-value">Dr Vikash Paudel Skin Clinic</div>
+          <div class="fact-label" data-en="In-Person Clinics" data-np="प्रत्यक्ष क्लिनिकहरू">In-Person Clinics</div>
+          <div class="fact-value" data-en="Kathmandu, Lalitpur & Dhangadhi" data-np="काठमाडौं, ललितपुर र धनगढी">Kathmandu, Lalitpur &amp; Dhangadhi</div>
+          <div class="fact-sub" data-en="3 partner clinics in Nepal" data-np="नेपालका ३ साझेदार क्लिनिकहरू">3 partner clinics in Nepal</div>
         </div>
       </div>
       <div class="fact-card">
-        <i class="fas fa-location-dot"></i>
+        <i class="fas fa-clock" aria-hidden="true"></i>
         <div class="fact-content">
-          <div class="fact-label">Address</div>
-          <div class="fact-value">Kathmandu, Bagmati Province, Nepal</div>
+          <div class="fact-label" data-en="OPD Hours (NPT)" data-np="ओपीडी समय (NPT)">OPD Hours (NPT)</div>
+          <div class="fact-value" data-en="Sun–Fri: 4:00 PM – 7:00 PM" data-np="आइत–शुक्र: साँझ ४:०० – ७:००">Sun–Fri: 4:00 PM – 7:00 PM</div>
+          <div class="fact-sub" data-en="Sat: 9:00 AM – 5:00 PM (Dhangadhi only)" data-np="शनि: बिहान ९:०० – साँझ ५:०० (धनगढी मात्र)">Sat: 9:00 AM – 5:00 PM (Dhangadhi only)</div>
         </div>
       </div>
       <div class="fact-card">
-        <i class="fas fa-phone"></i>
+        <i class="fas fa-laptop-medical" aria-hidden="true"></i>
         <div class="fact-content">
-          <div class="fact-label">Phone</div>
-          <div class="fact-value"><a href="tel:+977-1-5242511">+977-1-5242511</a></div>
+          <div class="fact-label" data-en="Online Consultation" data-np="अनलाइन परामर्श">Online Consultation</div>
+          <div class="fact-value" data-en="Daily by Appointment" data-np="दैनिक अपोइन्टमेन्ट अनुसार">Daily by Appointment</div>
+          <div class="fact-sub" data-en="Nepal & International (UTC+5:45)" data-np="नेपाल र विदेशबाट (UTC+5:45)">Nepal &amp; International (UTC+5:45)</div>
         </div>
       </div>
       <div class="fact-card">
-        <i class="fas fa-clock"></i>
+        <i class="fas fa-id-card" aria-hidden="true"></i>
         <div class="fact-content">
-          <div class="fact-label">Hours</div>
-          <div class="fact-value">Sun-Fri: 4:00 PM – 8:00 PM <br> <span style="font-size:0.8rem; color:var(--foreground-muted);">Sat: Closed</span></div>
+          <div class="fact-label" data-en="Credentials & Languages" data-np="योग्यता र भाषा">Credentials &amp; Languages</div>
+          <div class="fact-value" data-en="NMC Reg. #9111" data-np="एनएमसी दर्ता नं. ९१११">NMC Reg. #9111</div>
+          <div class="fact-sub" data-en="Nepali, English, Hindi" data-np="नेपाली, अंग्रेजी, हिन्दी">Nepali, English, Hindi</div>
         </div>
       </div>
-      <div class="fact-card">
-        <i class="fas fa-language"></i>
-        <div class="fact-content">
-          <div class="fact-label">Languages</div>
-          <div class="fact-value">Nepali, English, Hindi</div>
-        </div>
-      </div>
-      <div class="fact-card">
-        <i class="fas fa-id-card"></i>
-        <div class="fact-content">
-          <div class="fact-label">NMC Registration</div>
-          <div class="fact-value">9111</div>
-        </div>
-      </div>
-    </div>
+    </section>
 
     <!-- Split Screen Layout -->
     <div class="booking-grid">
@@ -961,89 +1136,82 @@
       <div>
         <div class="form-card" id="appointment-form">
           <div class="form-header">
-            <h2 data-en="Request an Appointment" data-np="अपोइन्टमेन्टको लागि अनुरोध गर्नुहोस्">
-              Request an Appointment
+            <h2 data-en="Step-by-Step Appointment Request" data-np="अपोइन्टमेन्ट अनुरोध फारम">
+              Step-by-Step Appointment Request
             </h2>
-            <p data-en="Share your preferred appointment details. Our team will contact you to confirm availability." data-np="तल आफ्नो विवरण भर्नुहोस् र हामी २४ घण्टाभित्र पुष्टि गर्नेछौं।">
-              Share your preferred appointment details. Our team will contact you to confirm availability.
+            <p data-en="Submit your preferred date and time below. Our team confirms availability within 24 hours via SMS, WhatsApp, or email." data-np="तल आफ्नो मनपर्ने मिति र समय पठाउनुहोस्। हाम्रो टोलीले २४ घण्टा भित्र एसएमएस, ह्वाट्सएप वा इमेल मार्फत उपलब्धता पुष्टि गर्नेछ।">
+              Submit your preferred date and time below. Our team confirms availability within 24 hours via SMS, WhatsApp, or email.
             </p>
           </div>
-          
+
           <div class="form-body">
-            <div id="form-status"></div>
-            
-            <form class="appointment-form" id="appointmentForm">
-              <!-- Patient Details Section -->
-              <div class="form-section">
-                <div class="section-title">
-                  <i class="fas fa-user"></i>
-                  <span data-en="Patient Details" data-np="बिरामी विवरण">Patient Details</span>
-                </div>
-                
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="fullName" class="form-label">
-                      <span data-en="Full Name" data-np="पूरा नाम">Full Name</span>
-                      <span class="required-star">*</span>
-                    </label>
-                    <input type="text" id="fullName" name="fullName" required class="form-input" placeholder="e.g., John Doe" data-en-placeholder="e.g., John Doe" data-np-placeholder="उदा., जोन डो" />
-                  </div>
-                  <div class="form-group">
-                    <label for="age" class="form-label">
-                      <span data-en="Age" data-np="उमेर">Age</span>
-                      <span class="required-star">*</span>
-                    </label>
-                    <input type="number" id="age" name="age" required class="form-input" placeholder="e.g., 35" data-en-placeholder="e.g., 35" data-np-placeholder="उदा., ३५" min="1" max="120" />
-                  </div>
-                </div>
-              </div>
+            <div id="form-status" role="status" aria-live="polite"></div>
 
-              <!-- Contact Details Section -->
+            <form class="appointment-form" id="appointmentForm" novalidate>
+              <!-- Step 1: Consultation Type -->
               <div class="form-section">
                 <div class="section-title">
-                  <i class="fas fa-phone-alt"></i>
-                  <span data-en="Contact Information" data-np="सम्पर्क जानकारी">Contact Information</span>
+                  <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                  <span data-en="1. Choose Consultation Type" data-np="१. परामर्शको प्रकार छनौट गर्नुहोस्">1. Choose Consultation Type</span>
                 </div>
-                
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="phoneNumber" class="form-label">
-                      <span data-en="Phone Number" data-np="फोन नम्बर">Phone Number</span>
-                      <span class="required-star">*</span>
-                    </label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" required class="form-input" placeholder="+977-98XXXXXXXX" data-en-placeholder="+977-98XXXXXXXX" data-np-placeholder="+९७७-९८XXXXXXXX" />
-                    <div class="helper-text"><i class="fas fa-info-circle"></i> <span data-en="We'll send confirmation via SMS" data-np="हामी एसएमएस मार्फत पुष्टि पठाउनेछौं">We'll send confirmation via SMS</span></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="emailAddress" class="form-label">
-                      <span data-en="Email Address" data-np="ईमेल ठेगाना">Email Address</span>
-                      <span class="required-star">*</span>
-                    </label>
-                    <input type="email" id="emailAddress" name="emailAddress" required class="form-input" placeholder="your.email@example.com" data-en-placeholder="your.email@example.com" data-np-placeholder="तपाईंको.ईमेल@example.com" />
-                  </div>
-                </div>
-              </div>
 
-              <!-- Appointment Details Section -->
-              <div class="form-section">
-                <div class="section-title">
-                  <i class="fas fa-calendar-alt"></i>
-                  <span data-en="Appointment Details" data-np="अपोइन्टमेन्ट विवरण">Appointment Details</span>
+                <div class="mode-selector-grid" role="radiogroup" aria-label="Consultation Type">
+                  <label class="mode-option">
+                    <input type="radio" name="consultationMode" value="in-person" checked>
+                    <div class="mode-card">
+                      <div class="mode-card-header">
+                        <i class="fas fa-clinic-medical" aria-hidden="true"></i>
+                        <span data-en="In-Person Clinic Visit" data-np="प्रत्यक्ष क्लिनिक भेटघाट">In-Person Clinic Visit</span>
+                      </div>
+                      <div class="mode-card-desc" data-en="Visit a clinic in Kathmandu, Lalitpur, or Dhangadhi for full examination & procedures." data-np="पूर्ण जाँच र उपचारको लागि काठमाडौं, ललितपुर, वा धनगढीको क्लिनिकमा आउनुहोस्।">
+                        Visit a clinic in Kathmandu, Lalitpur, or Dhangadhi for full examination &amp; procedures.
+                      </div>
+                      <div class="mode-card-meta" data-en="Fee: NPR 800 – 2,000 · Pay at clinic" data-np="शुल्क: रु. ८०० – २,००० · क्लिनिकमा भुक्तानी">
+                        Fee: NPR 800 – 2,000 · Pay at clinic
+                      </div>
+                    </div>
+                  </label>
+
+                  <label class="mode-option">
+                    <input type="radio" name="consultationMode" value="online">
+                    <div class="mode-card">
+                      <div class="mode-card-header">
+                        <i class="fas fa-video" aria-hidden="true"></i>
+                        <span data-en="Online Teledermatology" data-np="अनलाइन टेलिडर्माटोलोजी">Online Teledermatology</span>
+                      </div>
+                      <div class="mode-card-desc" data-en="Video/WhatsApp consultation for patients anywhere in Nepal or abroad." data-np="नेपाल वा विदेशको जुनसुकै ठाउँबाट भिडियो/ह्वाट्सएप मार्फत परामर्श लिनुहोस्।">
+                        Video/WhatsApp consultation for patients anywhere in Nepal or abroad.
+                      </div>
+                      <div class="mode-card-meta" data-en="Fee: NPR 1,000 (Nepal) · USD 25 (Abroad)" data-np="शुल्क: रु. १,००० (नेपाल) · USD 25 (विदेश)">
+                        Fee: NPR 1,000 (Nepal) · USD 25 (Abroad)
+                      </div>
+                    </div>
+                  </label>
                 </div>
-                
+
+                <!-- Dynamic Guidance Banner -->
+                <div class="context-banner" id="modeGuidanceBanner"></div>
+
                 <div class="form-row">
-                  <div class="form-group">
+                  <div class="form-group" id="clinicSelectGroup">
                     <label for="clinicLocation" class="form-label">
-                      <span data-en="Clinic Location" data-np="क्लिनिक स्थान">Clinic Location</span>
-                      <span class="required-star">*</span>
+                      <span data-en="Select Clinic Location" data-np="क्लिनिक स्थान छनौट गर्नुहोस्">Select Clinic Location</span>
+                      <span class="required-star" aria-hidden="true">*</span>
                     </label>
-                    <select id="clinicLocation" name="clinicLocation" required class="form-select" onchange="updateTimeSlots()">
-                      <option value="" data-en="Select a clinic" data-np="क्लिनिक छनौट गर्नुहोस्">Select a clinic</option>
-                      <option value="Elite Health Clinic, Lagankhel" data-en="Elite Health Clinic, Lagankhel" data-np="एलिट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</option>
-                      <option value="Shankhamul Healthcare, Shankhamul" data-en="Shankhamul Healthcare, Shankhamul" data-np="शंखमुल हेल्थकेयर, शंखमुल">Shankhamul Healthcare, Shankhamul</option>
-                      <option value="Shubharambha Skin Centre, Dhangadhi" data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</option>
-                      <option value="Teledermatology" data-en="Online Teledermatology" data-np="अनलाइन टेलिडर्माटोलोजी">Online Teledermatology</option>
+                    <select id="clinicLocation" name="clinicLocation" required class="form-select">
+                      <option value="" data-en="Choose a clinic..." data-np="क्लिनिक छनौट गर्नुहोस्...">Choose a clinic...</option>
+                      <option value="Elite Health Clinic, Lagankhel" data-en="Elite Health Clinic — Lagankhel, Lalitpur (Sun–Fri, 4–7 PM)" data-np="एलिट हेल्थ क्लिनिक — लगनखेल, ललितपुर (आइत–शुक्र, ४–७ बजे)">Elite Health Clinic — Lagankhel, Lalitpur (Sun–Fri, 4–7 PM)</option>
+                      <option value="Shankhamul Healthcare, Shankhamul" data-en="Shankhamul Healthcare — Kathmandu (Sun–Fri, 4–7 PM)" data-np="शंखमुल हेल्थकेयर — काठमाडौं (आइत–शुक्र, ४–७ बजे)">Shankhamul Healthcare — Kathmandu (Sun–Fri, 4–7 PM)</option>
+                      <option value="Shubharambha Skin Centre, Dhangadhi" data-en="Shubharambha Skin Centre — Dhangadhi (Saturdays, 9 AM–5 PM)" data-np="शुभारम्भ स्किन सेन्टर — धनगढी (शनिबार, बिहान ९–साँझ ५ बजे)">Shubharambha Skin Centre — Dhangadhi (Saturdays, 9 AM–5 PM)</option>
                     </select>
+                  </div>
+
+                  <div class="form-group" id="timezoneGroup" style="display: none;">
+                    <label for="patientTimezone" class="form-label">
+                      <span data-en="Your Country / Time Zone" data-np="तपाईंको देश / समय क्षेत्र">Your Country / Time Zone</span>
+                      <span class="optional-tag" data-en="(Helpful for international scheduling)" data-np="(विदेशबाट समय मिलाउन सहयोगी)">(Helpful for international scheduling)</span>
+                    </label>
+                    <input type="text" id="patientTimezone" name="patientTimezone" class="form-input" placeholder="e.g., Nepal (NPT), USA (EST), UK (GMT), Australia (AEST)" data-en-placeholder="e.g., Nepal (NPT), USA (EST), UK (GMT), Australia (AEST)" data-np-placeholder="उदा., नेपाल (NPT), अमेरिका (EST), अष्ट्रेलिया (AEST)">
                   </div>
                 </div>
 
@@ -1051,73 +1219,135 @@
                   <div class="form-group">
                     <label for="preferredDate" class="form-label">
                       <span data-en="Preferred Date" data-np="प्राथमिक मिति">Preferred Date</span>
-                      <span class="required-star">*</span>
+                      <span class="required-star" aria-hidden="true">*</span>
                     </label>
-                    <input type="date" id="preferredDate" name="preferredDate" required class="form-input" onchange="validateDate()" />
+                    <input type="date" id="preferredDate" name="preferredDate" required class="form-input" aria-describedby="dateRuleHelp dateInlineError">
+                    <div class="helper-text" id="dateRuleHelp">
+                      <i class="fas fa-calendar-day" aria-hidden="true"></i>
+                      <span id="dateRuleText">Kathmandu/Lalitpur: Sun–Fri · Dhangadhi: Saturdays only</span>
+                    </div>
+                    <div class="inline-error" id="dateInlineError" role="alert">
+                      <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                      <span id="dateInlineErrorText"></span>
+                    </div>
                   </div>
+
                   <div class="form-group">
                     <label for="preferredTime" class="form-label">
-                      <span data-en="Preferred Time" data-np="प्राथमिक समय">Preferred Time</span>
-                      <span class="required-star">*</span>
+                      <span data-en="Preferred Time Window (Nepal Time, UTC+5:45)" data-np="प्राथमिक समय (नेपाली समय, UTC+5:45)">Preferred Time Window (Nepal Time, UTC+5:45)</span>
+                      <span class="required-star" aria-hidden="true">*</span>
                     </label>
                     <select id="preferredTime" name="preferredTime" required class="form-select">
-                      <option value="" data-en="Select a time slot" data-np="समय स्लट छनौट गर्नुहोस्">Select a time slot</option>
-                      <option value="Evening (4:00 PM - 7:00 PM)" data-en="Evening (4:00 PM - 7:00 PM)" data-np="साँझ (४:०० बेलुका - ७:०० बेलुका)">Evening (4:00 PM - 7:00 PM)</option>
-                      <option value="Saturday Only (9:00 AM - 5:00 PM)" data-en="Saturday Only (9:00 AM - 5:00 PM)" data-np="शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)">Saturday Only (9:00 AM - 5:00 PM)</option>
-                      <option value="Tele-dermatology (Daily)" data-en="Online consultation (on request)" data-np="अनलाइन परामर्श (अनुरोधमा)">Tele-dermatology (Daily)</option>
+                      <option value="" data-en="Select a time window..." data-np="समय छनौट गर्नुहोस्...">Select a time window...</option>
                     </select>
                   </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Patient Details -->
+              <div class="form-section">
+                <div class="section-title">
+                  <i class="fas fa-user" aria-hidden="true"></i>
+                  <span data-en="2. Patient Details" data-np="२. बिरामीको विवरण">2. Patient Details</span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="fullName" class="form-label">
+                      <span data-en="Full Name" data-np="पूरा नाम">Full Name</span>
+                      <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input type="text" id="fullName" name="fullName" required autocomplete="name" class="form-input" placeholder="e.g., Sita Sharma" data-en-placeholder="e.g., Sita Sharma" data-np-placeholder="उदा., सीता शर्मा">
+                  </div>
+                  <div class="form-group">
+                    <label for="age" class="form-label">
+                      <span data-en="Age (Years)" data-np="उमेर (वर्ष)">Age (Years)</span>
+                      <span class="optional-tag" data-en="(Optional — helps tailor care)" data-np="(ऐच्छिक)">(Optional — helps tailor care)</span>
+                    </label>
+                    <input type="number" id="age" name="age" class="form-input" placeholder="e.g., 32" data-en-placeholder="e.g., 32" data-np-placeholder="उदा., ३२" min="1" max="120">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="phoneNumber" class="form-label">
+                      <span data-en="Phone / WhatsApp Number" data-np="फोन / ह्वाट्सएप नम्बर">Phone / WhatsApp Number</span>
+                      <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required autocomplete="tel" class="form-input" placeholder="+977-98XXXXXXXX or +1-XXX-XXX-XXXX" data-en-placeholder="+977-98XXXXXXXX or +1-XXX-XXX-XXXX" data-np-placeholder="+९७७-९८XXXXXXXX वा देश कोड सहित">
+                    <div class="helper-text">
+                      <i class="fas fa-info-circle" aria-hidden="true"></i>
+                      <span data-en="Include country code. We confirm via SMS, WhatsApp, or Email." data-np="देश कोड राख्नुहोस्। हामी एसएमएस, ह्वाट्सएप वा इमेल मार्फत पुष्टि गर्छौं।">Include country code. We confirm via SMS, WhatsApp, or Email.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="emailAddress" class="form-label">
+                      <span data-en="Email Address" data-np="इमेल ठेगाना">Email Address</span>
+                      <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input type="email" id="emailAddress" name="emailAddress" required autocomplete="email" class="form-input" placeholder="you@example.com" data-en-placeholder="you@example.com" data-np-placeholder="तपाईंको.इमेल@example.com">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Reason & Clinical Notes -->
+              <div class="form-section">
+                <div class="section-title">
+                  <i class="fas fa-notes-medical" aria-hidden="true"></i>
+                  <span data-en="3. Reason for Consultation" data-np="३. परामर्शको कारण">3. Reason for Consultation</span>
                 </div>
 
                 <div class="form-group">
                   <label for="reasonForVisit" class="form-label">
-                    <span data-en="Reason for Visit" data-np="भ्रमणको कारण">Reason for Visit</span>
-                    <span class="required-star">*</span>
+                    <span data-en="Primary Concern" data-np="मुख्य समस्या">Primary Concern</span>
+                    <span class="required-star" aria-hidden="true">*</span>
                   </label>
                   <select id="reasonForVisit" name="reasonForVisit" required class="form-select">
-                    <option value="" data-en="Select reason for visit" data-np="भ्रमणको कारण छनौट गर्नुहोस्">Select reason for visit</option>
-                    <option value="Acne Treatment" data-en="Acne Treatment" data-np="एक्ने उपचार">Acne Treatment</option>
+                    <option value="" data-en="Select primary concern..." data-np="मुख्य समस्या छनौट गर्नुहोस्...">Select primary concern...</option>
+                    <option value="Acne Treatment" data-en="Acne Treatment" data-np="डन्डिफोर (एक्ने) उपचार">Acne Treatment</option>
+                    <option value="Hair Disorder" data-en="Hair Loss / Scalp Disorder" data-np="कपाल झर्ने / टाउकोको समस्या">Hair Loss / Scalp Disorder</option>
+                    <option value="Pigmentation Issues" data-en="Pigmentation / Melasma" data-np="चायापोतो / रंगत सम्बन्धी समस्या">Pigmentation / Melasma</option>
+                    <option value="Skin Rash or Infection" data-en="Skin Rash, Allergy, or Infection" data-np="छालाको एलर्जी, दाग वा संक्रमण">Skin Rash, Allergy, or Infection</option>
                     <option value="Aesthetic Dermatology" data-en="Aesthetic Dermatology" data-np="एस्थेटिक डर्माटोलोजी">Aesthetic Dermatology</option>
-                    <option value="Skin Surgery Consultation" data-en="Skin Surgery Consultation" data-np="छाला सर्जरी परामर्श">Skin Surgery Consultation</option>
-                    <option value="Hair Disorder" data-en="Hair Disorder" data-np="कपाल सम्बन्धी समस्या">Hair Disorder</option>
-                    <option value="Pigmentation Issues" data-en="Pigmentation Issues" data-np="रंगत सम्बन्धी समस्या">Pigmentation Issues</option>
-                    <option value="Skin Rash or Infection" data-en="Skin Rash or Infection" data-np="छालाको ददुरा वा संक्रमण">Skin Rash or Infection</option>
-                    <option value="General Consultation" data-en="General Consultation" data-np="सामान्य परामर्श">General Consultation</option>
+                    <option value="Skin Surgery Consultation" data-en="Skin Surgery / Mole / Cyst Evaluation" data-np="छाला शल्यक्रिया / कोठी जाँच">Skin Surgery / Mole / Cyst Evaluation</option>
+                    <option value="General Consultation" data-en="General Skin Consultation / Follow-up" data-np="सामान्य छाला परामर्श / फलो-अप">General Skin Consultation / Follow-up</option>
                     <option value="Other" data-en="Other" data-np="अन्य">Other</option>
                   </select>
                 </div>
 
                 <div class="form-group">
                   <label for="additionalInfo" class="form-label">
-                    <span data-en="Additional Information" data-np="थप जानकारी">Additional Information</span>
+                    <span data-en="Brief Notes or Questions" data-np="संक्षिप्त विवरण वा प्रश्नहरू">Brief Notes or Questions</span>
+                    <span class="optional-tag" data-en="(Optional)" data-np="(ऐच्छिक)">(Optional)</span>
                   </label>
-                  <textarea id="additionalInfo" name="additionalInfo" rows="3" class="form-textarea" placeholder="Please share any specific concerns or questions..." data-en-placeholder="Please share any specific concerns or questions..." data-np-placeholder="कृपया कुनै विशेष चिन्ता वा प्रश्नहरू साझा गर्नुहोस्..."></textarea>
+                  <textarea id="additionalInfo" name="additionalInfo" rows="3" class="form-textarea" placeholder="Briefly describe duration or symptoms. Please do not paste links to sensitive photos here—we will share secure photo instructions once your slot is confirmed." data-en-placeholder="Briefly describe duration or symptoms. Please do not paste links to sensitive photos here—we will share secure photo instructions once your slot is confirmed." data-np-placeholder="लक्षण वा समय अवधि छोटकरीमा लेख्नुहोस्। कृपया यहाँ संवेदनशील फोटोको लिङ्क नराख्नुहोस्—समय पुष्टि भएपछि सुरक्षित रूपमा फोटो पठाउने तरिका जानकारी दिइनेछ।"></textarea>
+                  <div class="helper-text">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span data-en="Privacy note: Clinical photographs are only requested via secure WhatsApp/Viber after your appointment time is confirmed." data-np="गोपनीयता जानकारी: समय पुष्टि भएपछि मात्र सुरक्षित ह्वाट्सएप/भाइबर मार्फत क्लिनिकल फोटो मागिनेछ।">Privacy note: Clinical photographs are only requested via secure WhatsApp/Viber after your appointment time is confirmed.</span>
+                  </div>
                 </div>
               </div>
 
               <!-- Consent Section -->
               <div class="checkbox-group">
-                <input type="checkbox" id="consent" name="consent" required class="checkbox-input" />
+                <input type="checkbox" id="consent" name="consent" required class="checkbox-input">
                 <label for="consent" class="checkbox-label">
-                  <span data-en="I consent to the collection and processing of my personal information for appointment scheduling purposes. *" data-np="म अपोइन्टमेन्ट तालिकाको लागि मेरो व्यक्तिगत जानकारीको संग्रह र प्रशोधनमा सहमत छु। *">
-                    I consent to the collection and processing of my personal information for appointment scheduling purposes. *
+                  <span data-en="I understand this submits an appointment request (not an instant booking) and consent to sharing my contact and consultation details with Dr. Vikash Paudel's clinic team solely for scheduling and care coordination." data-np="म बुझ्दछु कि यो अपोइन्टमेन्टको अनुरोध मात्र हो (तत्काल पुष्टि होइन) र म मेरो सम्पर्क तथा परामर्श विवरण डा. विकास पौडेलको क्लिनिक टोलीसँग समय तालिका मिलाउनको लागि साझा गर्न सहमत छु।">
+                    I understand this submits an appointment request (not an instant booking) and consent to sharing my contact and consultation details with Dr. Vikash Paudel's clinic team solely for scheduling and care coordination.
                   </span>
+                  <span class="required-star" aria-hidden="true">*</span>
                 </label>
               </div>
 
-              <!-- Sticky CTA Container -->
+              <!-- Primary CTA -->
               <div class="cta-container">
                 <button type="submit" class="btn btn-primary" id="submit-btn">
-                  <i class="fas fa-calendar-check"></i>
+                  <i class="fas fa-calendar-check" aria-hidden="true"></i>
                   <span data-en="Submit Appointment Request" data-np="अपोइन्टमेन्ट अनुरोध पठाउनुहोस्">Submit Appointment Request</span>
                 </button>
-                <div class="helper-text" style="justify-content: center; margin-top: 0.75rem;">
-                  <i class="fas fa-lock"></i>
-                  <span data-en="Your information is secure and confidential" data-np="तपाईंको जानकारी सुरक्षित र गोप्य छ">Your information is secure and confidential</span>
-                </div>
-                <div class="helper-text" style="justify-content: center; margin-top: 0.5rem; color: var(--primary);">
-                  <i class="fas fa-info-circle"></i>
-                  <span data-en="All appointment requests require confirmation by the doctor or clinic." data-np="अनलाइन अपोइन्टमेन्ट अनुरोधहरू पुष्टिको अधीनमा छन्।">All appointment requests require confirmation by the doctor or clinic.</span>
+                <div class="helper-text" style="justify-content: center; margin-top: 0.7rem;">
+                  <i class="fas fa-lock" aria-hidden="true"></i>
+                  <span data-en="Confidential request · No payment required until your slot is confirmed" data-np="गोप्य अनुरोध · समय पुष्टि नभएसम्म कुनै भुक्तानी आवश्यक छैन">Confidential request · No payment required until your slot is confirmed</span>
                 </div>
               </div>
             </form>
@@ -1126,43 +1356,109 @@
       </div>
 
       <!-- Right Column - Information Sidebar -->
-      <div class="info-sidebar">
-        <!-- Clinic Hours Card -->
+      <aside class="info-sidebar" aria-label="Clinic Schedules, Fees & Contact Information">
+        <!-- Fees & What to Expect Card -->
         <div class="info-card">
-          <h3><i class="fas fa-clock"></i> <span data-en="Clinic Hours" data-np="क्लिनिक समय">Clinic Hours</span></h3>
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div class="info-item-content"><strong data-en="Shankhamul Healthcare" data-np="शंखमुल हेल्थकेयर">Shankhamul Healthcare</strong><p data-en="4:00 PM - 7:00 PM (Sun-Fri)" data-np="४:०० बेलुका - ७:०० बेलुका (आइत-शुक्र)">4:00 PM - 7:00 PM (Sun-Fri)</p></div></div>
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div class="info-item-content"><strong data-en="Elite Health Clinic" data-np="एलिट हेल्थ क्लिनिक">Elite Health Clinic</strong><p data-en="4:00 PM - 7:00 PM (Sun-Fri)" data-np="४:०० बेलुका - ७:०० बेलुका (आइत-शुक्र)">4:00 PM - 7:00 PM (Sun-Fri)</p></div></div>
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div class="info-item-content"><strong data-en="Shubharambha Skin Centre" data-np="शुभारम्भ स्किन सेन्टर">Shubharambha Skin Centre</strong><p data-en="Saturdays: 9:00 AM - 5:00 PM" data-np="शनिबार: ९:०० बिहान - ५:०० बेलुका">Saturdays: 9:00 AM - 5:00 PM</p></div></div>
-          <div class="info-item"><i class="fas fa-laptop-medical"></i><div class="info-item-content"><strong data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</strong><p data-en="On demand, subject to confirmation" data-np="आवश्यकताअनुसार, पुष्टि भएपछि मात्र">On demand, subject to confirmation</p></div></div>
-        </div>
-
-        <!-- Contact Card -->
-        <div class="info-card">
-          <h3><i class="fas fa-phone-alt"></i> <span data-en="Contact Directly" data-np="सिधै सम्पर्क गर्नुहोस्">Contact Directly</span></h3>
-          <div class="info-item"><i class="fas fa-phone"></i><div class="info-item-content"><strong data-en="Dhangadhi Clinic" data-np="धनगढी क्लिनिक">Dhangadhi Clinic</strong><p>+977-91-410107</p></div></div>
-          <div class="info-item"><i class="fas fa-phone"></i><div class="info-item-content"><strong data-en="Lagankhel Clinic" data-np="लगनखेल क्लिनिक">Lagankhel Clinic</strong><p>+977-1-5420745</p></div></div>
-          <div class="info-item"><i class="fas fa-phone"></i><div class="info-item-content"><strong data-en="Shankhamul Clinic" data-np="शंखमुल क्लिनिक">Shankhamul Clinic</strong><p>+977-1-5242511</p></div></div>
-          <div class="info-item"><i class="fas fa-mobile-alt"></i><div class="info-item-content"><strong data-en="Teledermatology" data-np="टेलिडर्माटोलोजी">Teledermatology</strong><p>+977-9825207253</p></div></div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="info-card">
-          <h3><i class="fas fa-shield-alt"></i> <span data-en="Why Choose Us" data-np="हामी किन रोज्ने">Why Choose Us</span></h3>
-          <div class="trust-badge"><i class="fas fa-star"></i><div><strong data-en="5.0 Patient Rating" data-np="५.० बिरामी मूल्याङ्कन">5.0 Patient Rating</strong><p data-en="Based on 94+ verified reviews" data-np="९४+ प्रमाणित समीक्षाहरूमा आधारित">Based on 94+ verified reviews</p></div></div>
-          <div class="trust-badge"><i class="fas fa-certificate"></i><div><strong data-en="Board Certified" data-np="बोर्ड प्रमाणित">Board Certified</strong><p data-en="Consultant Dermatologist" data-np="वरिष्ठ छाला रोग विशेषज्ञ">Consultant Dermatologist</p></div></div>
-          <div class="trust-badge"><i class="fas fa-clock"></i><div><strong data-en="10+ Years Experience" data-np="१०+ वर्ष अनुभव">10+ Years Experience</strong><p data-en="Specialized dermatological care" data-np="विशेष छाला रोग हेरचाह">Specialized dermatological care</p></div></div>
-          <div class="trust-badge"><i class="fas fa-lock"></i><div><strong data-en="Secure & Confidential" data-np="सुरक्षित र गोप्य">Secure & Confidential</strong><p data-en="Your privacy is our priority" data-np="तपाईंको गोपनीयता हाम्रो प्राथमिकता हो">Your privacy is our priority</p></div></div>
-        </div>
-
-        <!-- Quick Response Card -->
-        <div class="info-card">
-          <div style="text-align:center;"><i class="fas fa-check-circle" style="font-size:3rem;color:var(--accent);margin-bottom:1rem;"></i>
-            <h3 data-en="Quick Response" data-np="छिटो प्रतिक्रिया">Quick Response</h3>
-            <p style="color:var(--foreground-light);margin:1rem 0;"><span data-en="We aim to respond to appointment requests within" data-np="हामी सामान्यतया अपोइन्टमेन्ट अनुरोधहरूको जवाफ दिन्छौं">We aim to respond to appointment requests within</span><strong style="color:var(--primary);display:block;font-size:2rem;margin:0.5rem 0;">24 hours</strong></p>
-            <div class="helper-text" style="justify-content:center;"><i class="fas fa-bolt"></i> <span data-en="Urgent matters? Call us directly" data-np="जरुरी कुरा? हामीलाई सिधै कल गर्नुहोस्">Urgent matters? Call us directly</span></div>
+          <h3><i class="fas fa-receipt" aria-hidden="true"></i> <span data-en="Consultation Fees & Payment" data-np="परामर्श शुल्क र भुक्तानी">Consultation Fees &amp; Payment</span></h3>
+          <div class="info-item">
+            <i class="fas fa-clinic-medical" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="In-Person Clinic Fee" data-np="प्रत्यक्ष क्लिनिक शुल्क">In-Person Clinic Fee</strong>
+              <p data-en="NPR 800 – 2,000 per consultation (varies by clinic &amp; procedure) · Paid at clinic reception via Cash, QR, or Card." data-np="रु. ८०० – २,००० प्रति परामर्श (क्लिनिक र उपचार अनुसार) · क्लिनिक रिसेप्सनमा नगद, QR वा कार्ड मार्फत भुक्तानी।">NPR 800 – 2,000 per consultation (varies by clinic &amp; procedure) · Paid at clinic reception via Cash, QR, or Card.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-video" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Online Teledermatology Fee" data-np="अनलाइन टेलिडर्माटोलोजी शुल्क">Online Teledermatology Fee</strong>
+              <p data-en="Patients in Nepal: NPR 1,000 · Foreign nationals / Patients abroad: USD 25 (or equivalent). Pay after your slot is confirmed." data-np="नेपालका बिरामी: रु. १,००० · विदेशी नागरिक / विदेशमा रहेका बिरामी: USD 25 (वा सो बराबर)। समय पुष्टि भएपछि भुक्तानी गर्नुहोस्।">Patients in Nepal: NPR 1,000 · Foreign nationals / Patients abroad: USD 25 (or equivalent). Pay after your slot is confirmed.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-university" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Digital Wallet & Bank Transfer" data-np="डिजिटल वालेट र बैंक विवरण">Digital Wallet &amp; Bank Transfer</strong>
+              <div class="payment-details-box">
+                <div><strong style="display:inline;" data-en="eSewa / Khalti ID:" data-np="ईसेवा / खल्ती आईडी:">eSewa / Khalti ID:</strong> 9849948600</div>
+                <div><strong style="display:inline;" data-en="Bank Name:" data-np="बैंकको नाम:">Bank Name:</strong> Nabil Bank</div>
+                <div><strong style="display:inline;" data-en="A/C Holder Name:" data-np="खातावालाको नाम:">A/C Holder Name:</strong> VIKASH PAUDEL</div>
+                <div><strong style="display:inline;" data-en="Account Number:" data-np="खाता नम्बर:">Account Number:</strong> 0510017510066</div>
+              </div>
+              <div class="qr-grid">
+                <div class="qr-card">
+                  <img src="data:image/jpeg;base64,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" alt="Nabil Bank QR Code for Vikash Paudel">
+                  <div class="qr-card-label" data-en="Nabil Bank QR" data-np="नबिल बैंक QR">Nabil Bank QR</div>
+                  <div class="qr-card-sub">0510017510066</div>
+                </div>
+                <div class="qr-card">
+                  <img src="data:image/jpeg;base64,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" alt="eSewa QR Code for Vikash Paudel 9849948600">
+                  <div class="qr-card-label" data-en="eSewa QR" data-np="ईसेवा QR">eSewa QR</div>
+                  <div class="qr-card-sub">9849948600</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Time Zone & Rescheduling" data-np="समय क्षेत्र र पुन: तालिका">Time Zone &amp; Rescheduling</strong>
+              <p data-en="All schedules follow Nepal Standard Time (NPT, UTC+5:45). Please share payment receipt on WhatsApp (+977-9825207253) once confirmed." data-np="सबै समय नेपाली मानक समय (NPT, UTC+5:45) अनुसार चल्छन्। पुष्टि भएपछि भुक्तानी रसिद ह्वाट्सएप (+९७७-९८२५२०७२५३) मा पठाउनुहोस्।">All schedules follow Nepal Standard Time (NPT, UTC+5:45). Please share payment receipt on WhatsApp (+977-9825207253) once confirmed.</p>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- Clinic Hours & Locations Card -->
+        <div class="info-card">
+          <h3><i class="fas fa-map-marked-alt" aria-hidden="true"></i> <span data-en="Clinic Locations & Hours" data-np="क्लिनिक स्थान र समय">Clinic Locations &amp; Hours</span></h3>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Elite Health Clinic (Lagankhel, Lalitpur)" data-np="एलिट हेल्थ क्लिनिक (लगनखेल, ललितपुर)">Elite Health Clinic (Lagankhel, Lalitpur)</strong>
+              <p data-en="Sun–Fri: 4:00 PM – 7:00 PM NPT · Tel: +977-1-5420745" data-np="आइत–शुक्र: साँझ ४:०० – ७:०० · फोन: +९७७-१-५४२०७४५">Sun–Fri: 4:00 PM – 7:00 PM NPT · Tel: <a href="tel:+97715420745">+977-1-5420745</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Shankhamul Healthcare (Kathmandu)" data-np="शंखमुल हेल्थकेयर (काठमाडौं)">Shankhamul Healthcare (Kathmandu)</strong>
+              <p data-en="Sun–Fri: 4:00 PM – 7:00 PM NPT · Tel: +977-1-5242511" data-np="आइत–शुक्र: साँझ ४:०० – ७:०० · फोन: +९७७-१-५२४२५११">Sun–Fri: 4:00 PM – 7:00 PM NPT · Tel: <a href="tel:+97715242511">+977-1-5242511</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Shubharambha Skin Centre (Dhangadhi)" data-np="शुभारम्भ स्किन सेन्टर (धनगढी)">Shubharambha Skin Centre (Dhangadhi)</strong>
+              <p data-en="Saturdays Only: 9:00 AM – 5:00 PM NPT · Tel: +977-91-410107" data-np="शनिबार मात्र: बिहान ९:०० – साँझ ५:०० · फोन: +९७७-९१-४१०१०७">Saturdays Only: 9:00 AM – 5:00 PM NPT · Tel: <a href="tel:+97791410107">+977-91-410107</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-video" aria-hidden="true"></i>
+            <div class="info-item-content">
+              <strong data-en="Teledermatology Desk" data-np="टेलिडर्माटोलोजी सम्पर्क">Teledermatology Desk</strong>
+              <p data-en="Daily by appointment · WhatsApp/Tel: +977-9825207253" data-np="दैनिक अपोइन्टमेन्ट अनुसार · ह्वाट्सएप/फोन: +९७७-९८२५२०७२५३">Daily by appointment · WhatsApp/Tel: <a href="tel:+9779825207253">+977-9825207253</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust & Credentials Card -->
+        <div class="info-card">
+          <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> <span data-en="Clinical Credentials" data-np="चिकित्सकीय योग्यता">Clinical Credentials</span></h3>
+          <div class="trust-badge">
+            <i class="fas fa-user-md" aria-hidden="true"></i>
+            <div>
+              <strong data-en="MD Dermatology · NMC #9111" data-np="एमडी डर्माटोलोजी · एनएमसी #९१११">MD Dermatology · NMC #9111</strong>
+              <p data-en="Registered Consultant Dermatologist with 10+ years of clinical & academic practice." data-np="१०+ वर्षको अनुभव भएका दर्ता प्राप्त वरिष्ठ छाला रोग विशेषज्ञ।">Registered Consultant Dermatologist with 10+ years of clinical &amp; academic practice.</p>
+            </div>
+          </div>
+          <div class="trust-badge">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <div>
+              <strong data-en="Patient Privacy & Confidentiality" data-np="बिरामीको गोपनीयता र सुरक्षा">Patient Privacy &amp; Confidentiality</strong>
+              <p data-en="Your personal details are used strictly for scheduling and medical care, never shared with third-party marketers." data-np="तपाईंको व्यक्तिगत विवरण समय तालिका र उपचारको लागि मात्र प्रयोग गरिन्छ।">Your personal details are used strictly for scheduling and medical care, never shared with third-party marketers.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </main>
 
@@ -1171,13 +1467,13 @@
     <div class="footer-grid">
       <div class="footer-column">
         <h3 data-en="Dr. Vikash Paudel" data-np="डा. विकास पौडेल">Dr. Vikash Paudel</h3>
-        <p data-en="Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach." data-np="काठमाडौंका अग्रणी छालारोग विशेषज्ञ जसले अत्याधुनिक उपचार र व्यक्तिगत दृष्टिकोणको साथ व्यापक छालाको हेरचाह प्रदान गर्दछ।">Leading dermatologist in Kathmandu providing comprehensive skin care with cutting-edge treatments and a personalized approach.</p>
+        <p data-en="Consultant Dermatologist providing evidence-based medical, surgical, and aesthetic skin care across Nepal and via online teledermatology." data-np="नेपालभर र अनलाइन टेलिडर्माटोलोजी मार्फत प्रमाण-आधारित छाला रोग उपचार प्रदान गर्ने वरिष्ठ छाला रोग विशेषज्ञ।">Consultant Dermatologist providing evidence-based medical, surgical, and aesthetic skin care across Nepal and via online teledermatology.</p>
         <div class="social-links">
-          <a href="https://www.facebook.com/vikashderma" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.twitter.com/merodesh" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/vikash.paudel" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/9779825207253" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/vikashderma" aria-label="Dr. Vikash Paudel on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.twitter.com/merodesh" aria-label="Dr. Vikash Paudel on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/vikash.paudel" aria-label="Dr. Vikash Paudel on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/vikash-paudel-89598324" aria-label="Dr. Vikash Paudel on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://wa.me/9779825207253" aria-label="Message Dr. Vikash Paudel on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -1185,240 +1481,396 @@
         <h3 data-en="Quick Links" data-np="द्रुत लिंकहरू">Quick Links</h3>
         <ul class="footer-links">
           <li><a href="index.html" data-en="Home" data-np="गृहपृष्ठ">Home</a></li>
-          <li><a href="services.html" data-en="Services" data-np="सेवाहरू">Services</a></li>
-          <li><a href="about.html" data-en="About" data-np="बारेमा">About</a></li>
+          <li><a href="biography.html" data-en="Biography" data-np="जीवनी">Biography</a></li>
           <li><a href="research.html" data-en="Research" data-np="अनुसन्धान">Research</a></li>
           <li><a href="award.html" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
           <li><a href="blog.html" data-en="Blog" data-np="ब्लग">Blog</a></li>
           <li><a href="contact.html" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+          <li><a href="appointment.html" data-en="Book Appointment" data-np="अपोइन्टमेन्ट">Book Appointment</a></li>
         </ul>
       </div>
 
       <div class="footer-column">
-        <h3 data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</h3>
+        <h3 data-en="Practice Locations" data-np="अभ्यास स्थानहरू">Practice Locations</h3>
         <ul class="footer-links">
-          <li><i class="fas fa-map-marker-alt"></i> <span data-en="Shankhamul Health Care, Kathmandu" data-np="शंखमुल हेल्थ केयर, काठमाडौं">Shankhamul Health Care, Kathmandu</span></li>
-          <li><i class="fas fa-map-marker-alt"></i> <span data-en="Elite Health Clinic, Lagankhel" data-np="एलाइट हेल्थ क्लिनिक, लगनखेल">Elite Health Clinic, Lagankhel</span></li>
-          <li><i class="fas fa-map-marker-alt"></i> <span data-en="Patan Hospital, Lalitpur" data-np="पाटन अस्पताल, ललितपुर">Patan Hospital, Lalitpur</span></li>
-          <li><i class="fas fa-map-marker-alt"></i> <span data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</span></li>
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span data-en="Elite Health Clinic, Lagankhel, Lalitpur" data-np="एलिट हेल्थ क्लिनिक, लगनखेल, ललितपुर">Elite Health Clinic, Lagankhel, Lalitpur</span></li>
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span data-en="Shankhamul Healthcare, Kathmandu" data-np="शंखमुल हेल्थकेयर, काठमाडौं">Shankhamul Healthcare, Kathmandu</span></li>
+          <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span data-en="Shubharambha Skin Centre, Dhangadhi" data-np="शुभारम्भ स्किन सेन्टर, धनगढी">Shubharambha Skin Centre, Dhangadhi</span></li>
+          <li><i class="fas fa-hospital" aria-hidden="true"></i> <span data-en="Patan Hospital (PAHS), Lalitpur" data-np="पाटन अस्पताल (PAHS), ललितपुर">Patan Hospital (PAHS), Lalitpur</span></li>
         </ul>
       </div>
 
       <div class="footer-column">
-        <h3 data-en="Contact Info" data-np="सम्पर्क जानकारी">Contact Info</h3>
+        <h3 data-en="Direct Contact" data-np="सिधा सम्पर्क">Direct Contact</h3>
         <ul class="footer-links">
-          <li><i class="fas fa-phone"></i> +977-1-5242511 (Shankhamul)</li>
-          <li><i class="fas fa-phone"></i> +977-1-5420745 (Elite)</li>
-          <li><i class="fas fa-phone"></i> +977-91-410107 (Dhangadhi)</li>
-          <li><i class="fas fa-envelope"></i> vikashpaudel@gmail.com</li>
+          <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+97715420745">+977-1-5420745 (Lagankhel)</a></li>
+          <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+97715242511">+977-1-5242511 (Shankhamul)</a></li>
+          <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+97791410107">+977-91-410107 (Dhangadhi)</a></li>
+          <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:vikashpaudel@gmail.com">vikashpaudel@gmail.com</a></li>
         </ul>
       </div>
     </div>
 
     <div class="copyright">
-      <p>&copy; 2025 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p>
+      <p>&copy; 2026 Dr. Vikash Paudel. <span data-en="All Rights Reserved." data-np="सर्वाधिकार सुरक्षित।">All Rights Reserved.</span></p>
     </div>
   </footer>
 
   <!-- Floating Buttons: Viber + WhatsApp -->
   <div class="floating-buttons">
-    <a href="viber://chat?number=%2B9779849948600" class="floating-button viber-button" target="_blank">
-      <i class="fab fa-viber"></i>
+    <a href="viber://chat?number=%2B9779849948600" class="floating-button viber-button" target="_blank" rel="noopener noreferrer" aria-label="Chat on Viber with Dr. Vikash Paudel's clinic">
+      <i class="fab fa-viber" aria-hidden="true"></i>
     </a>
-    <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20book%20an%20appointment" class="floating-button whatsapp-button" target="_blank">
-      <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/9779825207253?text=Hello%20Dr.%20Paudel,%20I%20would%20like%20to%20request%20an%20appointment." class="floating-button whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp with Dr. Vikash Paudel's clinic">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
   </div>
 
   <script>
-    // Language Toggle
-    let currentLanguage = 'en';
-    const languageToggle = document.getElementById('languageToggle');
-    
-    languageToggle.addEventListener('click', function() {
-      currentLanguage = currentLanguage === 'en' ? 'np' : 'en';
-      document.querySelectorAll('[data-en], [data-np]').forEach(el => {
-        const text = el.getAttribute(`data-${currentLanguage}`);
-        if (text) {
-          if (el.hasAttribute('data-en-placeholder')) {
-            el.placeholder = el.getAttribute(`data-${currentLanguage}-placeholder`);
-          } else {
-            el.textContent = text;
-          }
-        }
-      });
-      document.querySelectorAll('[data-en-placeholder][data-np-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLanguage + '-placeholder'); });
-      const toggleText = languageToggle.querySelector('span');
-      toggleText.textContent = currentLanguage === 'en' ? 'English' : 'नेपाली';
-      document.documentElement.lang = currentLanguage === 'np' ? 'ne' : 'en';
-      document.documentElement.dir = 'ltr';
-      updateLanguageOptions();
-    });
-    languageToggle.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') {e.preventDefault(); languageToggle.click();} });
-
-    // EmailJS init with the provided public key
     (function() {
       emailjs.init("NpPYGnVdsqxvzVuyg");
     })();
 
-    function updateTimeSlots() {
-      const clinicSelect = document.getElementById('clinicLocation');
-      const timeSelect = document.getElementById('preferredTime');
-      const selectedClinic = clinicSelect.value;
-      while (timeSelect.options.length > 1) timeSelect.remove(1);
-      
-      if (selectedClinic === 'Elite Health Clinic, Lagankhel' || selectedClinic === 'Shankhamul Healthcare, Shankhamul') {
-        addOption(timeSelect, 'Evening (4:00 PM - 7:00 PM)', 'Evening (4:00 PM - 7:00 PM)', 'साँझ (४:०० बेलुका - ७:०० बेलुका)');
-      } else if (selectedClinic === 'Shubharambha Skin Centre, Dhangadhi') {
-        addOption(timeSelect, 'Saturday Only (9:00 AM - 5:00 PM)', 'Saturday Only (9:00 AM - 5:00 PM)', 'शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)');
-      } else if (selectedClinic === 'Teledermatology') {
-        addOption(timeSelect, 'Tele-dermatology (Daily)', 'Online consultation (on request)', 'अनलाइन परामर्श (अनुरोधमा)');
-      } else {
-        addOption(timeSelect, 'Evening (4:00 PM - 7:00 PM)', 'Evening (4:00 PM - 7:00 PM)', 'साँझ (४:०० बेलुका - ७:०० बेलुका)');
-        addOption(timeSelect, 'Saturday Only (9:00 AM - 5:00 PM)', 'Saturday Only (9:00 AM - 5:00 PM)', 'शनिबार मात्र (९:०० बिहान - ५:०० बेलुका)');
-        addOption(timeSelect, 'Tele-dermatology (Daily)', 'Online consultation (on request)', 'अनलाइन परामर्श (अनुरोधमा)');
+    let currentLanguage = 'en';
+
+    const copyStrings = {
+      en: {
+        bannerInPerson: '<strong>In-Person Visit Selected:</strong> Choose your preferred clinic below. Kathmandu &amp; Lalitpur clinics operate <strong>Sun–Fri (4:00 PM – 7:00 PM NPT)</strong>; Dhangadhi operates <strong>Saturdays only (9:00 AM – 5:00 PM NPT)</strong>.',
+        bannerOnline: '<strong>Online Teledermatology Selected:</strong> Available daily by appointment via WhatsApp/Viber/Video. All times are scheduled in <strong>Nepal Time (NPT, UTC+5:45)</strong>. Payment &amp; photo upload instructions are sent after confirmation.',
+        ruleKathmandu: 'Kathmandu & Lalitpur clinics operate Sun–Fri (closed Saturdays).',
+        ruleDhangadhi: 'Shubharambha Skin Centre (Dhangadhi) operates on Saturdays only.',
+        ruleDefaultInPerson: 'Select a clinic above to see available days (Sun–Fri in Kathmandu/Lalitpur; Saturdays in Dhangadhi).',
+        ruleOnline: 'Online consultations are available daily (scheduled in Nepal Time, UTC+5:45).',
+        errDhangadhiSat: 'Shubharambha Skin Centre (Dhangadhi) is only open on Saturdays. Please choose a Saturday or switch to Online Teledermatology.',
+        errValleySat: 'Kathmandu and Lalitpur OPD clinics are closed on Saturdays. Please pick Sunday–Friday, select Dhangadhi for Saturday, or choose Online Teledermatology.',
+        errMissingFields: 'Please complete all required fields (*) and check the consent box before submitting.',
+        errInvalidAge: 'Please enter a valid age between 1 and 120, or leave the optional age field blank.',
+        errInvalidEmail: 'Please enter a valid email address (for example, name@example.com).',
+        processing: 'Sending Request...',
+        submitLabel: 'Submit Appointment Request',
+        confirmTitle: 'Appointment Request Received (Pending Confirmation)',
+        confirmBody: (name, target, date, time) => `
+          <div class="status-title"><i class="fas fa-check-circle" aria-hidden="true"></i> Appointment Request Received (Pending Confirmation)</div>
+          <p>Thank you, <strong>${escapeHtml(name)}</strong>. Your request for <strong>${escapeHtml(target)}</strong> on <strong>${escapeHtml(date)}</strong> (${escapeHtml(time)}) has been sent to our scheduling team.</p>
+          <ol class="status-steps">
+            <li><strong>Not yet confirmed:</strong> This is a booking request, not a guaranteed slot.</li>
+            <li><strong>Confirmation within 24 hours:</strong> We will contact you via SMS, WhatsApp, or Email to confirm your exact time, clinic directions or video link, and payment instructions (NPR 1,000 in Nepal / USD 25 abroad for online; NPR 800–2,000 in-clinic).</li>
+            <li><strong>Need urgent help?</strong> Call <strong>+977-1-5242511</strong> or message WhatsApp at <strong>+977-9825207253</strong>.</li>
+          </ol>
+        `,
+        sendErrorPrefix: 'We could not send your request automatically. Please try again or message us directly on WhatsApp (+977-9825207253).'
+      },
+      np: {
+        bannerInPerson: '<strong>प्रत्यक्ष क्लिनिक भेटघाट छनौट गरिएको छ:</strong> तल क्लिनिक छनौट गर्नुहोस्। काठमाडौं र ललितपुर क्लिनिक <strong>आइत–शुक्र (साँझ ४:०० – ७:०० NPT)</strong> र धनगढी क्लिनिक <strong>शनिबार मात्र (बिहान ९:०० – साँझ ५:०० NPT)</strong> खुल्छ।',
+        bannerOnline: '<strong>अनलाइन टेलिडर्माटोलोजी छनौट गरिएको छ:</strong> ह्वाट्सएप/भाइबर/भिडियो मार्फत दैनिक उपलब्ध छ। सबै समय <strong>नेपाली समय (NPT, UTC+5:45)</strong> अनुसार तय गरिन्छ। पुष्टि भएपछि भुक्तानी र फोटो पठाउने जानकारी दिइनेछ।',
+        ruleKathmandu: 'काठमाडौं र ललितपुर क्लिनिक आइत–शुक्र मात्र खुल्छन् (शनिबार बन्द)।',
+        ruleDhangadhi: 'शुभारम्भ स्किन सेन्टर (धनगढी) शनिबार मात्र खुल्छ।',
+        ruleDefaultInPerson: 'उपलब्ध दिनहरू हेर्न माथि क्लिनिक छनौट गर्नुहोस् (काठमाडौं/ललितपुर: आइत–शुक्र; धनगढी: शनिबार)।',
+        ruleOnline: 'अनलाइन परामर्श दैनिक उपलब्ध छ (नेपाली समय UTC+5:45 अनुसार)।',
+        errDhangadhiSat: 'शुभारम्भ स्किन सेन्टर (धनगढी) शनिबार मात्र खुल्छ। कृपया शनिबार छनौट गर्नुहोस् वा अनलाइन परामर्श रोज्नुहोस्।',
+        errValleySat: 'काठमाडौं र ललितपुरका क्लिनिक शनिबार बन्द रहन्छन्। कृपया आइत–शुक्र छनौट गर्नुहोस्, शनिबारको लागि धनगढी रोज्नुहोस्, वा अनलाइन परामर्श छान्नुहोस्।',
+        errMissingFields: 'कृपया सबै आवश्यक (*) विवरणहरू भर्नुहोस् र सहमति बाकसमा चिन्ह लगाउनुहोस्।',
+        errInvalidAge: 'कृपया १ देखि १२० बीचको मान्य उमेर लेख्नुहोस् वा खाली छोड्नुहोस्।',
+        errInvalidEmail: 'कृपया मान्य इमेल ठेगाना लेख्नुहोस्।',
+        processing: 'अनुरोध पठाउँदै...',
+        submitLabel: 'अपोइन्टमेन्ट अनुरोध पठाउनुहोस्',
+        confirmTitle: 'अपोइन्टमेन्ट अनुरोध प्राप्त भयो (पुष्टि हुन बाँकी)',
+        confirmBody: (name, target, date, time) => `
+          <div class="status-title"><i class="fas fa-check-circle" aria-hidden="true"></i> अपोइन्टमेन्ट अनुरोध प्राप्त भयो (पुष्टि हुन बाँकी)</div>
+          <p>धन्यवाद, <strong>${escapeHtml(name)}</strong>। मिति <strong>${escapeHtml(date)}</strong> (${escapeHtml(time)}) मा <strong>${escapeHtml(target)}</strong> को लागि तपाईंको अनुरोध पठाइएको छ।</p>
+          <ol class="status-steps">
+            <li><strong>अझै पुष्टि भएको छैन:</strong> यो समय तालिका अनुरोध मात्र हो, अन्तिम पुष्टि होइन।</li>
+            <li><strong>२४ घण्टा भित्र पुष्टि:</strong> हाम्रो टोलीले एसएमएस, ह्वाट्सएप वा इमेल मार्फत समय, स्थान/भिडियो लिङ्क र शुल्क जानकारी (अनलाइन: रु. १,००० नेपाल / USD 25 विदेश; क्लिनिक: रु. ८००–२,०००) पठाउनेछ।</li>
+            <li><strong>जरुरी सहयोगको लागि:</strong> <strong>+९७७-१-५२४२५११</strong> मा फोन वा <strong>+९७७-९८२५२०७२५३</strong> मा ह्वाट्सएप गर्नुहोस्।</li>
+          </ol>
+        `,
+        sendErrorPrefix: 'अनुरोध पठाउन प्राविधिक समस्या भयो। कृपया पुनः प्रयास गर्नुहोस् वा ह्वाट्सएप (+९७७-९८२५२०७२५३) मा सिधै सम्पर्क गर्नुहोस्।'
       }
-      updateLanguageOptions();
-      validateDate();
+    };
+
+    const timeSlotsByMode = {
+      valley: [
+        { val: 'Evening (4:00 PM - 7:00 PM NPT)', en: 'Evening OPD (4:00 PM – 7:00 PM NPT)', np: 'साँझको ओपीडी (४:०० – ७:०० बजे NPT)' }
+      ],
+      dhangadhi: [
+        { val: 'Saturday Morning (9:00 AM - 1:00 PM NPT)', en: 'Saturday Morning (9:00 AM – 1:00 PM NPT)', np: 'शनिबार बिहान (९:०० – १:०० बजे NPT)' },
+        { val: 'Saturday Afternoon (1:00 PM - 5:00 PM NPT)', en: 'Saturday Afternoon (1:00 PM – 5:00 PM NPT)', np: 'शनिबार दिउँसो (१:०० – ५:०० बजे NPT)' }
+      ],
+      online: [
+        { val: 'Online Morning (9:00 AM - 12:00 PM NPT)', en: 'Morning Window (9:00 AM – 12:00 PM NPT)', np: 'बिहानको समय (९:०० – १२:०० बजे NPT)' },
+        { val: 'Online Afternoon (12:00 PM - 4:00 PM NPT)', en: 'Afternoon Window (12:00 PM – 4:00 PM NPT)', np: 'दिउँसोको समय (१२:०० – ४:०० बजे NPT)' },
+        { val: 'Online Evening (7:00 PM - 9:00 PM NPT)', en: 'Evening Window (7:00 PM – 9:00 PM NPT)', np: 'बेलुकाको समय (७:०० – ९:०० बजे NPT)' },
+        { val: 'Online Flexible (Any NPT window)', en: 'Flexible / First Available Slot (NPT)', np: 'उपलब्ध जुनसुकै समय (NPT)' }
+      ]
+    };
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
-    
-    function addOption(select, value, enText, npText) {
-      const option = document.createElement('option');
-      option.value = value;
-      option.textContent = currentLanguage === 'en' ? enText : npText;
-      option.setAttribute('data-en', enText);
-      option.setAttribute('data-np', npText);
-      select.appendChild(option);
+
+    function getSelectedMode() {
+      const checked = document.querySelector('input[name="consultationMode"]:checked');
+      return checked ? checked.value : 'in-person';
     }
-    
-    function updateLanguageOptions() {
-      const timeSelect = document.getElementById('preferredTime');
-      for (let i = 0; i < timeSelect.options.length; i++) {
-        const option = timeSelect.options[i];
-        if (option.value) {
-          const text = option.getAttribute(`data-${currentLanguage}`);
-          if (text) option.textContent = text;
+
+    function clearDateError() {
+      const errBox = document.getElementById('dateInlineError');
+      const dateInput = document.getElementById('preferredDate');
+      errBox.classList.remove('visible');
+      dateInput.removeAttribute('aria-invalid');
+    }
+
+    function showDateError(msg) {
+      const errBox = document.getElementById('dateInlineError');
+      const errText = document.getElementById('dateInlineErrorText');
+      const dateInput = document.getElementById('preferredDate');
+      errText.textContent = msg;
+      errBox.classList.add('visible');
+      dateInput.setAttribute('aria-invalid', 'true');
+    }
+
+    function updateConsultationUI() {
+      const mode = getSelectedMode();
+      const clinicGroup = document.getElementById('clinicSelectGroup');
+      const clinicSelect = document.getElementById('clinicLocation');
+      const timezoneGroup = document.getElementById('timezoneGroup');
+      const banner = document.getElementById('modeGuidanceBanner');
+      const ruleText = document.getElementById('dateRuleText');
+      const t = copyStrings[currentLanguage];
+
+      if (mode === 'online') {
+        clinicGroup.style.display = 'none';
+        clinicSelect.required = false;
+        timezoneGroup.style.display = 'block';
+        banner.innerHTML = t.bannerOnline;
+        ruleText.textContent = t.ruleOnline;
+      } else {
+        clinicGroup.style.display = 'block';
+        clinicSelect.required = true;
+        timezoneGroup.style.display = 'none';
+        banner.innerHTML = t.bannerInPerson;
+        const clinic = clinicSelect.value;
+        if (clinic === 'Shubharambha Skin Centre, Dhangadhi') {
+          ruleText.textContent = t.ruleDhangadhi;
+        } else if (clinic) {
+          ruleText.textContent = t.ruleKathmandu;
+        } else {
+          ruleText.textContent = t.ruleDefaultInPerson;
         }
       }
+
+      populateTimeSlots();
+      validateDateSelection();
     }
-    
-    // Validate date (weekday checks only)
-    function validateDate() {
-      const clinicSelect = document.getElementById('clinicLocation');
+
+    function populateTimeSlots() {
+      const mode = getSelectedMode();
+      const clinic = document.getElementById('clinicLocation').value;
+      const timeSelect = document.getElementById('preferredTime');
+      const previousValue = timeSelect.value;
+
+      while (timeSelect.options.length > 1) {
+        timeSelect.remove(1);
+      }
+
+      let slots = [];
+      if (mode === 'online') {
+        slots = timeSlotsByMode.online;
+      } else if (clinic === 'Shubharambha Skin Centre, Dhangadhi') {
+        slots = timeSlotsByMode.dhangadhi;
+      } else if (clinic) {
+        slots = timeSlotsByMode.valley;
+      } else {
+        slots = [...timeSlotsByMode.valley, ...timeSlotsByMode.dhangadhi];
+      }
+
+      slots.forEach(slot => {
+        const opt = document.createElement('option');
+        opt.value = slot.val;
+        opt.textContent = slot[currentLanguage];
+        opt.setAttribute('data-en', slot.en);
+        opt.setAttribute('data-np', slot.np);
+        timeSelect.appendChild(opt);
+      });
+
+      if ([...timeSelect.options].some(o => o.value === previousValue)) {
+        timeSelect.value = previousValue;
+      }
+    }
+
+    function validateDateSelection() {
+      const mode = getSelectedMode();
+      const clinic = document.getElementById('clinicLocation').value;
       const dateInput = document.getElementById('preferredDate');
       const selectedDate = dateInput.value;
-      const selectedClinic = clinicSelect.value;
-      
-      if (!selectedDate) return;
+      const t = copyStrings[currentLanguage];
+
+      clearDateError();
+      if (!selectedDate || mode === 'online') return true;
 
       const dateObj = new Date(selectedDate + 'T00:00:00');
-      const dayOfWeek = dateObj.getDay(); // 0=Sunday, 6=Saturday
+      const dayOfWeek = dateObj.getDay(); // 6 = Saturday
 
-      if (selectedClinic === 'Shubharambha Skin Centre, Dhangadhi') {
-        if (dayOfWeek !== 6) {
-          alert('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.');
-          dateInput.value = '';
-        }
+      if (clinic === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) {
+        showDateError(t.errDhangadhiSat);
+        return false;
       }
-      if (selectedClinic !== 'Teledermatology' && selectedClinic !== 'Shubharambha Skin Centre, Dhangadhi') {
-        if (dayOfWeek === 6) {
-          alert('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.');
-          dateInput.value = '';
-        }
+      if (clinic && clinic !== 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek === 6) {
+        showDateError(t.errValleySat);
+        return false;
       }
+      return true;
     }
 
-    // Form submission
     document.addEventListener('DOMContentLoaded', function() {
-      const appointmentForm = document.getElementById('appointmentForm');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const primaryNavList = document.getElementById('primaryNavList');
+      const languageToggle = document.getElementById('languageToggle');
       const preferredDateInput = document.getElementById('preferredDate');
+      const appointmentForm = document.getElementById('appointmentForm');
       const submitBtn = document.getElementById('submit-btn');
       const formStatus = document.getElementById('form-status');
-      
-      // Set minimum date to today (local time)
+
+      // Mobile Navigation Toggle
+      mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = primaryNavList.classList.toggle('open');
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      // Set min date to today
       const today = new Date();
       const yyyy = today.getFullYear();
       const mm = String(today.getMonth() + 1).padStart(2, '0');
       const dd = String(today.getDate()).padStart(2, '0');
       preferredDateInput.min = `${yyyy}-${mm}-${dd}`;
-      
-      function showStatus(message, type) {
-        formStatus.innerHTML = `<div class="status-message status-${type}"><i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'info' ? 'fa-info-circle' : 'fa-exclamation-circle'}"></i>${message}</div>`;
-        formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => formStatus.innerHTML = '', 10000);
-      }
+
+      // Mode & Clinic Listeners
+      document.querySelectorAll('input[name="consultationMode"]').forEach(radio => {
+        radio.addEventListener('change', updateConsultationUI);
+      });
+      document.getElementById('clinicLocation').addEventListener('change', updateConsultationUI);
+      preferredDateInput.addEventListener('change', validateDateSelection);
+
+      // Language Toggle
+      languageToggle.addEventListener('click', function() {
+        currentLanguage = currentLanguage === 'en' ? 'np' : 'en';
+        document.documentElement.lang = currentLanguage === 'np' ? 'ne' : 'en';
+
+        document.querySelectorAll('[data-en], [data-np]').forEach(el => {
+          const text = el.getAttribute(`data-${currentLanguage}`);
+          if (text) el.textContent = text;
+        });
+
+        document.querySelectorAll('[data-en-placeholder], [data-np-placeholder]').forEach(el => {
+          const ph = el.getAttribute(`data-${currentLanguage}-placeholder`);
+          if (ph) el.placeholder = ph;
+        });
+
+        updateConsultationUI();
+      });
 
       function setLoading(isLoading) {
+        const t = copyStrings[currentLanguage];
         if (isLoading) {
-          submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
+          submitBtn.innerHTML = `<span class="spinner" aria-hidden="true"></span> ${t.processing}`;
           submitBtn.disabled = true;
         } else {
-          submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> <span data-en="Submit Appointment Request" data-np="अपोइन्टमेन्ट अनुरोध पठाउनुहोस्">Submit Appointment Request</span>';
+          submitBtn.innerHTML = `<i class="fas fa-calendar-check" aria-hidden="true"></i> <span>${t.submitLabel}</span>`;
           submitBtn.disabled = false;
         }
       }
 
-      if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const fullName = document.getElementById('fullName').value;
-          const age = document.getElementById('age').value;
-          const phoneNumber = document.getElementById('phoneNumber').value;
-          const emailAddress = document.getElementById('emailAddress').value;
-          const clinicLocation = document.getElementById('clinicLocation').value;
-          const preferredDate = document.getElementById('preferredDate').value;
-          const preferredTime = document.getElementById('preferredTime').value;
-          const reasonForVisit = document.getElementById('reasonForVisit').value;
-          const additionalInfo = document.getElementById('additionalInfo').value;
-          const consent = document.getElementById('consent').checked;
-          
-          if (!fullName || !age || !phoneNumber || !emailAddress || !clinicLocation || !preferredDate || !preferredTime || !reasonForVisit || !consent) {
-            showStatus('Please fill in all required fields and provide consent.', 'error');
-            return;
-          }
-          if (age < 1 || age > 120) { showStatus('Please enter a valid age (1-120).', 'error'); return; }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) { showStatus('Please enter a valid email address.', 'error'); return; }
-          
-          const selectedDateObj = new Date(preferredDate + 'T00:00:00');
-          const dayOfWeek = selectedDateObj.getDay();
-          
-          if (clinicLocation === 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek !== 6) { showStatus('Shubharambha Skin Centre is only available on Saturdays. Please select a Saturday.', 'error'); return; }
-          if (clinicLocation !== 'Teledermatology' && clinicLocation !== 'Shubharambha Skin Centre, Dhangadhi' && dayOfWeek === 6) { showStatus('No OPD clinics on Saturdays except at Shubharambha Skin Centre, Dhangadhi. Please select a different date or choose tele-dermatology.', 'error'); return; }
-          
-          setLoading(true);
-          const templateParams = {
-            from_name: fullName, age, phone_number: phoneNumber, reply_to: emailAddress,
-            clinic_location: clinicLocation, preferred_date: preferredDate, preferred_time: preferredTime,
-            reason_for_visit: reasonForVisit, additional_info: additionalInfo || 'No additional information provided',
-            submitted_at: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kathmandu', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
-          };
-          
-          // Using the provided Service ID and Template ID
-          emailjs.send('service_vwesyh4', 'template_hqr000g', templateParams)
-            .then(function(response) {
-              showStatus('Thank you! Your appointment request was sent. Our team will contact you to confirm availability; no appointment is confirmed yet.', 'success');
-              appointmentForm.reset();
-              // Reset min date to today
-              const t = new Date();
-              preferredDateInput.min = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
-              updateTimeSlots();
-            })
-            .catch(function(error) {
-              console.error('EmailJS error details:', error);
-              let errorMsg = 'There was an error submitting your request. ';
-              if (error.text) {
-                errorMsg += 'Error: ' + error.text;
-              } else {
-                errorMsg += 'Please try again or call us directly.';
-              }
-              showStatus(errorMsg, 'error');
-            })
-            .finally(function() { setLoading(false); });
-        });
-      }
+      appointmentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const t = copyStrings[currentLanguage];
 
-      updateTimeSlots();
+        const mode = getSelectedMode();
+        const clinicLocation = mode === 'online'
+          ? 'Online Teledermatology'
+          : document.getElementById('clinicLocation').value;
+        const patientTimezone = document.getElementById('patientTimezone').value.trim();
+        const preferredDate = preferredDateInput.value;
+        const preferredTime = document.getElementById('preferredTime').value;
+        const fullName = document.getElementById('fullName').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        const emailAddress = document.getElementById('emailAddress').value.trim();
+        const reasonForVisit = document.getElementById('reasonForVisit').value;
+        const additionalInfo = document.getElementById('additionalInfo').value.trim();
+        const consent = document.getElementById('consent').checked;
+
+        if (!fullName || !phoneNumber || !emailAddress || !preferredDate || !preferredTime || !reasonForVisit || !consent || (mode === 'in-person' && !clinicLocation)) {
+          formStatus.innerHTML = `<div class="status-message status-error"><i class="fas fa-exclamation-circle" aria-hidden="true"></i> ${t.errMissingFields}</div>`;
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        if (age && (Number(age) < 1 || Number(age) > 120)) {
+          formStatus.innerHTML = `<div class="status-message status-error"><i class="fas fa-exclamation-circle" aria-hidden="true"></i> ${t.errInvalidAge}</div>`;
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
+          formStatus.innerHTML = `<div class="status-message status-error"><i class="fas fa-exclamation-circle" aria-hidden="true"></i> ${t.errInvalidEmail}</div>`;
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        if (!validateDateSelection()) {
+          preferredDateInput.focus();
+          return;
+        }
+
+        setLoading(true);
+        const notesCompiled = [
+          mode === 'online' && patientTimezone ? `Patient Time Zone: ${patientTimezone}` : '',
+          additionalInfo || 'No additional notes provided'
+        ].filter(Boolean).join(' | ');
+
+        const templateParams = {
+          from_name: fullName,
+          age: age || 'Not specified',
+          phone_number: phoneNumber,
+          reply_to: emailAddress,
+          clinic_location: clinicLocation,
+          preferred_date: preferredDate,
+          preferred_time: preferredTime,
+          reason_for_visit: reasonForVisit,
+          additional_info: notesCompiled,
+          submitted_at: new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Kathmandu',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+        };
+
+        emailjs.send('service_vwesyh4', 'template_hqr000g', templateParams)
+          .then(function() {
+            formStatus.innerHTML = `<div class="status-message status-success">${t.confirmBody(fullName, clinicLocation, preferredDate, preferredTime)}</div>`;
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            appointmentForm.reset();
+            preferredDateInput.min = `${yyyy}-${mm}-${dd}`;
+            updateConsultationUI();
+          })
+          .catch(function(error) {
+            console.error('EmailJS error:', error);
+            formStatus.innerHTML = `<div class="status-message status-error"><i class="fas fa-exclamation-circle" aria-hidden="true"></i> ${t.sendErrorPrefix}</div>`;
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .finally(function() {
+            setLoading(false);
+          });
+      });
+
+      updateConsultationUI();
     });
   </script>
 </body>
