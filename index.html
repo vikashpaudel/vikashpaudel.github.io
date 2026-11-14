@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. Vikash Paudel, MD | Dermatologist & Skin Specialist in Kathmandu, Lalitpur</title>
     <meta name="description" content="Meet Dr. Vikash Paudel, MD, consultant dermatologist and skin specialist serving Kathmandu and Lalitpur, Nepal. Explore evidence-based care for acne, hair loss, melasma, eczema, psoriasis, vitiligo, skin allergies and dermatosurgery." />
 
@@ -18,8 +18,8 @@
     <meta property="og:title" content="Dr. Vikash Paudel — Consultant Dermatologist in Kathmandu" />
     <meta property="og:description" content="Consultant dermatologist specialising in medical &amp; cosmetic dermatology, hair fall, STI management and dermatosurgery. Clinics at Shankhamul Health Care, Elite Health Clinic &amp; Shubharambha Skin Centre." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://vikashpaudel.com.np/" />
-    <meta property="og:image" content="https://vikashpaudel.com.np/images/og-image.png" />
+    <meta property="og:url" content="https://www.vikashpaudel.com.np/" />
+    <meta property="og:image" content="https://www.vikashpaudel.com.np/images/og-image.png" />
     <meta property="og:image:alt" content="Dr Vikash Paudel - Consultant Dermatologist Kathmandu" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ne_NP" />
@@ -30,11 +30,11 @@
     <meta name="twitter:creator" content="@vikashpaudel" />
     <meta name="twitter:title" content="Dr. Vikash Paudel — Consultant Dermatologist in Kathmandu" />
     <meta name="twitter:description" content="Consultant dermatologist in Kathmandu specialising in acne, cosmetic dermatology, hair restoration and STI management." />
-    <meta name="twitter:image" content="https://vikashpaudel.com.np/images/twitter-card.png" />
+    <meta name="twitter:image" content="https://www.vikashpaudel.com.np/images/twitter-card.png" />
     <meta name="twitter:image:alt" content="Dr. Vikash Paudel - Dermatologist" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://vikashpaudel.com.np" />
+    <link rel="canonical" href="https://www.vikashpaudel.com.np/" />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
@@ -2146,6 +2146,16 @@
             .stat-number { font-size: 1.7rem; }
         }
 
+        /* Color-blind SVG filter classes */
+        body.filter-protanopia  { filter: url(#protanopia-filter); }
+        body.filter-deuteranopia { filter: url(#deuteranopia-filter); }
+        body.filter-tritanopia  { filter: url(#tritanopia-filter); }
+
+        /* 2x2 grid for 4 verified reviews on desktop */
+        @media (min-width: 901px) {
+            .reviews-compact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
         /* ============================================================
            26. REDUCED MOTION & PRINT
            ============================================================ */
@@ -2312,7 +2322,7 @@
                     </li>
                     <li role="none"><a href="research.html" role="menuitem" data-en="Research" data-np="अनुसन्धान">Research</a></li>
                     <li role="none"><a href="award.html" role="menuitem" data-en="Awards" data-np="पुरस्कार">Awards</a></li>
-                    <li role="none"><a href="#testimonials" role="menuitem" data-en="Testimonials" data-np="ग्राहक प्रतिक्रिया">Testimonials</a></li>
+                    <li role="none"><a href="#reviews" role="menuitem" data-en="Reviews" data-np="समीक्षाहरू">Reviews</a></li>
                     <li role="none"><a href="about.html" role="menuitem" data-en="About" data-np="हाम्रो बारेमा">About</a></li>
                     <li role="none"><a href="#contact" role="menuitem" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
                     <li role="none"><a href="blog.html" role="menuitem" data-en="Blog" data-np="ब्लग">Blog</a></li>
@@ -2494,19 +2504,19 @@
             <div class="container">
                 <div class="stats-container">
                     <div class="stat-card fade-in">
-                        <div class="stat-number" id="yearsExp">0</div>
+                        <div class="stat-number" id="yearsExp" data-target="10">10+</div>
                         <div class="stat-text" data-en="Years of Experience" data-np="वर्षको अनुभव">Years of Experience</div>
                     </div>
                     <div class="stat-card fade-in">
-                        <div class="stat-number" id="happyPatients">0</div>
+                        <div class="stat-number" id="happyPatients" data-target="20000">20,000+</div>
                         <div class="stat-text" data-en="Patients Consulted" data-np="परामर्श गरिएका रोगीहरू">Patients Consulted</div>
                     </div>
                     <div class="stat-card fade-in">
-                        <div class="stat-number" id="affiliatedInstitutes">0</div>
+                        <div class="stat-number" id="affiliatedInstitutes" data-target="5">5</div>
                         <div class="stat-text" data-en="Affiliated Institutes" data-np="सम्बद्ध संस्थानहरू">Affiliated Institutes</div>
                     </div>
                     <div class="stat-card fade-in">
-                        <div class="stat-number" id="countriesServed">0</div>
+                        <div class="stat-number" id="countriesServed" data-target="20">20+</div>
                         <div class="stat-text" data-en="Countries Served" data-np="सेवा गरिएका देशहरू">Countries Served</div>
                     </div>
                 </div>
@@ -2674,23 +2684,23 @@
             </div>
         </section>
 
-        <!-- ===== GOOGLE REVIEWS (compact, authentic) ===== -->
-        <section class="google-reviews-section" aria-labelledby="google-reviews-title">
+        <!-- ===== GOOGLE REVIEWS & TESTIMONIALS (unified) ===== -->
+        <section class="google-reviews-section" id="reviews" aria-labelledby="google-reviews-title">
             <div class="container">
                 <p class="eyebrow">
                     <i class="fab fa-google" aria-hidden="true"></i>
-                    <span data-en="Google Reviews" data-np="गुगल समीक्षा">Google Reviews</span>
+                    <span data-en="Patient Reviews" data-np="बिरामी समीक्षा">Patient Reviews</span>
                 </p>
                 <h2 class="section-title" id="google-reviews-title"
-                    data-en="What Patients Say on Google"
-                    data-np="गुगलमा बिरामीहरू के भन्छन्">
-                    What Patients Say on Google
+                    data-en="What Patients Say About Dr. Paudel"
+                    data-np="डा. पौडेलबारे बिरामीहरू के भन्छन्">
+                    What Patients Say About Dr. Paudel
                 </h2>
                 <div class="divider" aria-hidden="true"></div>
                 <p class="section-sub"
-                   data-en="Verified reviews from patients who have consulted Dr. Paudel."
-                   data-np="डा. पौडेलसँग परामर्श लिनुभएका बिरामीहरूका प्रमाणित समीक्षाहरू।">
-                    Verified reviews from patients who have consulted Dr. Paudel.
+                   data-en="Verified reviews and experiences from patients who have consulted Dr. Paudel."
+                   data-np="डा. पौडेलसँग परामर्श लिनुभएका बिरामीहरूका प्रमाणित समीक्षा र अनुभवहरू।">
+                    Verified reviews and experiences from patients who have consulted Dr. Paudel.
                 </p>
 
                 <div class="reviews-compact-grid stagger" style="margin-top: 2.25rem;">
@@ -2701,7 +2711,7 @@
                             <div class="review-avatar" aria-hidden="true">RS</div>
                             <div class="review-meta">
                                 <strong>R. Shrestha</strong>
-                                <span data-en="Verified Google Review" data-np="प्रमाणित गुगल समीक्षा">Verified Google Review</span>
+                                <span data-en="Acne Treatment · Verified Google Review" data-np="डन्डिफोर उपचार · प्रमाणित गुगल समीक्षा">Acne Treatment · Verified Google Review</span>
                             </div>
                         </div>
                         <div class="review-stars-compact" aria-label="5 out of 5 stars">
@@ -2724,7 +2734,7 @@
                             <div class="review-avatar" aria-hidden="true">AK</div>
                             <div class="review-meta">
                                 <strong>A. Kumar</strong>
-                                <span data-en="Verified Google Review" data-np="प्रमाणित गुगल समीक्षा">Verified Google Review</span>
+                                <span data-en="Skin Surgery · Verified Google Review" data-np="छाला शल्यचिकित्सा · प्रमाणित गुगल समीक्षा">Skin Surgery · Verified Google Review</span>
                             </div>
                         </div>
                         <div class="review-stars-compact" aria-label="5 out of 5 stars">
@@ -2747,7 +2757,7 @@
                             <div class="review-avatar" aria-hidden="true">ST</div>
                             <div class="review-meta">
                                 <strong>S. Thapa</strong>
-                                <span data-en="Verified Google Review" data-np="प्रमाणित गुगल समीक्षा">Verified Google Review</span>
+                                <span data-en="Hair Restoration · Verified Google Review" data-np="कपाल उपचार · प्रमाणित गुगल समीक्षा">Hair Restoration · Verified Google Review</span>
                             </div>
                         </div>
                         <div class="review-stars-compact" aria-label="5 out of 5 stars">
@@ -2763,6 +2773,29 @@
                             "I was worried about my hair loss, but Dr. Paudel's personalised treatment plan has shown remarkable improvement in just three months. He is patient, professional and genuinely cares about his patients."
                         </p>
                     </article>
+
+                    <article class="review-card-compact fade-in">
+                        <i class="fab fa-google review-google-icon" aria-hidden="true"></i>
+                        <div class="review-card-top">
+                            <div class="review-avatar" aria-hidden="true">PB</div>
+                            <div class="review-meta">
+                                <strong>P. Bhandari</strong>
+                                <span data-en="Paediatric Dermatology · Verified Patient Review" data-np="बाल छालारोग · प्रमाणित बिरामी समीक्षा">Paediatric Dermatology · Verified Patient Review</span>
+                            </div>
+                        </div>
+                        <div class="review-stars-compact" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <p class="review-text-compact"
+                           data-en="&quot;Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout.&quot;"
+                           data-np="&quot;मेरो छोराको एक्जिमाको उपचारमा डा. पौडेलको दृष्टिकोण कोमल तर प्रभावकारी थियो। उहाँले सबै कुरा वर्णन गर्न समय लिनुभयो र हामीलाई पूरै प्रक्रियामा सहज महसुस गराउनुभयो।&quot;">
+                            "Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout."
+                        </p>
+                    </article>
                 </div>
 
                 <div class="google-reviews-cta">
@@ -2774,97 +2807,6 @@
                         <span data-en="Read all reviews on Google" data-np="गुगलमा सबै समीक्षाहरू पढ्नुहोस्">Read all reviews on Google</span>
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== TESTIMONIALS ===== -->
-        <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
-            <div class="container">
-                <div class="section-head section-head--center reveal">
-                    <p class="eyebrow">
-                        <i class="fas fa-comment-medical" aria-hidden="true"></i>
-                        <span data-en="Testimonials" data-np="प्रशंसापत्र">Testimonials</span>
-                    </p>
-                    <h2 class="section-title" id="testimonials-title"
-                        data-en="Patient Testimonials"
-                        data-np="रोगीहरूको प्रशंसापत्र">
-                        Patient Testimonials
-                    </h2>
-                    <div class="divider" aria-hidden="true"></div>
-                    <p class="section-sub"
-                       data-en="Hear what our patients have to say about their experience with Dr. Paudel."
-                       data-np="हाम्रा बिरामीहरू डा. पौडेलसँगको आफ्नो अनुभवको बारेमा के भन्छन् सुन्नुहोस्।">
-                        Hear what our patients have to say about their experience with Dr. Paudel.
-                    </p>
-                </div>
-
-                <div class="testimonials-container">
-                    <div class="testimonial-slider" id="testimonialSlider">
-                        <div class="testimonial-group">
-                            <div class="testimonial fade-in">
-                                <p class="testimonial-text"
-                                   data-en="&quot;Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence.&quot;"
-                                   data-np="&quot;मेरो पुरानो डन्डिफोरको उपचारमा डा. पौडेलको विशेषज्ञता जीवन परिवर्तनकारी रह्यो। वर्षौंसम्म संघर्ष पछि, अन्ततः सफा अनुहार र आत्मविश्वास छ।&quot;">
-                                    "Dr. Paudel's expertise in treating my chronic acne has been life-changing. After years of struggling, I finally have clear skin and renewed confidence."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-img" aria-hidden="true">RS</div>
-                                    <div class="author-info">
-                                        <h4>R. Shrestha</h4>
-                                        <p data-en="Acne Treatment Patient" data-np="एक्ने उपचारको रोगी">Acne Treatment Patient</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial fade-in">
-                                <p class="testimonial-text"
-                                   data-en="&quot;The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results.&quot;"
-                                   data-np="&quot;कोठि हटाउने प्रक्रिया छिटो र दुखाइरहित थियो। डा. पौडेलले सबै कुरा पूर्ण रूपमा वर्णन गर्नुभयो र म नतिजासँग अत्यन्त खुसी छु।&quot;">
-                                    "The mole removal procedure was quick and painless. Dr. Paudel explained everything thoroughly and I'm extremely happy with the results."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-img" aria-hidden="true">AK</div>
-                                    <div class="author-info">
-                                        <h4>A Kumar</h4>
-                                        <p data-en="Skin Surgery Patient" data-np="त्वचा सर्जरीको रोगी">Skin Surgery Patient</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-group">
-                            <div class="testimonial fade-in">
-                                <p class="testimonial-text"
-                                   data-en="&quot;I was worried about my hair loss, but Dr. Paudel's personalised treatment plan has shown remarkable improvement in just three months.&quot;"
-                                   data-np="&quot;म कपाल झर्नेबारे चिन्तित थिएँ, तर डा. पौडेलको व्यक्तिगत उपचार योजनाले मात्र तीन महिनामा उल्लेखनीय सुधार देखाएको छ।&quot;">
-                                    "I was worried about my hair loss, but Dr. Paudel's personalised treatment plan has shown remarkable improvement in just three months."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-img" aria-hidden="true">ST</div>
-                                    <div class="author-info">
-                                        <h4>S Thapa</h4>
-                                        <p data-en="Hair Treatment Patient" data-np="कपाल उपचारको रोगी">Hair Treatment Patient</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial fade-in">
-                                <p class="testimonial-text"
-                                   data-en="&quot;Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout.&quot;"
-                                   data-np="&quot;मेरो छोराको एक्जिमाको उपचारमा डा. पौडेलको दृष्टिकोण कोमल तर प्रभावकारी थियो। उहाँले सबै कुरा वर्णन गर्न समय लिनुभयो र हामीलाई पूरै प्रक्रियामा सहज महसुस गराउनुभयो।&quot;">
-                                    "Dr. Paudel's approach to treating my son's eczema was gentle yet effective. He took time to explain everything and made us feel comfortable throughout."
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-img" aria-hidden="true">PB</div>
-                                    <div class="author-info">
-                                        <h4>P Bhandari</h4>
-                                        <p data-en="Paediatric Dermatology" data-np="बाल छालारोग">Paediatric Dermatology</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -3065,9 +3007,9 @@
             <div class="tool-item">
                 <label><i class="fas fa-adjust" aria-hidden="true"></i> Contrast</label>
                 <div class="btn-group" id="contrastGroup">
-                    <button data-contrast="low">Low</button>
-                    <button data-contrast="medium" class="active">Med</button>
-                    <button data-contrast="high">High</button>
+                    <button data-contrast="0.85">Low</button>
+                    <button data-contrast="1" class="active">Med</button>
+                    <button data-contrast="1.25">High</button>
                 </div>
             </div>
 
@@ -3160,85 +3102,128 @@
     </div>
 
 
-    <!-- Search-engine and AI-readable professional profile (factual, non-ranking) -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://vikashpaudel.com.np/#vikash-paudel",
-      "name": "Dr. Vikash Paudel",
-      "alternateName": "डा. विकास पौडेल",
-      "honorificPrefix": "Dr.",
-      "honorificSuffix": "MD",
-      "jobTitle": [
-        "Consultant Dermatologist",
-        "Associate Professor of Dermatology"
-      ],
-      "description": "Consultant dermatologist, venereologist and dermatosurgeon providing dermatology care in Kathmandu and Lalitpur, Nepal.",
-      "url": "https://vikashpaudel.com.np/",
-      "knowsAbout": [
-        "Dermatology",
-        "Acne",
-        "Hair Loss",
-        "Melasma",
-        "Psoriasis",
-        "Eczema",
-        "Vitiligo",
-        "Teledermatology",
-        "Dermatosurgery"
-      ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://vikashpaudel.com.np/#webpage",
-      "url": "https://vikashpaudel.com.np/",
-      "name": "Dr. Vikash Paudel | Dermatologist in Kathmandu & Lalitpur",
-      "description": "Clinical information, dermatology services, clinic locations and consultation enquiries for Dr. Vikash Paudel.",
-      "inLanguage": [
-        "en",
-        "ne"
-      ],
-      "about": {
-        "@id": "https://vikashpaudel.com.np/#vikash-paudel"
-      },
-      "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://vikashpaudel.com.np/"
-      }
-    }
-  ]
-}
-    </script>
-
-    <!-- ===== STRUCTURED DATA ===== -->
+    <!-- ===== UNIFIED STRUCTURED DATA (Physician + MedicalClinics + WebPage) ===== -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        "name": "Dr. Vikash Paudel - Consultant Dermatologist",
-        "description": "Dr. Vikash Paudel is a consultant dermatologist and skin specialist in Kathmandu and Lalitpur, Nepal, offering evaluation and care for acne, hair loss, pigmentation, psoriasis, eczema, vitiligo, fungal infections and dermatosurgery.",
-        "url": "https://www.vikashpaudel.com.np",
-        "telephone": "+977-1-5242511",
-        "email": "vikashpaudel@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Shankhamul Health Care, Shankhamul",
-            "addressLocality": "Kathmandu",
-            "addressCountry": "NP"
-        },
-        "openingHours": [
-            "Su-Fr 04:00-19:00",
-            "We 09:00-19:00"
-        ],
-        "medicalSpecialty": "Dermatology",
-        "award": "Rising Star Award (WCD 2019, 2023); Imrich Sarkany Award (EADV 2023)",
-        "sameAs": [
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Physician",
+          "@id": "https://www.vikashpaudel.com.np/#physician",
+          "name": "Dr. Vikash Paudel",
+          "alternateName": "डा. विकास पौडेल",
+          "honorificPrefix": "Dr.",
+          "honorificSuffix": "MD",
+          "jobTitle": [
+            "Consultant Dermatologist",
+            "Associate Professor of Dermatology"
+          ],
+          "medicalSpecialty": "Dermatology",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "Nepal Medical Council Registration",
+            "value": "9111"
+          },
+          "description": "Consultant dermatologist, venereologist and dermatosurgeon providing evidence-based medical and cosmetic dermatology care in Kathmandu, Lalitpur and Dhangadhi, Nepal.",
+          "url": "https://www.vikashpaudel.com.np/",
+          "image": "https://www.vikashpaudel.com.np/images/Vikash%20Paudel.webp",
+          "telephone": "+977-1-5242511",
+          "email": "vikashpaudel@gmail.com",
+          "knowsAbout": [
+            "Medical Dermatology",
+            "Acne Treatment",
+            "Hair Restoration",
+            "Melasma & Pigmentation",
+            "Psoriasis",
+            "Eczema",
+            "Vitiligo",
+            "STI Management",
+            "Teledermatology",
+            "Dermatosurgery",
+            "Cosmetic Dermatology"
+          ],
+          "worksFor": [
+            { "@id": "https://www.vikashpaudel.com.np/#shankhamul-clinic" },
+            { "@id": "https://www.vikashpaudel.com.np/#elite-clinic" },
+            { "@id": "https://www.vikashpaudel.com.np/#shubharambha-clinic" },
+            {
+              "@type": "Hospital",
+              "name": "Patan Hospital, Patan Academy of Health Sciences",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Lalitpur",
+                "addressCountry": "NP"
+              }
+            }
+          ],
+          "award": [
+            "Rising Star Award (WCD 2019, 2023)",
+            "Imrich Sarkany Award (EADV 2023)"
+          ],
+          "sameAs": [
             "https://www.facebook.com/vikashderma",
             "https://www.instagram.com/vikash.paudel",
-            "https://www.linkedin.com/in/vikash-paudel-89598324"
-        ]
+            "https://www.linkedin.com/in/vikash-paudel-89598324",
+            "https://www.tiktok.com/@skindoctor.vikash",
+            "https://youtube.com/@vikashpaudel"
+          ]
+        },
+        {
+          "@type": "MedicalClinic",
+          "@id": "https://www.vikashpaudel.com.np/#shankhamul-clinic",
+          "name": "Shankhamul Health Care",
+          "telephone": "+977-1-5242511",
+          "medicalSpecialty": "Dermatology",
+          "openingHours": "Su-Fr 08:00-19:00",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shankhamul",
+            "addressLocality": "Kathmandu",
+            "postalCode": "44600",
+            "addressCountry": "NP"
+          }
+        },
+        {
+          "@type": "MedicalClinic",
+          "@id": "https://www.vikashpaudel.com.np/#elite-clinic",
+          "name": "Elite Health Clinic",
+          "telephone": "+977-1-5420745",
+          "medicalSpecialty": "Dermatology",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mahalaxmisthan",
+            "addressLocality": "Lalitpur",
+            "addressCountry": "NP"
+          }
+        },
+        {
+          "@type": "MedicalClinic",
+          "@id": "https://www.vikashpaudel.com.np/#shubharambha-clinic",
+          "name": "Shubharambha Skin Centre",
+          "telephone": "+977-91-410107",
+          "medicalSpecialty": "Dermatology",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Chatakpur",
+            "addressLocality": "Dhangadhi",
+            "addressRegion": "Sudurpashchim Province",
+            "addressCountry": "NP"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.vikashpaudel.com.np/#webpage",
+          "url": "https://www.vikashpaudel.com.np/",
+          "name": "Dr. Vikash Paudel, MD | Dermatologist & Skin Specialist in Kathmandu, Lalitpur",
+          "description": "Clinical information, dermatology services, clinic locations and consultation enquiries for Dr. Vikash Paudel.",
+          "inLanguage": ["en", "ne"],
+          "about": { "@id": "https://www.vikashpaudel.com.np/#physician" },
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://www.vikashpaudel.com.np/"
+          }
+        }
+      ]
     }
     </script>
 
@@ -3548,60 +3533,8 @@
         }
 
         /* =========================================================
-           9. TESTIMONIAL SLIDER
+           9. CHAT WIDGET
            ========================================================= */
-        function startSliders() {
-            const testimonialSlider = document.getElementById('testimonialSlider');
-            if (!testimonialSlider) return;
-
-            let ti = 0;
-            let tInt;
-
-            function startT() {
-                if (prefersReduced) return;
-                tInt = setInterval(() => {
-                    ti = (ti + 1) % 2;
-                    testimonialSlider.style.transform = `translateX(-${ti * 50}%)`;
-                }, 6000);
-            }
-            startT();
-
-            const container = document.querySelector('.testimonials-container');
-            if (container) {
-                container.addEventListener('mouseenter', () => clearInterval(tInt));
-                container.addEventListener('mouseleave', () => {
-                    clearInterval(tInt);
-                    startT();
-                });
-            }
-        }
-
-        /* =========================================================
-           10. CHAT WIDGET
-           ========================================================= */
-        const chatResponses = {
-            en: {
-                greetings: ["Hello! How can we help you today?", "Hi there! What can we assist you with?", "Welcome! How may I help you?"],
-                appointment: ["To book an appointment, you can use our online booking system or call us at +977-1-5242511.", "Dr. Paudel sees patients at multiple locations in Kathmandu. You can book online or call our clinic directly."],
-                services: ["Dr. Paudel specialises in medical dermatology, cosmetic procedures, STI treatment, hair restoration and skin surgery. Which service are you interested in?", "We offer comprehensive dermatological care, including acne treatment, chemical peels, Botox, fillers and more."],
-                hours: ["Our clinic hours are Sunday to Friday from 8 AM to 7 PM. We're closed on Saturdays.", "Dr. Paudel consults at different locations on different days. Would you like specific timing for a particular clinic?"],
-                location: ["Dr. Paudel practices at Shankhamul Health Care, Elite Health Clinic in Mahalaxmisthan, and Shubharambha Skin Centre in Dhangadhi.", "We have clinics in Shankhamul, Mahalaxmisthan, and Dhangadhi (Shubharambha)."],
-                cost: ["Consultation fees vary based on the type of visit. For accurate pricing, please contact our clinic directly at +977-1-5242511.", "Treatment costs depend on the specific procedure and complexity."],
-                emergency: ["For urgent dermatological concerns, please call +977-9825207253 directly.", "If this is a medical emergency, please visit the nearest hospital or call +977-9825207253 immediately."],
-                default: ["I understand you're asking about {topic}. Let me connect you with more specific information.", "That's a good question about {topic}. Our team can provide detailed answers during a consultation."]
-            },
-            np: {
-                greetings: ["नमस्ते! आज हामी तपाईंलाई कसरी मद्दत गर्न सक्छौं?", "नमस्कार! हामी तपाईंलाई के सहयोग गर्न सक्छौं?", "स्वागत छ! म तपाईंलाई कसरी मद्दत गर्न सक्छु?"],
-                appointment: ["अपोइन्टमेन्ट बुक गर्न, तपाईं हाम्रो अनलाइन बुकिङ प्रणाली प्रयोग गर्न सक्नुहुन्छ वा +९७७-१-५२४२५११ मा कल गर्न सक्नुहुन्छ।"],
-                services: ["डा. पौडेल चिकित्सा त्वचा विज्ञान, कस्मेटिक प्रक्रिया, यौन संक्रमण उपचार, कपाल पुनर्स्थापना, र त्वचा सर्जरीमा विशेषज्ञ हुनुहुन्छ।"],
-                hours: ["हाम्रो क्लिनिकको समय आइतबार देखि शुक्रबार सम्म ९ बजे देखि ७ बजे सम्म हो। हामी शनिबार बन्द छौं।"],
-                location: ["डा. पौडेल शंखमुल हेल्थ केयर, महालक्ष्मीस्थानमा एलाइट हेल्थ क्लिनिक, र धनगढीमा शुभारम्भ स्किन सेन्टरमा अभ्यास गर्नुहुन्छ।"],
-                cost: ["परामर्श शुल्क भ्रमणको प्रकारको आधारमा फरक हुन्छ। सही मूल्याकंनको लागि, कृपया सिधै +९७७-१-५२४२५११ मा सम्पर्क गर्नुहोस्।"],
-                emergency: ["अत्यावश्यक त्वचा सम्बन्धी चिन्ताहरूको लागि, कृपया सिधै +९७७-९८२५२०७२५३ मा कल गर्नुहोस्।"],
-                default: ["म बुझ्दछु तपाईं {topic} को बारेमा सोध्नुहुन्छ।", "{topic} को बारेमा त्यो राम्रो प्रश्न हो।"]
-            }
-        };
-
         /* Interactive bilingual clinic assistant: rule-based, no medical diagnosis */
         const chatButton = document.getElementById('chatButton');
         const chatContainer = document.getElementById('chatContainer');
@@ -3684,8 +3617,9 @@
         if(chatInput)chatInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();chatFreeText();}});
         document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chatContainer.classList.contains('active'))closeChat.click();});
         document.addEventListener('click',e=>{if(chatContainer&&!chatContainer.contains(e.target)&&!chatButton.contains(e.target)){chatContainer.classList.remove('active');chatButton.setAttribute('aria-expanded','false');}});
+
         /* =========================================================
-           11. ACCESSIBILITY PANEL
+           10. ACCESSIBILITY PANEL
            ========================================================= */
         const filterState = { contrast: 1, saturate: 1, grayscale: 0, sepia: 0, invert: 0 };
 
@@ -3737,10 +3671,12 @@
                             value === 'small' ? '0.92rem' :
                             value === 'large' ? '1.18rem' : '1rem';
                         break;
-                    case 'contrast':
-                        filterState.contrast = parseFloat(value);
+                    case 'contrast': {
+                        const cVal = parseFloat(value);
+                        filterState.contrast = isNaN(cVal) ? 1 : cVal;
                         updateBodyFilters();
                         break;
+                    }
                     case 'textAlign':
                         document.querySelectorAll('.container').forEach(el => {
                             el.style.textAlign = value;
@@ -3769,7 +3705,7 @@
                         document.body.style.fontFamily = value + ', sans-serif';
                         break;
                     case 'saturation':
-                        filterState.saturate = parseFloat(value);
+                        filterState.saturate = parseFloat(value) || 1;
                         updateBodyFilters();
                         break;
                     case 'cursor':
@@ -3888,7 +3824,7 @@
                 });
             };
             restoreGroup('textSizeGroup', savedSettings.textSize || 'medium', 'size');
-            restoreGroup('contrastGroup', savedSettings.contrast || 'medium', 'contrast');
+            restoreGroup('contrastGroup', String(savedSettings.contrast || '1'), 'contrast');
             restoreGroup('textAlignGroup', savedSettings.textAlign || 'left', 'align');
             restoreGroup('textSpacingGroup', savedSettings.textSpacing || '0', 'spacing');
             restoreGroup('lineHeightGroup', savedSettings.lineHeight || '1.8', 'line');
@@ -3910,7 +3846,7 @@
         }
 
         /* =========================================================
-           13. ESCAPE KEY CLOSES OVERLAYS
+           11. ESCAPE KEY CLOSES OVERLAYS
            ========================================================= */
         document.addEventListener('keydown', (e) => {
             if (e.key !== 'Escape') return;
@@ -3930,20 +3866,18 @@
         });
 
         /* =========================================================
-           14. INIT
+           12. SINGLE SAFE INIT
            ========================================================= */
-        document.addEventListener('DOMContentLoaded', function () {
+        function initApp() {
             switchLanguage(currentLanguage);
             applyThemePreference();
             initAccessibilityWidget();
-            startSliders();
-        });
+        }
 
-        if (document.readyState !== 'loading') {
-            switchLanguage(currentLanguage);
-            applyThemePreference();
-            initAccessibilityWidget();
-            startSliders();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
         }
     })();
     </script>
