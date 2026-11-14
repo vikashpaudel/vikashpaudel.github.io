@@ -189,8 +189,7 @@
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
             transition: background-color .4s ease, color .4s ease;
-            cursor: none;
-        }
+                    }
 
         body[lang="ne"] { font-family: var(--font-devanagari); }
         body[lang="ne"] h1,
@@ -401,82 +400,62 @@
         }
 
         /* ============================================================
-           06. EMERGENCY BANNER
+           06. CLINICAL STATUS UTILITY BAR
            ============================================================ */
         .emergency-banner {
-            background: var(--emergency-bg);
-            color: var(--emergency-text);
+            background: var(--color-primary-dark);
+            color: var(--color-on-dark);
             text-align: center;
-            padding: .55rem 1rem;
-            font-size: .82rem;
+            padding: .5rem 1rem;
+            font-size: .8rem;
             font-weight: 500;
             position: relative;
             z-index: 1001;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.25rem;
+            gap: 1.15rem;
             flex-wrap: wrap;
             border-bottom: 1px solid rgba(255,255,255,.12);
         }
         .emergency-banner a {
-            color: #fff;
+            color: #81D4FA;
             text-decoration: underline;
             text-underline-offset: 2px;
             font-weight: 700;
         }
         .emergency-banner a:hover { opacity: .85; }
-        .emergency-banner .emergency-icon { margin-right: 4px; opacity: .85; }
+        .emergency-banner .emergency-icon { margin-right: 4px; color: #4FC3F7; }
         .emergency-banner .emergency-divider { opacity: .3; }
+        .live-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .18rem .65rem;
+            border-radius: var(--radius-pill);
+            background: rgba(255,255,255,.08);
+            font-size: .76rem;
+            font-weight: 600;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #25D366;
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, .25);
+        }
+        .status-dot.is-closed {
+            background: #F59E0B;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, .25);
+        }
 
         @media (max-width: 700px) {
             .emergency-banner {
                 font-size: .72rem;
                 padding: .4rem .65rem;
-                gap: .5rem;
+                gap: .45rem;
             }
             .emergency-banner .emergency-divider { display: none; }
-        }
-
-        /* ============================================================
-           07. CUSTOM CURSOR
-           ============================================================ */
-        .custom-cursor {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: rgba(0, 140, 149, .08);
-            border: 1.5px solid rgba(0, 140, 149, .35);
-            transform: translate(-50%, -50%);
-            transition: width .2s, height .2s, background .2s, border-color .2s;
-            will-change: transform, left, top;
-            top: 0; left: 0;
-        }
-        .custom-cursor .dot {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: var(--color-accent);
-            box-shadow: 0 0 10px rgba(0, 140, 149, .5);
-            transition: width .2s, height .2s, box-shadow .2s, background .2s;
-        }
-        .custom-cursor.is-moving {
-            width: 40px; height: 40px;
-            background: rgba(0, 140, 149, .16);
-            border-color: rgba(0, 140, 149, .65);
-        }
-        .custom-cursor.is-moving .dot {
-            width: 7px; height: 7px;
-            box-shadow: 0 0 20px rgba(0, 140, 149, .85);
-        }
-        @media (hover: none) and (pointer: coarse) {
-            .custom-cursor { display: none !important; }
-            body { cursor: auto !important; }
         }
 
         /* ============================================================
@@ -1347,89 +1326,6 @@
         .google-reviews-link:hover .fa-arrow-right { transform: translateX(3px); }
 
         /* ============================================================
-           17. TESTIMONIALS
-           ============================================================ */
-        .testimonials-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        .testimonial-slider {
-            display: flex;
-            width: 200%;
-            transition: transform .6s var(--ease);
-        }
-        .testimonial-group {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.5rem;
-            width: 50%;
-            flex-shrink: 0;
-        }
-        .testimonial {
-            position: relative;
-            padding: 1.75rem 1.6rem 1.6rem;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-        }
-        .testimonial:hover {
-            transform: translateY(-4px);
-            border-color: var(--color-border-strong);
-            box-shadow: var(--shadow-md);
-        }
-        .testimonial::before {
-            content: "“";
-            position: absolute;
-            top: .9rem;
-            right: 1.2rem;
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            line-height: 1;
-            color: var(--color-accent-soft);
-        }
-        .testimonial-text {
-            position: relative;
-            z-index: 1;
-            font-size: .93rem;
-            line-height: 1.68;
-            color: var(--color-text);
-            margin: 0 0 1.4rem;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--color-border);
-        }
-        .author-img {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: var(--color-primary-soft);
-            color: var(--color-primary);
-            font-size: .85rem;
-            font-weight: 700;
-            letter-spacing: .02em;
-        }
-        .author-info h4 {
-            font-family: var(--font-body);
-            font-size: .9rem;
-            font-weight: 600;
-            color: var(--color-text);
-            margin: 0 0 .1rem;
-        }
-        .author-info p {
-            font-size: .78rem;
-            color: var(--color-text-subtle);
-            margin: 0;
-        }
-
-        /* ============================================================
            18. MAP
            ============================================================ */
         .map-section {
@@ -2223,14 +2119,12 @@
         /* 2026 professional readability and UX refinement; existing content preserved */
         :root { --space-section: clamp(2.35rem,4.25vw,3.55rem); }
         body { font-feature-settings:"kern" 1; }
-        /* Justification for readable paragraphs, not headings, labels, buttons, or tiny UI. */
+        /* Clean left-aligned clinical typography for effortless scanning */
         .hero-lead, .welcome-text p, .welcome-card p,
         .service-card p, .why-choose-text p,
         .section-sub, .footer-column > p,
-        .faq-answer p, .testimonial-text, .search-intent-note {
-            text-align: justify;
-            text-justify: inter-word;
-            hyphens: auto;
+        .faq-answer p, .search-intent-note {
+            text-align: left;
             overflow-wrap: break-word;
         }
         .hero-lead { line-height:1.76; }
@@ -2266,22 +2160,217 @@
             .service-card,.welcome-card,.why-choose-item {transform:none!important;}
         }
 
+
+        /* Service card action link */
+        .service-card-link {
+            margin-top: auto;
+            padding-top: .85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .84rem;
+            font-weight: 600;
+            color: var(--color-accent-dark);
+            text-decoration: none;
+            transition: gap var(--t), color var(--t);
+        }
+        .service-card:hover .service-card-link {
+            color: var(--color-primary);
+            gap: .65rem;
+        }
+
+        /* Quick Callback Request Strip */
+        .quick-book-bar {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 1.25rem 1.5rem;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr 1fr 1fr auto;
+            gap: .85rem;
+            align-items: end;
+        }
+        .quick-book-field {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+        .quick-book-field label {
+            font-size: .74rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--color-text-muted);
+        }
+        .quick-book-field input,
+        .quick-book-field select {
+            height: 44px;
+            padding: 0 .85rem;
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-sm);
+            background: var(--color-bg-alt);
+            color: var(--color-text);
+            font-family: inherit;
+            font-size: .9rem;
+        }
+        .quick-book-field input:focus,
+        .quick-book-field select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(0, 140, 149, .15);
+        }
+        @media (max-width: 960px) {
+            .quick-book-bar { grid-template-columns: 1fr 1fr; }
+            .quick-book-bar .btn { grid-column: 1 / -1; }
+        }
+        @media (max-width: 560px) {
+            .quick-book-bar { grid-template-columns: 1fr; padding: 1.1rem; }
+        }
+
+        /* Interactive Clinic Map & Schedule Switcher */
+        .clinic-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .6rem;
+            margin-bottom: 1.35rem;
+        }
+        .clinic-tab {
+            padding: .65rem 1.15rem;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--color-border-strong);
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: .86rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            transition: all var(--t);
+        }
+        .clinic-tab:hover {
+            border-color: var(--color-accent);
+            background: var(--color-primary-soft);
+        }
+        .clinic-tab.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .clinic-detail-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.15rem 1.35rem;
+            margin-bottom: 1.15rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: var(--shadow-xs);
+        }
+        .clinic-detail-info h3 {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 .25rem;
+            color: var(--color-primary);
+        }
+        .clinic-detail-info p {
+            font-size: .88rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+        .clinic-detail-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+        }
+
+        /* Pre-Consultation FAQ Accordion */
+        .faq-list {
+            max-width: 860px;
+            margin: 0 auto;
+            display: grid;
+            gap: .85rem;
+        }
+        .faq-item {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color var(--t), box-shadow var(--t);
+        }
+        .faq-item[open] {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-item summary {
+            list-style: none;
+            padding: 1.1rem 1.3rem;
+            font-weight: 600;
+            font-size: .98rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary i {
+            color: var(--color-accent);
+            transition: transform var(--t);
+            flex-shrink: 0;
+        }
+        .faq-item[open] summary i { transform: rotate(180deg); }
+        .faq-answer {
+            padding: 0 1.3rem 1.15rem;
+            font-size: .92rem;
+            line-height: 1.68;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-border);
+            padding-top: .85rem;
+        }
+
+        /* Chat notification badge */
+        .chat-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            border-radius: 999px;
+            background: #E53935;
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+            border: 2px solid #fff;
+        }
+        .chat-badge[hidden] { display: none; }
+
     </style>
 </head>
 <body>
 
-    <!-- ===== EMERGENCY BANNER ===== -->
-    <div class="emergency-banner" role="alert" aria-label="Emergency contact banner">
-        <span><i class="fas fa-phone-alt emergency-icon" aria-hidden="true"></i> 24/7 Emergency: <a href="tel:102">102</a></span>
+    <!-- ===== CLINICAL UTILITY & LIVE STATUS BANNER ===== -->
+    <div class="emergency-banner" role="region" aria-label="Clinic hours and emergency contact">
+        <span class="live-status-pill" id="liveClinicStatus">
+            <span class="status-dot" id="liveStatusDot" aria-hidden="true"></span>
+            <span id="liveStatusText" data-en="Sun–Fri: 8:00 AM – 7:00 PM (Sat Closed)" data-np="आइत–शुक्र: बिहान ८ – बेलुका ७ (शनिबार बन्द)">Sun–Fri: 8:00 AM – 7:00 PM (Sat Closed)</span>
+        </span>
         <span class="emergency-divider" aria-hidden="true">|</span>
-        <span><i class="fas fa-clock emergency-icon" aria-hidden="true"></i> <span data-en="Open 6 Days a Week, Saturday Closed" data-np="हप्ताको ६ दिन खुला, शनिबार बन्द">Open 6 Days a Week, Saturday Closed</span></span>
+        <span><i class="fas fa-phone-alt emergency-icon" aria-hidden="true"></i> <span data-en="Clinic Desk:" data-np="क्लिनिक सम्पर्क:">Clinic Desk:</span> <a href="tel:+97715242511">+977-1-5242511</a></span>
         <span class="emergency-divider" aria-hidden="true">|</span>
-        <span><i class="fas fa-map-marker-alt emergency-icon" aria-hidden="true"></i> <span data-en="Kathmandu, Nepal" data-np="काठमाडौं, नेपाल">Kathmandu, Nepal</span></span>
-    </div>
-
-    <!-- ===== CUSTOM CURSOR ===== -->
-    <div class="custom-cursor" id="customCursor" aria-hidden="true">
-        <div class="dot"></div>
+        <span><i class="fas fa-ambulance emergency-icon" aria-hidden="true"></i> <span data-en="24/7 Ambulance:" data-np="२४/७ एम्बुलेन्स:">24/7 Ambulance:</span> <a href="tel:102">102</a></span>
     </div>
 
     <!-- ===== SKIP LINK ===== -->
@@ -2419,6 +2508,43 @@
                              fetchpriority="high" decoding="async" />
                     </div>
                 </div>
+            </div>
+
+            <div class="container">
+                <form class="quick-book-bar" id="quickCallbackForm" aria-label="Quick appointment request">
+                    <div class="quick-book-field">
+                        <label for="qbName" data-en="Patient Name" data-np="बिरामीको नाम">Patient Name</label>
+                        <input type="text" id="qbName" required placeholder="Full Name" data-en-placeholder="Full Name" data-np-placeholder="पुरा नाम" />
+                    </div>
+                    <div class="quick-book-field">
+                        <label for="qbPhone" data-en="Phone / WhatsApp" data-np="फोन / व्हाट्सएप">Phone / WhatsApp</label>
+                        <input type="tel" id="qbPhone" required placeholder="98XXXXXXXX" />
+                    </div>
+                    <div class="quick-book-field">
+                        <label for="qbClinic" data-en="Preferred Clinic" data-np="क्लिनिक छान्नुहोस्">Preferred Clinic</label>
+                        <select id="qbClinic">
+                            <option value="Shankhamul Health Care (Kathmandu)">Shankhamul, Kathmandu</option>
+                            <option value="Elite Health Clinic (Lalitpur)">Elite Health, Lalitpur</option>
+                            <option value="Shubharambha Skin Centre (Dhangadhi)">Shubharambha, Dhangadhi</option>
+                            <option value="Online Teledermatology">Online / Video Consult</option>
+                        </select>
+                    </div>
+                    <div class="quick-book-field">
+                        <label for="qbConcern" data-en="Primary Concern" data-np="मुख्य समस्या">Primary Concern</label>
+                        <select id="qbConcern">
+                            <option value="Acne / Scars">Acne / Scars</option>
+                            <option value="Hair Loss / Scalp">Hair Loss / Scalp</option>
+                            <option value="Melasma / Pigmentation">Melasma / Pigmentation</option>
+                            <option value="Eczema / Psoriasis / Allergy">Eczema / Psoriasis / Allergy</option>
+                            <option value="Cosmetic / LASER / Peel">Cosmetic / LASER / Peel</option>
+                            <option value="STI / General Skin Check">STI / General Skin Check</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <span data-en="Request Slot" data-np="समय माग्नुहोस्">Request Slot</span>
+                    </button>
+                </form>
             </div>
         </section>
 
@@ -2558,6 +2684,7 @@
                            data-np="डन्डिफोर, दाद, एक्जिमा, चायापोतो, दुभि, कत्लेरोग (सोरायसिस), घाउ-खटिरा लगायतका समस्याहरूको निदान र उपचार।">
                             Diagnosis and treatment of skin conditions including acne, eczema, melasma, vitiligo, psoriasis and skin infections.
                         </p>
+                        <a href="acne.html" class="service-card-link" data-en="Explore Acne &amp; Skin Care &rarr;" data-np="थप जानकारी हेर्नुहोस् &rarr;">Explore Acne &amp; Skin Care &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2567,6 +2694,7 @@
                            data-np="छाला पुनर्योजनको लागि बोटोक्स, फिलर, केमिकल पील, र लेजर उपचार सहित कस्मेटिक उपचार।">
                             Cosmetic treatments including Botox, fillers, chemical peels and laser therapies for skin rejuvenation.
                         </p>
+                        <a href="cosmetic.html" class="service-card-link" data-en="View Cosmetic Procedures &rarr;" data-np="कस्मेटिक सेवा हेर्नुहोस् &rarr;">View Cosmetic Procedures &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2576,6 +2704,7 @@
                            data-np="पूर्ण गोपनीयताको साथ यौन संक्रमित रोगहरू (भिरिन्गि, गोनोरिया, यौन मुसा लगायत)को स्क्रिनिंग, निदान, र उपचार।">
                             Screening, diagnosis and treatment of sexually transmitted infections (syphilis, gonorrhoea, genital warts and others) with complete confidentiality.
                         </p>
+                        <a href="sti.html" class="service-card-link" data-en="Confidential STI Care &rarr;" data-np="गोप्य यौनरोग सेवा &rarr;">Confidential STI Care &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2585,6 +2714,7 @@
                            data-np="कोठि, मुसा, मासु पलाएको, सिस्ट हटाउने, दाग हटाउने, र कमदागको साथ बायोप्सीको लागि साना सर्जिकल प्रक्रियाहरू।">
                             Minor surgical procedures for skin growths, cysts, wart removal, scar revision and biopsies with minimal scarring.
                         </p>
+                        <a href="laser.html" class="service-card-link" data-en="LASER &amp; Dermatosurgery &rarr;" data-np="लेजर र शल्यचिकित्सा &rarr;">LASER &amp; Dermatosurgery &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2594,6 +2724,7 @@
                            data-np="कपाल झर्ने: एलोपेसिया, कपालको चाया, कपालको ढुसि दाद, सोरायसिस, र अन्य कपाल सम्बन्धी अवस्थाहरूको लागि विशेषीकृत हेरचाह।">
                             Specialised care for hair loss: alopecia areata, male and female pattern hair loss, dandruff and scalp psoriasis.
                         </p>
+                        <a href="hair.html" class="service-card-link" data-en="Explore Hair Restoration &rarr;" data-np="कपाल उपचार हेर्नुहोस् &rarr;">Explore Hair Restoration &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2603,6 +2734,7 @@
                            data-np="तपाईंको घरबाट छाला सम्बन्धि समस्याहरूको लागि भिडियो कल वा सामाजिक मिडिया मार्फत परामर्श।">
                             Virtual consultations via video call or social media for follow-ups and non-emergency skin concerns from the comfort of your home.
                         </p>
+                        <a href="appointment.html" class="service-card-link" data-en="Book Online Consultation &rarr;" data-np="अनलाइन परामर्श बुक गर्नुहोस् &rarr;">Book Online Consultation &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2612,6 +2744,7 @@
                            data-np="छालाको एलर्जी, दाद, डाबर, र अन्य एलर्जी प्रतिक्रियाहरूको निदान र व्यवस्थापन।">
                             Diagnosis and management of skin allergies, urticaria, atopic eczema, contact dermatitis and hives.
                         </p>
+                        <a href="services.html" class="service-card-link" data-en="All Dermatology Services &rarr;" data-np="सबै सेवाहरू हेर्नुहोस् &rarr;">All Dermatology Services &rarr;</a>
                     </article>
 
                     <article class="service-card fade-in">
@@ -2621,9 +2754,9 @@
                            data-np="शिशु, बच्चाहरू, र किशोरहरूको लागि विशेषीकृत छालाको हेरचाह, जसमा एक्जिमा, जन्मचिन्ह, र आनुवंशिक छालाको अवस्थाहरू समावेश छन्।">
                             Specialised skin care for infants, children and adolescents, including eczema, birthmarks and genetic skin conditions.
                         </p>
+                        <a href="appointment.html" class="service-card-link" data-en="Schedule Child Consultation &rarr;" data-np="परामर्श समय लिनुहोस् &rarr;">Schedule Child Consultation &rarr;</a>
                     </article>
-                </div>
-            </div>
+                </div>            </div>
         </section>
 
         <!-- ===== WHY CHOOSE ===== -->
@@ -2817,8 +2950,8 @@
             </div>
         </section>
 
-        <!-- ===== GOOGLE MAP ===== -->
-        <section class="map-section" aria-labelledby="map-title">
+        <!-- ===== INTERACTIVE MULTI-CLINIC LOCATOR ===== -->
+        <section class="map-section" id="locations" aria-labelledby="map-title">
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <p class="eyebrow">
@@ -2826,30 +2959,138 @@
                         <span data-en="Clinic Locations" data-np="क्लिनिक स्थानहरू">Clinic Locations</span>
                     </p>
                     <h2 class="section-title" id="map-title"
-                        data-en="Find Us"
-                        data-np="हामीलाई खोज्नुहोस्">
-                        Find Us
+                        data-en="Find Our Clinics"
+                        data-np="हाम्रा क्लिनिकहरू खोज्नुहोस्">
+                        Find Our Clinics
                     </h2>
                     <div class="divider" aria-hidden="true"></div>
                     <p class="section-sub"
-                       data-en="Visit us at our main clinic location in Kathmandu"
-                       data-np="काठमाडौंमा हाम्रो मुख्य क्लिनिक स्थानमा भेट्नुहोस्">
-                        Visit us at our main clinic location in Kathmandu
+                       data-en="Select a clinic below to view location details, phone numbers, and directions."
+                       data-np="स्थान विवरण, फोन नम्बर र नक्सा हेर्न तलको क्लिनिक छान्नुहोस्।">
+                        Select a clinic below to view location details, phone numbers, and directions.
                     </p>
+                </div>
+
+                <div class="clinic-tabs" role="tablist" aria-label="Clinic locations">
+                    <button type="button" class="clinic-tab active" role="tab" aria-selected="true" data-clinic="shankhamul">
+                        <i class="fas fa-hospital" aria-hidden="true"></i>
+                        <span data-en="Shankhamul (Kathmandu)" data-np="शंखमूल (काठमाडौं)">Shankhamul (Kathmandu)</span>
+                    </button>
+                    <button type="button" class="clinic-tab" role="tab" aria-selected="false" data-clinic="elite">
+                        <i class="fas fa-clinic-medical" aria-hidden="true"></i>
+                        <span data-en="Elite Health (Lalitpur)" data-np="एलाइट हेल्थ (ललितपुर)">Elite Health (Lalitpur)</span>
+                    </button>
+                    <button type="button" class="clinic-tab" role="tab" aria-selected="false" data-clinic="patan">
+                        <i class="fas fa-university" aria-hidden="true"></i>
+                        <span data-en="Patan Hospital (PAHS)" data-np="पाटन अस्पताल">Patan Hospital (PAHS)</span>
+                    </button>
+                    <button type="button" class="clinic-tab" role="tab" aria-selected="false" data-clinic="dhangadhi">
+                        <i class="fas fa-map-pin" aria-hidden="true"></i>
+                        <span data-en="Shubharambha (Dhangadhi)" data-np="शुभारम्भ (धनगढी)">Shubharambha (Dhangadhi)</span>
+                    </button>
+                </div>
+
+                <div class="clinic-detail-card" id="clinicDetailCard">
+                    <div class="clinic-detail-info">
+                        <h3 id="clinicCardTitle">Shankhamul Health Care, Shankhamul, Kathmandu</h3>
+                        <p id="clinicCardMeta">Phone: +977-1-5242511 · Sun–Fri (Morning &amp; Evening Sessions) · Saturday Closed</p>
+                    </div>
+                    <div class="clinic-detail-actions">
+                        <a href="tel:+97715242511" id="clinicCardCall" class="btn btn-outline">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span data-en="Call Desk" data-np="फोन गर्नुहोस्">Call Desk</span>
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Shankhamul+Health+Care+Kathmandu" target="_blank" rel="noopener noreferrer" id="clinicCardDirections" class="btn btn-primary">
+                            <i class="fas fa-directions" aria-hidden="true"></i>
+                            <span data-en="Open in Google Maps" data-np="गुगल नक्सामा खोल्नुहोस्">Open in Google Maps</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="map-container reveal">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.435670123456!2d85.3240!3d27.7172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a3b8b2b2b%3A0x123456789abcdef!2sShankhamul%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000"
-                        title="Dr. Vikash Paudel Clinic - Shankhamul, Kathmandu"
+                        id="clinicMapFrame"
+                        src="https://maps.google.com/maps?q=Shankhamul%20Health%20Care%20Kathmandu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        title="Dr. Vikash Paudel Clinic Location Map"
                         allowfullscreen=""
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        aria-label="Google Map showing Dr. Vikash Paudel's clinic location at Shankhamul, Kathmandu"></iframe>
-                    <div class="map-overlay-text">
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="map-overlay-text" id="clinicMapBadge">
                         <i class="fas fa-map-pin" aria-hidden="true"></i>
                         Shankhamul Health Care, Kathmandu
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRE-CONSULTATION FAQ (matches FAQPage Schema) ===== -->
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-head section-head--center reveal">
+                    <p class="eyebrow">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        <span data-en="Patient Information" data-np="बिरामी जानकारी">Patient Information</span>
+                    </p>
+                    <h2 class="section-title" id="faq-title"
+                        data-en="Frequently Asked Questions"
+                        data-np="बारम्बार सोधिने प्रश्नहरू">
+                        Frequently Asked Questions
+                    </h2>
+                    <div class="divider" aria-hidden="true"></div>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary>
+                            <span data-en="What conditions does Dr. Vikash Paudel treat?" data-np="डा. विकास पौडेलले कुन-कुन समस्याहरूको उपचार गर्नुहुन्छ?">What conditions does Dr. Vikash Paudel treat?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p data-en="Dr. Paudel diagnoses and treats acne, eczema, melasma, psoriasis, vitiligo, fungal infections, hair loss, and sexually transmitted infections (STIs), and performs dermatosurgery and cosmetic procedures including Botox, fillers, chemical peels, and LASER therapies."
+                               data-np="डा. पौडेलले डन्डिफोर, एक्जिमा, चायाँपोतो, सोरायसिस, सेतो दाग, ढुसी संक्रमण, कपाल झर्ने समस्या तथा यौन संक्रमित रोगहरूको निदान र उपचार गर्नुका साथै बोटोक्स, फिलर, केमिकल पील र लेजर उपचार गर्नुहुन्छ।">
+                                Dr. Paudel diagnoses and treats acne, eczema, melasma, psoriasis, vitiligo, fungal infections, hair loss, and sexually transmitted infections (STIs), and performs dermatosurgery and cosmetic procedures including Botox, fillers, chemical peels, and LASER therapies.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            <span data-en="How can I book an appointment with Dr. Paudel?" data-np="डा. पौडेलसँग अपोइन्टमेन्ट कसरी बुक गर्ने?">How can I book an appointment with Dr. Paudel?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p data-en="You can book directly via the 'Book Now' button on this website, submit the Quick Slot Request form above, message via WhatsApp (+977-9825207253), or call Shankhamul Health Care at +977-1-5242511."
+                               data-np="तपाईं यस वेबसाइटको 'बुक गर्नुहोस्' बटन, माथिको द्रुत फारम, व्हाट्सएप (+९७७-९८२५२०७२५३) वा शंखमूल हेल्थ केयर (+९७७-१-५२४२५११) मा फोन गरेर अपोइन्टमेन्ट लिन सक्नुहुन्छ।">
+                                You can book directly via the 'Book Now' button on this website, submit the Quick Slot Request form above, message via WhatsApp (+977-9825207253), or call Shankhamul Health Care at +977-1-5242511.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            <span data-en="Where are the clinic locations?" data-np="क्लिनिक स्थानहरू कहाँ-कहाँ छन्?">Where are the clinic locations?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p data-en="Dr. Paudel practices at Shankhamul Health Care (Kathmandu), Elite Health Clinic (Mahalaxmisthan, Lalitpur), Patan Hospital (PAHS, Lalitpur), and Shubharambha Skin Centre (Chatakpur, Dhangadhi)."
+                               data-np="डा. पौडेलले शंखमूल हेल्थ केयर (काठमाडौं), एलाइट हेल्थ क्लिनिक (महालक्ष्मीस्थान, ललितपुर), पाटन अस्पताल (ललितपुर) र शुभारम्भ स्किन सेन्टर (चटकपुर, धनगढी) मा सेवा दिनुहुन्छ।">
+                                Dr. Paudel practices at Shankhamul Health Care (Kathmandu), Elite Health Clinic (Mahalaxmisthan, Lalitpur), Patan Hospital (PAHS, Lalitpur), and Shubharambha Skin Centre (Chatakpur, Dhangadhi).
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            <span data-en="Does Dr. Paudel offer teleconsultation?" data-np="के अनलाइन (टेलिकन्सल्टेसन) परामर्श उपलब्ध छ?">Does Dr. Paudel offer teleconsultation?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p data-en="Yes, teledermatology consultations are available by prior arrangement via Zoom or WhatsApp for follow-ups, international patients, and non-emergency skin concerns."
+                               data-np="हो, फलोअप, विदेशमा रहनुभएका बिरामी तथा गैर-आकस्मिक छाला सम्बन्धी समस्याहरूका लागि पूर्वसमय मिलाएर Zoom वा WhatsApp मार्फत अनलाइन परामर्श उपलब्ध छ।">
+                                Yes, teledermatology consultations are available by prior arrangement via Zoom or WhatsApp for follow-ups, international patients, and non-emergency skin concerns.
+                            </p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -2962,8 +3203,9 @@
 
     <!-- ===== CHAT WIDGET ===== -->
     <div class="chat-widget" role="complementary" aria-label="Chat support">
-        <button class="chat-button" id="chatButton" aria-label="Open chat" aria-expanded="false" aria-controls="chatContainer">
+        <button class="chat-button" id="chatButton" aria-label="Open chat with Dr. Vikash Paudel's virtual assistant" aria-expanded="false" aria-controls="chatContainer">
             <i class="fas fa-comments" aria-hidden="true"></i>
+            <span class="chat-badge" id="chatBadge" aria-hidden="true">1</span>
         </button>
         <div class="chat-container" id="chatContainer" role="dialog" aria-label="Chat window">
             <div class="chat-header">
@@ -3292,28 +3534,6 @@
 
         let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        /* =========================================================
-           1. CUSTOM CURSOR
-           ========================================================= */
-        (function initCursor() {
-            const cursor = document.getElementById('customCursor');
-            if (!cursor) return;
-            let moveTimeout;
-
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-                cursor.classList.add('is-moving');
-                clearTimeout(moveTimeout);
-                moveTimeout = setTimeout(() => cursor.classList.remove('is-moving'), 150);
-            });
-
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-                cursor.style.display = 'none';
-                document.body.style.cursor = 'auto';
-            }
-        })();
 
         /* =========================================================
            2. LANGUAGE SWITCHING
@@ -4098,12 +4318,127 @@
         });
 
         /* =========================================================
-           12. SINGLE SAFE INIT
+           12. LIVE NEPAL TIME STATUS, QUICK CALLBACK & CLINIC SWITCHER
+           ========================================================= */
+        function initLiveClinicStatus() {
+            const dot = document.getElementById('liveStatusDot');
+            const text = document.getElementById('liveStatusText');
+            if (!dot || !text) return;
+
+            // Compute current day & hour in Nepal Standard Time (UTC+5:45)
+            const now = new Date();
+            const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const npt = new Date(utcMs + (5 * 60 + 45) * 60000);
+            const day = npt.getDay(); // 0 = Sun, 6 = Sat
+            const hour = npt.getHours();
+
+            if (day === 6) {
+                dot.classList.add('is-closed');
+                text.setAttribute('data-en', 'Closed Today (Saturday) · Reopens Sun 8:00 AM');
+                text.setAttribute('data-np', 'आज शनिबार बन्द · आइतबार बिहान ८ बजे खुल्छ');
+            } else if (hour >= 8 && hour < 19) {
+                dot.classList.remove('is-closed');
+                text.setAttribute('data-en', 'Open Today · Sun–Fri (8:00 AM – 7:00 PM)');
+                text.setAttribute('data-np', 'आज खुला छ · आइत–शुक्र (बिहान ८ – बेलुका ७)');
+            } else {
+                dot.classList.add('is-closed');
+                text.setAttribute('data-en', 'After Hours · Online Booking Open 24/7');
+                text.setAttribute('data-np', 'क्लिनिक समय बाहिर · अनलाइन बुकिङ २४/७ खुला');
+            }
+            switchLanguage(currentLanguage);
+        }
+
+        function initQuickCallback() {
+            const form = document.getElementById('quickCallbackForm');
+            if (!form) return;
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('qbName').value.trim();
+                const phone = document.getElementById('qbPhone').value.trim();
+                const clinic = document.getElementById('qbClinic').value;
+                const concern = document.getElementById('qbConcern').value;
+                const msg = `Namaste Dr. Vikash Paudel's Clinic,\nName: ${name}\nPhone: ${phone}\nPreferred Clinic: ${clinic}\nConcern: ${concern}\nPlease let me know available appointment slots.`;
+                window.open('https://wa.me/9779825207253?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+            });
+        }
+
+        function initClinicSwitcher() {
+            const tabs = document.querySelectorAll('.clinic-tab');
+            const titleEl = document.getElementById('clinicCardTitle');
+            const metaEl = document.getElementById('clinicCardMeta');
+            const callEl = document.getElementById('clinicCardCall');
+            const dirEl = document.getElementById('clinicCardDirections');
+            const mapFrame = document.getElementById('clinicMapFrame');
+            const badgeEl = document.getElementById('clinicMapBadge');
+            if (!tabs.length || !mapFrame) return;
+
+            const clinicsData = {
+                shankhamul: {
+                    title: 'Shankhamul Health Care, Shankhamul, Kathmandu',
+                    meta: 'Phone: +977-1-5242511 · Sun–Fri (Morning & Evening Sessions) · Saturday Closed',
+                    tel: 'tel:+97715242511',
+                    dir: 'https://www.google.com/maps/search/?api=1&query=Shankhamul+Health+Care+Kathmandu',
+                    embed: 'https://maps.google.com/maps?q=Shankhamul%20Health%20Care%20Kathmandu&t=&z=15&ie=UTF8&iwloc=&output=embed',
+                    badge: 'Shankhamul Health Care, Kathmandu'
+                },
+                elite: {
+                    title: 'Elite Health Clinic, Mahalaxmisthan, Lalitpur',
+                    meta: 'Phone: +977-1-5420745 · Prior Appointment Recommended · Saturday Closed',
+                    tel: 'tel:+97715420745',
+                    dir: 'https://www.google.com/maps/search/?api=1&query=Elite+Health+Clinic+Mahalaxmisthan+Lalitpur',
+                    embed: 'https://maps.google.com/maps?q=Mahalaxmisthan%20Lalitpur&t=&z=15&ie=UTF8&iwloc=&output=embed',
+                    badge: 'Elite Health Clinic, Mahalaxmisthan, Lalitpur'
+                },
+                patan: {
+                    title: 'Patan Hospital (Patan Academy of Health Sciences), Lagankhel, Lalitpur',
+                    meta: 'Department of Dermatology · Outpatient Clinic Hours (Sun–Fri)',
+                    tel: 'tel:+97715522295',
+                    dir: 'https://www.google.com/maps/search/?api=1&query=Patan+Hospital+Lalitpur',
+                    embed: 'https://maps.google.com/maps?q=Patan%20Hospital%20Lalitpur&t=&z=15&ie=UTF8&iwloc=&output=embed',
+                    badge: 'Patan Hospital (PAHS), Lalitpur'
+                },
+                dhangadhi: {
+                    title: 'Shubharambha Skin Centre, Chatakpur, Dhangadhi',
+                    meta: 'Phone: +977-91-410107 · Satellite Dermatology & Laser Centre',
+                    tel: 'tel:+97791410107',
+                    dir: 'https://www.google.com/maps/search/?api=1&query=Shubharambha+Skin+Centre+Dhangadhi',
+                    embed: 'https://maps.google.com/maps?q=Chatakpur%20Dhangadhi&t=&z=15&ie=UTF8&iwloc=&output=embed',
+                    badge: 'Shubharambha Skin Centre, Dhangadhi'
+                }
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const key = tab.getAttribute('data-clinic');
+                    const data = clinicsData[key];
+                    if (!data) return;
+
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+
+                    if (titleEl) titleEl.textContent = data.title;
+                    if (metaEl) metaEl.textContent = data.meta;
+                    if (callEl) callEl.href = data.tel;
+                    if (dirEl) dirEl.href = data.dir;
+                    if (mapFrame) mapFrame.src = data.embed;
+                    if (badgeEl) badgeEl.innerHTML = `<i class="fas fa-map-pin" aria-hidden="true"></i> ${data.badge}`;
+                });
+            });
+        }
+
+        /* =========================================================
+           13. SINGLE SAFE INIT
            ========================================================= */
         function initApp() {
-            switchLanguage(currentLanguage);
+            initLiveClinicStatus();
             applyThemePreference();
             initAccessibilityWidget();
+            initQuickCallback();
+            initClinicSwitcher();
         }
 
         if (document.readyState === 'loading') {
